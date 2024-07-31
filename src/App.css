@@ -1,0 +1,113 @@
+:root {
+  --base-font-size: 2vw !important;
+  --small-font-size: calc(var(--base-font-size) * 0.875);
+  --large-font-size: calc(var(--base-font-size) * 1);
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+}
+
+.left-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.right-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.home_btns {
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: var(--large-font-size) !important
+}
+
+button .ant-btn-icon {
+  padding-right: 20px;
+}
+
+.wizard_steps_col {
+  display: flex;
+  justify-content: center;
+}
+
+.level_btn:hover, .level_btn:active, .active:active {
+  background: #00678A !important;
+}
+
+@media (min-width: 992px) {
+  .wizard_steps_buttons {
+    width: 65%
+  }
+
+  .wizard_steps_buttons .ant-list {
+    padding: 10px 100px;
+  }
+
+  .level_btn {
+    width: 50%
+  }
+}
+
+@media (max-width: 991px) {
+  .wizard_steps_buttons {
+    width: 100%
+  }
+
+  .wizard_steps_buttons .ant-list {
+    padding: 10px;
+  }
+
+  .level_btn {
+    width: 100%
+  }
+}
