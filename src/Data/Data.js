@@ -97,11 +97,11 @@ export const countries = [
 
 
 export const terrainTypes = [
-    { id: 1, text: "Plain", checked: false, color: "#6C9D60", isActive: true },
-    { id: 2, text: "Forest", checked: false, color: "#145216", isActive: true },
-    { id: 3, text: "Mountain", checked: false, color: "#774B23", isActive: true },
-    { id: 4, text: "Sea", checked: false, color: "#2359AB", isActive: true },
-    { id: 5, text: "River", checked: false, color: "#239AB5", isActive: true },
+    { id: 1, text: "Plain", checked: false, isActive: true },
+    { id: 2, text: "Forest", checked: false, isActive: true },
+    { id: 3, text: "Mountain", checked: false,  isActive: true },
+    { id: 4, text: "Sea", checked: false, isActive: true },
+    { id: 5, text: "River", checked: false, isActive: true },
 ];
 
 
@@ -157,7 +157,7 @@ export const questions = {
         text: "What type of Drones are you planning on deploying?",
         choices: [
             { id: 1, text: "Rotor-based drones", checked: false, nextQuestion: "drone_service" },
-            { id: 1, text: "Wing-based drones", checked: false, nextQuestion: "drone_service" }
+            { id: 2, text: "Wing-based drones", checked: false, nextQuestion: "drone_service" }
         ]
     },
     drone_service: {
@@ -200,12 +200,13 @@ export const questions = {
     personal_dev_type: {
         text: "What type of personal device will you be using? Please provide the number of each.",
         choices: [
-            { id: 'a', text: "Smartphones / Tablets", checked: false, nextQuestion: "tablet_internet" },
-            { id: 'b', text: "Laptops", checked: false, nextQuestion: "laptop_internet" }
+            { id: 'personal_dev_type_1', text: "Smartphones / Tablets", checked: false, nextQuestion: "tablet_internet" },
+            { id: 'personal_dev_type_2', text: "Laptops", checked: false, nextQuestion: "laptop_internet" }
         ],
         input: {
             label: "Number of devices",
-            value: "" // Initialize with an empty string
+            value: "", // Initialize with an empty string
+            nextQuestion: "", // Initialize with an empty string
         }
     },
     tablet_internet: {
@@ -419,5 +420,9 @@ export const questions = {
             { id: 1, text: "I expect a prompt reaction (<= 500 ms)", checked: false,nextQuestion: "robot_power" },
             { id: 2, text: "It can be processed with some delay (no specific requirement)", checked: false,nextQuestion: "robot_power" }
         ]
+    },
+    end: {
+        text: "End of questions. Thank you!",
+        choices: []
     }
 };

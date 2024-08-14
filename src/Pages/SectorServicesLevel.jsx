@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Col, Row, Button, Form, Radio } from 'antd';
 import { stepsLabels, levels, userTypes as initialUserTypes } from '../Data/Data';
 import TitleForm from '../Components/WizardElements/TitleForm';
@@ -7,17 +8,35 @@ import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 
 
 function SectorServicesLevel() {
-    const [form] = Form.useForm();
+    const navigate = useNavigate();
 
     const [userTypes, setUserTypes] = useState(initialUserTypes);
-    const [selectedLevel, setSelectedLevel] = useState(null);
-    const [selectedUserTypeId, setSelectedUserTypeId] = useState(null);
+    const [selectedLevel, setSelectedLevel] = useState(0);
+    const [selectedUserType, setSelectedUserType] = useState(null);
+    const [formData, setFormData] = useState({});
 
-   
-    const updateUserTypesBasedOnLevel = (selectedLevelId) => {
+
+    useEffect(() => {
+        localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(formData));
+        console.log(formData);
+    }, [formData]);
+
+
+    const handleLevelChange = (selectedLevelId) => {
         setSelectedLevel(selectedLevelId);
-        setSelectedUserTypeId(null); // Reset selected user type
 
+        const level = levels.find(c => c.id === selectedLevelId);
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            level_of_assessment: {
+                type: "text", 
+                result: level.text
+            }
+        }));
+
+        setSelectedUserType(null); // Reset selected user type
+
+        //Enable user types based on level selection
         const updatedUserTypes = userTypes.map(userType => ({
             ...userType,
             isActive: userType.level_ids.includes(selectedLevelId)
@@ -25,57 +44,67 @@ function SectorServicesLevel() {
         setUserTypes(updatedUserTypes);
     };
 
-    const handleUserTypeClick = (userTypeId) => {
-        console.log(userTypeId);
-        setSelectedUserTypeId(userTypeId);
+
+    const handleUserTypeChange = (userTypeText) => {
+        setSelectedUserType(userTypeText);
+
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            user_type_selection: {
+                type: "text", 
+                result: userTypeText
+            }
+        }));
+    };
+
+
+    const handleNextClick = () => {    
+        navigate('/sector-services');
     };
   
 
     return (
         <>
-            <Form form={form}>
-                <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-                    <TitleForm avatar={"/images/icons/sector.svg"} text={stepsLabels[0].title}/>
-                    <Col span={12} xs={24} md={12}>
-                        <SubtitleForm avatar={"/images/icons/level.svg"} text='Select Level of Assessment'/>
-                     
-                        <Form.Item style={{ borderRadius: '6px' }}>
-                            {levels.map((level, index) => (
-                                <Button className="level_btn" key={level.id} type="primary" style={{ display: 'block', margin: '20px auto', backgroundColor: selectedLevel === level.id ? '#00678A' : '#B5B5B5', color: '#FFF', padding: '14px 0px', height: 'auto', fontSize: '25px', fontWeight: 700 }} onClick={() => updateUserTypesBasedOnLevel(level.id)}>
-                                    {level.text}
-                                </Button>
-                            ))}
-                        </Form.Item>
-                    </Col>
-                    <Col span={12} xs={24} md={12}>
-                        <SubtitleForm avatar={"/images/sector-icons/account-box.svg"} text='Select User Type'/>
-                         
-                        <div style={{ textAlign: '-webkit-center' }}>
-                            {userTypes.map((type) => (
-                                <div
-                                    style={{
-                                        width:'80%',
-                                        display: 'flex',
-                                        padding: '8px',
-                                        border: '1px solid #ccc',
-                                        marginBottom: '8px',
-                                        borderRadius: '4px',
-                                        backgroundColor:'rgba(234, 234, 234, 0.56)'
-                                    }}
-                                    key={type.id}
-                                    >
-                                    <Radio checked={selectedUserTypeId === type.id} onChange={() => handleUserTypeClick(type.id)}  disabled={!type.isActive} />
-                                    <div style={{ display: 'flex', alignItems: 'end' }}>                           
-                                        <span style={{color:"black",marginLeft:'10px',fontWeight:'600',lineHeight:'15px',fontSize:'18px'}}>{type.text}</span>
-                                    </div>                       
-                                </div>        
-                            ))}  
-                        </div> 
-                    </Col>
-                    <ConfirmButton disabled={!selectedLevel || !selectedUserTypeId} onClick={() => console.log('Next button clicked!')} /> 
+            <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
+                <TitleForm avatar={"/images/icons/sector.svg"} text={stepsLabels[0].title}/>
+                <Col span={12} xs={24} md={12}>
+                    <SubtitleForm avatar={"/images/icons/level.svg"} text='Select Level of Assessment'/>
                     
-                </Row>
-            </Form>
+                    <Form.Item style={{ borderRadius: '6px' }}>
+                        {levels.map((level, index) => (
+                            <Button className="level_btn" key={level.id} type="primary" style={{ display: 'block', margin: '20px auto', backgroundColor: selectedLevel === level.id ? '#00678A' : '#B5B5B5', color: '#FFF', padding: '14px 0px', height: 'auto', fontSize: '25px', fontWeight: 700 }} onClick={() => handleLevelChange(level.id)}>
+                                {level.text}
+                            </Button>
+                        ))}
+                    </Form.Item>
+                </Col>
+                <Col span={12} xs={24} md={12}>
+                    <SubtitleForm avatar={"/images/sector-icons/account-box.svg"} text='Select User Type'/>
+                        
+                    <div style={{ textAlign: '-webkit-center' }}>
+                        {userTypes.map((type) => (
+                            <div
+                                style={{
+                                    width:'80%',
+                                    display: 'flex',
+                                    padding: '8px',
+                                    border: '1px solid #ccc',
+                                    marginBottom: '8px',
+                                    borderRadius: '4px',
+                                    backgroundColor:'rgba(234, 234, 234, 0.56)'
+                                }}
+                                key={type.id}
+                                >
+                                <Radio checked={selectedUserType === type.text} onChange={() => handleUserTypeChange(type.text)}  disabled={!type.isActive} />
+                                <div style={{ display: 'flex', alignItems: 'end' }}>                           
+                                    <span style={{color:"black",marginLeft:'10px',fontWeight:'600',lineHeight:'15px',fontSize:'18px'}}>{type.text}</span>
+                                </div>                       
+                            </div>        
+                        ))}  
+                    </div> 
+                </Col>
+                <ConfirmButton disabled={!selectedLevel || !selectedUserType} onClick={() => handleNextClick()} />   
+            </Row>
         </>
     );
 }
