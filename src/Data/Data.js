@@ -330,8 +330,8 @@ export const questions = {
         text: "What type of cameras does your device incorporate?",
         choices: [
             { id: 1, text: "Low-medium resolution cameras (e.g. for counting livestock, surveillance, etc.)", checked: false, nextQuestion: "robot_image_freq" },
-            { id: 2, text: "High-resolution cameras (Crop monitoring, timelapse photography, etc.)", checked: false },
-            { id: 3, text: "Infrared / Thermal Imaging (Water stress detection, livestock monitoring, night operation, etc.)", checked: false }
+            { id: 2, text: "High-resolution cameras (Crop monitoring, timelapse photography, etc.)", checked: false, nextQuestion: "robot_image_freq" },
+            { id: 3, text: "Infrared / Thermal Imaging (Water stress detection, livestock monitoring, night operation, etc.)", checked: false, nextQuestion: "robot_image_freq" }
         ]
     },
     robot_image_freq: {

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Row } from 'antd';
+import { Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels, questions } from '../Data/Data';
 import QuestionItem from '../Components/WizardElements/QuestionItem';
+import { postDataToICCSApi } from '../Data/Api';
+import { initQuestionsData } from '../Data/JsonObjects';
 
 function QuestionsList() {
     const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState(initQuestionsData);
     const [nextQuestionKey, setNextQuestionKey] = useState(null); // State to handle navigation
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
     
@@ -49,16 +52,24 @@ function QuestionsList() {
         const value = e.target.value;
 
         setFormData(prevFormData => {
-            //Save 1 value to selected choice
-            const updatedResult = prevFormData[currentQuestionKey] && prevFormData[currentQuestionKey].result
-                ? [...prevFormData[currentQuestionKey].result]
-                : [value];
+            let updatedResult;
 
-            //Save input value to choice position
-            if (currentQuestionKey === 'dev_per_type' || currentQuestionKey === 'personal_dev_type') {
-                const choiceIndex = questions[currentQuestionKey].choices.findIndex(c => c.text === prevFormData[currentQuestionKey].choice);
-                if (choiceIndex !== -1) {
-                    updatedResult[choiceIndex] = value;
+            // Initialize updatedResult based on the current question type
+            if (currentQuestionKey === 'robot_cost' || currentQuestionKey === 'robot_power') {
+                updatedResult = parseInt(value, 10) || 0;
+            } else {
+                // For other questions, ensure result is an array and handle updates
+                // Save 1 value to selected choice
+                updatedResult = prevFormData[currentQuestionKey] && Array.isArray(prevFormData[currentQuestionKey].result)
+                    ? [...prevFormData[currentQuestionKey].result]
+                    : [value];
+                
+                //Save input value to choice position
+                if (currentQuestionKey === 'dev_per_type' || currentQuestionKey === 'personal_dev_type') {
+                    const choiceIndex = questions[currentQuestionKey].choices.findIndex(c => c.text === prevFormData[currentQuestionKey]?.choice);
+                    if (choiceIndex !== -1) {
+                        updatedResult[choiceIndex] = value;
+                    }
                 }
             }
   
@@ -99,34 +110,36 @@ function QuestionsList() {
 
 
     const handleConfirmData = () => {
-        setFormData(prevFormData => {
-            const updatedFormData = { ...prevFormData };
-            localStorage.setItem('wizardFormData', JSON.stringify(updatedFormData));
-            setNextQuestionKey('end');
-            return updatedFormData;
-        });
-
-        //Delay navigation to after state has been updated
+        setLoading(true);
         setTimeout(() => {
-            navigate('/impact-assessment');
-        }, 0);
+            setFormData(prevFormData => {
+                const updatedFormData = { ...prevFormData };
+                localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData));
+                setNextQuestionKey('end');
+                postDataToICCSApi();
+                navigate('/impact-assessment');
+                return updatedFormData;
+            });
+        }, 5000);
     };
      
     const currentQuestionData = questions[currentQuestionKey];
    
     return (
         <>
-            <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
-                <TitleForm avatar={"/images/sector-icons/service.svg"} text={stepsLabels[2].title}/>
-                <QuestionItem
-                    questionData={currentQuestionData}
-                    formData={formData[currentQuestionKey] || {}}
-                    handleChoiceChange={handleChoiceChange}
-                    handleInputChange={handleInputChange}
-                    handleNext={handleNextQuestion}
-                    handleConfirm={handleConfirmData}
-                />
-            </Row>
+            <Spin spinning={loading} tip="Loading...">
+                <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
+                    <TitleForm avatar={"/images/sector-icons/service.svg"} text={stepsLabels[2].title}/>
+                    <QuestionItem
+                        questionData={currentQuestionData}
+                        formData={formData[currentQuestionKey] || {}}
+                        handleChoiceChange={handleChoiceChange}
+                        handleInputChange={handleInputChange}
+                        handleNext={handleNextQuestion}
+                        handleConfirm={handleConfirmData}
+                    />
+                </Row>
+            </Spin>
         </>
     );
 }

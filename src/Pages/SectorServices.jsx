@@ -29,7 +29,7 @@ function SectorServices() {
         const sector = sectors.find(c => c.id === selectedSectorId);
         setFormData(prevFormData => ({
             ...prevFormData,
-            sectors: {
+            sector: {
                 type: "text", 
                 result: sector.text
             }

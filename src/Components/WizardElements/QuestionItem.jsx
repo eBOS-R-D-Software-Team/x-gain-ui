@@ -51,6 +51,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                 <label style={{color: "#00678A", fontSize: "20px", fontWeight: "700"}}>{input.label}</label>
                                 <Input
                                     type="text"
+                                    name="input"
                                     value={formData.input || ''}
                                     onChange={handleInputChange}
                                     disabled={disableInput}

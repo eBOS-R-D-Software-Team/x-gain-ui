@@ -84,6 +84,28 @@ button .ant-btn-icon {
   background: #00678A !important;
 }
 
+.ant-spin-nested-loading {
+  background-color: #FFF;
+}
+
+.ant-spin-dot {
+  font-size: 70px !important;
+}
+
+.ant-spin-dot-item {
+  width: 30px !important;
+  height: 30px !important;
+  opacity: 1 !important;
+  color: #00678A
+}
+
+.ant-spin-text {
+  margin-left: 30px;
+  top: 65% !important;
+  font-size: 22px !important;
+  color: #00678A
+}
+
 @media (min-width: 992px) {
   .wizard_steps_buttons {
     width: 65%

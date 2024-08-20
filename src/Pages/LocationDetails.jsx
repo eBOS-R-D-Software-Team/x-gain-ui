@@ -7,17 +7,18 @@ import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 import { countries, terrainTypes, weatherConditions } from '../Data/Data';
 import LocationInput from '../Components/WizardElements/LocationInput';
 import LocationCheckbox from '../Components/WizardElements/LocationCheckbox';
+import { initLocationData } from '../Data/JsonObjects';
 
 const { Option } = Select
 
 function LocationDetails() {
     const navigate = useNavigate();
 
-    const [location, setLocation] = useState("");
-    const [area, setArea] = useState("");
-    const [vegetableHeight, setVegetableHeight] = useState("");
-    const [checkedTerrainTypes, setCheckedTerrainTypes] = useState([0, 0, 0, 0, 0]);
-    const [checkedWeatherConditions, setCheckedWeatherConditions] = useState([0, 0, 0, 0, 0]);
+    const [location, setLocation] = useState(initLocationData.location.result);
+    const [area, setArea] = useState(initLocationData.Area.result);
+    const [vegetationHeight, setVegetationHeight] = useState(initLocationData.Vegetation_height.result);
+    const [checkedTerrainTypes, setCheckedTerrainTypes] = useState(initLocationData.Terrain.result);
+    const [checkedWeatherConditions, setCheckedWeatherConditions] = useState(initLocationData.Weather.result);
 
     
     const handleChangeTerrain = (index) => {
@@ -40,8 +41,8 @@ function LocationDetails() {
         setArea(value); 
     };
 
-    const handleChangeVegetableHeight = (value) => {
-        setVegetableHeight(value); 
+    const handleChangeVegetationHeight = (value) => {
+        setVegetationHeight(value); 
     };
 
 
@@ -65,7 +66,7 @@ function LocationDetails() {
             },
             Vegetation_height: {
                 type: "string", 
-                result: vegetableHeight
+                result: vegetationHeight
             },
         };
         localStorage.setItem('locationDetails', JSON.stringify(data));
@@ -107,8 +108,8 @@ function LocationDetails() {
                     />
                     <LocationInput 
                         label={' Vegetable Height'} 
-                        value={vegetableHeight} 
-                        onChange={(e) => handleChangeVegetableHeight(e.target.value)} 
+                        value={vegetationHeight} 
+                        onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
                         text={'m'} 
                     />
                 </Col>
