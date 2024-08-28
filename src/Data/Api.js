@@ -58,7 +58,6 @@ export const postDataToICCSApi = async () => {
             ...JSON.parse(localStorage.getItem('locationDetails')) || {},
             ...JSON.parse(localStorage.getItem('questionsFormData')) || {},
         }
-        console.log('ddncncccc', mainData);
         const mainResponseData = await postMainData(mainData, loginResponseData.access_token);
 
         localStorage.setItem('iccs_response', JSON.stringify(mainResponseData));
@@ -73,5 +72,21 @@ export const postDataToICCSApi = async () => {
         console.error('There was a problem with the fetch operation:', error);
         message.error("There was a problem with the fetch operation");
         return false;
+    }
+};
+
+
+// Function to retrieve JSON data from localStorage as an object
+export const getJsonFromLocalStorage = (key) => {
+    try {
+        const jsonString = localStorage.getItem(key);
+        if (jsonString === null) {
+            console.log(`No data found in localStorage for key: ${key}`);
+            return null;
+        }
+        return JSON.parse(jsonString);
+    } catch (error) {
+        console.error('Error retrieving data from localStorage:', error);
+        return null;
     }
 };
