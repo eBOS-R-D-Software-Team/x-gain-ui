@@ -9,6 +9,8 @@ import SectorServices from './Pages/SectorServices';
 import LocationDetails from './Pages/LocationDetails';
 import QuestionsList from './Pages/QuestionsList';
 import ImpactAssessment from './Pages/ImpactAssessment';
+import TechnologyMixes from './Pages/TechnologyMixes';
+import SummaryResults from './Pages/Results/SummaryResults';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/location-details" element={<LocationDetails />} />
           <Route path="/questions" element={<QuestionsList />} />
           <Route path="/impact-assessment" element={<ImpactAssessment />} />
+          <Route path="/technology-mixes" element={<TechnologyMixes />} />
+          <Route path="/solution/:solId/summary-results" element={<SummaryResults />} />
           <Route path="/*" element={<PageNotFound />} />
         </Route>
       </Routes>
