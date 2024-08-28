@@ -1,20 +1,40 @@
 export const stepsLabels = [
     {
-        title: 'Sector and Service selection',
+        title: "Sector and Service selection",
+        subtitle: "",
         icon: "images/icons/sector.svg",
+        subicon: "",
         url: "/sector-services-level"
     },
     {
-        title: 'Location Details',
-        icon: "images/icons/location.png"
+        title: "Location Details",
+        subtitle: "",
+        icon: "images/icons/location.png",
+        subicon: ""
     },
     {
-        title: 'Service Requirements',
-        icon: "images/icons/service.png"
+        title: "Service Requirements",
+        subtitle: "",
+        icon: "images/icons/service.png",
+        subicon: ""
     },
     {
-        title: 'Evaluate your case',
-        icon: "images/icons/graph1.png"
+        title: "Evaluate your case",
+        subtitle: "",
+        icon: "images/icons/graph1.png",
+        subicon: ""
+    },
+    {
+        title: "Impact Weights",
+        subtitle: "",
+        icon: "/images/icons/service.png",
+        subicon: ""
+    },
+    {
+        title: "Results:",
+        subtitle: "Suggested Technology Mixes",
+        icon: "/images/icons/graph1.png",
+        subicon: "/images/icons/graph2.png"
     },
 ];
 

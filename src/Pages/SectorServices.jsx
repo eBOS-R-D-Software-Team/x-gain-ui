@@ -68,7 +68,14 @@ function SectorServices() {
     return (
         <>
             <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', borderRadius: 20 }}>
-                <TitleForm avatar={"/images/icons/sector.svg"} text={stepsLabels[0].title}/>
+                <TitleForm 
+                    icon={stepsLabels[0].icon} 
+                    subicon={stepsLabels[0].subicon} 
+                    title={stepsLabels[0].title} 
+                    subtitle={stepsLabels[0].subtitle}
+                    level={2} 
+                    color={'#00678A'}
+                />
                 <Col span={8} xs={24} lg={8}>
                     <SubtitleForm avatar={"/images/sector-icons/sector.svg"} text='Sector Selection'/>
                     <SectorServiceItem

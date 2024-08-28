@@ -3,13 +3,30 @@ import { Col, Avatar, Typography } from 'antd';
 
 const { Title } = Typography;
 
-const TitleForm = ({avatar, text}) => {
+const TitleForm = ({icon, subicon, title, subtitle, level, color}) => {
     return (
         <Col span={24} style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ borderRadius: '6px', width: '60%' }}>
-                <Title level={2} style={{ backgroundColor: '#00678A', padding: '16px', borderRadius: '10px', color: '#FFF' }}>
-                    <Avatar src={avatar} style={{ marginRight: 10}} size={'large'}/>
-                    {text}
+            <div className="titleFormCol" style={{ borderRadius: '6px' }}>
+                <Title level={level} style={{ backgroundColor: color, padding: '16px', borderRadius: '10px', color: '#FFF', display: 'flex' }}>
+                    <div>
+                        <div>
+                            <Avatar src={icon} style={{ marginRight: 10}} size={50}/>
+                        </div>
+                        {subicon &&
+                            <div>
+                                <Avatar src={subicon} style={{ marginRight: 10}} size={50}/>
+                            </div>
+                        }
+                    </div>
+                    <div style={{ display: 'block', margin: 'auto' }}>
+                        {title}
+                        {subtitle &&
+                            <>
+                                <br/>
+                                {subtitle}
+                            </>
+                        }
+                    </div>                 
                 </Title>                
             </div>
         </Col>

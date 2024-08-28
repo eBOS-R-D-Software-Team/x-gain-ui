@@ -129,7 +129,14 @@ function QuestionsList() {
         <>
             <Spin spinning={loading} tip="Loading...">
                 <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
-                    <TitleForm avatar={"/images/sector-icons/service.svg"} text={stepsLabels[2].title}/>
+                    <TitleForm 
+                        icon={stepsLabels[2].icon} 
+                        subicon={stepsLabels[2].subicon} 
+                        title={stepsLabels[2].title} 
+                        subtitle={stepsLabels[2].subtitle}
+                        level={2} 
+                        color={'#00678A'}
+                    />
                     <QuestionItem
                         questionData={currentQuestionData}
                         formData={formData[currentQuestionKey] || {}}

@@ -66,7 +66,14 @@ function SectorServicesLevel() {
     return (
         <>
             <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-                <TitleForm avatar={"/images/icons/sector.svg"} text={stepsLabels[0].title}/>
+                <TitleForm 
+                    icon={stepsLabels[0].icon} 
+                    subicon={stepsLabels[0].subicon} 
+                    title={stepsLabels[0].title} 
+                    subtitle={stepsLabels[0].subtitle}
+                    level={2} 
+                    color={'#00678A'}
+                />
                 <Col span={12} xs={24} md={12}>
                     <SubtitleForm avatar={"/images/icons/level.svg"} text='Select Level of Assessment'/>
                     

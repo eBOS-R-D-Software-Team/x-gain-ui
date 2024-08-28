@@ -106,6 +106,52 @@ button .ant-btn-icon {
   color: #00678A
 }
 
+.ant-slider .ant-slider-handle, 
+.ant-slider .ant-slider-handle::before, 
+.ant-slider .ant-slider-handle:hover::before, 
+.ant-slider .ant-slider-handle:focus::before,
+.ant-slider-handle::after,
+.ant-slider .ant-slider-handle:hover::after,
+.ant-slider .ant-slider-handle:focus::after  {
+  width: 34px !important;
+  height: 34px !important;
+  inset-block-start: inherit;
+}
+
+.ant-slider .ant-slider-handle::after, .ant-slider .ant-slider-handle:hover::after, .ant-slider .ant-slider-handle:active::after, .ant-slider .ant-slider-handle:focus::after {
+  outline: none;
+}
+
+.ant-slider-rail, .ant-slider-track, .ant-slider-step {
+  border-radius: 15px !important;
+}
+
+.ant-slider .ant-slider-track {
+  background: linear-gradient(90deg, rgba(32,116,95,1) 0%, rgba(81,170,147,1) 50%);
+  border-radius: 2px;
+}
+
+.ant-slider-horizontal .ant-slider-mark {
+  top: 70px;
+}
+
+.ant-slider-horizontal .ant-slider-step {
+  display: none;
+}
+
+.technology-table-group {
+  background-color: #15728F !important;
+  color: #FFF !important;
+  font-size: 18px;
+  text-align: center !important;
+}
+
+.technology-table-child {
+  font-size: 16px;
+  text-align: center !important;
+}
+
+
 @media (min-width: 992px) {
   .wizard_steps_buttons {
     width: 65%
@@ -116,6 +162,11 @@ button .ant-btn-icon {
   }
 
   .level_btn {
+    width: 50%
+  }
+
+  
+  .titleFormCol {
     width: 50%
   }
 }
@@ -130,6 +181,10 @@ button .ant-btn-icon {
   }
 
   .level_btn {
+    width: 100%
+  }
+
+  .titleFormCol {
     width: 100%
   }
 }

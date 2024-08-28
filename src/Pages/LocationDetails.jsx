@@ -78,7 +78,14 @@ function LocationDetails() {
     return (
         <>
             <Row gutter={[32, 0]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-                <TitleForm avatar={"/images/icons/location.png"} text={stepsLabels[1].title}/>
+                <TitleForm 
+                    icon={stepsLabels[1].icon} 
+                    subicon={stepsLabels[1].subicon} 
+                    title={stepsLabels[1].title} 
+                    subtitle={stepsLabels[1].subtitle}
+                    level={2} 
+                    color={'#00678A'}
+                />
                 <Col span={6} xs={24} md={6}>
                     <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1 }}>
                         <div style={{ color: '#1D1D1D', fontSize: '20px', fontWeight: '700', marginBottom: '20px' }}>
