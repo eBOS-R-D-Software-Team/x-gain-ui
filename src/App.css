@@ -106,6 +106,10 @@ button .ant-btn-icon {
   color: #00678A
 }
 
+.ant-spin-nested-loading .ant-spin-blur {
+  opacity: 0.2 !important;
+}
+
 .ant-slider .ant-slider-handle, 
 .ant-slider .ant-slider-handle::before, 
 .ant-slider .ant-slider-handle:hover::before, 
