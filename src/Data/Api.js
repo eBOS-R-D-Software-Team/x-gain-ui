@@ -21,6 +21,7 @@ const fetchLoginToken = async (loginData) => {
     return response.json();
 };
 
+
 const postMainData = async (mainData, token) => {
     const response = await fetch("/api/main", {
         method: 'POST',
@@ -37,6 +38,7 @@ const postMainData = async (mainData, token) => {
 
     return response.json();
 };
+
 
 export const postDataToICCSApi = async () => {
     const loginData = new URLSearchParams({
@@ -61,12 +63,10 @@ export const postDataToICCSApi = async () => {
         const mainResponseData = await postMainData(mainData, loginResponseData.access_token);
 
         localStorage.setItem('iccs_response', JSON.stringify(mainResponseData));
-
-        console.log('Login response:', loginResponseData);
-        console.log('Main Data:', mainData);
+        
         console.log('Main response:', mainResponseData);
 
-        return mainData;
+        return mainResponseData;
 
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -76,17 +76,48 @@ export const postDataToICCSApi = async () => {
 };
 
 
-// Function to retrieve JSON data from localStorage as an object
-export const getJsonFromLocalStorage = (key) => {
+export const postSolutionsAnalysis = async () => {
+    const URL = '/api1/solutionsanalysis';
+    
     try {
-        const jsonString = localStorage.getItem(key);
-        if (jsonString === null) {
-            console.log(`No data found in localStorage for key: ${key}`);
-            return null;
+        // Retrieve the access token
+        const accessToken = localStorage.getItem('access_token');
+        if (!accessToken) {
+            throw new Error('No access token found. Please log in first.');
         }
-        return JSON.parse(jsonString);
+
+        // Retrieve the ICCS response data from localStorage
+        const iccsResponseData = JSON.parse(localStorage.getItem('iccs_response'));
+        if (!iccsResponseData) {
+            throw new Error('No ICCS response data found in localStorage.');
+        }
+
+        // console.log('respos', iccsResponseData);
+
+        // Make the POST request
+        const response = await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(iccsResponseData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log('Solutions Analysis response:', responseData);
+
+        // Optionally, store the response in localStorage
+        localStorage.setItem('solutionsAnalysisResponse', JSON.stringify(responseData));
+
+        return true;
+
     } catch (error) {
-        console.error('Error retrieving data from localStorage:', error);
-        return null;
+        console.error('Error posting to Solutions Analysis:', error);
+        //message.error("Error posting to Solutions Analysis");
+        return false;
     }
 };

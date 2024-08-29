@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Row, Spin } from 'antd';
+import { message, Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels, questions } from '../Data/Data';
 import QuestionItem from '../Components/WizardElements/QuestionItem';
@@ -17,7 +17,7 @@ function QuestionsList() {
     
     useEffect(() => {
         localStorage.setItem('questionsFormData', JSON.stringify(formData));
-        console.log('lovely', formData);
+        console.log('questionsFormData', formData);
     }, [formData]);
 
     // Effect to handle navigation after form data is updated
@@ -109,18 +109,31 @@ function QuestionsList() {
     };
 
 
-    const handleConfirmData = () => {
+    const handleConfirmData = async () => {
         setLoading(true);
-        setTimeout(() => {
+        try {
+            // Save the form data and set the next question key
             setFormData(prevFormData => {
                 const updatedFormData = { ...prevFormData };
                 localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData));
                 setNextQuestionKey('end');
-                postDataToICCSApi();
-                navigate('/impact-assessment');
                 return updatedFormData;
             });
-        }, 5000);
+    
+            const response = await postDataToICCSApi();
+    
+            if (response) {
+                navigate('/impact-assessment');
+            } else {
+                console.error("Failed to submit data to ICCS API.");
+                message.error("Failed to submit data to ICCS API.")
+            }
+        } catch (error) {
+            console.error("An error occurred during the submission process:", error);
+            message.error("An error occurred during the submission process:", error)
+        } finally {
+            setLoading(false);
+        }
     };
      
     const currentQuestionData = questions[currentQuestionKey];

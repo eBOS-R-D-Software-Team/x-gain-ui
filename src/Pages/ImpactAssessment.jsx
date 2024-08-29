@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Layout, Button, Spin } from 'antd';
-import { getJsonFromLocalStorage } from '../Data/Api';
+import { postSolutionsAnalysis } from '../Data/Api';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels } from '../Data/Data';
 import ImpactWeightItem from '../Components/ImpactWeightItem';
@@ -16,28 +16,32 @@ const ImpactAssessment = () => {
     const [highestSolItems, setHighestSolItems] = useState([]);
 
     useEffect(() => {
-        const data = getJsonFromLocalStorage('iccs_response');
-        console.log('iccs', data);
+        const fetchIccsResponseData = async () => {
+            try {
+                const data = JSON.parse(localStorage.getItem('iccs_response'));
 
-        if (data && data.results) {
-            // Iterate through each result in the results object
-            Object.keys(data.results).forEach((key) => {
-                const result = data.results[key];
-                
-                // Assign the value of "Technology_score" to a new key "RankTotalScore"
-                result.RankTotalScore = result.Technology_score * technologicalValue;
-            });
+                if (data && data.results) {
+                    // Iterate through each result in the results object
+                    Object.keys(data.results).forEach((key) => {
+                        const result = data.results[key];
+                        
+                        // Assign the value of "Technology_score" to a new key "RankTotalScore"
+                        result.RankTotalScore = result.Technology_score * technologicalValue;
+                    });
 
-            // Get top 3 items based on RankTotalScore
-            const highestSolutions = Object.values(data.results)
-                .sort((a, b) => b.RankTotalScore - a.RankTotalScore) // Sort descending
-                .slice(0, 3); // Take top 3
+                    // Get top 3 items based on RankTotalScore
+                    const highestSolutions = Object.values(data.results)
+                        .sort((a, b) => b.RankTotalScore - a.RankTotalScore) // Sort descending
+                        .slice(0, 3); // Take top 3
 
-            setHighestSolItems(highestSolutions);
+                    setHighestSolItems(highestSolutions);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchIccsResponseData();
 
-            // Save the updated object back to localStorage
-            localStorage.setItem('iccs_response', JSON.stringify(data));
-        }
     }, [technologicalValue]);
 
 
@@ -56,6 +60,7 @@ const ImpactAssessment = () => {
     const handleResults = () => {
         setLoading(true);
         setTimeout(() => {
+            postSolutionsAnalysis();
             navigate('/technology-mixes', { state: { highestSolItems } });
         }, 5000);
     };
