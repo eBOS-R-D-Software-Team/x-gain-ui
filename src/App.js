@@ -1,5 +1,6 @@
-import React from 'react';
-import { Routes, Route } from "react-router-dom";
+import React, { useState , useEffect } from 'react';
+import { useNavigate ,Navigate  } from 'react-router-dom';
+import { Routes, Route, redirect } from "react-router-dom";
 import './App.css';
 import HeaderMenu from './Components/HeaderMenu';
 import Home from './Pages/Home';
@@ -11,13 +12,29 @@ import QuestionsList from './Pages/QuestionsList';
 import ImpactAssessment from './Pages/ImpactAssessment';
 import TechnologyMixes from './Pages/TechnologyMixes';
 import SummaryResults from './Pages/Results/SummaryResults';
+import TermsIndex from './Pages/TermsIndex';
 
-function App() {
+function App() { 
+
+  const navigate = useNavigate();
+
+  const checkTerms = localStorage.getItem('Terms'); 
+  useEffect(() => {
+    // Check the condition if not accept terms then navigate the terms page 
+    if (!checkTerms ) {
+      // Redirect to the terms page
+      navigate('/');
+    }
+
+  }, [checkTerms, navigate]); // Dependencies
+
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HeaderMenu />}>
-          <Route exact path="/home" element={<Home />} />
+      <Route exact path="/" element={!checkTerms ?  <TermsIndex />  : <Navigate to='/home'/> } />   
+        <Route  element={<HeaderMenu />}>        
+          <Route path="/home" element={<Home />} />          
           <Route path="/sector-services-level" element={<SectorServicesLevel />} />
           <Route path="/sector-services" element={<SectorServices />} />
           <Route path="/location-details" element={<LocationDetails />} />
