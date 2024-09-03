@@ -196,3 +196,24 @@ button .ant-btn-icon {
     width: 100%
   }
 }
+
+
+.backgroundTermsIndex{
+  background-image: url("../public/images/background.png");
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+}
+
+.logoTermsIndex{
+  width: 20%;  
+}
+
+.startButtonTermsIndex{
+  width: 10%;
+  height: 20%;
+  font-size: 20px;
+  font-family: Tahoma, Verdana, sans-serif;  
+}
