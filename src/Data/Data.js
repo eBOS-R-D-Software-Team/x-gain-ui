@@ -363,25 +363,25 @@ export const questions = {
     robot_image_freq: {
         text: "How fluid has the footage recorded to be (frames per second)?",
         choices: [
-            { id: 1, text: "High fluidity, e.g. 60 FPS", checked: false, nextQuestion: "robot_proc" },
-            { id: 2, text: "Medium fluidity, e.g. 30 FPS", checked: false, nextQuestion: "robot_proc" },
-            { id: 3, text: "Low fluidity, e.g. 15 FPS", checked: false, nextQuestion: "robot_proc" },
-            { id: 4, text: "Very low fluidity, e.g. 1 FPS", checked: false, nextQuestion: "robot_proc" }
+            { id: 1, text: "High fluidity, e.g. 60 FPS", checked: false, nextQuestion: "robot_image_proc" },
+            { id: 2, text: "Medium fluidity, e.g. 30 FPS", checked: false, nextQuestion: "robot_image_proc" },
+            { id: 3, text: "Low fluidity, e.g. 15 FPS", checked: false, nextQuestion: "robot_image_proc" },
+            { id: 4, text: "Very low fluidity, e.g. 1 FPS", checked: false, nextQuestion: "robot_image_proc" }
         ]
     },
-    robot_proc: {
-        text: "What type of digital processing needs to be done with the data produced by your device?",
+    robot_image_proc: {
+        text: "Does your data have to be processed or is it just transmitted?",
         choices: [
-            { id: 1, text: "Image processing (e.g. object detection and recognition, image analysis)", checked: false, nextQuestion: "robot_image_lat" },
-            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "robot_power" }
+            { id: 1, text: "Yes, it needs to be processed", checked: false, nextQuestion: "robot_image_lat" },
+            { id: 2, text: "No, it only needs to be transmitted", checked: false, nextQuestion: "robot_power" }
         ]
     },
     robot_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
             { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "robot_power" },
-            { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "camera_image_freq" },
-            { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "camera_image_freq" }
+            { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "robot_power" },
+            { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "robot_power" }
         ]
     },
     robot_power: {
@@ -429,8 +429,15 @@ export const questions = {
     robot_iot_proc: {
         text: "Does your data have to be processed or is it just transmitted?",
         choices: [
-            { id: 1, text: "Yes, it needs to be processed", checked: false,nextQuestion: "robot_power" },
+            { id: 1, text: "Yes, it needs to be processed", checked: false,nextQuestion: "robot_iot_lat" },
             { id: 2, text: "No, it only needs to be transmitted", checked: false, nextQuestion: "robot_power" }
+        ]
+    },
+    robot_iot_lat: {
+        text: "Can the data be processed with some delay, or does it require immediate action?",
+        choices: [
+            { id: 1, text: " An immediate action is necessary (<= 2 s)", checked: false,nextQuestion: "robot_power" },
+            { id: 2, text: " It can be processed with delay (no specific requirement)", checked: false, nextQuestion: "robot_power" }
         ]
     },
     robot_speech_proc: {

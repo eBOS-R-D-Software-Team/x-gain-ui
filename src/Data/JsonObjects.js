@@ -191,35 +191,45 @@ export const initQuestionsData = {
     },
     robot_type: {
       type: "string",
-      result: "string"
+      result: ""
     },
     robot_service: {
         type: "string",
         result: [
+            0,
+            0,
             0
         ]
     },
     robot_image_rate: {
         type: "string",
         result: [
+            0,
+            0,
             0
         ]
     },
     robot_image_freq: {
         type: "string",
         result: [
+            0,
+            0,
+            0,
             0
         ]
     },
     robot_image_proc: {
         type: "string",
         result: [
+            0,
             0
         ]
     },
     robot_image_lat: {
         type: "string",
         result: [
+            0,
+            0,
             0
         ]
     },
@@ -234,42 +244,52 @@ export const initQuestionsData = {
     robot_iot_rate: {
         type: "string",
         result: [
+            0,
             0
         ]
     },
     robot_iot_freq: {
         type: "string",
         result: [
+            0,
+            0,
+            0,
             0
         ]
     },
     robot_iot_proc: {
         type: "string",
         result: [
+            0,
             0
         ]
     },
     robot_iot_lat: {
         type: "string",
         result: [
+            0,
             0
         ]
     },
     robot_speech_freq: {
         type: "string",
         result: [
+            0,
+            0,
             0
         ]
     },
     robot_speech_proc: {
         type: "string",
         result: [
+            0,
             0
         ]
     },
     robot_speech_lat: {
         type: "string",
         result: [
+            0,
             0
         ]
     }

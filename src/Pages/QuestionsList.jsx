@@ -57,6 +57,8 @@ function QuestionsList() {
             // Initialize updatedResult based on the current question type
             if (currentQuestionKey === 'robot_cost' || currentQuestionKey === 'robot_power') {
                 updatedResult = parseInt(value, 10) || 0;
+            }  else if (currentQuestionKey === 'robot_type') {
+                updatedResult = value.toString();
             } else {
                 // For other questions, ensure result is an array and handle updates
                 // Save 1 value to selected choice
