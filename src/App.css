@@ -159,6 +159,15 @@ button .ant-btn-icon {
   padding: 0px;
 }
 
+.total-row, .rowTotal {
+  font-weight: bold;
+}
+
+.totalLabel {
+  font-weight: bold;
+  color: #FFF;
+  background-color: #006187;
+}
 
 @media (min-width: 992px) {
   .wizard_steps_buttons {

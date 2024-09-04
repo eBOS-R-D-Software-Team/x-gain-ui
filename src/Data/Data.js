@@ -42,6 +42,12 @@ export const stepsLabels = [
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png"
     },
+    {
+        title: "Results:",
+        subtitle: "Techno-economic assessment",
+        icon: "/images/icons/graph1.png",
+        subicon: "/images/icons/graph2.png"
+    },
 ];
 
 

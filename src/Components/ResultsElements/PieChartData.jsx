@@ -1,10 +1,9 @@
 import React from 'react';
-import { Col } from 'antd';
 import { Chart } from "react-google-charts";
 
 const PieChartData = ({ title, data }) => {
     const options = {
-        title: {title},
+        title: title,
         is3D: true,
         pieHole: 0.4,
         sliceVisibilityThreshold: 0, // Show all slices, regardless of size
@@ -13,14 +12,13 @@ const PieChartData = ({ title, data }) => {
     };
 
     return(
-        <Col span={24} style={{ marginTop: 20 }}>              
-            <Chart
-                chartType="PieChart"
-                data={data}
-                options={options}
-                width={"100%"}
-            />
-        </Col>
+        <Chart
+            chartType="PieChart"
+            data={data}
+            options={options}
+            width={"100%"}
+            height={"250px"}
+        />
     )
 }
 

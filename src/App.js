@@ -13,6 +13,7 @@ import ImpactAssessment from './Pages/ImpactAssessment';
 import TechnologyMixes from './Pages/TechnologyMixes';
 import SummaryResults from './Pages/Results/SummaryResults';
 import TermsIndex from './Pages/TermsIndex';
+import TechnoEconomicIndicators from './Pages/Results/TechnoEconomicIndicators';
 
 function App() { 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/impact-assessment" element={<ImpactAssessment />} />
           <Route path="/technology-mixes" element={<TechnologyMixes />} />
           <Route path="/solution/:solId/summary-results" element={<SummaryResults />} />
+          <Route path="/techno-economic-indicators" element={<TechnoEconomicIndicators />} />
           <Route path="/*" element={<PageNotFound />} />
         </Route>
       </Routes>

@@ -136,3 +136,33 @@ export const technologyMixesColumns = [
         className: 'technology-table-child',
     },
 ];
+
+
+export const totalCapexOpexColumns = [
+    {
+        dataIndex: 'name',
+        key: 'name',
+        className: 'totalLabel'
+      },
+      {
+        dataIndex: 'value',
+        key: 'value',
+        render: (value) => value,
+        //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
+      },
+    // {
+    //     title: 'Total Cost',
+    //     dataIndex: 'totalCost',
+    //     key: 'totalCost',
+    // },
+    // {
+    //     title: 'Total CAPEX',
+    //     dataIndex: 'totalCapex',
+    //     key: 'totalCapex',
+    // },
+    // {
+    //     title: 'Total OPEX',
+    //     dataIndex: 'totalOpex',
+    //     key: 'totalOpex',
+    // },
+];
