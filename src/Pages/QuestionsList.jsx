@@ -125,7 +125,7 @@ function QuestionsList() {
             const response = await postDataToICCSApi();
     
             if (response) {
-                navigate('/impact-assessment');
+                navigate('/has-employee');
             } else {
                 console.error("Failed to submit data to ICCS API.");
                 message.error("Failed to submit data to ICCS API.")

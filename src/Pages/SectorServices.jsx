@@ -61,7 +61,10 @@ function SectorServices() {
 
 
     const handleNextClick = () => {
-        navigate('/location-details');
+        if (selectedSector && selectedService) {
+            localStorage.setItem('sectorsServicesDetails', JSON.stringify(formData));
+            navigate('/location-details');
+        }
     };
   
   

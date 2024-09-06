@@ -12,6 +12,16 @@ module.exports = function addProxyMiddleware(app) {
         })
     );
     app.use(
+        '/api3',
+        createProxyMiddleware({
+            target: 'http://localhost:5122',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api3': '', // remove /api from the URL path
+            },
+        })
+    );
+    app.use(
         '/api1',
         createProxyMiddleware({
             target: 'https://xgain.incites.eu',

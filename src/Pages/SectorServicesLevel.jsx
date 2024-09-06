@@ -59,7 +59,10 @@ function SectorServicesLevel() {
 
 
     const handleNextClick = () => {    
-        navigate('/sector-services');
+        if (selectedLevel && selectedUserType) {
+            localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(formData));
+            navigate('/sector-services');
+        }
     };
   
 

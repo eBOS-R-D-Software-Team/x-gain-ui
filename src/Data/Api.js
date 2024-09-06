@@ -92,7 +92,6 @@ export const postSolutionsAnalysis = async () => {
             throw new Error('No ICCS response data found in localStorage.');
         }
 
-        // console.log('respos', iccsResponseData);
 
         // Make the POST request
         const response = await fetch(URL, {
@@ -118,6 +117,44 @@ export const postSolutionsAnalysis = async () => {
     } catch (error) {
         console.error('Error posting to Solutions Analysis:', error);
         //message.error("Error posting to Solutions Analysis");
+        return false;
+    }
+};
+
+
+export const postSocialQuestions = async (mainData) => {
+    const URL = '/api3/Social/DetermineAdditionalQuestions';
+    
+    try {
+        // Retrieve the access token
+        const accessToken = localStorage.getItem('access_token');
+        if (!accessToken) {
+            throw new Error('No access token found. Please log in first.');
+        }
+
+        // Make the POST request
+        const response = await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(mainData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+
+        // Optionally, store the response in localStorage
+        localStorage.setItem('socialQuestionsResponse', JSON.stringify(responseData));
+
+        return responseData;
+
+    } catch (error) {
+        console.error('Error posting to Social Determine Questions:', error);
+        message.error("Error posting to Social Determine Questions");
         return false;
     }
 };

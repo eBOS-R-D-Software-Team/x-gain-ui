@@ -16,7 +16,7 @@ function TechnoEconomicIndicators() {
     useEffect(() => {
         const savedData = localStorage.getItem('filteredSolutionAnalysisDataBySol');
         if (savedData) {
-          setSolutionData(JSON.parse(savedData));
+            setSolutionData(JSON.parse(savedData));
         }
     }, []);
 

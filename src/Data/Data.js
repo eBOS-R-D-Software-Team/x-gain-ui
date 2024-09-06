@@ -48,6 +48,12 @@ export const stepsLabels = [
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png"
     },
+    {
+        title: "Social Assessment",
+        subtitle: "",
+        icon: "images/icons/service.png",
+        subicon: ""
+    },
 ];
 
 

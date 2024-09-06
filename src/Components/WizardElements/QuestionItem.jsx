@@ -80,9 +80,9 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                 <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
                         <ConfirmButton
-                          disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
-                          onClick={handleConfirm}
-                          style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
+                            disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
+                            onClick={handleConfirm}
+                            style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
                         />                      
                     </Row>                       
                 </Col>          
