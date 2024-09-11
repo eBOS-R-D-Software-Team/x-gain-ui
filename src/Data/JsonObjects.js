@@ -294,10 +294,3 @@ export const initQuestionsData = {
         ]
     }
 }
-
-
-export const initDetermineSocialQuestions = {
-    hasEmployees: true,
-    sector: "",
-    service: ""
-}

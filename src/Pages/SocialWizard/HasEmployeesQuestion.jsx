@@ -4,7 +4,6 @@ import { message, Row, Col, Spin, Radio, Card } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
 import { stepsLabels } from '../../Data/Data';
-import { initDetermineSocialQuestions } from '../../Data/JsonObjects';
 import { postSocialQuestions } from '../../Data/Api';
 
 function HasEmployeesQuestion() {
@@ -62,12 +61,12 @@ function HasEmployeesQuestion() {
             <Spin spinning={loading} tip="Loading...">
                 <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
                     <TitleForm 
-                        icon={stepsLabels[8].icon} 
-                        subicon={stepsLabels[8].subicon} 
-                        title={stepsLabels[8].title} 
-                        subtitle={stepsLabels[8].subtitle}
+                        icon={stepsLabels[9].icon} 
+                        subicon={stepsLabels[9].subicon} 
+                        title={stepsLabels[9].title} 
+                        subtitle={stepsLabels[9].subtitle}
                         level={2} 
-                        color={'#00678A'}
+                        color={stepsLabels[9].color}
                     />
                     <Col span={24}>
                         <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>

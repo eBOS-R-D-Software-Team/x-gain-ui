@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Spin, Radio, Card } from 'antd';
+import { Row, Col, Spin } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
 import { stepsLabels } from '../../Data/Data';
+import SocialQuestionItem from '../../Components/WizardElements/SocialQuestionItem';
+import { postSolutionsAnalysis, postSocialAnswers } from '../../Data/Api';
 
 function SocialQuestionsList() {
     const [loading, setLoading] = useState(false);
@@ -11,6 +13,7 @@ function SocialQuestionsList() {
     const [answers, setAnswers] = useState({});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [isCompleted, setIsCompleted] = useState(false);
+    const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState([]);
 
     const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ function SocialQuestionsList() {
         if (savedQuestionsData) {
             const parsedData = JSON.parse(savedQuestionsData);
             setQuestionsData(parsedData);      
-        } 
+        }
     }, []);
 
 
@@ -29,6 +32,28 @@ function SocialQuestionsList() {
             ...answers,
             [questionId]: selectedOption,
         });
+
+        // Save the question, ID, and selected answer into the array
+        const question = questionsData.find(q => q.id === questionId);
+        const newResponse = {
+            id: question.id,
+            question: question.question,
+            questionAnswer: selectedOption,
+        };
+
+        setDataCalculateSocialScore((prevResponses) => {
+            const updatedResponses = [...prevResponses];
+            const existingIndex = updatedResponses.findIndex(res => res.questionId === questionId);
+
+            // Replace the answer if the question already exists, otherwise add new entry
+            if (existingIndex >= 0) {
+                updatedResponses[existingIndex] = newResponse;
+            } else {
+                updatedResponses.push(newResponse);
+            }
+            return updatedResponses;
+        });
+
         // Move to next question if available
         if (currentQuestionIndex < questionsData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -41,11 +66,13 @@ function SocialQuestionsList() {
        
         setTimeout(() => {
             setIsCompleted(true);
+            postSolutionsAnalysis();
+            postSocialAnswers(dataCalculateSocialScore);
+            localStorage.setItem('socialAnswersResponse', JSON.stringify(dataCalculateSocialScore));
             navigate('/impact-assessment');
         }, 3000);
     };
     
-    // Get current question data
     const currentQuestion = questionsData[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === questionsData.length - 1;
     const hasSelectedOption = answers[currentQuestion?.id] !== undefined;
@@ -55,43 +82,21 @@ function SocialQuestionsList() {
         <Spin spinning={loading} tip="Loading...">
             <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
                 <TitleForm 
-                    icon={stepsLabels[8].icon} 
-                    subicon={stepsLabels[8].subicon} 
-                    title={stepsLabels[8].title} 
-                    subtitle={stepsLabels[8].subtitle}
+                    icon={stepsLabels[9].icon} 
+                    subicon={stepsLabels[9].subicon} 
+                    title={stepsLabels[9].title} 
+                    subtitle={stepsLabels[9].subtitle}
                     level={2} 
-                    color={'#00678A'}
+                    color={stepsLabels[9].color}
                 />
                 {!isCompleted && currentQuestion && (
-                    <Col span={24}>
-                        <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>
-                            <div style={{ color: "rgb(0, 103, 138)", fontSize: "20px", fontWeight: "700", marginBottom: "40px"}} key={currentQuestion.id}>
-                                {currentQuestion.question}
-                            </div>
-                            {currentQuestion.questionAnswerOptions.map((option, index) => (
-                                <div style={{ width:'100%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'start',
-                                    padding: '8px',
-                                    marginBottom: '8px',
-                                    borderRadius: '4px',
-                                    backgroundColor:'rgba(234, 234, 234, 0.56)' }} key={index}>
-                                    <Radio
-                                        type="radio"
-                                        name={`question-${currentQuestion.id}`}
-                                        value={option}
-                                        checked={answers[currentQuestion.id] === option}
-                                        onChange={() => handleChange(currentQuestion.id, option)}
-                                    />
-                                    <div style={{ display: 'flex', alignItems: 'end' }}>      
-                                        <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}>{option}</span>
-                                    </div>
-                                </div>
-                            ))}
-                            
-                        </Card>
-                    </Col>
+                    <SocialQuestionItem 
+                        questionId={currentQuestion.id}
+                        questionText={currentQuestion.question}
+                        items={currentQuestion.questionAnswerOptions}
+                        selectedValue={answers[currentQuestion.id]}
+                        onChange={handleChange} 
+                    />
                 )}
                 {isLastQuestion && hasSelectedOption && (
                     <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>

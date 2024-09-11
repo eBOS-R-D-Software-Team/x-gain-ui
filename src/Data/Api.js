@@ -3,15 +3,12 @@ import { message } from 'antd';
 const USERNAME = 'xgain';
 const PASSWORD = 'xG4iN1Cc$-ins';
 
-const fetchLoginToken = async (loginData) => {
-    const response = await fetch("/api/login", {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*'
-        },
-        body: loginData
+
+const apiRequest = async (url, method, headers, body) => {
+    const response = await fetch(url, {
+        method,
+        headers,
+        body,
     });
 
     if (!response.ok) {
@@ -22,21 +19,38 @@ const fetchLoginToken = async (loginData) => {
 };
 
 
+const fetchLoginToken = async (loginData) => {
+    return apiRequest('/api/login', 'POST', {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*',
+    }, loginData);
+};
+
+
 const postMainData = async (mainData, token) => {
-    const response = await fetch("/api/main", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(mainData)
-    });
+    return apiRequest('/api/main', 'POST', {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+    }, JSON.stringify(mainData));
+};
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+
+const retrieveAccessToken = () => {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+        throw new Error('No access token found. Please log in first.');
     }
+    return accessToken;
+};
 
-    return response.json();
+
+const retrieveFromLocalStorage = (key, errorMessage) => {
+    const data = JSON.parse(localStorage.getItem(key));
+    if (!data) {
+        throw new Error(errorMessage);
+    }
+    return data;
 };
 
 
@@ -53,108 +67,72 @@ export const postDataToICCSApi = async () => {
     try {
         const loginResponseData = await fetchLoginToken(loginData);
         localStorage.setItem('access_token', loginResponseData.access_token);
-        
+
         const mainData = {
-            ...JSON.parse(localStorage.getItem('sectorsServicesLevelDetails')) || {},
-            ...JSON.parse(localStorage.getItem('sectorsServicesDetails')) || {},
-            ...JSON.parse(localStorage.getItem('locationDetails')) || {},
-            ...JSON.parse(localStorage.getItem('questionsFormData')) || {},
-        }
+            ...retrieveFromLocalStorage('sectorsServicesLevelDetails', ''),
+            ...retrieveFromLocalStorage('sectorsServicesDetails', ''),
+            ...retrieveFromLocalStorage('locationDetails', ''),
+            ...retrieveFromLocalStorage('questionsFormData', ''),
+        };
+
         const mainResponseData = await postMainData(mainData, loginResponseData.access_token);
-
         localStorage.setItem('iccs_response', JSON.stringify(mainResponseData));
-        
-        console.log('Main response:', mainResponseData);
 
+        console.log('Main response:', mainResponseData);
         return mainResponseData;
 
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
-        message.error("There was a problem with the fetch operation");
+        message.error('There was a problem with the fetch operation');
+        return false;
+    }
+};
+
+
+const postWithAccessToken = async (url, bodyData) => {
+    try {
+        const accessToken = retrieveAccessToken();
+        return await apiRequest(url, 'POST', {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`,
+        }, JSON.stringify(bodyData));
+    } catch (error) {
+        console.error(error.message);
+        message.error(error.message);
         return false;
     }
 };
 
 
 export const postSolutionsAnalysis = async () => {
-    const URL = '/api1/solutionsanalysis';
-    
     try {
-        // Retrieve the access token
-        const accessToken = localStorage.getItem('access_token');
-        if (!accessToken) {
-            throw new Error('No access token found. Please log in first.');
+        const iccsResponseData = retrieveFromLocalStorage('iccs_response', 'No ICCS response data found in localStorage.');
+        const responseData = await postWithAccessToken('/api1/solutionsanalysis', iccsResponseData);
+        if (responseData) {
+            localStorage.setItem('solutionsAnalysisResponse', JSON.stringify(responseData));
+            console.log('Solutions Analysis response:', responseData);
         }
-
-        // Retrieve the ICCS response data from localStorage
-        const iccsResponseData = JSON.parse(localStorage.getItem('iccs_response'));
-        if (!iccsResponseData) {
-            throw new Error('No ICCS response data found in localStorage.');
-        }
-
-
-        // Make the POST request
-        const response = await fetch(URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(iccsResponseData)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const responseData = await response.json();
-        console.log('Solutions Analysis response:', responseData);
-
-        // Optionally, store the response in localStorage
-        localStorage.setItem('solutionsAnalysisResponse', JSON.stringify(responseData));
-
-        return true;
-
+        return !!responseData;
     } catch (error) {
         console.error('Error posting to Solutions Analysis:', error);
-        //message.error("Error posting to Solutions Analysis");
         return false;
     }
 };
 
 
 export const postSocialQuestions = async (mainData) => {
-    const URL = '/api3/Social/DetermineAdditionalQuestions';
-    
-    try {
-        // Retrieve the access token
-        const accessToken = localStorage.getItem('access_token');
-        if (!accessToken) {
-            throw new Error('No access token found. Please log in first.');
-        }
-
-        // Make the POST request
-        const response = await fetch(URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(mainData)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const responseData = await response.json();
-
-        // Optionally, store the response in localStorage
+    const responseData = await postWithAccessToken('/api3/Social/DetermineAdditionalQuestions', mainData);
+    if (responseData) {
         localStorage.setItem('socialQuestionsResponse', JSON.stringify(responseData));
-
-        return responseData;
-
-    } catch (error) {
-        console.error('Error posting to Social Determine Questions:', error);
-        message.error("Error posting to Social Determine Questions");
-        return false;
     }
+    return responseData;
+};
+
+
+export const postSocialAnswers = async (data) => {
+    const responseData = await postWithAccessToken('/api3/Social/CalculateSocialScore', data);
+    if (responseData) {
+        localStorage.setItem('socialAnswersResponse', JSON.stringify(responseData));
+    }
+    return responseData;
 };
