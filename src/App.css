@@ -181,10 +181,13 @@ button .ant-btn-icon {
   .level_btn {
     width: 50%
   }
-
   
   .titleFormCol {
     width: 50%
+  }
+
+  .wizard_steps_buttons .titleFormCol {
+      width: 70%;
   }
 }
 

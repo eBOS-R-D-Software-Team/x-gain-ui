@@ -1,58 +1,111 @@
+import ImpactAssessment from "../Pages/ImpactAssessment";
+import LocationDetails from "../Pages/LocationDetails";
+import QuestionsList from "../Pages/QuestionsList";
+import SummaryResults from "../Pages/Results/SummaryResults";
+import SectorServices from "../Pages/SectorServices";
+import SectorServicesLevel from "../Pages/SectorServicesLevel";
+import TechnologyMixes from "../Pages/TechnologyMixes";
+
 export const stepsLabels = [
+    {
+        title: "Level and User Type",
+        subtitle: "",
+        icon: "images/icons/sector.svg",
+        subicon: "",
+        url: "/sector-services-level",
+        content: <SectorServicesLevel/>,
+        data: "sectorsServicesLevelDetails",
+        color: "#00678A"
+    },
     {
         title: "Sector and Service selection",
         subtitle: "",
         icon: "images/icons/sector.svg",
         subicon: "",
-        url: "/sector-services-level"
+        url: "/sector-services",
+        content: <SectorServices/>,
+        data: "sectorsServicesDetails",
+        color: "#00678A"
     },
     {
         title: "Location Details",
         subtitle: "",
         icon: "images/icons/location.png",
-        subicon: ""
+        subicon: "",
+        url: "/location-details",
+        content: <LocationDetails/>,
+        data: "locationDetails",
+        color: "#00678A"
     },
     {
         title: "Service Requirements",
         subtitle: "",
         icon: "images/icons/service.png",
-        subicon: ""
+        subicon: "",
+        url: "/questions",
+        content: <QuestionsList/>,
+        data: "completeQuestionsFormData",
+        color: "#00678A"
     },
     {
         title: "Evaluate your case",
         subtitle: "",
-        icon: "images/icons/graph1.png",
-        subicon: ""
+        icon: "/images/icons/graph1.png",
+        subicon: "/images/icons/graph2.png",
+        url: "/impact-assessment",
+        content: <ImpactAssessment/>,
+        data: "results",
+        color: "#158D6B"
     },
     {
         title: "Impact Weights",
         subtitle: "",
         icon: "/images/icons/service.png",
-        subicon: ""
+        subicon: "",
+        url: "",
+        content: null,
+        data: "",
+        color: "#00678A"
     },
     {
         title: "Results:",
         subtitle: "Suggested Technology Mixes",
         icon: "/images/icons/graph1.png",
-        subicon: "/images/icons/graph2.png"
+        subicon: "/images/icons/graph2.png",
+        url: "",
+        content: null,
+        data: "",
+        color: "#158D6B"
     },
     {
         title: "Summary Results",
         subtitle: "",
         icon: "/images/icons/graph1.png",
-        subicon: "/images/icons/graph2.png"
+        subicon: "/images/icons/graph2.png",
+        url: "",
+        content: null,
+        data: "",
+        color: "#158D6B"
     },
     {
         title: "Results:",
         subtitle: "Techno-economic assessment",
         icon: "/images/icons/graph1.png",
-        subicon: "/images/icons/graph2.png"
+        subicon: "/images/icons/graph2.png",
+        url: "",
+        content: null,
+        data: "",
+        color: "#158D6B"
     },
     {
         title: "Social Assessment",
         subtitle: "",
         icon: "images/icons/service.png",
-        subicon: ""
+        subicon: "",
+        url: "",
+        content: null,
+        data: "",
+        color: "#00678A"
     },
 ];
 
@@ -397,20 +450,20 @@ export const questions = {
         ]
     },
     robot_power: {
-        text: "What is the power consumption of your device? ",
+        text: "What is the power consumption of your device? (In Watt, W)",
         choices: [],
         input: {
             nextQuestion: "robot_cost",
-            label: "What is the power consumption of your device",
+            label: "What is the power consumption of your device? (In Watt, W)",
             value: "" // Initialize with an empty string
         }
     },
     robot_cost: {
-        text: "What is the cost of your device? ",
+        text: "What is the cost of your device? (In Euro)",
         choices: [],
         input: {
             nextQuestion: "end",
-            label: "What is the cost of your device?",
+            label: "What is the cost of your device? (In Euro)",
             value: "" // Initialize with an empty string
         }
     },
