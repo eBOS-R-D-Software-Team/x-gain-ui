@@ -7,6 +7,7 @@ import SelectedSectorItem from '../../Components/ResultsElements/SelectedSectorI
 import SelectedConnectivityEdgeEnablers from '../../Components/ResultsElements/SelectedConnectivityEdgeEnablers';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
 import { processPieChartData } from '../../HelperFunctions';
+import RadarChartData from '../../Components/ResultsElements/RadarChartData';
 
 const { Title } = Typography;
 
@@ -17,21 +18,28 @@ function SummaryResults() {
     const { solutionData } = location.state || {};  // Retrieve the data passed from the previous component
     const [sectorServiceData, setSectorServiceData] = useState(null);
     const [solutionAnalysisData, setSolutionAnalysisData] = useState([]);
+    const [socialScoresData, setSocialScoresData] = useState([]);
+    const [chartData, setChartData] = useState(null);
     const [filteredSolutionAnalysisData, setFilteredSolutionAnalysisData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         try {
             const storedSectorServiceData = JSON.parse(localStorage.getItem('sectorsServicesDetails'));
             const storedSolutionAnalysisData = JSON.parse(localStorage.getItem('solutionsAnalysisResponse'));
+            const socialAnswersScores = JSON.parse(localStorage.getItem('socialAnswersResponse'));
 
             if (storedSectorServiceData) {
                 setSectorServiceData(storedSectorServiceData);
             }
             if (storedSolutionAnalysisData) {
                 setSolutionAnalysisData(storedSolutionAnalysisData);
+            }
+            if (socialAnswersScores) {
+                setSocialScoresData(socialAnswersScores);
             }
         } catch (error) {
             console.error('Error parsing localStorage data:', error);
@@ -40,19 +48,18 @@ function SummaryResults() {
 
 
     useEffect(() => {
-        console.log('Solution data:', solutionData.Processing_information.Process_Dev_per_layer[0]);
-        console.log('Sector Service Data:', sectorServiceData);
+        // console.log('Solution data:', solutionData.Processing_information.Process_Dev_per_layer[0]);
+        // console.log('Sector Service Data:', sectorServiceData);
         console.log('Solution Analysis data:', solutionAnalysisData);
+        //console.log('Scores:', socialScoresData);
 
         const filteredData = solutionAnalysisData.analysisResults?.find(item => item.id === solutionData?.Sol_ID.toString());
-        if (filteredData) {
+        if (filteredData && filteredData !== filteredSolutionAnalysisData) {
             setFilteredSolutionAnalysisData(filteredData);
+            localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
         }
-        localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
-
         console.log('Filtered data:', filteredSolutionAnalysisData);
-
-    }, [solutionData, sectorServiceData, solutionAnalysisData, filteredSolutionAnalysisData]);
+    }, [solutionData, solutionAnalysisData]);
 
  
     useEffect(() => {
@@ -71,6 +78,36 @@ function SummaryResults() {
     }, [filteredSolutionAnalysisData]);
 
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const questions = socialScoresData.map(item => 'Test');
+                const scores = socialScoresData.map(item => item.score);
+        
+                setChartData({
+                    labels: questions,
+                    datasets: [
+                        {
+                            label: 'Scores',
+                            data: scores,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        },
+                    ],
+                });
+      
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            }
+        };
+      
+        // Fetch data once when the component mounts
+        fetchData();
+    }, [socialScoresData]);
+    
+
     const handleCardClick = () => {
         setLoading(true);
         localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
@@ -87,12 +124,12 @@ function SummaryResults() {
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <Col span={24}>
                         <TitleForm 
-                            icon={stepsLabels[6].icon} 
-                            subicon={stepsLabels[6].subicon} 
-                            title={stepsLabels[6].title} 
-                            subtitle={stepsLabels[6].subtitle}
+                            icon={stepsLabels[7].icon} 
+                            subicon={stepsLabels[7].subicon} 
+                            title={stepsLabels[7].title} 
+                            subtitle={stepsLabels[7].subtitle}
                             level={2} 
-                            color={'#158D6B'}
+                            color={stepsLabels[7].color}
                         />
                     </Col>
                 </Row>
@@ -150,7 +187,7 @@ function SummaryResults() {
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                                         <div style={{ display: 'block', margin: 'auto' }}>
-                                            Techno-economic indicators                      
+                                            Techno-economic Indicators                      
                                         </div>                 
                                     </Title> 
                                 </Col>
@@ -162,6 +199,26 @@ function SummaryResults() {
                                     </Col>
                                     <Col span={24} style={{ marginTop: 20 }}>              
                                         <PieChartData title={'OPEX Breakdown'} data={opexCategoryData} />
+                                    </Col>
+                                </Row>
+                            }  
+                        </Card>   
+                    </Col>    
+                    <Col span={24} lg={12} xxl={8}>                   
+                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleCardClick}>
+                            <Row>
+                                <Col span={24}>
+                                    <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
+                                        <div style={{ display: 'block', margin: 'auto' }}>
+                                            Socio-Environmental Indicators                      
+                                        </div>                 
+                                    </Title> 
+                                </Col>
+                            </Row>
+                            {chartData  && 
+                                <Row span={24}>    
+                                    <Col span={24} style={{ marginTop: 20 }}>              
+                                        <RadarChartData data={chartData} />
                                     </Col>
                                 </Row>
                             }  

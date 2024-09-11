@@ -62,10 +62,10 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
     }
 
 
-    return(       
-        <Col span={24} lg={12}>
+    return(
+        <div style={{ marginTop: '30px'}}>            
             <TechnoEconomicAssessmentTable columns={columns} dataSource={dataSource}/>
-        </Col>    
+        </div>
     )
 }
 
