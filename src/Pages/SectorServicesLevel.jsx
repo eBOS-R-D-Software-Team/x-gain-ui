@@ -14,13 +14,7 @@ function SectorServicesLevel() {
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [selectedUserType, setSelectedUserType] = useState(null);
     const [formData, setFormData] = useState({});
-
-
-    useEffect(() => {
-        localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(formData));
-        console.log(formData);
-    }, [formData]);
-
+    
 
     const handleLevelChange = (selectedLevelId) => {
         setSelectedLevel(selectedLevelId);
@@ -70,12 +64,12 @@ function SectorServicesLevel() {
         <>
             <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <TitleForm 
-                    icon={stepsLabels[0].icon} 
-                    subicon={stepsLabels[0].subicon} 
-                    title={stepsLabels[0].title} 
-                    subtitle={stepsLabels[0].subtitle}
+                    icon={stepsLabels[1].icon} 
+                    subicon={stepsLabels[1].subicon} 
+                    title={stepsLabels[1].title} 
+                    subtitle={stepsLabels[1].subtitle}
                     level={2} 
-                    color={'#00678A'}
+                    color={stepsLabels[1].color}
                 />
                 <Col span={12} xs={24} md={12}>
                     <SubtitleForm avatar={"/images/icons/level.svg"} text='Select Level of Assessment'/>

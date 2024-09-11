@@ -17,12 +17,6 @@ function SectorServices() {
     const [formData, setFormData] = useState({});
 
 
-    useEffect(() => {
-        localStorage.setItem('sectorsServicesDetails', JSON.stringify(formData));
-        console.log(formData);
-    }, [formData]);
-   
-
     const handleSectorChange = (selectedSectorId) => {
         setSelectedSector(selectedSectorId);
 
@@ -72,12 +66,12 @@ function SectorServices() {
         <>
             <Row gutter={[32]} style={{ paddingTop: 10, backgroundColor: '#FFF', borderRadius: 20 }}>
                 <TitleForm 
-                    icon={stepsLabels[0].icon} 
-                    subicon={stepsLabels[0].subicon} 
-                    title={stepsLabels[0].title} 
-                    subtitle={stepsLabels[0].subtitle}
+                    icon={stepsLabels[1].icon} 
+                    subicon={stepsLabels[1].subicon} 
+                    title={stepsLabels[1].title} 
+                    subtitle={stepsLabels[1].subtitle}
                     level={2} 
-                    color={'#00678A'}
+                    color={stepsLabels[1].color}
                 />
                 <Col span={8} xs={24} lg={8}>
                     <SubtitleForm avatar={"/images/sector-icons/sector.svg"} text='Sector Selection'/>

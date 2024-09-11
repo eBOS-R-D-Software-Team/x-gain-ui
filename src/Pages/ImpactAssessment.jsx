@@ -60,7 +60,7 @@ const ImpactAssessment = () => {
     const handleResults = () => {
         setLoading(true);
         setTimeout(() => {
-            postSolutionsAnalysis();
+            //postSolutionsAnalysis();
             navigate('/technology-mixes', { state: { highestSolItems } });
         }, 5000);
     };
@@ -72,12 +72,12 @@ const ImpactAssessment = () => {
                 <Row gutter={[32, 16]}>
                     <Col span={24}>
                         <TitleForm 
-                            icon={stepsLabels[4].icon} 
-                            subicon={stepsLabels[4].subicon} 
-                            title={stepsLabels[4].title} 
-                            subtitle={stepsLabels[4].subtitle}
+                            icon={stepsLabels[5].icon} 
+                            subicon={stepsLabels[5].subicon} 
+                            title={stepsLabels[5].title} 
+                            subtitle={stepsLabels[5].subtitle}
                             level={2} 
-                            color={'#00678A'}
+                            color={stepsLabels[5].color}
                         />
                     </Col>
                 </Row>

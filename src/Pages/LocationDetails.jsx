@@ -54,7 +54,7 @@ function LocationDetails() {
             },
             Area: {
                 type: "string", 
-                result: area
+                result: parseFloat(area)
             },
             Terrain: {
                 type: "string",
@@ -79,12 +79,12 @@ function LocationDetails() {
         <>
             <Row gutter={[32, 0]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <TitleForm 
-                    icon={stepsLabels[1].icon} 
-                    subicon={stepsLabels[1].subicon} 
-                    title={stepsLabels[1].title} 
-                    subtitle={stepsLabels[1].subtitle}
+                    icon={stepsLabels[2].icon} 
+                    subicon={stepsLabels[2].subicon} 
+                    title={stepsLabels[2].title} 
+                    subtitle={stepsLabels[2].subtitle}
                     level={2} 
-                    color={'#00678A'}
+                    color={stepsLabels[2].color}
                 />
                 <Col span={6} xs={24} md={6}>
                     <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1 }}>
@@ -114,7 +114,7 @@ function LocationDetails() {
                         text={<>{'Km'}<sup>2</sup></>} 
                     />
                     <LocationInput 
-                        label={' Vegetable Height'} 
+                        label={' Vegetation Height'} 
                         value={vegetationHeight} 
                         onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
                         text={'m'} 

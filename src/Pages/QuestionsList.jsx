@@ -118,6 +118,7 @@ function QuestionsList() {
             setFormData(prevFormData => {
                 const updatedFormData = { ...prevFormData };
                 localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData));
+                localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData));
                 setNextQuestionKey('end');
                 return updatedFormData;
             });
@@ -145,12 +146,12 @@ function QuestionsList() {
             <Spin spinning={loading} tip="Loading...">
                 <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
                     <TitleForm 
-                        icon={stepsLabels[2].icon} 
-                        subicon={stepsLabels[2].subicon} 
-                        title={stepsLabels[2].title} 
-                        subtitle={stepsLabels[2].subtitle}
+                        icon={stepsLabels[3].icon} 
+                        subicon={stepsLabels[3].subicon} 
+                        title={stepsLabels[3].title} 
+                        subtitle={stepsLabels[3].subtitle}
                         level={2} 
-                        color={'#00678A'}
+                        color={stepsLabels[3].color}
                     />
                     <QuestionItem
                         questionData={currentQuestionData}

@@ -31,12 +31,12 @@ const TechnologyMixes = () => {
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <Col span={24}>
                         <TitleForm 
-                            icon={stepsLabels[5].icon} 
-                            subicon={stepsLabels[5].subicon} 
-                            title={stepsLabels[5].title} 
-                            subtitle={stepsLabels[5].subtitle}
+                            icon={stepsLabels[6].icon} 
+                            subicon={stepsLabels[6].subicon} 
+                            title={stepsLabels[6].title} 
+                            subtitle={stepsLabels[6].subtitle}
                             level={2} 
-                            color={'#158D6B'}
+                            color={stepsLabels[6].color}
                         />
                     </Col>
 
