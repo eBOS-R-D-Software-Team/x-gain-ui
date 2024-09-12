@@ -4,11 +4,11 @@ import { Col, Slider, ConfigProvider } from 'antd';
 const ImpactWeightItem = ({ title, value, onChange }) => {
 
     const marks = {
+        0: '0',
         1: '1',
         2: '2',
         3: '3',
         4: '4',
-        5: '5',
     };
 
     return(
@@ -38,10 +38,10 @@ const ImpactWeightItem = ({ title, value, onChange }) => {
                 }}
             >
                 <Slider 
-                    defaultValue={3}
+                    defaultValue={2}
                     dots={false}
-                    max={5}
-                    min={1}
+                    max={4}
+                    min={0}
                     marks={marks}
                     value={value}
                     onChange={onChange}

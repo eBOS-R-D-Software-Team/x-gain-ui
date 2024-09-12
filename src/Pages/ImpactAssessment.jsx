@@ -9,13 +9,23 @@ import ImpactWeightItem from '../Components/ImpactWeightItem';
 const ImpactAssessment = () => {
     const navigate = useNavigate();
 
-    const [technologicalValue, setTechnologicalValue] = useState(3);
-    const [economicValue, setEconomicValue] = useState(3);
-    const [environmentalValue, setEnvironmentalValue] = useState(3);
+    const [technologicalValue, setTechnologicalValue] = useState(2);
+    const [economicValue, setEconomicValue] = useState(2);
+    const [environmentalValue, setEnvironmentalValue] = useState(2);
     const [loading, setLoading] = useState(false);
     const [highestSolItems, setHighestSolItems] = useState([]);
+    const [disabled, setDisabled] = useState(true);
 
     useEffect(() => {
+        // if it is greater than 6 then the button will be disabled ( Technological and Economic and Environmental )
+        const sumResults = technologicalValue + economicValue + environmentalValue
+        if (sumResults <= 6){
+            setDisabled(false)
+        }
+        else{
+            setDisabled(true)
+        }
+
         const fetchIccsResponseData = async () => {
             try {
                 const data = JSON.parse(localStorage.getItem('iccs_response'));
@@ -42,11 +52,11 @@ const ImpactAssessment = () => {
         };
         fetchIccsResponseData();
 
-    }, [technologicalValue]);
+    }, [technologicalValue , economicValue , environmentalValue]);
 
 
     const handleChangeTechnological = (value) => {
-        setTechnologicalValue(value);
+        setTechnologicalValue(value);         
     };
 
     const handleChangeEconomic = (value) => {
@@ -83,7 +93,7 @@ const ImpactAssessment = () => {
                 </Row>
                 <Row gutter={[32, 16]} style={{ background: "rgba(0, 44, 60, 0.10)", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '10px', margin: '30px 20px', borderRadius: 10}}>
                     <Col span={24} style={{ color: "rgb(0, 103, 138)", fontSize: "24px", fontWeight: "600", marginBottom: "40px"}}>
-                        Please move the sliders to assign importance weights to each impact indicator below for the assessment. Please keep the sum of weights to 9.
+                        Please move the sliders to assign importance weights to each impact indicator below for the assessment. <u><strong>Please keep the sum of weights to 6</strong> </u>.
                     </Col>
                     <ImpactWeightItem title={'Technological'} value={technologicalValue} onChange={handleChangeTechnological} />
                     <ImpactWeightItem title={'Economic'} value={economicValue} onChange={handleChangeEconomic} />
@@ -93,7 +103,7 @@ const ImpactAssessment = () => {
                     <Col span={24}>
                         <Button
                             type="primary"
-                            //disabled={disabled}
+                            disabled={disabled}
                             onClick={() => handleResults()}
                             style={{
                                 backgroundColor: '#016989',
