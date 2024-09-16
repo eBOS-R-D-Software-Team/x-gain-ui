@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Col, Row, Card, Select } from 'antd';
+import { Col, Row, Card, Select, message } from 'antd';
 import { stepsLabels } from '../Data/Data';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import ConfirmButton from '../Components/WizardElements/ConfirmButton';
@@ -14,16 +14,48 @@ const { Option } = Select
 function LocationDetails() {
     const navigate = useNavigate();
 
-    const [location, setLocation] = useState(initLocationData.location.result);
-    const [area, setArea] = useState(initLocationData.Area.result);
-    const [vegetationHeight, setVegetationHeight] = useState(initLocationData.Vegetation_height.result);
+    const [location, setLocation] = useState();
+    const [area, setArea] = useState();
+    const [vegetationHeight, setVegetationHeight] = useState();
     const [checkedTerrainTypes, setCheckedTerrainTypes] = useState(initLocationData.Terrain.result);
     const [checkedWeatherConditions, setCheckedWeatherConditions] = useState(initLocationData.Weather.result);
+    const [disabled, setDisabled] = useState(false);
 
+
+    useEffect(() => {          
+        if ( !location  ||  !checkedTerrainTypes.includes(1) || checkedWeatherConditions.slice(0, 3).filter(value => value === 1).length !== 1   ){
+            setDisabled(true)
+        } else if (vegetationHeight > 50 && checkedTerrainTypes.at(1) === 1){
+            message.error('The average vegetation height cannot be higher than 50 meters')
+            setDisabled(true)
+        }
+        else if (area > 5000  ){ 
+            message.error('The area cannot be higher than 5000.')
+            setDisabled(true)
+        }
+        else if (!area){
+            setDisabled(true)
+        }
+        else{        
+            setDisabled(false)
+        }    
+    }, [vegetationHeight ,location , checkedTerrainTypes , checkedWeatherConditions , area]);
     
     const handleChangeTerrain = (index) => {
         const newCheckedItems = [...checkedTerrainTypes];
         newCheckedItems[index] = newCheckedItems[index] === 1 ? 0 : 1;
+
+        // Conflict logic: Plain (index 0) vs Mountain (index 2)
+        if (newCheckedItems[0] === 1 && newCheckedItems[2] === 1) {
+            message.error('You cannot select both Plain and Mountain at the same time.');
+            // Deselect Mountain (index 2)
+            newCheckedItems[2] = 0;
+        } else if (newCheckedItems[2] === 1 && newCheckedItems[0] === 1) {
+            message.error('You cannot select both Plain and Mountain at the same time.');
+            // Deselect Plain (index 0)
+            newCheckedItems[0] = 0;
+        }
+
         setCheckedTerrainTypes(newCheckedItems);
     };
 
@@ -37,7 +69,7 @@ function LocationDetails() {
         setLocation(value);
     };
 
-    const handleChangeArea = (value) => {
+    const handleChangeArea = (value) => {       
         setArea(value); 
     };
 
@@ -47,31 +79,33 @@ function LocationDetails() {
 
 
     const handleNextClick = () => {
-        const data = {
-            location: {
-                type: "string", 
-                result: location
-            },
-            Area: {
-                type: "string", 
-                result: parseFloat(area)
-            },
-            Terrain: {
-                type: "string",
-                result: checkedTerrainTypes,
-            },
-            Weather: {
-                type: "string",
-                result: checkedWeatherConditions,
-            },
-            Vegetation_height: {
-                type: "string", 
-                result: vegetationHeight
-            },
-        };
-        localStorage.setItem('locationDetails', JSON.stringify(data));
-        console.log('locationDetails:', data);
-        navigate('/questions');
+
+            const data = {
+                location: {
+                    type: "string", 
+                    result: location
+                },
+                Area: {
+                    type: "string", 
+                    result: parseFloat(area) 
+                },
+                Terrain: {
+                    type: "string",
+                    result: checkedTerrainTypes,
+                },
+                Weather: {
+                    type: "string",
+                    result: checkedWeatherConditions,
+                },
+                Vegetation_height: {
+                    type: "string", 
+                    result: vegetationHeight ?? 0
+                },
+            };
+            localStorage.setItem('locationDetails', JSON.stringify(data));
+            console.log('locationDetails:', data);
+            navigate('/questions');
+        
     };
 
   
@@ -113,29 +147,35 @@ function LocationDetails() {
                         onChange={(e) => handleChangeArea(e.target.value)} 
                         text={<>{'Km'}<sup>2</sup></>} 
                     />
-                    <LocationInput 
-                        label={' Vegetation Height'} 
-                        value={vegetationHeight} 
-                        onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
-                        text={'m'} 
-                    />
+                    {checkedTerrainTypes.at(1) === 1 && (
+                        <LocationInput 
+                            label={' Vegetation Height'} 
+                            value={vegetationHeight} 
+                            onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
+                            text={'m'} 
+                          
+                        />
+                    )}
                 </Col>
+                
                 <LocationCheckbox 
                     label={'Terrain Type'}
                     text={'Please choose the option that better describes the terrain type of your location:'}
                     data={terrainTypes}
                     checkedItems={checkedTerrainTypes}
                     onChange={handleChangeTerrain}
-                />
+                /> 
 
                 <LocationCheckbox 
                     label={'Typical Weather Conditions'}
-                    text={'Please choose the options that better describe the weather conditions at your location:'}
-                    data={weatherConditions}
+                    text={'Please choose one option that better describes the weather conditions at your location:'}                    
+                    data={weatherConditions}                    
                     checkedItems={checkedWeatherConditions}
                     onChange={handleChangeWeather}
                 />
-                <ConfirmButton onClick={() => handleNextClick()} />         
+                <ConfirmButton
+                    disabled={disabled}
+                    onClick={() => handleNextClick()} />         
             </Row>
         </>
     );
