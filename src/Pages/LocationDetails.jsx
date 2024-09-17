@@ -77,6 +77,7 @@ function LocationDetails() {
         setVegetationHeight(value); 
     };
 
+    console.log(typeof parseFloat(vegetationHeight));
 
     const handleNextClick = () => {
 
@@ -111,7 +112,7 @@ function LocationDetails() {
   
     return (
         <>
-            <Row gutter={[32, 0]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
+            <Row gutter={[32, 12]} style={{ paddingTop: 10, backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <TitleForm 
                     icon={stepsLabels[2].icon} 
                     subicon={stepsLabels[2].subicon} 
@@ -141,7 +142,8 @@ function LocationDetails() {
                         </div>
                     </Card>
 
-                    <LocationInput 
+                    <LocationInput
+                        inputName={'Area'}
                         label={'Area “A” Size'} 
                         value={area} 
                         onChange={(e) => handleChangeArea(e.target.value)} 
@@ -149,11 +151,11 @@ function LocationDetails() {
                     />
                     {checkedTerrainTypes.at(1) === 1 && (
                         <LocationInput 
+                            inputName={'Vegetation Height'}
                             label={' Vegetation Height'} 
                             value={vegetationHeight} 
                             onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
-                            text={'m'} 
-                          
+                            text={'m'}                         
                         />
                     )}
                 </Col>
