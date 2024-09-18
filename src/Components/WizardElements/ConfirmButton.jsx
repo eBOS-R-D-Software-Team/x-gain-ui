@@ -2,26 +2,24 @@ import React from 'react';
 import { Col, Button } from 'antd';
 
 
-const ConfirmButton = ({disabled, onClick}) => {
+const ConfirmButton = ({disabled, onClick, text, color}) => {
     return (
-        <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
-            <Button
-                type="primary"
-                disabled={disabled}
-                onClick={onClick}
-                style={{
-                    backgroundColor: 'black',
-                    borderColor: 'black',
-                    color: '#FFF',
-                    padding: '30px 20px',
-                    fontSize: '18px',
-                    fontWeight: 700,
-                    borderRadius: '6px'
-                }}
-            >
-                Confirm Selection
-            </Button>      
-        </Col>
+        <Button
+            type="primary"
+            disabled={disabled}
+            onClick={onClick}
+            style={{
+                backgroundColor: color,
+                borderColor: color,
+                color: '#FFF',
+                padding: '30px 20px',
+                fontSize: '18px',
+                fontWeight: 700,
+                borderRadius: '6px'
+            }}
+        >
+            {text}
+        </Button>      
     );
 }
 

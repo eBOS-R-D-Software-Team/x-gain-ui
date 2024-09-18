@@ -101,10 +101,14 @@ function SocialQuestionsList() {
                 {isLastQuestion && hasSelectedOption && (
                     <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
-                            <ConfirmButton
-                                onClick={handleConfirmButton}
-                                style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
-                            />  
+                            <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                                <ConfirmButton
+                                    disabled={false}
+                                    onClick={handleConfirmButton}
+                                    color={'black'} 
+                                    text={'Confirm Selection'}
+                                />       
+                            </Col> 
                         </Row>                       
                     </Col>   
                 )}   

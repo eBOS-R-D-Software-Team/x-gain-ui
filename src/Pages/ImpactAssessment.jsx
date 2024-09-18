@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Row, Col, Layout, Button, Spin } from 'antd';
-import { postSolutionsAnalysis } from '../Data/Api';
+import { Row, Col, Layout, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels } from '../Data/Data';
 import ImpactWeightItem from '../Components/ImpactWeightItem';
+import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 
 const ImpactAssessment = () => {
     const navigate = useNavigate();
@@ -101,22 +101,12 @@ const ImpactAssessment = () => {
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '30px 20px'}}>
                     <Col span={24}>
-                        <Button
-                            type="primary"
+                        <ConfirmButton
                             disabled={disabled}
                             onClick={() => handleResults()}
-                            style={{
-                                backgroundColor: '#016989',
-                                borderColor: '#016989',
-                                color: '#FFF',
-                                padding: '30px 20px',
-                                fontSize: '18px',
-                                fontWeight: 700,
-                                borderRadius: '6px'
-                            }}
-                        >
-                            Compute Results
-                        </Button>      
+                            color={'#016989'} 
+                            text={'Compute Results'}
+                        />       
                     </Col>
                 </Row>
             </Layout>

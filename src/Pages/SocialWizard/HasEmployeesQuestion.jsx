@@ -98,11 +98,14 @@ function HasEmployeesQuestion() {
                     </Col>
                     <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
-                            <ConfirmButton
-                                disabled={value === null}
-                                onClick={handleConfirmData}
-                                style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
-                            />                      
+                            <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                                <ConfirmButton
+                                    disabled={value === null}
+                                    onClick={handleConfirmData}
+                                    color={'black'} 
+                                    text={'Confirm Selection'}
+                                />       
+                            </Col>                   
                         </Row>                       
                     </Col>      
                 </Row>

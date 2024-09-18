@@ -79,11 +79,14 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
             {isLastQuestion && (         
                 <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
-                        <ConfirmButton
-                            disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
-                            onClick={handleConfirm}
-                            style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
-                        />                      
+                        <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                            <ConfirmButton
+                                disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
+                                onClick={handleConfirm}
+                                color={'black'} 
+                                text={'Confirm Selection'}
+                            />       
+                        </Col>                  
                     </Row>                       
                 </Col>          
             )}

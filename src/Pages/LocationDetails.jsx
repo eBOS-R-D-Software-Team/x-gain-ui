@@ -175,9 +175,9 @@ function LocationDetails() {
                     checkedItems={checkedWeatherConditions}
                     onChange={handleChangeWeather}
                 />
-                <ConfirmButton
-                    disabled={disabled}
-                    onClick={() => handleNextClick()} />         
+                <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                    <ConfirmButton disabled={disabled} onClick={() => handleNextClick()} color={'black'} text={'Confirm Selection'}/>  
+                </Col>       
             </Row>
         </>
     );
