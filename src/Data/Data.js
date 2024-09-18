@@ -107,6 +107,16 @@ export const stepsLabels = [
         data: "",
         color: "#00678A"
     },
+    {
+        title: "Results:",
+        subtitle: "Business Model Canvas",
+        icon: "/images/icons/graph1.png",
+        subicon: "/images/icons/graph2.png",
+        url: "",
+        content: null,
+        data: "",
+        color: "#158D6B"
+    },
 ];
 
 

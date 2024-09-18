@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Card, Spin } from 'antd';
+import { Row, Col, Layout, Typography, Card, Spin, Button } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import { stepsLabels } from '../../Data/Data';
 import SelectedSectorItem from '../../Components/ResultsElements/SelectedSectorItem';
@@ -117,6 +117,13 @@ function SummaryResults() {
         }, 1000);
     };
 
+    const handleBusinessModelClick = () => {
+        setLoading(true);
+        setTimeout(() => {
+            navigate('/business-model');
+        }, 1000);
+    };
+
 
     return(
         <Spin spinning={loading} tip="Loading...">
@@ -222,6 +229,53 @@ function SummaryResults() {
                                     </Col>
                                 </Row>
                             }  
+                        </Card>   
+                    </Col>           
+                    <Col span={24} lg={12} xxl={8}>                   
+                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleBusinessModelClick}>
+                            <Row>
+                                <Col span={24}>
+                                    <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
+                                        <div style={{ display: 'block', margin: 'auto' }}>
+                                            Business Model                      
+                                        </div>                 
+                                    </Title> 
+                                </Col>
+                            </Row>                           
+                            <Row span={24}>    
+                                <Col span={24} style={{ height: 350, position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div 
+                                        style={{ 
+                                            position: 'absolute', 
+                                            top: 0, 
+                                            left: 0, 
+                                            right: 0, 
+                                            bottom: 0, 
+                                            backgroundImage: `url('/images/business-model-icons/bm-main-img.png')`, 
+                                            backgroundRepeat: 'no-repeat', 
+                                            backgroundSize: 'cover', 
+                                            opacity: 0.3, // Apply the opacity to the image
+                                            zIndex: 1  // Make sure it's behind the button
+                                        }} 
+                                    />
+                                    <Button
+                                        type="primary"
+                                        style={{
+                                            backgroundColor: '#016989',
+                                            borderColor: '#016989',
+                                            color: '#FFF',
+                                            padding: '30px 20px',
+                                            fontSize: '18px',
+                                            fontWeight: 700,
+                                            borderRadius: '6px',
+                                            zIndex: 2, // Ensure the button appears above the background
+                                            position: 'relative' // To make sure it's above the background div
+                                        }}
+                                    >
+                                        See More
+                                    </Button>                        
+                                </Col>
+                            </Row>                          
                         </Card>   
                     </Col>                               
                 </Row>

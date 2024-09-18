@@ -169,6 +169,70 @@ button .ant-btn-icon {
   background-color: #006187;
 }
 
+.ant-col:nth-child(1) .business_card {
+  border-left: none;
+}
+
+.ant-col:nth-child(5) .business_card, .ant-col:nth-child(2) .business_card {
+  border-right: none;
+}
+
+.business_card {
+  border-bottom: 2px solid #006187;
+  border-left: 2px solid #006187;
+  border-top: none;
+  border-radius: 0px;
+  color: #707070;
+}
+
+.business_card:hover {
+  border-bottom: 2px solid #006187
+
+}
+
+.business_card .ant-card-head {
+  color: #006187;
+  border-bottom: none
+}
+
+.business_card .ant-card-body {
+  padding: 0;
+  display: flex;
+  height: 100%
+}
+
+.business_card_public_auth .ant-card-head-title {
+  font-weight: bold;
+  color: #006187;
+}
+
+.business_card_public_auth:nth-child(1) .ant-card-head-title, .business_card_public_auth:nth-child(2) .ant-card-head-title {
+  color: #158D6B; /* Set the color to red for the first child */
+}
+
+.business_card_public_auth:nth-child(7) .ant-card-head-title, .business_card_public_auth:nth-child(8) .ant-card-head-title {
+  color: #259392; /* Set the color to red for the first child */
+}
+
+.business_card_public_auth .ant-card-head {
+  text-align: center;
+  border-bottom: none
+}
+
+.business_card_public_auth .ant-card-body {
+  padding: 0;
+  height: 100%;
+  color: #707070;
+
+}
+
+@media (max-width: 1199px) {
+.ant-col:nth-child(5) .business_card {
+  border-right: 2px solid #006187;
+}
+}
+
+
 @media (min-width: 992px) {
   .wizard_steps_buttons {
     width: 65%

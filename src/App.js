@@ -16,6 +16,7 @@ import TermsIndex from './Pages/TermsIndex';
 import TechnoEconomicIndicators from './Pages/Results/TechnoEconomicIndicators';
 import HasEmployeesQuestion from './Pages/SocialWizard/HasEmployeesQuestion';
 import SocialQuestionsList from './Pages/SocialWizard/SocialQuestionsList';
+import BusinessModel from './Pages/Results/BusinessModel';
 
 function App() { 
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/techno-economic-indicators" element={<TechnoEconomicIndicators />} />
           <Route path="/has-employee" element={<HasEmployeesQuestion />} />
           <Route path="/social-questions" element={<SocialQuestionsList />} />
+          <Route path="/business-model" element={<BusinessModel />} />
           <Route path="/*" element={<PageNotFound />} />
         </Route>
       </Routes>

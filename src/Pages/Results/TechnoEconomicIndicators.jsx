@@ -82,7 +82,7 @@ function TechnoEconomicIndicators() {
                 <Col span={24} lg={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <div style={{ display: 'block', margin: 'auto' }}>
-                            CAPEX                      
+                            CAPEX Analysis                      
                         </div>                 
                     </Title> 
                     <CapexOpexTable 
@@ -103,7 +103,7 @@ function TechnoEconomicIndicators() {
                 <Col span={24} lg={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <div style={{ display: 'block', margin: 'auto' }}>
-                            OPEX                      
+                            OPEX Analysis                     
                         </div>                 
                     </Title> 
                     <CapexOpexTable 
@@ -121,10 +121,6 @@ function TechnoEconomicIndicators() {
                         categoryTotal={solutionData.opexPerLayer}
                     />
                 </Col>
-            </Row>
-            <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                
-                
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                 <Col span={24} lg={8} style={{ marginTop: 30 }}>              

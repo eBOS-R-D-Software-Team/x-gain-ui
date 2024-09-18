@@ -24,3 +24,13 @@ export const processColumnChartData = (periodsExist, capexDataExist, periods, ca
         })
     ];
 };
+
+export const renderBulletedList = (content) => {
+    if (!content) {
+        return null; // Return nothing if content is undefined or null
+      }
+      
+      return content.split('\n').map((item, index) => (
+        <li key={index}>{item}</li>
+      ));
+  };
