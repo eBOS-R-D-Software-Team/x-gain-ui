@@ -150,4 +150,5 @@ export const totalCapexOpexColumns = [
         render: (value) => value,
         //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
     },
+    
 ];
