@@ -48,10 +48,7 @@ function SummaryResults() {
 
 
     useEffect(() => {
-        // console.log('Solution data:', solutionData.Processing_information.Process_Dev_per_layer[0]);
-        // console.log('Sector Service Data:', sectorServiceData);
         console.log('Solution Analysis data:', solutionAnalysisData);
-        //console.log('Scores:', socialScoresData);
 
         const filteredData = solutionAnalysisData.analysisResults?.find(item => item.id === solutionData?.Sol_ID.toString());
         if (filteredData && filteredData !== filteredSolutionAnalysisData) {

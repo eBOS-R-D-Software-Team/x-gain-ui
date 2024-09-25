@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Spin, message } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
 import { stepsLabels } from '../../Data/Data';
 import SocialQuestionItem from '../../Components/WizardElements/SocialQuestionItem';
-import { postSolutionsAnalysis, postSocialAnswers } from '../../Data/Api';
+import { postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../../Data/Api';
 
 function SocialQuestionsList() {
     const [loading, setLoading] = useState(false);
+    const [iccsResponseData, setIccsResponseData] = useState({});
     const [questionsData, setQuestionsData] = useState([]);
     const [answers, setAnswers] = useState({});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -22,6 +23,15 @@ function SocialQuestionsList() {
         if (savedQuestionsData) {
             const parsedData = JSON.parse(savedQuestionsData);
             setQuestionsData(parsedData);      
+        }
+    }, []);
+
+
+    useEffect(() => {
+        const data = localStorage.getItem('iccs_response');
+        if (data) {
+            const parsedData = JSON.parse(data);
+            setIccsResponseData(parsedData);      
         }
     }, []);
 
@@ -61,16 +71,22 @@ function SocialQuestionsList() {
     };
 
 
-    const handleConfirmButton = () => {
-        setLoading(true);
-       
-        setTimeout(() => {
+    const handleConfirmButton = async () => {
+        try {
+            setLoading(true);
+        
+            // Simulate a delay if required for UX purposes
+            await new Promise((resolve) => setTimeout(resolve, 3000));
             setIsCompleted(true);
-            postSolutionsAnalysis();
-            postSocialAnswers(dataCalculateSocialScore);
-            localStorage.setItem('socialAnswersResponse', JSON.stringify(dataCalculateSocialScore));
+            await postSolutionsAnalysis();
+            await postSocialAnswers(dataCalculateSocialScore);
+            await postEnvironmentalData(iccsResponseData);
             navigate('/impact-assessment');
-        }, 3000);
+        } catch (error) {
+            message.error("An error occurred during the submission process:", error)
+        } finally {
+            setLoading(false);
+        }
     };
     
     const currentQuestion = questionsData[currentQuestionIndex];

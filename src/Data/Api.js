@@ -130,9 +130,24 @@ export const postSocialQuestions = async (mainData) => {
 
 
 export const postSocialAnswers = async (data) => {
-    const responseData = await postWithAccessToken('/api3/Social/CalculateSocialScore', data);
+    try {
+        const responseData = await postWithAccessToken('/api3/Social/CalculateSocialScore', data);
+        if (responseData) {
+            localStorage.setItem('socialAnswersResponse', JSON.stringify(responseData));
+            console.log('Calculate Social Score response:', responseData);
+        }
+        return !!responseData;
+    } catch (error) {
+        console.error('Error posting to Solutions Analysis:', error);
+        return false;
+    }
+};
+
+
+export const postEnvironmentalData = async (data) => {
+    const responseData = await postWithAccessToken('/api3/Environmental/CalculateEnvironmentalScore', data);
     if (responseData) {
-        localStorage.setItem('socialAnswersResponse', JSON.stringify(responseData));
+        localStorage.setItem('environmentalDataResponse', JSON.stringify(responseData));
     }
     return responseData;
 };
