@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Row, Col, Layout, Spin } from 'antd';
+import { Row, Col, Layout, Spin, message } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels } from '../Data/Data';
 import ImpactWeightItem from '../Components/ImpactWeightItem';
@@ -22,25 +22,39 @@ const ImpactAssessment = () => {
         if (sumResults <= 6){
             setDisabled(false)
         }
-        else{
+        else {
+            message.error('The sum of weights should be smaller or equal than 6')
             setDisabled(true)
         }
 
-        const fetchIccsResponseData = async () => {
+        const fetchData = async () => {
             try {
-                const data = JSON.parse(localStorage.getItem('iccs_response'));
+                const iccsResponse = JSON.parse(localStorage.getItem('iccs_response'));
+                const incResponse = JSON.parse(localStorage.getItem('solutionsAnalysisResponse'));
 
-                if (data && data.results) {
+                if (iccsResponse && iccsResponse.results) {
                     // Iterate through each result in the results object
-                    Object.keys(data.results).forEach((key) => {
-                        const result = data.results[key];
-                        
+                    Object.keys(iccsResponse.results).forEach((key) => {
+                        const result = iccsResponse.results[key];
+
+                        // Find the corresponding item in incResponse by matching "id" with "Sol_ID"
+                        const matchingItem = incResponse.teranking.find(item => item.id === result.Sol_ID.toString());
+
+                        // If a matching item is found, add a new key with the value from incResponse
+                        if (matchingItem) {
+                            result.Economic_score = matchingItem.value; // Add new key here
+                        } else {
+                            result.Economic_score = 0; // Handle the case where no matching item is found
+                        }
+
+                        console.log(result.Economic_score);
+                      
                         // Assign the value of "Technology_score" to a new key "RankTotalScore"
-                        result.RankTotalScore = result.Technology_score * technologicalValue;
+                        result.RankTotalScore = (result.Technology_score * technologicalValue) + (result.Economic_score * economicValue);
                     });
 
                     // Get top 3 items based on RankTotalScore
-                    const highestSolutions = Object.values(data.results)
+                    const highestSolutions = Object.values(iccsResponse.results)
                         .sort((a, b) => b.RankTotalScore - a.RankTotalScore) // Sort descending
                         .slice(0, 3); // Take top 3
 
@@ -50,7 +64,7 @@ const ImpactAssessment = () => {
                 console.error('Error fetching data:', error);
             }
         };
-        fetchIccsResponseData();
+        fetchData();
 
     }, [technologicalValue , economicValue , environmentalValue]);
 
