@@ -81,7 +81,7 @@ function SummaryResults() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const questions = socialScoresData.map(item => 'Test');
+                const questions = socialScoresData.map(item => item.category);
                 const scores = socialScoresData.map(item => item.score);
         
                 setChartData({

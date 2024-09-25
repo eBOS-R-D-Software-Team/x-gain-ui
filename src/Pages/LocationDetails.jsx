@@ -77,36 +77,32 @@ function LocationDetails() {
         setVegetationHeight(value); 
     };
 
-    console.log(typeof parseFloat(vegetationHeight));
-
     const handleNextClick = () => {
-
-            const data = {
-                location: {
-                    type: "string", 
-                    result: location
-                },
-                Area: {
-                    type: "string", 
-                    result: parseFloat(area) 
-                },
-                Terrain: {
-                    type: "string",
-                    result: checkedTerrainTypes,
-                },
-                Weather: {
-                    type: "string",
-                    result: checkedWeatherConditions,
-                },
-                Vegetation_height: {
-                    type: "string", 
-                    result: vegetationHeight ?? 0
-                },
-            };
-            localStorage.setItem('locationDetails', JSON.stringify(data));
-            console.log('locationDetails:', data);
-            navigate('/questions');
-        
+        const data = {
+            location: {
+                type: "string", 
+                result: location
+            },
+            Area: {
+                type: "string", 
+                result: parseFloat(area) 
+            },
+            Terrain: {
+                type: "string",
+                result: checkedTerrainTypes,
+            },
+            Weather: {
+                type: "string",
+                result: checkedWeatherConditions,
+            },
+            Vegetation_height: {
+                type: "string", 
+                result: vegetationHeight ?? 0
+            },
+        };
+        localStorage.setItem('locationDetails', JSON.stringify(data));
+        console.log('locationDetails:', data);
+        navigate('/questions');    
     };
 
   
