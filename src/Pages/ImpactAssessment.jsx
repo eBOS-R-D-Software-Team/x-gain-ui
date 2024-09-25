@@ -31,6 +31,7 @@ const ImpactAssessment = () => {
             try {
                 const iccsResponse = JSON.parse(localStorage.getItem('iccs_response'));
                 const incResponse = JSON.parse(localStorage.getItem('solutionsAnalysisResponse'));
+                const wrResponse = JSON.parse(localStorage.getItem('environmentalDataResponse'));
 
                 if (iccsResponse && iccsResponse.results) {
                     // Iterate through each result in the results object
@@ -38,19 +39,25 @@ const ImpactAssessment = () => {
                         const result = iccsResponse.results[key];
 
                         // Find the corresponding item in incResponse by matching "id" with "Sol_ID"
-                        const matchingItem = incResponse.teranking.find(item => item.id === result.Sol_ID.toString());
+                        const economicScore = incResponse.teranking.find(item => item.id === result.Sol_ID.toString());
+                        const environmentalScore = wrResponse.find(item => item.solution === result.Sol_ID);
 
                         // If a matching item is found, add a new key with the value from incResponse
-                        if (matchingItem) {
-                            result.Economic_score = matchingItem.value; // Add new key here
+                        if (economicScore) {
+                            result.Economic_score = economicScore.value; // Add new key here
                         } else {
                             result.Economic_score = 0; // Handle the case where no matching item is found
                         }
 
-                        console.log(result.Economic_score);
+                         // If a matching item is found, add a new key with the value from incResponse
+                         if (environmentalScore) {
+                            result.Environmental_score = environmentalScore.solutionScore; // Add new key here
+                        } else {
+                            result.Environmental_score = 0; // Handle the case where no matching item is found
+                        }
                       
                         // Assign the value of "Technology_score" to a new key "RankTotalScore"
-                        result.RankTotalScore = (result.Technology_score * technologicalValue) + (result.Economic_score * economicValue);
+                        result.RankTotalScore = (result.Technology_score * technologicalValue) + (result.Economic_score * economicValue) + (result.Environmental_score * environmentalValue);
                     });
 
                     // Get top 3 items based on RankTotalScore
@@ -84,7 +91,6 @@ const ImpactAssessment = () => {
     const handleResults = () => {
         setLoading(true);
         setTimeout(() => {
-            //postSolutionsAnalysis();
             navigate('/technology-mixes', { state: { highestSolItems } });
         }, 5000);
     };
