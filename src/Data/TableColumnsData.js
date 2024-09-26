@@ -26,9 +26,15 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'Local Connectivity',
-                dataIndex: ['Connectivity_information', 'Nets', 1],
                 key: 'localConnectivity',
                 className: 'technology-table-child',
+                render: (text, record) => {
+                    const linksLength = record.Connectivity_information.Links.length;
+                    const netsValue = linksLength === 2 
+                        ? null
+                        : record.Connectivity_information.Nets[1];
+                    return netsValue;
+                },
             },
             {
                 title: 'No',
@@ -39,9 +45,15 @@ export const technologyMixesColumns = [
             },
             {
                 title: '(Public) Internet \n Connectivity',
-                dataIndex: ['Connectivity_information', 'Nets', 2],
                 key: 'internetConnectivity',
                 className: 'technology-table-child',
+                render: (text, record) => {
+                    const linksLength = record.Connectivity_information.Links.length;
+                    const netsValue = linksLength === 2 
+                        ? record.Connectivity_information.Nets[1]
+                        : record.Connectivity_information.Nets[2];
+                    return netsValue;
+                },
             },
             {
                 title: 'No',

@@ -122,6 +122,31 @@ function SummaryResults() {
     };
 
 
+    const netsLength = solutionData.Connectivity_information.Nets.length;
+    const netsData = solutionData.Connectivity_information.Nets.slice(0, netsLength).map((net, index) => {
+      return `${solutionData.Connectivity_information.Number[index]}x ${net}`;
+    });
+
+    
+    const enablersLength = solutionData.Processing_information.Process_Dev_per_layer.length;
+    const enablersData = solutionData.Processing_information.Process_Dev_per_layer.slice(0, enablersLength).map((dev, index) => {
+        // Get the number value for the current index, handling cases where it's empty
+        const numberValue = solutionData.Processing_information.Number[index]?.length > 0 
+            ? solutionData.Processing_information.Number[index] 
+            : 0;
+
+        // Only return the process dev if it's not an empty array
+        if (dev.length > 0) {
+            return `${numberValue}x ${dev}`;
+        }
+
+        return null; // Skip if empty
+    });
+
+    // Filtering out null values (from empty arrays) before displaying
+    const filteredEnablersData = enablersData.filter(item => item !== null);
+
+    
     return(
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
@@ -163,18 +188,16 @@ function SummaryResults() {
                             <Col span={24}>
                                 <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                                     <div style={{ display: 'block', margin: 'auto' }}>
-                                    Connectivity & Edge Enablers                      
+                                        Connectivity & Edge Enablers                      
                                     </div>                 
                                 </Title> 
                             </Col>
                             </Row>
                             {sectorServiceData && 
                                 <Row span={24}>  
-                                    {solutionData.Processing_information.Process_Dev_per_layer[0].length !== 0 ??
-                                        <SelectedConnectivityEdgeEnablers text={solutionData.Processing_information.Process_Dev_per_layer[0]}/>
-                                    }
-                                    {solutionData.Processing_information.Process_Dev_per_layer[1].length !== 0 &&
-                                        <SelectedConnectivityEdgeEnablers text={solutionData.Processing_information.Process_Dev_per_layer[1]}/>
+                                    <SelectedConnectivityEdgeEnablers text={netsData.join(', ')}/>
+                                    {filteredEnablersData.length > 0 && (
+                                        filteredEnablersData.map((item, idx) => <SelectedConnectivityEdgeEnablers key={item.id || idx} text={item}/>))
                                     }
                                     {solutionData.End_dev_information.Number[0].length !== 0 &&
                                         <SelectedConnectivityEdgeEnablers text={solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0]}/>
@@ -221,7 +244,7 @@ function SummaryResults() {
                             </Row>
                             {chartData  && 
                                 <Row span={24}>    
-                                    <Col span={24} style={{ marginTop: 20 }}>              
+                                    <Col span={24} style={{ marginTop: 20, display: 'flex', justifyContent: 'center' }}>              
                                         <RadarChartData data={chartData} />
                                     </Col>
                                 </Row>
