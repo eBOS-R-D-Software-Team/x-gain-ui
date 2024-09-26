@@ -3,7 +3,7 @@ import { Col } from 'antd';
 
 const SelectedConnectivityEdgeEnablers = ({ text }) => {
     return(
-        <Col span={24} lg={8}>                          
+        <Col span={24} xl={8}>                          
             <div style={{ textAlign: '-webkit-center' }}>
                 <div
                     style={{

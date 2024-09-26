@@ -124,8 +124,12 @@ function SummaryResults() {
 
     const netsLength = solutionData.Connectivity_information.Nets.length;
     const netsData = solutionData.Connectivity_information.Nets.slice(0, netsLength).map((net, index) => {
-      return `${solutionData.Connectivity_information.Number[index]}x ${net}`;
-    });
+        if (!net || !solutionData.Connectivity_information.Number[index]) {
+            return null;  // Return null if either is missing
+        }
+      
+        return `${solutionData.Connectivity_information.Number[index]}x ${net}`;
+    }).filter(item => item !== null);
 
     
     const enablersLength = solutionData.Processing_information.Process_Dev_per_layer.length;
@@ -135,12 +139,11 @@ function SummaryResults() {
             ? solutionData.Processing_information.Number[index] 
             : 0;
 
-        // Only return the process dev if it's not an empty array
         if (dev.length > 0) {
             return `${numberValue}x ${dev}`;
         }
 
-        return null; // Skip if empty
+        return null;
     });
 
     // Filtering out null values (from empty arrays) before displaying
