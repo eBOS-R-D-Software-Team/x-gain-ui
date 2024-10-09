@@ -9,14 +9,25 @@ import { initQuestionsData } from '../Data/JsonObjects';
 
 function QuestionsList() {
     const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
-    const [formData, setFormData] = useState(initQuestionsData);
+    const [formData, setFormData] = useState({
+        initData: initQuestionsData,
+        data: {}
+    });
     const [nextQuestionKey, setNextQuestionKey] = useState(null); // State to handle navigation
     const [loading, setLoading] = useState(false);
+    const [devicesChoice, setDevicesChoice] = useState({
+        tablet: false,
+        laptop: false
+    });
+    const [inputDevicesValues, setInputDevicesValues] = useState({
+        tablet: '',
+        laptop: ''
+    });
 
     const navigate = useNavigate();
     
     useEffect(() => {
-        localStorage.setItem('questionsFormData', JSON.stringify(formData));
+        localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
         console.log('questionsFormData', formData);
     }, [formData]);
 
@@ -33,11 +44,23 @@ function QuestionsList() {
 
         setFormData(prevFormData => ({
             ...prevFormData,
-            [currentQuestionKey]: {
-                ...prevFormData[currentQuestionKey],
-                type: "string",
-                choice: choice.text,
-                result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0)
+            initData: {
+                ...prevFormData.initData,
+                [currentQuestionKey]: {
+                    ...prevFormData.initData[currentQuestionKey],
+                    type: "string",
+                    choice: choice.text,
+                    result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0)
+                }
+            },
+            data: {
+                ...prevFormData.data,
+                [currentQuestionKey]: {
+                    ...prevFormData.data[currentQuestionKey],
+                    type: "string",
+                    choice: choice.text,
+                    result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0)
+                }
             }
         }));
 
@@ -62,14 +85,14 @@ function QuestionsList() {
             } else {
                 // For other questions, ensure result is an array and handle updates
                 // Save 1 value to selected choice
-                updatedResult = prevFormData[currentQuestionKey] && Array.isArray(prevFormData[currentQuestionKey].result)
-                    ? [...prevFormData[currentQuestionKey].result]
+                updatedResult = prevFormData.initData[currentQuestionKey] && Array.isArray(prevFormData.initData[currentQuestionKey].result)
+                    ? [...prevFormData.initData[currentQuestionKey].result]
                     : [value];
                 
                 //Save input value to choice position
-                if (currentQuestionKey === 'dev_per_type' || currentQuestionKey === 'personal_dev_type') {
-                    const choiceIndex = questions[currentQuestionKey].choices.findIndex(c => c.text === prevFormData[currentQuestionKey]?.choice);
-                    if (choiceIndex !== -1) {
+                if (currentQuestionKey === 'dev_per_type') {
+                    const choiceIndex = questions[currentQuestionKey].choices.findIndex(c => c.text === prevFormData.initData[currentQuestionKey]?.choice);
+                    if (choiceIndex !== -1 && choiceIndex !== 2) {
                         updatedResult[choiceIndex] = value;
                     }
                 }
@@ -77,17 +100,80 @@ function QuestionsList() {
   
             const updatedFormData = {
                 ...prevFormData,
-                [currentQuestionKey]: {
-                    ...prevFormData[currentQuestionKey],
-                    type: "string",
-                    input: value,
-                    result: updatedResult
+                initData: {
+                    ...prevFormData.initData,
+                    [currentQuestionKey]: {
+                        ...prevFormData.initData[currentQuestionKey],
+                        type: "string",
+                        input: value,
+                        result: updatedResult
+                    }
+                },
+                data: {
+                    ...prevFormData.data,
+                    [currentQuestionKey]: {
+                        ...prevFormData.data[currentQuestionKey],
+                        type: "string",
+                        input: value,
+                        result: updatedResult
+                    }
                 }
             };
     
             return updatedFormData;
         });
     };
+
+
+    // Handle checkbox change
+    const handleCheckboxChange = (inputType) => {
+        setDevicesChoice((prevState) => ({
+            ...prevState,
+            [inputType]: !prevState[inputType],
+        }));
+    };
+
+
+    // Handle input change
+    const handleInputDevicesChange = (event, deviceType) => {
+        const value = event.target.value;
+        setInputDevicesValues((prevState) => ({
+            ...prevState,
+            [deviceType]: value
+        }));
+
+        // Update formData result accordingly
+        setFormData((prevState) => {
+            const updatedResult = [...prevState.initData[currentQuestionKey].result];
+            
+            if (deviceType === 'tablet') {
+                updatedResult[0] = parseInt(value) || 0; // Update tablet count
+            } else if (deviceType === 'laptop') {
+                updatedResult[1] = parseInt(value) || 0; // Update laptop count
+            }
+
+            return {
+                ...prevState,
+                initData: {
+                    ...prevState.initData,
+                    [currentQuestionKey]: {
+                        ...prevState.initData[currentQuestionKey],
+                        result: updatedResult
+                    }
+                },
+                data: {
+                    ...prevState.data,
+                    [currentQuestionKey]: {
+                        ...prevState.data[currentQuestionKey],
+                        result: updatedResult
+                    }
+                }
+            };
+        });
+    };
+
+    // Check if both checkboxes are selected
+    const selectedBothDevices = devicesChoice.tablet && devicesChoice.laptop;
     
 
     const handleNextQuestion = () => {
@@ -95,13 +181,21 @@ function QuestionsList() {
         let nextQuestion;
     
         //Navigate steps after form data is updated
-        if (currentQuestionKey === 'dev_per_type' || currentQuestionKey === 'personal_dev_type') {
-            const choice = questions[currentQuestionKey].choices.find(c => c.text === formData[currentQuestionKey]?.choice);
+        if (currentQuestionKey === 'dev_per_type') {
+            const choice = questions[currentQuestionKey].choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
             nextQuestion = choice?.nextQuestion;
+        } else if (currentQuestionKey === 'personal_dev_type') {
+            if(selectedBothDevices) {
+                nextQuestion = "personal_internet";
+            } else if(devicesChoice.tablet) {
+                nextQuestion = "tablet_internet";
+            } else if(devicesChoice.laptop) {
+                nextQuestion = "laptop_internet";
+            }
         } else if (currentQuestion.input) {
             nextQuestion = currentQuestion.input.nextQuestion;
         } else {
-            const choice = currentQuestion.choices.find(c => c.text === formData[currentQuestionKey]?.choice);
+            const choice = currentQuestion.choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
             nextQuestion = choice?.nextQuestion;
         }
 
@@ -115,13 +209,23 @@ function QuestionsList() {
         setLoading(true);
         try {
             // Save the form data and set the next question key
-            setFormData(prevFormData => {
-                const updatedFormData = { ...prevFormData };
-                localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData));
-                localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData));
-                setNextQuestionKey('end');
-                return updatedFormData;
-            });
+            setFormData(
+                prevFormData => {
+                    const updatedFormData = { 
+                        ...prevFormData,
+                        initData: {
+                            ...prevFormData.initData,
+                        },
+                        data: {
+                            ...prevFormData.data,
+                        } 
+                    };
+                    localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData.initData));
+                    localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData.initData));
+                    setNextQuestionKey('end');
+                    return updatedFormData;
+                }
+            );
     
             const response = await postDataToICCSApi();
     
@@ -141,6 +245,7 @@ function QuestionsList() {
      
     const currentQuestionData = questions[currentQuestionKey];
    
+    
     return (
         <>
             <Spin spinning={loading} tip="Loading...">
@@ -155,11 +260,16 @@ function QuestionsList() {
                     />
                     <QuestionItem
                         questionData={currentQuestionData}
-                        formData={formData[currentQuestionKey] || {}}
+                        formData={formData.initData[currentQuestionKey] || {}}
                         handleChoiceChange={handleChoiceChange}
                         handleInputChange={handleInputChange}
                         handleNext={handleNextQuestion}
                         handleConfirm={handleConfirmData}
+                        currentQuestionKey={currentQuestionKey}
+                        handleCheckboxChange={handleCheckboxChange}
+                        devicesChoice={devicesChoice}
+                        handleInputDevicesChange={handleInputDevicesChange}
+                        inputDevicesValues={inputDevicesValues}
                     />
                 </Row>
             </Spin>

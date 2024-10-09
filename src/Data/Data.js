@@ -301,11 +301,16 @@ export const questions = {
     personal_dev_type: {
         text: "What type of personal device will you be using? Please provide the number of each.",
         choices: [
-            { id: 'personal_dev_type_1', text: "Smartphones / Tablets", checked: false, nextQuestion: "tablet_internet" },
-            { id: 'personal_dev_type_2', text: "Laptops", checked: false, nextQuestion: "laptop_internet" }
+            { id: 1, text: "Smartphones / Tablets", checked: false, nextQuestion: "tablet_internet", inputType: 'tablet' },
+            { id: 2, text: "Laptops", checked: false, nextQuestion: "laptop_internet", inputType: 'laptop' }
         ],
-        input: {
-            label: "Number of devices",
+        tabletInput: {
+            label: "Number of devices of Smartphones / Tablets",
+            value: "", // Initialize with an empty string
+            nextQuestion: "", // Initialize with an empty string
+        },
+        laptopInput: {
+            label: "Number of devices of Laptops",
             value: "", // Initialize with an empty string
             nextQuestion: "", // Initialize with an empty string
         }
@@ -340,13 +345,6 @@ export const questions = {
             { id: 3, text: "Music streaming", checked: false, nextQuestion: "end" }
         ]
     },
-    personal_internet: {
-        text: "Will you be uploading videos from your personal device?",
-        choices: [
-            { id: 1, text: "Yes", checked: false, nextQuestion: "laptop_image_proc" },
-            { id: 2, text: "No", checked: false, nextQuestion: "laptop_rate_down"  }
-        ]
-    },
     laptop_internet: {
         text: "Will you be uploading videos from your personal device?",
         choices: [
@@ -357,19 +355,49 @@ export const questions = {
     laptop_image_proc: {
         text: "What type of digital processing needs to be done with the data produced by your device?",
         choices: [
-            { id: 1, text: "Image processing (e.g. object detection and recognition, image analysis)", checked: false, nextQuestion: "tablet_image_lat" },
-            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "tablet_rate_down" }
+            { id: 1, text: "Image processing (e.g. object detection and recognition, image analysis)", checked: false, nextQuestion: "laptop_image_lat" },
+            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "laptop_rate_down" }
         ]
     },
     laptop_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "tablet_rate_down" },
-            { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "tablet_rate_down" },
-            { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "tablet_rate_down" }
+            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "laptop_rate_down" },
+            { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "laptop_rate_down" },
+            { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "laptop_rate_down" }
         ]
     },
     laptop_rate_down: {
+        text: "Will you be consuming content on your devices? If so which category of content? Select the first one that applies.",
+        choices: [
+            { id: 1, text: "High resolution videos", checked: false, nextQuestion: "end" },
+            { id: 2, text: "Browsing the web", checked: false, nextQuestion: "end" },
+            { id: 3, text: "Music streaming", checked: false, nextQuestion: "end" }
+        ]
+    },
+    personal_internet: {
+        text: "Will you be uploading videos from your personal device?",
+        choices: [
+            { id: 1, text: "Yes", checked: false, nextQuestion: "personal_proc" },
+            { id: 2, text: "No", checked: false, nextQuestion: "personal_rate_down"  }
+        ]
+    },
+    personal_proc: {
+        text: "What type of digital processing needs to be done with the data produced by your device?",
+        choices: [
+            { id: 1, text: "Image processing (e.g. object detection and recognition, image analysis)", checked: false, nextQuestion: "personal_image_lat" },
+            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "personal_rate_down" }
+        ]
+    },
+    personal_image_lat: {
+        text: "How fast does the captured video have to be processed?",
+        choices: [
+            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "personal_rate_down" },
+            { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "personal_rate_down" },
+            { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "personal_rate_down" }
+        ]
+    },
+    personal_rate_down: {
         text: "Will you be consuming content on your devices? If so which category of content? Select the first one that applies.",
         choices: [
             { id: 1, text: "High resolution videos", checked: false, nextQuestion: "end" },
