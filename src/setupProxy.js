@@ -14,7 +14,7 @@ module.exports = function addProxyMiddleware(app) {
     app.use(
         '/api3',
         createProxyMiddleware({
-            target: 'http://localhost:5122',
+            target: 'https://environmental-model.onrender.com',
             changeOrigin: true,
             pathRewrite: {
                 '^/api3': '', // remove /api from the URL path

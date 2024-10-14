@@ -90,7 +90,7 @@ export const initQuestionsData = {
     personal_dev_type: {
         type: "string",
         result: [
-            0
+            0,0
         ]
     },
     tablet_internet: {
