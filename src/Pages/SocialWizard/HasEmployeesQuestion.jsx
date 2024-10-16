@@ -20,14 +20,19 @@ function HasEmployeesQuestion() {
         } else {
             console.log("Sector or service data is incomplete or not found in localStorage.");
         }
-    }, []);
-    
+
+        const valueChoice = localStorage.getItem('hasEmployeeValue')        
+        if (valueChoice){
+            const parsedValue = valueChoice === 'true'; // This converts 'true' to true, and 'false' to false
+            setValue(parsedValue)
+            localStorage.removeItem('hasEmployeeValue')        
+        }   
+    }, []);    
     
     const onChange = (e) => {
         const newValue = e.target.value;
         setValue(newValue); // Update state
     };
-
    
     const handleConfirmData = async () => {
         setLoading(true);
@@ -39,9 +44,8 @@ function HasEmployeesQuestion() {
             };
             
             localStorage.setItem('socialDetermineQuestionsRequest', JSON.stringify(updatedData));
-    
-            const response = await postSocialQuestions(updatedData);
-    
+            localStorage.setItem('hasEmployeeValue',  JSON.stringify(value));
+            const response = await postSocialQuestions(updatedData);            
             if (response) {
                 console.log(response);
                 navigate('/social-questions');

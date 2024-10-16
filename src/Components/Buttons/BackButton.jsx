@@ -11,9 +11,12 @@ const BackButton = ({ currentLocationPage }) => {
     const handleBackClick = () => {        
         if (currentLocationPage === '/questions') {
             // Call the backAction
+            backAction();        
+        }
+        else if (currentLocationPage === '/social-questions'){           
             backAction();
-        
-        } else {
+        }
+        else {
             // Default behavior: navigate back
             console.log('Executing default back action');
             defaultBackAction(); // This should handle default navigation logic

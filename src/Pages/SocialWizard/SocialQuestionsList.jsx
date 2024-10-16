@@ -6,6 +6,7 @@ import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
 import { stepsLabels } from '../../Data/Data';
 import SocialQuestionItem from '../../Components/WizardElements/SocialQuestionItem';
 import { postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../../Data/Api';
+import { useBackButton } from '../../Context/BackButtonContext';
 
 function SocialQuestionsList() {
     const [loading, setLoading] = useState(false);
@@ -15,6 +16,8 @@ function SocialQuestionsList() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [isCompleted, setIsCompleted] = useState(false);
     const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState([]);
+
+    const { setBackAction } = useBackButton(); // Access the function to set the back action
 
     const navigate = useNavigate();
 
@@ -35,6 +38,42 @@ function SocialQuestionsList() {
         }
     }, []);
 
+    
+    useEffect(() => { 
+        console.log('dataCalculateSocialScore' , dataCalculateSocialScore)
+
+        setBackAction(() => handleBackPreviousQuestion); 
+      
+        // Optional: Reset back action when the component is unmounted
+        return () => setBackAction(null);
+    }, [setBackAction , dataCalculateSocialScore]);
+
+    const handleBackPreviousQuestion = () => { 
+    // Check if there is a previous question to move back to
+    if (currentQuestionIndex > 0) {
+        // Get the current question ID
+        const prevQuestionID = questionsData[currentQuestionIndex-1].id;
+
+        // Remove the answer for the current question
+        setAnswers(prevAnswers => {
+            const updatedAnswers = { ...prevAnswers };
+            delete updatedAnswers[prevQuestionID];  // Remove the answer
+            return updatedAnswers;
+        });
+
+        // Optionally remove it from the calculated social score data as well
+        setDataCalculateSocialScore(prevResponses => {
+            return prevResponses.filter(response => response.id !== prevQuestionID);
+        });
+
+        // Move to the previous question
+        setCurrentQuestionIndex(currentQuestionIndex - 1);
+        console.log('dataCalculateSocialScore' , dataCalculateSocialScore)
+    }
+    else {
+        navigate(-1)
+    }
+    }
 
     const handleChange = (questionId, selectedOption) => {
         // Save the answer
