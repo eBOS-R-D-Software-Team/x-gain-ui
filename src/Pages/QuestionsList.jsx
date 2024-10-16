@@ -33,17 +33,7 @@ function QuestionsList() {
     
     useEffect(() => {
         localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
-        localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data)); 
-        
-        const lastkey = localStorage.getItem('lastKey');
-        console.log(lastkey);
-        if (lastkey){
-            setCurrentQuestionKey(lastkey)
-            localStorage.removeItem('lastKey');
-            console.log('fffffff')    
-
-        }
-        
+        localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data));        
     }, [formData ]);
 
     // Effect to handle navigation after form data is updated
