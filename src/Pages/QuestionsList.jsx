@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect , useRef } from 'react';
+import { useNavigate , useLocation } from "react-router-dom";
 import { message, Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels, questions } from '../Data/Data';
 import QuestionItem from '../Components/WizardElements/QuestionItem';
 import { postDataToICCSApi } from '../Data/Api';
 import { initQuestionsData } from '../Data/JsonObjects';
+import { useBackButton } from '../Context/BackButtonContext';
 
 function QuestionsList() {
+    const navigate = useNavigate();
     const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
     const [formData, setFormData] = useState({
         initData: initQuestionsData,
@@ -24,12 +26,25 @@ function QuestionsList() {
         laptop: ''
     });
 
-    const navigate = useNavigate();
+    const location = useLocation();
+    const { questionsId } = location.state || {};
+    const [localQuestionsId, setLocalQuestionsId] = useState(questionsId);      
+    const { setBackAction } = useBackButton(); // Access the function to set the back action
     
     useEffect(() => {
         localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
-        console.log('questionsFormData', formData);
-    }, [formData]);
+        localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data)); 
+        
+        const lastkey = localStorage.getItem('lastKey');
+        console.log(lastkey);
+        if (lastkey){
+            setCurrentQuestionKey(lastkey)
+            localStorage.removeItem('lastKey');
+            console.log('fffffff')    
+
+        }
+        
+    }, [formData ]);
 
     // Effect to handle navigation after form data is updated
     useEffect(() => {
@@ -38,7 +53,20 @@ function QuestionsList() {
         }   
     }, [nextQuestionKey]);
 
+    useEffect(() => {
+        if (localQuestionsId) {
+          setCurrentQuestionKey(localQuestionsId); // Use the questionsId
+          setLocalQuestionsId(null); // Reset the local state to null or an empty value
+        }
+    }, [localQuestionsId]);
 
+    useEffect(() => { 
+        setBackAction(() => handleBackPreviousQuestion); 
+      
+        // Optional: Reset back action when the component is unmounted
+        return () => setBackAction(null);
+    }, [setBackAction ,formData]);
+      
     const handleChoiceChange = (choice) => {
         const nextQuestion = choice.nextQuestion;
 
@@ -66,14 +94,15 @@ function QuestionsList() {
 
         // Automatically proceed if there is no input field and nextQuestion is defined, but do not navigate to 'end'
         if (!questions[currentQuestionKey].input && nextQuestion && nextQuestion !== 'end') {
-            setNextQuestionKey(nextQuestion);
+            setNextQuestionKey(nextQuestion);      
+            setCurrentQuestionKey(nextQuestion); // Update the current question       
+     
         }
     };
 
     
     const handleInputChange = (e) => {
         const value = e.target.value;
-
         setFormData(prevFormData => {
             let updatedResult;
 
@@ -179,7 +208,6 @@ function QuestionsList() {
     const handleNextQuestion = () => {
         const currentQuestion = questions[currentQuestionKey];
         let nextQuestion;
-    
         //Navigate steps after form data is updated
         if (currentQuestionKey === 'dev_per_type') {
             const choice = questions[currentQuestionKey].choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
@@ -197,13 +225,58 @@ function QuestionsList() {
         } else {
             const choice = currentQuestion.choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
             nextQuestion = choice?.nextQuestion;
-        }
+        }  
 
         if (nextQuestion) {
-            setNextQuestionKey(nextQuestion);
+            setNextQuestionKey(nextQuestion);    
+            setCurrentQuestionKey(nextQuestion); // Update the current question       
         }
+        
     };
 
+    const handleBackPreviousQuestion = () => { 
+        const currentQuestion = questions[currentQuestionKey];      
+        const  keysArray = Object.keys(formData.data); // Get all keys
+        const  prevKey = keysArray[keysArray.length - 1]; // Find the last key
+
+        if (formData.data && Object.keys(formData.data).length > 0) {
+
+            if (keysArray.length > 0) {
+                // Remove the last key from the data object
+                const updatedData = { ...formData.data };
+                delete updatedData[prevKey];
+    
+                // Reset the specific key to the initial value from initQuestionsData
+                const updatedInitData = {
+                    ...formData.initData,
+                    [prevKey]: initQuestionsData[prevKey],
+                };
+               
+                // Update state sequentially
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    initData: updatedInitData,
+                    data: updatedData,
+                }));
+
+                // Handle resetting devices choice if needed
+                if (prevKey === 'personal_dev_type' || currentQuestionKey === 'personal_dev_type') {
+                    setDevicesChoice({
+                        tablet: false,
+                        laptop: false
+                    });
+                    setInputDevicesValues({
+                        tablet: '',
+                        laptop: ''
+                    });
+                } 
+    
+                setCurrentQuestionKey(prevKey); // Move to the previous question key
+            }
+        } else {
+            navigate(-1); // Navigate back if no data is present
+        }
+     } 
 
     const handleConfirmData = async () => {
         setLoading(true);
@@ -221,7 +294,8 @@ function QuestionsList() {
                         } 
                     };
                     localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData.initData));
-                    localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData.initData));
+                    localStorage.setItem('DataQuestionUploadButton', JSON.stringify(updatedFormData.data));
+                    localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData.initData));                    
                     setNextQuestionKey('end');
                     return updatedFormData;
                 }

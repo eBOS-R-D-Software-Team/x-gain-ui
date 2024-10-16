@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Button, Form, Radio } from 'antd';
 import { stepsLabels, levels, userTypes as initialUserTypes } from '../Data/Data';
@@ -9,12 +9,56 @@ import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 
 function SectorServicesLevel() {
     const navigate = useNavigate();
-
+    const effectRan = useRef(false); // To ensure useEffect runs only once
     const [userTypes, setUserTypes] = useState(initialUserTypes);
-    const [selectedLevel, setSelectedLevel] = useState(0);
+    const [selectedLevel, setSelectedLevel] = useState();
     const [selectedUserType, setSelectedUserType] = useState(null);
     const [formData, setFormData] = useState({});
     
+
+    useEffect(() => {
+        // run one time 
+        if (effectRan.current) return;
+        effectRan.current = true;        
+        
+        
+        if (localStorage.getItem('sectorsServicesLevelDetails') !== null  ){
+            const sectorsServicesLevelDetailslocalstorage = JSON.parse(localStorage.getItem('sectorsServicesLevelDetails'))
+            const level_of_assessment_localstorage =  sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result
+            const user_type_selection_localstorage = sectorsServicesLevelDetailslocalstorage["user_type_selection"].result                       
+            const level_of_assessment_localstorage_value = levels.find(a => a.text === sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result) 
+
+            setSelectedLevel(level_of_assessment_localstorage_value.id)
+            const level = levels.find(c => c.id === level_of_assessment_localstorage_value.id);
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                level_of_assessment: {
+                    type: "text", 
+                    result: level.text
+                }
+            }));
+    
+            setSelectedUserType(null); // Reset selected user type
+    
+            //Enable user types based on level selection
+            const updatedUserTypes = userTypes.map(userType => ({
+                ...userType,
+                isActive: userType.level_ids.includes(level_of_assessment_localstorage_value.id)
+            }));
+            setUserTypes(updatedUserTypes);
+
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                user_type_selection: {
+                    type: "text", 
+                    result: sectorsServicesLevelDetailslocalstorage["user_type_selection"].result
+                }
+            }));
+            setSelectedUserType(sectorsServicesLevelDetailslocalstorage["user_type_selection"].result);
+           
+        }
+
+    }, []);   
 
     const handleLevelChange = (selectedLevelId) => {
         setSelectedLevel(selectedLevelId);

@@ -17,7 +17,7 @@ const LocationInput = ({inputName, label, value, onChange, text}) => {
             </div>
             <div style={{ textAlign: 'center' }}>
                 <Input
-                    defaultValue={value}
+                    value={value}
                     placeholder="Enter value"
                     onChange={onChange}
                     style={{ width: '100%', marginBottom: '8px'  }}

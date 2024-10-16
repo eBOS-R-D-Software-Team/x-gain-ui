@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Col, Row } from 'antd';
 import { stepsLabels, sectors, services as initialServices } from '../Data/Data';
@@ -15,9 +15,56 @@ function SectorServices() {
     const [selectedSector, setSelectedSector] = useState(null);
     const [selectedService, setSelectedService] = useState(null);
     const [formData, setFormData] = useState({});
+    const effectRan = useRef(false); // To ensure useEffect runs only once
+
+    useEffect(() => {
+        // run one time 
+        if (effectRan.current) return;
+        effectRan.current = true;   
+        const sectorsServicesDetails = localStorage.getItem('sectorsServicesDetails');
+        if (sectorsServicesDetails  !== null  ){
+            const sectorsServicesDetailslocalstorage = JSON.parse(localStorage.getItem('sectorsServicesDetails'));
+            const sector_localstorage_value = sectors.find(c => c.text === sectorsServicesDetailslocalstorage["sector"].result);
+            const service_localstorage_value = services.find(c => c.text === sectorsServicesDetailslocalstorage["service"].result);              
+             
+             setSelectedSector(sector_localstorage_value.id);
+
+             const sector = sectors.find(c => c.id === sector_localstorage_value.id);
+             setFormData(prevFormData => ({
+                 ...prevFormData,
+                 sector: {
+                     type: "text", 
+                     result: sector.text
+                 }
+             }));
+     
+             setSelectedService(null); // Reset selected user type
+     
+             //Enable services based on sector selection
+             const updatedServices = services.map(service => ({
+                 ...service,
+                 isActive: service.sectors_ids.includes(sector_localstorage_value.id)
+             }));
+             setServices(updatedServices);
+
+             setSelectedService(service_localstorage_value.id);
+       
+             const service = services.find(c => c.id === service_localstorage_value.id);
+             setFormData(prevFormData => ({
+                 ...prevFormData,
+                 service: {
+                     type: "text", 
+                     result: service.text
+                 }
+             }));
+
+        }
+
+    }, []);  
 
 
     const handleSectorChange = (selectedSectorId) => {
+        
         setSelectedSector(selectedSectorId);
 
         const sector = sectors.find(c => c.id === selectedSectorId);
@@ -42,7 +89,7 @@ function SectorServices() {
 
     const handleServiceChange = (serviceId) => {
         setSelectedService(serviceId);
-
+       
         const service = services.find(c => c.id === serviceId);
         setFormData(prevFormData => ({
             ...prevFormData,
