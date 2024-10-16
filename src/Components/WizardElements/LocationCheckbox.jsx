@@ -33,16 +33,25 @@ const LocationCheckbox = ({label, text, data, checkedItems, onChange}) => {
                                 <Checkbox
                                     checked={checkedItems[index] === 1}
                                     onChange={() => onChange(index)}
-                                    disabled={!item.isActive}
+                                    disabled={!item.isActive ||
+                                        (
+                                        // Apply disabling logic only to the first three checkboxes (index 0, 1, 2)
+                                        index < 3 && (
+                                            (checkedItems[0] === 1 && index !== 0) || // If index 0 is checked, disable index 1 and 2
+                                            (checkedItems[1] === 1 && index !== 1) || // If index 1 is checked, disable index 0 and 2
+                                            (checkedItems[2] === 1 && index !== 2)    // If index 2 is checked, disable index 0 and 1
+                                        )
+                                        )
+                                    }
                                     style={{ display: 'flex', textAlign: 'start', paddingBottom: 20 }}
                                 >
                                     {item.text}
-                                </Checkbox> 
+                                </Checkbox>
                            ) } 
                             {index === 2 && (
                                 <>
                                     {data === weatherConditions && (
-                                        <div style={{ paddingTop: 20 }}>Optional choices.</div>
+                                        <div style={{ paddingTop: 20 }}>Optional choices</div>
                                     )}
                                 </>
                             )}
