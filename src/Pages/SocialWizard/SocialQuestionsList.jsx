@@ -84,6 +84,8 @@ function SocialQuestionsList() {
             navigate('/impact-assessment');
         } catch (error) {
             message.error("An error occurred during the submission process:", error)
+            localStorage.removeItem('iccs_response');  // Remove specific item
+            localStorage.removeItem('solutionsAnalysisResponse'); 
         } finally {
             setLoading(false);
         }
