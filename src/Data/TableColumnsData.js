@@ -62,6 +62,16 @@ export const technologyMixesColumns = [
                 width: 50,
                 className: 'technology-table-child',
             },
+            {
+                title: '*Warning',
+                key: 'warning',
+                width: 50,
+                className: 'technology-table-child',
+                render: (text, record) => {
+                    const disclaimer = record.Connectivity_information.Disclaimer;
+                    return disclaimer.join(', ');
+                },
+            },
         ],
     },
     {
@@ -141,12 +151,6 @@ export const technologyMixesColumns = [
             },
         ]
     },
-    {
-        title: '*Warning',
-        dataIndex: 'warning',
-        key: 'warning',
-        className: 'technology-table-child',
-    },
 ];
 
 
@@ -161,6 +165,44 @@ export const totalCapexOpexColumns = [
         key: 'value',
         render: (value) => value,
         //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
+    }, 
+];
+
+
+export const EnvironmentalTableColumns = [
+    {
+        title: 'Tools List',
+        dataIndex: 'tools',
+        key: 'tools',
     },
-    
+    {
+        title: 'Carbon Footprint (kg of CO2 equivalent)',
+        dataIndex: 'Carbon',
+        key: 'Carbon',
+    },
+    {
+        title: 'Impact on Human Health (unit)',
+        dataIndex: 'Impact',
+        key: 'Impact',
+    },
+    {
+        title: 'Biodiversity Footprint (PDF)',
+        dataIndex: 'Biodiversity',
+        key: 'Biodiversity',
+    },
+];
+
+
+export const EnvironmentalCarbonFootprintColumns = [
+    {
+        dataIndex: 'name',
+        key: 'name',
+        className: 'totalLabel'
+    },
+    {
+        dataIndex: 'value',
+        key: 'value',
+        render: (value) => value,
+        //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
+    }, 
 ];

@@ -223,7 +223,13 @@ button .ant-btn-icon {
   padding: 0;
   height: 100%;
   color: #707070;
+}
 
+.environmental-table-group {
+  background-color: #15728F !important;
+  color: #FFF !important;
+  font-size: 14px;
+  text-align: center !important;
 }
 
 @media (max-width: 1199px) {

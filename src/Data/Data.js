@@ -1,10 +1,8 @@
 import ImpactAssessment from "../Pages/ImpactAssessment";
 import LocationDetails from "../Pages/LocationDetails";
 import QuestionsList from "../Pages/QuestionsList";
-import SummaryResults from "../Pages/Results/SummaryResults";
 import SectorServices from "../Pages/SectorServices";
 import SectorServicesLevel from "../Pages/SectorServicesLevel";
-import TechnologyMixes from "../Pages/TechnologyMixes";
 
 export const stepsLabels = [
     {
@@ -89,7 +87,7 @@ export const stepsLabels = [
     },
     {
         title: "Results:",
-        subtitle: "Techno-economic assessment",
+        subtitle: "Techno-Economic assessment",
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png",
         url: "",
@@ -110,6 +108,16 @@ export const stepsLabels = [
     {
         title: "Results:",
         subtitle: "Business Model Canvas",
+        icon: "/images/icons/graph1.png",
+        subicon: "/images/icons/graph2.png",
+        url: "",
+        content: null,
+        data: "",
+        color: "#158D6B"
+    },
+    {
+        title: "Results:",
+        subtitle: "Socio-Environmental assessment",
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png",
         url: "",

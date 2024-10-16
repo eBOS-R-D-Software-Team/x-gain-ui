@@ -28,9 +28,22 @@ export const processColumnChartData = (periodsExist, capexDataExist, periods, ca
 export const renderBulletedList = (content) => {
     if (!content) {
         return null; // Return nothing if content is undefined or null
-      }
-      
-      return content.split('\n').map((item, index) => (
+    }
+    
+    return content.split('\n').map((item, index) => (
         <li key={index}>{item}</li>
-      ));
-  };
+    ));
+};
+
+
+export const formatDecimalNumber = (num) => {
+    if (typeof num !== 'number' || isNaN(num)) {
+        return '';
+    }
+
+    if(num !== 0) {
+        const formatted = num.toExponential(2);
+        return formatted;
+    }
+    return 0;
+}

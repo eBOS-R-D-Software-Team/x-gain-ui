@@ -17,6 +17,7 @@ import TechnoEconomicIndicators from './Pages/Results/TechnoEconomicIndicators';
 import HasEmployeesQuestion from './Pages/SocialWizard/HasEmployeesQuestion';
 import SocialQuestionsList from './Pages/SocialWizard/SocialQuestionsList';
 import BusinessModel from './Pages/Results/BusinessModel';
+import SocioEnvironmentalIndicators from './Pages/Results/SocioEnvironmentalIndicators';
 
 function App() { 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/technology-mixes" element={<TechnologyMixes />} />
           <Route path="/solution/:solId/summary-results" element={<SummaryResults />} />
           <Route path="/techno-economic-indicators" element={<TechnoEconomicIndicators />} />
+          <Route path="/socio-environmental-indicators" element={<SocioEnvironmentalIndicators />} />
           <Route path="/has-employee" element={<HasEmployeesQuestion />} />
           <Route path="/social-questions" element={<SocialQuestionsList />} />
           <Route path="/business-model" element={<BusinessModel />} />

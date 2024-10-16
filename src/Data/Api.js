@@ -99,9 +99,11 @@ const postWithAccessToken = async (url, bodyData) => {
     } catch (error) {
         console.error(error.message);
         message.error(error.message);
+        localStorage.removeItem('iccs_response');  // Remove specific item
+        localStorage.removeItem('solutionsAnalysisResponse');
         return false;
     }
-};
+}; 
 
 
 export const postSolutionsAnalysis = async () => {
@@ -115,6 +117,8 @@ export const postSolutionsAnalysis = async () => {
         return !!responseData;
     } catch (error) {
         console.error('Error posting to Solutions Analysis:', error);
+        localStorage.removeItem('iccs_response');  // Remove specific item
+        localStorage.removeItem('solutionsAnalysisResponse'); 
         return false;
     }
 };

@@ -21,7 +21,7 @@ const ImpactAssessment = () => {
                 const iccsResponse = JSON.parse(localStorage.getItem('iccs_response'));
                 const incResponse = JSON.parse(localStorage.getItem('solutionsAnalysisResponse'));
                 const wrResponse = JSON.parse(localStorage.getItem('environmentalDataResponse'));
-                
+
                 if (iccsResponse && iccsResponse.results) {
                     // Iterate through each result in the results object
                     Object.keys(iccsResponse.results).forEach((key) => {

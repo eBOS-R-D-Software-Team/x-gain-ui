@@ -19,10 +19,13 @@ function SummaryResults() {
     const [sectorServiceData, setSectorServiceData] = useState(null);
     const [solutionAnalysisData, setSolutionAnalysisData] = useState([]);
     const [socialScoresData, setSocialScoresData] = useState([]);
+    const [environmentalData, setEnvironmentalData] = useState([]);
     const [chartData, setChartData] = useState(null);
     const [filteredSolutionAnalysisData, setFilteredSolutionAnalysisData] = useState({});
+    const [filteredEnvironmentalData, setFilteredEnvironmentalData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
+    const [carboonFootprintData, setCarboonFootprintData] = useState(null);
     const [loading, setLoading] = useState(true);
 
 
@@ -31,6 +34,7 @@ function SummaryResults() {
             const storedSectorServiceData = JSON.parse(localStorage.getItem('sectorsServicesDetails'));
             const storedSolutionAnalysisData = JSON.parse(localStorage.getItem('solutionsAnalysisResponse'));
             const socialAnswersScores = JSON.parse(localStorage.getItem('socialAnswersResponse'));
+            const environmentalAnalysisData = JSON.parse(localStorage.getItem('environmentalDataResponse'));
 
             if (storedSectorServiceData) {
                 setSectorServiceData(storedSectorServiceData);
@@ -40,6 +44,9 @@ function SummaryResults() {
             }
             if (socialAnswersScores) {
                 setSocialScoresData(socialAnswersScores);
+            }
+            if (environmentalAnalysisData) {
+                setEnvironmentalData(environmentalAnalysisData);
             }
         } catch (error) {
             console.error('Error parsing localStorage data:', error);
@@ -53,10 +60,17 @@ function SummaryResults() {
         const filteredData = solutionAnalysisData.analysisResults?.find(item => item.id === solutionData?.Sol_ID.toString());
         if (filteredData && filteredData !== filteredSolutionAnalysisData) {
             setFilteredSolutionAnalysisData(filteredData);
-            localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
         }
         console.log('Filtered data:', filteredSolutionAnalysisData);
-    }, [solutionData, solutionAnalysisData]);
+    }, [solutionData, solutionAnalysisData, filteredSolutionAnalysisData]);
+
+
+    useEffect(() => {
+        const filteredData = environmentalData?.find(item => item.solution === solutionData?.Sol_ID);
+        if (filteredData && filteredData !== filteredEnvironmentalData) {
+            setFilteredEnvironmentalData(filteredData);
+        }
+    }, [solutionData, environmentalData, filteredEnvironmentalData]);
 
  
     useEffect(() => {
@@ -92,20 +106,21 @@ function SummaryResults() {
                         },
                     ],
                 });
-      
+
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setLoading(false);
             }
         };
-      
+
         // Fetch data once when the component mounts
         fetchData();
-    }, [socialScoresData]);
-    
 
-    const handleCardClick = () => {
+    }, [socialScoresData]);
+
+
+    const handleTechnoEconomicCardClick = () => {
         setLoading(true);
         localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
 
@@ -113,6 +128,19 @@ function SummaryResults() {
             navigate('/techno-economic-indicators');
         }, 1000);
     };
+
+
+    const handleSocioEnvironmentalCardClick = () => {
+        setLoading(true);
+        localStorage.setItem('filteredEnvironmentalDataBySol', JSON.stringify(filteredEnvironmentalData));
+        localStorage.setItem('socialRadarData', JSON.stringify(chartData));
+        localStorage.setItem('connectivityEdgeEnablers', JSON.stringify([netsData, filteredEnablersData, solutionData]));
+
+        setTimeout(() => {
+            navigate('/socio-environmental-indicators');
+        }, 1000);
+    };
+
 
     const handleBusinessModelClick = () => {
         setLoading(true);
@@ -149,7 +177,19 @@ function SummaryResults() {
     // Filtering out null values (from empty arrays) before displaying
     const filteredEnablersData = enablersData.filter(item => item !== null);
 
-    
+    useEffect(() => {     
+        const data = [
+            ["Category", "Value"],
+            [netsData.join(', '), filteredEnvironmentalData.cO2FPrEUD],
+            [filteredEnablersData.join(', '), filteredEnvironmentalData.cO2FPrNetw],
+            [solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0], filteredEnvironmentalData.cO2FPrEnabl],
+        ];
+
+        setCarboonFootprintData(data); // Update the state with the fetched data  
+    }, [filteredEnvironmentalData, solutionData, netsData, filteredEnablersData]);
+        
+
+
     return(
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
@@ -212,7 +252,7 @@ function SummaryResults() {
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <Col span={24} lg={12} xxl={8}>                   
-                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleCardClick}>
+                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleTechnoEconomicCardClick}>
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -235,7 +275,7 @@ function SummaryResults() {
                         </Card>   
                     </Col>    
                     <Col span={24} lg={12} xxl={8}>                   
-                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleCardClick}>
+                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleSocioEnvironmentalCardClick}>
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -246,7 +286,10 @@ function SummaryResults() {
                                 </Col>
                             </Row>
                             {chartData  && 
-                                <Row span={24}>    
+                                <Row span={24}> 
+                                    <Col span={24} style={{ marginTop: 20 }}>                                         
+                                        <PieChartData title={'Carbon Footprint (Kg of CO2 equivalent)'} data={carboonFootprintData} />
+                                    </Col>   
                                     <Col span={24} style={{ marginTop: 20, display: 'flex', justifyContent: 'center' }}>              
                                         <RadarChartData data={chartData} />
                                     </Col>
