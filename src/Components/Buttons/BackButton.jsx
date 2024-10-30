@@ -27,9 +27,23 @@ const BackButton = ({ currentLocationPage }) => {
         <Tooltip title="Back">
             <button 
                 onClick={handleBackClick}
-                style={{ marginLeft: '30px', width: '40px', height: '40px', borderRadius: '7px', background: '#00678A', color: 'white', border: 'none', textDecoration: 'underline' }}
+                style={{
+                    marginLeft:'100px',
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '7px',
+                    background: '#00678A',
+                    color: 'white',
+                    border: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '10px',
+                  }}
             >
                 <LeftCircleOutlined style={{ fontSize: '24px' }} />
+                <span style={{ fontSize: '12px' , paddingTop: '10%' , paddingRight: '2%' }}>Back</span>
             </button>
         </Tooltip>
     );
