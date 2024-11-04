@@ -7,6 +7,10 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
 
     const disableInput = (choices.length > 0 && !formData.choice);
     const isChoicesRequired = choices.length > 0;
+    const isSensorsInputLess75000 = (formData.choice === 'Sensors' && formData.input > 75000);
+    const isDronesInputLess75 = (formData.choice === 'Drones' && formData.input > 75);
+    const isCamerasInputLess3750 = (formData.choice === 'Cameras' && formData.input > 3750);
+    const isRobotsInputLess3750 = (formData.choice === 'Other type of device' && formData.input > 3750);
     const isNextButtonDisabled = isChoicesRequired && (!formData.choice || (input && !formData.input));
     const isConfirmButtonDisabled = (!formData.input) && (formData.choice !== 'Personal Devices (Smartphones / Tablets / Laptops)');
     const isLastQuestion = (input && input.nextQuestion === 'end') || (choices.length > 0 && choices.some(choice => formData.choice === choice.text && choice.nextQuestion === 'end'));
@@ -74,7 +78,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                     name="input"
                                     value={formData.input || ''}
                                     onChange={(e) => handleInputChange(e, 'input')}
-                                    disabled={disableInput}
+                                    disabled={disableInput }
                                     style={{ width: "100%", margin: "20px 0", }}
                                 />
                             </Col>
@@ -85,7 +89,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                     <Button
                                         size="large"
                                         onClick={handleNext}
-                                        disabled={isConfirmButtonDisabled}
+                                        disabled={isConfirmButtonDisabled || isSensorsInputLess75000 || isDronesInputLess75 || isCamerasInputLess3750 || isRobotsInputLess3750}
                                         style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
                                     >
                                         Next Question
@@ -142,7 +146,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                 <Button
                                     size="large"
                                     onClick={handleNext}
-                                    disabled={((devicesChoice.tablet && !inputDevicesValues.tablet) || (devicesChoice.laptop && !inputDevicesValues.laptop))}
+                                    disabled={((devicesChoice.tablet && !inputDevicesValues.tablet) || (devicesChoice.laptop && !inputDevicesValues.laptop) || (inputDevicesValues.laptop > 2500) || (inputDevicesValues.tablet > 2500))}
                                     style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
                                 >
                                     Next Question

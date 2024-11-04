@@ -121,7 +121,31 @@ function QuestionsList() {
 
         }
     }, [lastkey, questions, isUpload, location.pathname]);
-
+   
+    // input validation 
+    useEffect(() => {
+       // console.log('questions' ,formData.initData[currentQuestionKey]);
+        const inputValidationChoice =  formData.initData[currentQuestionKey].choice;
+        const inputValidationValue =  formData.initData[currentQuestionKey].input;          
+        if (currentQuestionKey == 'personal_dev_type') {           
+          if ( inputDevicesValues.tablet > 2500 || inputDevicesValues.laptop > 2500 ){
+            message.error('The value must be less than 2500');
+          }
+        }
+        if (inputValidationChoice === 'Cameras' && inputValidationValue > 3750){
+            message.error('The value must be less than 3750');
+        }
+        if (inputValidationChoice === 'Other type of device' && inputValidationValue > 3750){
+            message.error('The value must be less than 3750');
+        }      
+        if (inputValidationChoice === 'Sensors' && inputValidationValue > 75000){
+            message.error('The value must be less than 75000');
+        }    
+        if (inputValidationChoice === 'Drones' && inputValidationValue > 75){
+            message.error('The value must be less than 75');
+        }
+        
+    }, [formData , inputDevicesValues]);
     // Effect to handle navigation after form data is updated
     useEffect(() => {
         if (nextQuestionKey && nextQuestionKey !== 'end') {
