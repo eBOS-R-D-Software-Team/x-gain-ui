@@ -165,10 +165,10 @@ function LocationDetails() {
 
                     <LocationInput
                         inputName={'Area'}
-                        label={'Area “A” Size'} 
+                        label={'Area size (km2)'} 
                         value={area} 
                         onChange={(e) => handleChangeArea(e.target.value)} 
-                        text={<>{'Km'}<sup>2</sup></>} 
+                         
                     />
                     {checkedTerrainTypes.at(1) === 1 && (
                         <LocationInput 
