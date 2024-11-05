@@ -236,11 +236,12 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
 
     return(
         <BackButtonProvider>
-            <Layout style={{ backgroundColor: '#00A27B', minHeight: '100vh', paddingTop: 40}}>          
+            <Layout className='layoutPaddingTop' style={{ backgroundColor: '#00A27B', minHeight: '100vh'}}>   
+            <img src='/images/icons/logo.png' alt="Logo" className='logoHiden' style={{cursor:'pointer' , height:'200px' , width:'90%' , paddingTop:'0px', marginLeft:'5%', paddingBottom:'20px' }}/>        
                 <Header className="site-layout-background" style={{ backgroundColor: 'transparent'}}>
                     <div className="header-content" style={{ height: '100%' }}>
                         <div className="left-navbar">
-                            <img src='/images/icons/logo.png' alt="Logo" style={{cursor:'pointer'}}/>
+                            <img src='/images/icons/logo.png' className='logoLeftSideHiden'  alt="Logo" style={{cursor:'pointer' , paddingBottom:'40px'}}/>
                             {currentLocationPage !== '/home' &&
                             <BackButton 
                                 currentLocationPage={currentLocationPage} 

@@ -299,3 +299,24 @@ button .ant-btn-icon {
   font-size: 20px;
   font-family: Tahoma, Verdana, sans-serif;  
 }
+
+/* hide top logo */
+@media (min-width: 604px) {
+  .logoHiden{
+    display: none !important;
+  }
+  .layoutPaddingTop{
+    padding-top: 60px !important;   
+  }
+  .backbuttonMargin{
+    margin-left: 100px;
+  }
+
+}
+
+/* hide left side logo */
+@media (max-width: 603px) {
+  .logoLeftSideHiden{
+    display: none !important;
+  }
+}

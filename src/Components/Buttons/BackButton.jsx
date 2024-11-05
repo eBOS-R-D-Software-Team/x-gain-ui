@@ -26,9 +26,9 @@ const BackButton = ({ currentLocationPage }) => {
     return (
         <Tooltip title="Back">
             <button 
+                className='backbuttonMargin'
                 onClick={handleBackClick}
-                style={{
-                    marginLeft:'100px',
+                style={{                    
                     width: '60px',
                     height: '60px',
                     borderRadius: '7px',
