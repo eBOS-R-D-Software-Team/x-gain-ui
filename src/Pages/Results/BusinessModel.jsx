@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Layout, Typography, Card, Space, Avatar } from 'antd';
+import React, { useState, useEffect, useRef } from 'react';
+import { Row, Col, Layout } from 'antd';
 import { stepsLabels } from '../../Data/Data';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import { businessModelData } from '../../Data/BusinessModelData';
 import EndUserISPBusinessModel from './Components/EndUserISPBusinessModel';
 import PublicAuthorityBusinessModel from './Components/PublicAuthorityBusinessModel';
-
-const { Title } = Typography;
+import { PDFProvider } from '../../Context/PDF/PDFContext';
+import BusinessModelPDF from '../../Components/PDFResults/BusinessModelPDF';
 
 function BusinessModel() {
     const [sectorServiceLevelData, setSectorServiceLevelData] = useState({});
     const [sectorServiceData, setSectorServiceData] = useState({});
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
+
+    const businessModelRef = useRef(null);
 
     useEffect(() => {
         const sectorServiceData = localStorage.getItem('sectorsServicesDetails');
@@ -24,6 +26,8 @@ function BusinessModel() {
             setSectorServiceLevelData(JSON.parse(sectorServiceLevelData));
         }
     }, []);
+
+    console.log(sectorServiceLevelData, sectorServiceData);
 
     useEffect(() => {
         if (sectorServiceData?.sector?.result && sectorServiceData?.service?.result && sectorServiceLevelData?.user_type_selection?.result) {
@@ -46,7 +50,7 @@ function BusinessModel() {
     return (
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px' }}>
-                <Col span={24}>
+                <Col className="title_results_col" span={24} style={{ display: 'flex'}}>
                     <TitleForm
                         icon={stepsLabels[10].icon}
                         subicon={stepsLabels[10].subicon}
@@ -55,13 +59,25 @@ function BusinessModel() {
                         level={2}
                         color={stepsLabels[10].color}
                     />
+                    <PDFProvider>
+                        <BusinessModelPDF 
+                            businessModelRef={businessModelRef}
+                        />
+                    </PDFProvider>
                 </Col>
             </Row>      
-            {data.user_type === 'End-User' || data.user_type === 'Internet Service Provider (ISP)' ?
-                <EndUserISPBusinessModel data={data} />
-            :
-                <PublicAuthorityBusinessModel data={data} />
-            }    
+            {data ? (
+                data.user_type === 'End-User' || data.user_type === 'Internet Service Provider (ISP)' ?
+                    <div ref={businessModelRef}>
+                        <EndUserISPBusinessModel data={data} />
+                    </div>
+                :
+                    <div ref={businessModelRef}>
+                        <PublicAuthorityBusinessModel data={data} />
+                    </div>
+            ) : (
+                <div>No business model data found.</div> // Fallback message when data is null
+            )}
         </Layout>
     );
 }

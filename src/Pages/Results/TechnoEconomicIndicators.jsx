@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Row, Col, Layout, Table, Typography } from 'antd';
 import { stepsLabels } from '../../Data/Data';
 import TitleForm from '../../Components/WizardElements/TitleForm';
@@ -7,59 +7,82 @@ import PieChartData from '../../Components/ResultsElements/PieChartData';
 import { processPieChartData, processColumnChartData } from '../../HelperFunctions';
 import ColumnChartData from '../../Components/ResultsElements/ColumnChartData';
 import { totalCapexOpexColumns } from '../../Data/TableColumnsData';
+import 'jspdf-autotable';
+import TechnoEconomicIndicatorsPDF from '../../Components/PDFResults/TechnoEconomicIndicatorsPDF';
+import { PDFProvider } from '../../Context/PDF/PDFContext';
+import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
+import { formatDecimalNumber } from '../../HelperFunctions';
 
 const { Title } = Typography;
 
 function TechnoEconomicIndicators() {
-    const [solutionData, setSolutionData] = useState({});
+    const [solutionData, setSolutionData] = useState([]);
+    const [solutionAnalysisData, setSolutionAnalysisData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
 
+    // Refs for chart elements
+    const capexChartRef = useRef(null);
+    const capexBreakdownChartRef = useRef(null);
+    const opexChartRef = useRef(null);
+    const opexBreakdownChartRef = useRef(null);
+
+    console.log(capexChartRef)
+    
+
     useEffect(() => {
-        const savedData = localStorage.getItem('filteredSolutionAnalysisDataBySol');
-        if (savedData) {
-            setSolutionData(JSON.parse(savedData));
+        const solData = JSON.parse(localStorage.getItem('solData'));
+        const filteredSolAnalysisDataBySol = JSON.parse(localStorage.getItem('filteredSolutionAnalysisDataBySol'));
+
+        if (solData) {
+            setSolutionData(solData);
         }
+
+        if (filteredSolAnalysisDataBySol) {
+            setSolutionAnalysisData(filteredSolAnalysisDataBySol);
+        }
+
+        console.log(solData);
     }, []);
 
     // Ensure periods and capexPerComponentTS exist before mapping
-    const periodsExist = Array.isArray(solutionData.periods) && solutionData.periods.length > 0;
-    const capexDataExist = solutionData.capexPerComponentTS && typeof solutionData.capexPerComponentTS === 'object';
+    const periodsExist = Array.isArray(solutionAnalysisData.periods) && solutionAnalysisData.periods.length > 0;
+    const capexDataExist = solutionAnalysisData.capexPerComponentTS && typeof solutionAnalysisData.capexPerComponentTS === 'object';
 
 
     useEffect(() => {
-        if (solutionData) {
-            if (solutionData.capexPerLayer) {
-                const capexChartData = processPieChartData(solutionData.capexPerLayer);
+        if (solutionAnalysisData) {
+            if (solutionAnalysisData.capexPerLayer) {
+                const capexChartData = processPieChartData(solutionAnalysisData.capexPerLayer);
                 setCapexCategoryData(capexChartData);
             }
     
-            if (solutionData.opexPerCategory) {
-                const opexChartData = processPieChartData(solutionData.opexPerCategory);
+            if (solutionAnalysisData.opexPerCategory) {
+                const opexChartData = processPieChartData(solutionAnalysisData.opexPerCategory);
                 setOpexCategoryData(opexChartData);
             }
         }
-    }, [solutionData]);
+    }, [solutionAnalysisData]);
 
 
-    const capexColumnsData = processColumnChartData(periodsExist, capexDataExist, solutionData.periods, solutionData.capexPerLayerTS, 'Capex');
-    const opexColumnsData = processColumnChartData(periodsExist, capexDataExist, solutionData.periods, solutionData.opexPerCategoryTS, 'Opex');
+    const capexColumnsData = processColumnChartData(periodsExist, capexDataExist, solutionAnalysisData.periods, solutionAnalysisData.capexPerLayerTS, 'Capex');
+    const opexColumnsData = processColumnChartData(periodsExist, capexDataExist, solutionAnalysisData.periods, solutionAnalysisData.opexPerCategoryTS, 'Opex');
 
     const dataSource = [
         {
             key: '1',
             name: 'Total Cost',
-            value: solutionData.totalCost,
+            value: formatDecimalNumber(solutionAnalysisData.totalCost),
         },
         {
             key: '2',
             name: 'Total CAPEX',
-            value: solutionData.totalCapex,
+            value: formatDecimalNumber(solutionAnalysisData.totalCapex),
         },
         {
             key: '3',
             name: 'Total OPEX',
-            value: solutionData.totalOpex,
+            value: formatDecimalNumber(solutionAnalysisData.totalOpex),
         },
     ];
     
@@ -67,7 +90,7 @@ function TechnoEconomicIndicators() {
     return(
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col span={24}>
+                <Col className="title_results_col" span={24} style={{ display: 'flex'}}>
                     <TitleForm 
                         icon={stepsLabels[8].icon} 
                         subicon={stepsLabels[8].subicon} 
@@ -76,6 +99,18 @@ function TechnoEconomicIndicators() {
                         level={2} 
                         color={stepsLabels[8].color}
                     />
+                    <PDFProvider>
+                        <PDFEdgeEnablersTableProvider>
+                            <TechnoEconomicIndicatorsPDF 
+                                solutionAnalysisData={solutionAnalysisData}
+                                solutionData={solutionData}
+                                capexChartRef={capexChartRef}
+                                capexBreakdownChartRef={capexBreakdownChartRef}
+                                opexChartRef={opexChartRef}
+                                opexBreakdownChartRef={opexBreakdownChartRef}
+                            />
+                        </PDFEdgeEnablersTableProvider>
+                    </PDFProvider>
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
@@ -87,17 +122,17 @@ function TechnoEconomicIndicators() {
                     </Title> 
                     <CapexOpexTable 
                         title={'CAPEX Per Component'} 
-                        data={solutionData.capexPerComponentTS} 
-                        periods={solutionData.periods} 
-                        yearlyTotal={solutionData.capexTotalTS}
+                        data={solutionAnalysisData.capexPerComponentTS} 
+                        periods={solutionAnalysisData.periods} 
+                        yearlyTotal={solutionAnalysisData.capexTotalTS}
                         categoryTotal={null}
                     />
                     <CapexOpexTable 
                         title={'CAPEX Per Layer'} 
-                        data={solutionData.capexPerLayerTS} 
-                        periods={solutionData.periods} 
+                        data={solutionAnalysisData.capexPerLayerTS} 
+                        periods={solutionAnalysisData.periods} 
                         yearlyTotal={null}
-                        categoryTotal={solutionData.capexPerLayer}
+                        categoryTotal={solutionAnalysisData.capexPerLayer}
                     />
                 </Col>
                 <Col span={24} lg={12}>
@@ -108,26 +143,30 @@ function TechnoEconomicIndicators() {
                     </Title> 
                     <CapexOpexTable 
                         title={'OPEX Per Category'} 
-                        data={solutionData.opexPerCategoryTS} 
-                        periods={solutionData.periods} 
-                        yearlyTotal={solutionData.opexTotalTS}
-                        categoryTotal={solutionData.opexPerCategory}
+                        data={solutionAnalysisData.opexPerCategoryTS} 
+                        periods={solutionAnalysisData.periods} 
+                        yearlyTotal={solutionAnalysisData.opexTotalTS}
+                        categoryTotal={solutionAnalysisData.opexPerCategory}
                     />
                     <CapexOpexTable 
                         title={'OPEX Per Layer'} 
-                        data={solutionData.opexPerLayerTS} 
-                        periods={solutionData.periods} 
+                        data={solutionAnalysisData.opexPerLayerTS} 
+                        periods={solutionAnalysisData.periods} 
                         yearlyTotal={null}
-                        categoryTotal={solutionData.opexPerLayer}
+                        categoryTotal={solutionAnalysisData.opexPerLayer}
                     />
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col span={24} lg={8} style={{ marginTop: 30 }}>              
-                    <ColumnChartData title={'CAPEX'} data={capexColumnsData} />
+                <Col span={24} lg={8} style={{ marginTop: 30 }}>   
+                    <div ref={capexChartRef}>          
+                        <ColumnChartData title={'CAPEX'} data={capexColumnsData} />
+                    </div>
                 </Col>
-                <Col span={24} lg={8} style={{ marginTop: 30 }}>              
-                    <PieChartData title={'CAPEX Breakdown'} data={capexCategoryData} />
+                <Col span={24} lg={8} style={{ marginTop: 30 }}> 
+                    <div ref={capexBreakdownChartRef}>             
+                        <PieChartData title={'CAPEX Breakdown'} data={capexCategoryData} />
+                    </div>
                     <Table 
                         columns={totalCapexOpexColumns} 
                         dataSource={dataSource} 
@@ -139,8 +178,12 @@ function TechnoEconomicIndicators() {
                     />  
                 </Col>
                 <Col span={24} lg={8}>
-                    <ColumnChartData title={'OPEX'} data={opexColumnsData} />
-                    <PieChartData title={'OPEX Breakdown'} data={opexCategoryData} />
+                    <div ref={opexChartRef}>          
+                        <ColumnChartData title={'OPEX'} data={opexColumnsData} />
+                    </div>
+                    <div ref={opexBreakdownChartRef}>             
+                        <PieChartData title={'OPEX Breakdown'} data={opexCategoryData} />
+                    </div>
                 </Col>
             </Row>
         </Layout>

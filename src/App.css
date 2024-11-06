@@ -259,6 +259,10 @@ button .ant-btn-icon {
   .wizard_steps_buttons .titleFormCol {
       width: 70%;
   }
+
+  .downloadBtn {
+    margin: auto -100px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -318,5 +322,17 @@ button .ant-btn-icon {
 @media (max-width: 603px) {
   .logoLeftSideHiden{
     display: none !important;
+  }
+}
+
+@media (max-width: 967px) {
+  .title_results_col {
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .downloadBtn {
+    margin: auto;
   }
 }
