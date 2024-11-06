@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Button , Checkbox , Dropdown, Select  } from 'antd';
+import { Button , Checkbox , Select  } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { DownOutlined } from '@ant-design/icons';
 
 
 function TermsIndex() {
@@ -18,8 +17,7 @@ function TermsIndex() {
     };
     const onChangelang = (value) => {      
       };
-      const onSearch = (value) => {          
-      };
+      
 
      const options=[
         { value: "EN", label: "EN", imageUrl: "images/languages/en.png" },
@@ -30,7 +28,7 @@ function TermsIndex() {
 
     return(
         <div className='backgroundTermsIndex'>
-            <img className='logoTermsIndex' src='../../images/logo.png'></img>         
+            <img className='logoTermsIndex' src='../../images/logo.png' alt='logo'></img>         
             <h1 style={{color:'white'}}>KNOWLEDGE FACILITATION TOOL</h1>
             <Button className='startButtonTermsIndex' onClick={buttonStart} disabled={!checked}>START</Button>
             <p style={{  width: '20%' , marginLeft:'40%'   }}>
