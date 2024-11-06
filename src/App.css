@@ -259,6 +259,10 @@ button .ant-btn-icon {
   .wizard_steps_buttons .titleFormCol {
       width: 70%;
   }
+
+  .downloadBtn {
+    margin: auto -100px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -298,4 +302,45 @@ button .ant-btn-icon {
   height: 20%;
   font-size: 20px;
   font-family: Tahoma, Verdana, sans-serif;  
+}
+
+/* hide top logo */
+@media (min-width: 604px) {
+  .logoHiden{
+    display: none !important;
+  }
+  .layoutPaddingTop{
+    padding-top: 60px !important;   
+  }
+  .backbuttonMargin{
+    margin-left: 100px;
+  }
+
+}
+
+/* hide left side logo */
+@media (max-width: 603px) {
+  .logoLeftSideHiden{
+    display: none !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .title_results_col {
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
+    display: flex
+  }
+
+  .downloadBtn {
+    margin: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .downloadBtn {
+    display: flex;
+    justify-content: center;
+  }
 }

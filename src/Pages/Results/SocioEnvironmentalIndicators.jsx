@@ -1,15 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Row, Col, Layout, Table, Typography } from 'antd';
 import { stepsLabels } from '../../Data/Data';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import { EnvironmentalTableColumns, EnvironmentalCarbonFootprintColumns } from '../../Data/TableColumnsData';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
-import { formatDecimalNumber } from '../../HelperFunctions';
+import { formatDecimalNumber, environmentalTools } from '../../HelperFunctions';
+import { PDFProvider } from '../../Context/PDF/PDFContext';
+import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
+import SocioEnvironmentalIndicatorsPDF from '../../Components/PDFResults/SocioEnvironmentalIndicatorsPDF';
 
 const { Title } = Typography;
 
 function SocioEnvironmentalIndicators() {
+    const [solutionData, setSolutionData] = useState([]);
     const [environmentalData, setEnvironmentalData] = useState({});
     const [edgeEnablersData, setEdgeEnablersData] = useState();
     const [carboonFootprintData, setCarboonFootprintData] = useState(null);
@@ -22,6 +26,9 @@ function SocioEnvironmentalIndicators() {
             },
         ],
     });
+
+    const footprintChartRef = useRef(null);
+    const radarChartRef = useRef(null);
     
 
     useEffect(() => {
@@ -56,36 +63,27 @@ function SocioEnvironmentalIndicators() {
         setCarboonFootprintData(data); // Update the state with the fetched data  
     }, [environmentalData, edgeEnablersData]);
 
-    
-    const dataSourceTools = [
-        {
-            key: '1',
-            tools: edgeEnablersData?.[0]?.join(', ') || [],
-            Carbon: formatDecimalNumber(environmentalData.cO2FPrEUD),
-            Impact: formatDecimalNumber(environmentalData.healtImpEUD),
-            Biodiversity: formatDecimalNumber(environmentalData.biodivFPrEUD),
-        },
-        {
-            key: '2',
-            tools: edgeEnablersData?.[1]?.join(', ') || [],
-            Carbon: formatDecimalNumber(environmentalData.cO2FPrNetw),
-            Impact: formatDecimalNumber(environmentalData.healtImpNetw),
-            Biodiversity: formatDecimalNumber(environmentalData.biodivFPrNetw),
-        },
-        {
-            key: '3',
-            tools: edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [],
-            Carbon: formatDecimalNumber(environmentalData.cO2FPrEnabl),
-            Impact: formatDecimalNumber(environmentalData.healtImpEnabl),
-            Biodiversity: formatDecimalNumber(environmentalData.biodivFPrEnabl),
+
+    useEffect(() => {
+        const solData = JSON.parse(localStorage.getItem('solData'));
+
+        if (solData) {
+            setSolutionData(solData);
         }
-    ];
+        console.log(solData);
+    }, []);
+
+    
+    const dataSourceTools = () => {
+        return environmentalTools(edgeEnablersData, environmentalData)
+    }
+
 
     const dataSource = [
         {
             key: '1',
             name: 'Combined carbon footprint from the network devices and edge enablers (kg of CO2 equivalent)',
-            value: environmentalData.combinedCarbonFootprint,
+            value: formatDecimalNumber(environmentalData.combinedCarbonFootprint),
         },
     ];
 
@@ -93,7 +91,7 @@ function SocioEnvironmentalIndicators() {
     return(
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col span={24}>
+                <Col className="title_results_col" span={24}>
                     <TitleForm 
                         icon={stepsLabels[11].icon} 
                         subicon={stepsLabels[11].subicon} 
@@ -102,6 +100,17 @@ function SocioEnvironmentalIndicators() {
                         level={2} 
                         color={stepsLabels[11].color}
                     />
+                    <PDFProvider>
+                        <PDFEdgeEnablersTableProvider>
+                            <SocioEnvironmentalIndicatorsPDF 
+                                solutionData={solutionData}
+                                environmentalData={dataSourceTools()}
+                                carbonFootprintData={dataSource}
+                                footprintChartRef={footprintChartRef}
+                                radarChartRef={radarChartRef}
+                            />
+                        </PDFEdgeEnablersTableProvider>
+                    </PDFProvider>
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
@@ -114,7 +123,7 @@ function SocioEnvironmentalIndicators() {
                     <div style={{ marginTop: '30px'}}>
                         <Table 
                             columns={EnvironmentalTableColumns} 
-                            dataSource={dataSourceTools} 
+                            dataSource={dataSourceTools()} 
                             pagination={false} 
                             bordered  
                             size='middle' 
@@ -142,7 +151,7 @@ function SocioEnvironmentalIndicators() {
                             rowHoverable={false}
                         />  
                     </div>
-                    <div style={{ marginTop: 50 }}>                                         
+                    <div ref={footprintChartRef} style={{ marginTop: 50 }}>                                         
                         <PieChartData title={'Carbon Footprint (Kg of CO2 equivalent)'} data={carboonFootprintData} />
                     </div> 
                 </Col>
@@ -152,9 +161,12 @@ function SocioEnvironmentalIndicators() {
                             Social Assessment                     
                         </div>                 
                     </Title>  
-                    <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'center'}}>
+                    <div ref={radarChartRef} style={{ marginTop: '30px', display: 'flex', justifyContent: 'center'}}>
                         <RadarChartData data={radarData} />
-                    </div>                
+                    </div>  
+                    <div style={{ marginTop: 20 }}>                                         
+                        <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '100%' }}/>        
+                    </div>              
                 </Col>
             </Row>
         </Layout>

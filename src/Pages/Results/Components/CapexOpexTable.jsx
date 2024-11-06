@@ -1,6 +1,6 @@
 import React from 'react';
-import { Col } from 'antd';
 import TechnoEconomicAssessmentTable from '../../../Components/ResultsElements/TechnoEconomicAssessmentTable';
+import { formatDecimalNumber } from '../../../HelperFunctions';
 
 const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
     // Create columns based on periods
@@ -22,8 +22,8 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
             className: 'rowTotal'
         }] : [])
     ] : [];
-
     
+
     // Map capexData to the format expected by the table
     const dataSource = data ? Object.keys(data).map((key, index) => {
         const yearlyData = data[key];
@@ -33,11 +33,11 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
         };
         
         periods.forEach((period, periodIndex) => {
-            rowData[period.label] = yearlyData[periodIndex];
+            rowData[period.label] = formatDecimalNumber(yearlyData[periodIndex]);
         });
 
         if (categoryTotal) {
-        rowData['rowTotal'] = categoryTotal[key] !== null ? categoryTotal[key] : 0;
+            rowData['rowTotal'] = formatDecimalNumber(categoryTotal[key] !== null ? categoryTotal[key] : 0);
         }
 
         return rowData;
@@ -52,11 +52,11 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
         };
 
         periods.forEach((period, periodIndex) => {
-            totalRow[period.label] = yearlyTotal[periodIndex] !== null ? yearlyTotal[periodIndex] : 0;
+            totalRow[period.label] = formatDecimalNumber(yearlyTotal[periodIndex] !== null ? yearlyTotal[periodIndex] : 0);
         });
 
         // Calculate the grand total for the row
-        totalRow['rowTotal'] = yearlyTotal ? Object.values(yearlyTotal).reduce((total, value) => total + value, 0) : 0;
+        totalRow['rowTotal'] = formatDecimalNumber(yearlyTotal ? Object.values(yearlyTotal).reduce((total, value) => total + value, 0) : 0);
         
         dataSource.push(totalRow);
     }

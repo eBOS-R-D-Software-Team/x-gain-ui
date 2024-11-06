@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState , useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Card, Select, message } from 'antd';
 import { stepsLabels } from '../Data/Data';
@@ -13,13 +13,38 @@ const { Option } = Select
 
 function LocationDetails() {
     const navigate = useNavigate();
-
+    const effectRan = useRef(false); // To ensure useEffect runs only once
     const [location, setLocation] = useState();
     const [area, setArea] = useState();
     const [vegetationHeight, setVegetationHeight] = useState();
     const [checkedTerrainTypes, setCheckedTerrainTypes] = useState(initLocationData.Terrain.result);
     const [checkedWeatherConditions, setCheckedWeatherConditions] = useState(initLocationData.Weather.result);
     const [disabled, setDisabled] = useState(false);
+
+    useEffect(() => {
+        // run one time 
+        if (effectRan.current) return;
+        effectRan.current = true;   
+
+        if (localStorage.getItem('locationDetails') !== null  ){
+            const locationDetailslocalstorage = JSON.parse(localStorage.getItem('locationDetails'));
+            if (locationDetailslocalstorage["location"]?.result) {
+                setLocation(locationDetailslocalstorage["location"].result);
+            }
+            if (locationDetailslocalstorage["Area"]?.result) {
+                setArea(locationDetailslocalstorage["Area"].result);
+            }
+            if (locationDetailslocalstorage["Vegetation_height"]?.result) {
+                setVegetationHeight(locationDetailslocalstorage["Vegetation_height"].result);
+            }
+            if (locationDetailslocalstorage["Terrain"]?.result) {
+                setCheckedTerrainTypes(locationDetailslocalstorage["Terrain"].result);
+            }
+            if (locationDetailslocalstorage["Weather"]?.result) {
+                setCheckedWeatherConditions(locationDetailslocalstorage["Weather"].result);
+            }
+        }
+    }, []);  
 
 
     useEffect(() => {          
@@ -54,8 +79,7 @@ function LocationDetails() {
             message.error('You cannot select both Plain and Mountain at the same time.');
             // Deselect Plain (index 0)
             newCheckedItems[0] = 0;
-        }
-
+        }        
         setCheckedTerrainTypes(newCheckedItems);
     };
 
@@ -124,6 +148,7 @@ function LocationDetails() {
                         </div>
                         <div style={{ marginTop: "0px" }}>
                             <Select
+                                value={location} 
                                 //defaultValue={defaultValue}
                                 style={{ width: "100%" }}
                                 onChange={handleChangeLocation}
@@ -140,10 +165,10 @@ function LocationDetails() {
 
                     <LocationInput
                         inputName={'Area'}
-                        label={'Area “A” Size'} 
+                        label={<span>Area size (km<sup>2</sup>)</span>} 
                         value={area} 
                         onChange={(e) => handleChangeArea(e.target.value)} 
-                        text={<>{'Km'}<sup>2</sup></>} 
+                         
                     />
                     {checkedTerrainTypes.at(1) === 1 && (
                         <LocationInput 

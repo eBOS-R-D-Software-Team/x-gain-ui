@@ -6,9 +6,9 @@ import SectorServicesLevel from "../Pages/SectorServicesLevel";
 
 export const stepsLabels = [
     {
-        title: "Level and User Type",
+        title: "Selection of assessment level and user type",
         subtitle: "",
-        icon: "images/icons/sector.svg",
+        icon: "images/icons/profile-circle.svg",
         subicon: "",
         url: "/sector-services-level",
         content: <SectorServicesLevel/>,
@@ -76,7 +76,7 @@ export const stepsLabels = [
         color: "#158D6B"
     },
     {
-        title: "Summary Results",
+        title: "Assessment Overview",
         subtitle: "",
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png",
@@ -87,7 +87,7 @@ export const stepsLabels = [
     },
     {
         title: "Results:",
-        subtitle: "Techno-Economic assessment",
+        subtitle: "Techno-Economic Assessment",
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png",
         url: "",
@@ -117,7 +117,7 @@ export const stepsLabels = [
     },
     {
         title: "Results:",
-        subtitle: "Socio-Environmental assessment",
+        subtitle: "Socio-Environmental Assessment",
         icon: "/images/icons/graph1.png",
         subicon: "/images/icons/graph2.png",
         url: "",
@@ -178,22 +178,20 @@ export const countries = [
     { name: 'Belgium', code: 'BE' },
     { name: 'Bulgaria', code: 'BG' },
     { name: 'Cyprus', code: 'CY' },
+    { name: 'Croatia', code: 'HR' },
     { name: 'Czech Republic', code: 'CZ' },
-    { name: 'Germany', code: 'DE' },
     { name: 'Denmark', code: 'DK' },
-    { name: 'United Kingdom', code: 'UK' },
-    { name: 'Spain', code: 'ES' },
     { name: 'Estonia', code: 'EE' },
     { name: 'Finland', code: 'FI' },
     { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
     { name: 'Greece', code: 'GR' },
-    { name: 'Croatia', code: 'HR' },
     { name: 'Hungary', code: 'HU' },
     { name: 'Ireland', code: 'IE' },
     { name: 'Italy', code: 'IT' },
+    { name: 'Latvia', code: 'LV' },
     { name: 'Lithuania', code: 'LT' },
     { name: 'Luxembourg', code: 'LU' },
-    { name: 'Latvia', code: 'LV' },
     { name: 'Malta', code: 'MT' },
     { name: 'Netherlands', code: 'NL' },
     { name: 'Poland', code: 'PL' },
@@ -201,7 +199,9 @@ export const countries = [
     { name: 'Romania', code: 'RO' },
     { name: 'Slovakia', code: 'SK' },
     { name: 'Slovenia', code: 'SI' },
-    { name: 'Sweden', code: 'SE' }
+    { name: 'Spain', code: 'ES' },
+    { name: 'Sweden', code: 'SE' },
+    { name: 'United Kingdom', code: 'UK' },
 ];
 
 

@@ -1,10 +1,12 @@
 export const technologyMixesColumns = [
     {
         title: '#',
-        dataIndex: 'Sol_ID',
         key: 'Sol_ID',
         width: 50,
         className: 'technology-table-group',
+        render: (text, record, index) => {
+            return index + 1;
+        },
     },
     {
         title: 'Networks',
@@ -38,10 +40,17 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'No',
-                dataIndex: ['Connectivity_information', 'Number', 1],
+                //dataIndex: ['Connectivity_information', 'Number', 1],
                 key: 'no2',
                 width: 50,
                 className: 'technology-table-child',
+                render: (text, record) => {
+                    const linksLength = record.Connectivity_information.Links.length;
+                    const netsValue = linksLength === 2 
+                        ? null
+                        : record.Connectivity_information.Number[1];
+                    return netsValue;
+                },
             },
             {
                 title: '(Public) Internet \n Connectivity',
@@ -57,10 +66,16 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'No',
-                dataIndex: ['Connectivity_information', 'Number', 2],
                 key: 'no3',
                 width: 50,
                 className: 'technology-table-child',
+                render: (text, record) => {
+                    const linksLength = record.Connectivity_information.Links.length;
+                    const netsValue = linksLength === 2 
+                        ? record.Connectivity_information.Number[1]
+                        : record.Connectivity_information.Number[2];
+                    return netsValue;
+                },
             },
             {
                 title: '*Warning',

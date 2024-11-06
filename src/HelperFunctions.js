@@ -37,6 +37,11 @@ export const renderBulletedList = (content) => {
 
 
 export const formatDecimalNumber = (num) => {
+    return num !== null && num !== undefined ? num.toFixed(2) : '0.00';
+};
+
+
+export const formatExponentialNumber = (num) => {
     if (typeof num !== 'number' || isNaN(num)) {
         return '';
     }
@@ -46,4 +51,31 @@ export const formatDecimalNumber = (num) => {
         return formatted;
     }
     return 0;
+}
+
+
+export const environmentalTools = (edgeEnablersData, environmentalData) => {
+    return [
+        {
+            key: '1',
+            tools: edgeEnablersData?.[0]?.join(', ') || [],
+            Carbon: formatExponentialNumber(environmentalData?.cO2FPrEUD),
+            Impact: formatExponentialNumber(environmentalData?.healtImpEUD),
+            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrEUD),
+        },
+        {
+            key: '2',
+            tools: edgeEnablersData?.[1]?.join(', ') || [],
+            Carbon: formatExponentialNumber(environmentalData?.cO2FPrNetw),
+            Impact: formatExponentialNumber(environmentalData?.healtImpNetw),
+            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrNetw),
+        },
+        {
+            key: '3',
+            tools: edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [],
+            Carbon: formatExponentialNumber(environmentalData?.cO2FPrEnabl),
+            Impact: formatExponentialNumber(environmentalData?.healtImpEnabl),
+            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrEnabl),
+        }
+    ]
 }

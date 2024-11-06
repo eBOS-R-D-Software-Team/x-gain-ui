@@ -1,7 +1,7 @@
 export const businessModelData = [
     {
         "unique_id": 1,
-    "sector": "Agriculture",
+        "sector": "Agriculture",
         "service": "Precision Agriculture",
         "user_type": "End-User",
         "label1_title": "Key Partners",
@@ -578,7 +578,7 @@ export const businessModelData = [
     {
         "unique_id": 25,
         "sector": "Aquaculture",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "End-User",
         "label1_title": "Key Partners",
         "label1_content": "Internet service providers ISP\nTechnology and Data providers \nApplication providers (data analytics)\nFinancial providers (e.g. banks)\nGovernment and Regulatory bodies",
@@ -602,7 +602,7 @@ export const businessModelData = [
     {
         "unique_id": 26,
         "sector": "Aquaculture",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "Internet Service Provider (ISP)",
         "label1_title": "Key Partners",
         "label1_content": "MNOs\nTechnology and Data providers \nNGOs\nAcademic Institutions\nSystem Integrators\nFinancial providers (e.g. banks)\nGovernment and Regulatory bodies",
@@ -626,7 +626,7 @@ export const businessModelData = [
     {
         "unique_id": 27,
         "sector": "Aquaculture",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "Public Authority",
         "label1_title": "Partnerships/Suppliers/Collaborators",
         "label1_content": "State, Municipality, Federal Government, Ministries, European Union, Universities, Development Agencies, Private sector (e.g. MNOs, ISPs), Financial Institutions.",
@@ -1298,7 +1298,7 @@ export const businessModelData = [
     {
         "unique_id": 55,
         "sector": "Environmental Monitoring",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "End-User",
         "label1_title": "Key Partners",
         "label1_content": "Internet service providers ISP\nTechnology and Data providers \nApplication providers (data analytics)\nFinancial providers (e.g. banks)\nGovernment and Regulatory bodies",
@@ -1322,7 +1322,7 @@ export const businessModelData = [
     {
         "unique_id": 56,
         "sector": "Environmental Monitoring",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "Internet Service Provider (ISP)",
         "label1_title": "Key Partners",
         "label1_content": "MNOs\nTechnology and Data providers \nNGOs\nAcademic Institutions\nSystem Integrators\nFinancial providers (e.g. banks)\nGovernment and Regulatory bodies",
@@ -1346,7 +1346,7 @@ export const businessModelData = [
     {
         "unique_id": 57,
         "sector": "Environmental Monitoring",
-        "service": "Water quality monitoring",
+        "service": "Water Quality Monitoring",
         "user_type": "Public Authority",
         "label1_title": "Partnerships/Suppliers/Collaborators",
         "label1_content": "State, Municipality, Federal Government, Ministries, European Union, Universities, Development Agencies, Private sector (e.g. MNOs, ISPs), Financial Institutions.",

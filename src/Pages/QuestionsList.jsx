@@ -1,18 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect , useRef } from 'react';
+import { useNavigate , useLocation } from "react-router-dom";
 import { message, Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels, questions } from '../Data/Data';
 import QuestionItem from '../Components/WizardElements/QuestionItem';
 import { postDataToICCSApi } from '../Data/Api';
 import { initQuestionsData } from '../Data/JsonObjects';
+import { useBackButton } from '../Context/BackButtonContext';
 
 function QuestionsList() {
+    const navigate = useNavigate();
+    const location = useLocation();
+   const { lastKeyResult , isUpload , lastkey } = location.state || {};      
+    const { setBackAction } = useBackButton(); // Access the function to set the back action  
+  let   savedInitDataQuestions ;
+  let  uploadDataQuestionButton;
+    if (isUpload){
+
+         savedInitDataQuestions = localStorage.getItem('questionsFormData');
+         uploadDataQuestionButton = localStorage.getItem('DataQuestionUploadButton');
+    }
+
     const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
     const [formData, setFormData] = useState({
-        initData: initQuestionsData,
-        data: {}
-    });
+        initData: isUpload ? JSON.parse(savedInitDataQuestions) : initQuestionsData,
+        data: isUpload ? JSON.parse(uploadDataQuestionButton) : {}
+      });
     const [nextQuestionKey, setNextQuestionKey] = useState(null); // State to handle navigation
     const [loading, setLoading] = useState(false);
     const [devicesChoice, setDevicesChoice] = useState({
@@ -22,15 +35,117 @@ function QuestionsList() {
     const [inputDevicesValues, setInputDevicesValues] = useState({
         tablet: '',
         laptop: ''
-    });
+    });    
 
-    const navigate = useNavigate();
-    
+
+    // Save formData to localStorage whenever it changes
     useEffect(() => {
+        try {
         localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
-        console.log('questionsFormData', formData);
-    }, [formData]);
+        localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data));
+        
+        } catch (error) {
+        console.error('Error saving data to localStorage:', error);
+        }
+    }, [formData]); // This will run whenever formData changes   
 
+
+    // Effect that runs when the user clicks the upload button and conditions are met
+    useEffect(() => {
+        if (lastkey && questions && questions[lastkey] && isUpload) {
+            const currentQuestion = questions[lastkey];    
+            const foundItem = questions[lastkey];
+            const arrayItemChoices = foundItem.choices; 
+            let findEndQuestion;               
+
+            if (foundItem.input){
+                findEndQuestion = foundItem.input.nextQuestion;
+            }
+            else{
+                findEndQuestion = foundItem.choices[0].nextQuestion;
+            }
+
+            if (findEndQuestion){
+                if (findEndQuestion === 'end'){
+                    setCurrentQuestionKey(lastkey);
+                    // Clear the location.state after handling the logic
+                    navigate(location.pathname, { replace: true }); // Redirect to the same page without state  
+                }
+            }
+
+            if (Array.isArray(arrayItemChoices) && findEndQuestion !== 'end') { 
+                // Find the item where text matches lastKeyResult.choice
+                const matchedItem = arrayItemChoices.find((item) => item.text === lastKeyResult.choice);
+                if (matchedItem) {                     
+                    if ( lastKeyResult.choice === 'Personal Devices (Smartphones / Tablets / Laptops)' || lastKeyResult.choice === 'Other type of device'){
+                        // Retrieve the choice value from dataQuestion
+                        
+                        const choice = lastKeyResult.choice;
+                        // Find the matching choice in questions.dev_per_type.choices
+                        const matchingChoice = questions.dev_per_type.choices.find(choiceObj => choiceObj.text === choice);
+                        // Get the nextQuestion value if there is a match
+                        const nextQuestion = matchingChoice ? matchingChoice.nextQuestion : null;
+                        setCurrentQuestionKey(nextQuestion);
+                        // Clear the location.state after handling the logic
+                        navigate(location.pathname, { replace: true }); // Redirect to the same page without state                       
+                    }
+                     else{
+                        setCurrentQuestionKey(matchedItem.nextQuestion);
+                        // Clear the location.state after handling the logic
+                        navigate(location.pathname, { replace: true }); // Redirect to the same page without state
+                     }
+                }
+            }
+            
+            if(lastkey === 'personal_dev_type'){
+                    let nextQuestion_personal_dev_type;
+                    if(lastKeyResult.result[0] !== 0 && lastKeyResult.result[1] !== 0) {
+                        nextQuestion_personal_dev_type = "personal_internet";
+                    } else if(lastKeyResult.result[0] !== 0) {
+                        nextQuestion_personal_dev_type = "tablet_internet";
+                    } else if(lastKeyResult.result[1] !== 0) {
+                        nextQuestion_personal_dev_type = "laptop_internet";
+                    }                  
+                    setCurrentQuestionKey(nextQuestion_personal_dev_type);
+                    // Clear the location.state after handling the logic
+                    navigate(location.pathname, { replace: true }); // Redirect to the same page without state
+            }
+
+            if (currentQuestion.input && lastkey !== 'dev_per_type' &&  findEndQuestion !== 'end'){
+                
+                setCurrentQuestionKey(currentQuestion.input.nextQuestion);
+                // Clear the location.state after handling the logic
+                navigate(location.pathname, { replace: true }); // Redirect to the same page without state
+            }
+
+
+        }
+    }, [lastkey, questions, isUpload, location.pathname]);
+   
+    // input validation 
+    useEffect(() => {
+       // console.log('questions' ,formData.initData[currentQuestionKey]);
+        const inputValidationChoice =  formData.initData[currentQuestionKey].choice;
+        const inputValidationValue =  formData.initData[currentQuestionKey].input;          
+        if (currentQuestionKey == 'personal_dev_type') {           
+          if ( inputDevicesValues.tablet > 2500 || inputDevicesValues.laptop > 2500 ){
+            message.error('The value must be less than 2500');
+          }
+        }
+        if (inputValidationChoice === 'Cameras' && inputValidationValue > 3750){
+            message.error('The value must be less than 3750');
+        }
+        if (inputValidationChoice === 'Other type of device' && inputValidationValue > 3750){
+            message.error('The value must be less than 3750');
+        }      
+        if (inputValidationChoice === 'Sensors' && inputValidationValue > 75000){
+            message.error('The value must be less than 75000');
+        }    
+        if (inputValidationChoice === 'Drones' && inputValidationValue > 75){
+            message.error('The value must be less than 75');
+        }
+        
+    }, [formData , inputDevicesValues]);
     // Effect to handle navigation after form data is updated
     useEffect(() => {
         if (nextQuestionKey && nextQuestionKey !== 'end') {
@@ -38,10 +153,16 @@ function QuestionsList() {
         }   
     }, [nextQuestionKey]);
 
-
+    useEffect(() => { 
+        setBackAction(() => handleBackPreviousQuestion); 
+      
+        // Optional: Reset back action when the component is unmounted
+        return () => setBackAction(null);
+    }, [setBackAction ,formData]);
+      
     const handleChoiceChange = (choice) => {
         const nextQuestion = choice.nextQuestion;
-
+       
         setFormData(prevFormData => ({
             ...prevFormData,
             initData: {
@@ -63,17 +184,18 @@ function QuestionsList() {
                 }
             }
         }));
-
+        
         // Automatically proceed if there is no input field and nextQuestion is defined, but do not navigate to 'end'
         if (!questions[currentQuestionKey].input && nextQuestion && nextQuestion !== 'end') {
-            setNextQuestionKey(nextQuestion);
+            setNextQuestionKey(nextQuestion);      
+            setCurrentQuestionKey(nextQuestion); // Update the current question       
+     
         }
     };
 
     
     const handleInputChange = (e) => {
         const value = e.target.value;
-
         setFormData(prevFormData => {
             let updatedResult;
 
@@ -179,7 +301,6 @@ function QuestionsList() {
     const handleNextQuestion = () => {
         const currentQuestion = questions[currentQuestionKey];
         let nextQuestion;
-    
         //Navigate steps after form data is updated
         if (currentQuestionKey === 'dev_per_type') {
             const choice = questions[currentQuestionKey].choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
@@ -197,13 +318,59 @@ function QuestionsList() {
         } else {
             const choice = currentQuestion.choices.find(c => c.text === formData.initData[currentQuestionKey]?.choice);
             nextQuestion = choice?.nextQuestion;
-        }
+        }  
 
         if (nextQuestion) {
-            setNextQuestionKey(nextQuestion);
+            setNextQuestionKey(nextQuestion);    
+            setCurrentQuestionKey(nextQuestion); // Update the current question       
         }
+        
     };
 
+    const handleBackPreviousQuestion = () => { 
+        const currentQuestion = questions[currentQuestionKey];      
+        const  keysArray = Object.keys(formData.data); // Get all keys
+        const  prevKey = keysArray[keysArray.length - 1]; // Find the last key
+        console.log('currentQuestion' ,currentQuestion);
+        console.log('prevKey' ,prevKey);
+        if (formData.data && Object.keys(formData.data).length > 0) {
+
+            if (keysArray.length > 0) {
+                // Remove the last key from the data object
+                const updatedData = { ...formData.data };
+                delete updatedData[prevKey];
+    
+                // Reset the specific key to the initial value from initQuestionsData
+                const updatedInitData = {
+                    ...formData.initData,
+                    [prevKey]: initQuestionsData[prevKey],
+                };
+               
+                // Update state sequentially
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    initData: updatedInitData,
+                    data: updatedData,
+                }));
+
+                // Handle resetting devices choice if needed
+                if (prevKey === 'personal_dev_type' || prevKey === 'dev_per_type') {
+                    setDevicesChoice({
+                        tablet: false,
+                        laptop: false
+                    });
+                    setInputDevicesValues({
+                        tablet: '',
+                        laptop: ''
+                    });
+                } 
+    
+                setCurrentQuestionKey(prevKey); // Move to the previous question key
+            }
+        } else {
+            navigate(-1); // Navigate back if no data is present
+        }
+     } 
 
     const handleConfirmData = async () => {
         setLoading(true);
@@ -221,7 +388,8 @@ function QuestionsList() {
                         } 
                     };
                     localStorage.setItem('questionsFormData', JSON.stringify(updatedFormData.initData));
-                    localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData.initData));
+                    localStorage.setItem('DataQuestionUploadButton', JSON.stringify(updatedFormData.data));
+                    localStorage.setItem('completeQuestionsFormData', JSON.stringify(updatedFormData.initData));                    
                     setNextQuestionKey('end');
                     return updatedFormData;
                 }

@@ -16,6 +16,21 @@ const ImpactAssessment = () => {
     const [highestSolItems, setHighestSolItems] = useState([]);
 
     useEffect(() => {
+        const technological = localStorage.getItem('Technologicalvalue')    
+        const economic = localStorage.getItem('Economicvalue')  
+        const environmental = localStorage.getItem('Environmentalvalue')              
+        if (technological && economic && environmental ){            
+            setTechnologicalValue(parseInt(technological))
+            setEconomicValue(parseInt(economic))
+            setEnvironmentalValue(parseInt(environmental))
+            localStorage.removeItem('Technologicalvalue')     
+            localStorage.removeItem('Economicvalue')     
+            localStorage.removeItem('Environmentalvalue')        
+        }  
+    }, []);
+
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const iccsResponse = JSON.parse(localStorage.getItem('iccs_response'));
@@ -76,6 +91,9 @@ const ImpactAssessment = () => {
     };
 
     const handleResults = () => {
+        localStorage.setItem('Technologicalvalue',  JSON.stringify(technologicalValue));
+        localStorage.setItem('Economicvalue',  JSON.stringify(economicValue));
+        localStorage.setItem('Environmentalvalue',  JSON.stringify(environmentalValue));
         setLoading(true);
         setTimeout(() => {
             navigate('/technology-mixes', { state: { highestSolItems } });

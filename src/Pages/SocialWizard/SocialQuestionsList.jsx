@@ -1,49 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Row, Col, Spin, message } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
 import { stepsLabels } from '../../Data/Data';
 import SocialQuestionItem from '../../Components/WizardElements/SocialQuestionItem';
 import { postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../../Data/Api';
+import { useBackButton } from '../../Context/BackButtonContext';
 
 function SocialQuestionsList() {
-    const [loading, setLoading] = useState(false);
-    const [iccsResponseData, setIccsResponseData] = useState({});
-    const [questionsData, setQuestionsData] = useState([]);
-    const [answers, setAnswers] = useState({});
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [isCompleted, setIsCompleted] = useState(false);
-    const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState([]);
-
     const navigate = useNavigate();
+    const location = useLocation();
+    const { indexQuestion, isUpload } = location.state || {};
+    const { setBackAction } = useBackButton();
+
+    const getAnswers = JSON.parse(localStorage.getItem('answers'));
+    const getDataCalculateScore = JSON.parse(localStorage.getItem('dataCalculateSocialScore'));
+
+    const [loading, setLoading] = useState(false);
+    const [iccsResponseData, setIccsResponseData] = useState(() => JSON.parse(localStorage.getItem('iccs_response')) || {});
+    const [questionsData, setQuestionsData] = useState(() => JSON.parse(localStorage.getItem('socialQuestionsResponse')) || []);
+    const [answers, setAnswers] = useState(isUpload ? getAnswers : {});
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(isUpload ? parseInt(indexQuestion) : 0);
+    const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState(isUpload ? getDataCalculateScore : []);
+    const [isCompleted, setIsCompleted] = useState(false);
+
+    // Clear location state after upload processing
+    useEffect(() => {
+        if (isUpload) {
+            navigate(location.pathname, { replace: true });
+        }
+    }, [isUpload, location.pathname, navigate]);
+
+    // Update local storage when answers or score data changes
+    useEffect(() => {
+        localStorage.setItem('answers', JSON.stringify(answers));
+        localStorage.setItem('dataCalculateSocialScore', JSON.stringify(dataCalculateSocialScore));
+    }, [answers, dataCalculateSocialScore]);
 
     useEffect(() => {
-        const savedQuestionsData = localStorage.getItem('socialQuestionsResponse');
-        if (savedQuestionsData) {
-            const parsedData = JSON.parse(savedQuestionsData);
-            setQuestionsData(parsedData);      
-        }
-    }, []);
+        localStorage.setItem('currentQuestionIndexSocialQuestion', currentQuestionIndex);
+    }, [currentQuestionIndex]);
 
-
+    // Set back button behavior and cleanup on unmount
     useEffect(() => {
-        const data = localStorage.getItem('iccs_response');
-        if (data) {
-            const parsedData = JSON.parse(data);
-            setIccsResponseData(parsedData);      
+        setBackAction(() => handleBackPreviousQuestion);
+        return () => setBackAction(null);
+    }, [setBackAction, dataCalculateSocialScore]);
+
+    // Function to handle going back to previous question
+    const handleBackPreviousQuestion = () => {
+        if (currentQuestionIndex > 0) {
+            const prevQuestionID = questionsData[currentQuestionIndex - 1].id;
+            const currentQuestionID = questionsData[currentQuestionIndex].id;
+
+            setAnswers(prevAnswers => {
+                const updatedAnswers = { ...prevAnswers };
+                delete updatedAnswers[prevQuestionID];
+                if (currentQuestionIndex === questionsData.length - 1) delete updatedAnswers[currentQuestionID];
+                return updatedAnswers;
+            });
+
+            setDataCalculateSocialScore(prevResponses => {
+                let updatedResponses = prevResponses.filter(response => response.id !== prevQuestionID);
+                if (currentQuestionIndex === questionsData.length - 1) {
+                    updatedResponses = updatedResponses.filter(response => response.id !== currentQuestionID);
+                }
+                return updatedResponses;
+            });
+
+            setCurrentQuestionIndex(currentQuestionIndex - 1);
+        } else {
+            navigate(-1);
         }
-    }, []);
+    };
 
-
+    // Handle answer selection and moving to the next question
     const handleChange = (questionId, selectedOption) => {
-        // Save the answer
-        setAnswers({
-            ...answers,
-            [questionId]: selectedOption,
-        });
-
-        // Save the question, ID, and selected answer into the array
         const question = questionsData.find(q => q.id === questionId);
         const newResponse = {
             id: question.id,
@@ -51,51 +84,52 @@ function SocialQuestionsList() {
             questionAnswer: selectedOption,
         };
 
-        setDataCalculateSocialScore((prevResponses) => {
-            const updatedResponses = [...prevResponses];
-            const existingIndex = updatedResponses.findIndex(res => res.questionId === questionId);
+        setAnswers(prev => ({
+            ...prev,
+            [questionId]: selectedOption
+        }));
 
-            // Replace the answer if the question already exists, otherwise add new entry
+        setDataCalculateSocialScore(prevResponses => {
+            const updatedResponses = [...prevResponses];
+            const existingIndex = updatedResponses.findIndex(res => res.id === questionId);
+
             if (existingIndex >= 0) {
                 updatedResponses[existingIndex] = newResponse;
             } else {
                 updatedResponses.push(newResponse);
             }
+
             return updatedResponses;
         });
 
-        // Move to next question if available
         if (currentQuestionIndex < questionsData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
     };
 
-
+    // Handle confirmation of answers and submission
     const handleConfirmButton = async () => {
+        setLoading(true);
         try {
-            setLoading(true);
-        
-            // Simulate a delay if required for UX purposes
-            await new Promise((resolve) => setTimeout(resolve, 3000));
+            await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate delay
             setIsCompleted(true);
             await postSolutionsAnalysis();
             await postSocialAnswers(dataCalculateSocialScore);
             await postEnvironmentalData(iccsResponseData);
             navigate('/impact-assessment');
         } catch (error) {
-            message.error("An error occurred during the submission process:", error)
-            localStorage.removeItem('iccs_response');  // Remove specific item
-            localStorage.removeItem('solutionsAnalysisResponse'); 
+            message.error("An error occurred during the submission process");
+            localStorage.removeItem('iccs_response');
+            localStorage.removeItem('solutionsAnalysisResponse');
         } finally {
             setLoading(false);
         }
     };
-    
+
     const currentQuestion = questionsData[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === questionsData.length - 1;
     const hasSelectedOption = answers[currentQuestion?.id] !== undefined;
 
-    
     return (
         <Spin spinning={loading} tip="Loading...">
             <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
@@ -103,9 +137,9 @@ function SocialQuestionsList() {
                     icon={stepsLabels[9].icon} 
                     subicon={stepsLabels[9].subicon} 
                     title={stepsLabels[9].title} 
-                    subtitle={stepsLabels[9].subtitle}
+                    subtitle={stepsLabels[9].subtitle} 
                     level={2} 
-                    color={stepsLabels[9].color}
+                    color={stepsLabels[9].color} 
                 />
                 {!isCompleted && currentQuestion && (
                     <SocialQuestionItem 
@@ -113,7 +147,7 @@ function SocialQuestionsList() {
                         questionText={currentQuestion.question}
                         items={currentQuestion.questionAnswerOptions}
                         selectedValue={answers[currentQuestion.id]}
-                        onChange={handleChange} 
+                        onChange={handleChange}
                     />
                 )}
                 {isLastQuestion && hasSelectedOption && (
@@ -123,13 +157,13 @@ function SocialQuestionsList() {
                                 <ConfirmButton
                                     disabled={false}
                                     onClick={handleConfirmButton}
-                                    color={'black'} 
+                                    color={'black'}
                                     text={'Confirm Selection'}
-                                />       
-                            </Col> 
-                        </Row>                       
-                    </Col>   
-                )}   
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                )}
             </Row>
         </Spin>
     );

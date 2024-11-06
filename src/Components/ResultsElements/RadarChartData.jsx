@@ -11,8 +11,17 @@ const RadarChartData = ({ data }) => {
                 angleLines: {
                     display: true,
                 },
-                suggestedMin: -3,
-                suggestedMax: 3,
+                suggestedMin: -2,
+                suggestedMax: 2,
+                ticks: {
+                    stepSize: 1,
+                    backdropPadding: 4, // Padding around the tick labels
+                    z: 1, 
+                    font: {
+                        size: 16, // Set the font size for tick labels
+                        weight: 'bold', // Set the font weight for tick labels
+                    },
+                },
             },
         },
         plugins: {
