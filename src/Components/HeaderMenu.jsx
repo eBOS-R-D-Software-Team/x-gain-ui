@@ -237,7 +237,7 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
     return(
         <BackButtonProvider>
             <Layout className='layoutPaddingTop' style={{ backgroundColor: '#00A27B', minHeight: '100vh'}}>   
-            <img src='/images/icons/logo.png' alt="Logo" className='logoHiden' style={{cursor:'pointer' , height:'200px' , width:'90%' , paddingTop:'0px', marginLeft:'5%', paddingBottom:'20px' }}/>        
+            <img src='/images/icons/logo.png' alt="Logo" className='logoHiden' style={{cursor:'pointer' , width:'60%' , paddingTop:'0px', margin: 'auto', paddingBottom:'20px' }}/>        
                 <Header className="site-layout-background" style={{ backgroundColor: 'transparent'}}>
                     <div className="header-content" style={{ height: '100%' }}>
                         <div className="left-navbar">

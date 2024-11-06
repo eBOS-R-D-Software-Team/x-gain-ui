@@ -5,7 +5,7 @@ const ColumnChartData = ({ title, data }) => {
     const options = {
         isStacked: true,
         title: title,
-        colors: ['#4285F4', '#EA4335', '#FF9900'],  // Custom colors for the columns
+        colors: ['#4285F4', '#EA4335', '#FF9900', '#109618'],  // Custom colors for the columns
     };
 
     return(
