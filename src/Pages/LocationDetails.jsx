@@ -165,7 +165,7 @@ function LocationDetails() {
 
                     <LocationInput
                         inputName={'Area'}
-                        label={'Area size (km2)'} 
+                        label={<span>Area size (km<sup>2</sup>)</span>} 
                         value={area} 
                         onChange={(e) => handleChangeArea(e.target.value)} 
                          

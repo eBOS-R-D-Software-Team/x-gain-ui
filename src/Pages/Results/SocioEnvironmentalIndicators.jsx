@@ -91,7 +91,7 @@ function SocioEnvironmentalIndicators() {
     return(
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col className="title_results_col" span={24} style={{ display: 'flex'}}>
+                <Col className="title_results_col" span={24}>
                     <TitleForm 
                         icon={stepsLabels[11].icon} 
                         subicon={stepsLabels[11].subicon} 
@@ -163,7 +163,10 @@ function SocioEnvironmentalIndicators() {
                     </Title>  
                     <div ref={radarChartRef} style={{ marginTop: '30px', display: 'flex', justifyContent: 'center'}}>
                         <RadarChartData data={radarData} />
-                    </div>                
+                    </div>  
+                    <div style={{ marginTop: 20 }}>                                         
+                        <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '100%' }}/>        
+                    </div>              
                 </Col>
             </Row>
         </Layout>

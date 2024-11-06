@@ -325,14 +325,22 @@ button .ant-btn-icon {
   }
 }
 
-@media (max-width: 967px) {
+@media (min-width: 576px) {
   .title_results_col {
     max-width: 90%;
     align-items: center;
     justify-content: center;
+    display: flex
   }
 
   .downloadBtn {
     margin: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .downloadBtn {
+    display: flex;
+    justify-content: center;
   }
 }

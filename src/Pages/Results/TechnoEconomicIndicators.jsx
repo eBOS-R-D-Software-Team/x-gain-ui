@@ -90,7 +90,7 @@ function TechnoEconomicIndicators() {
     return(
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col className="title_results_col" span={24} style={{ display: 'flex'}}>
+                <Col className="title_results_col" span={24}>
                     <TitleForm 
                         icon={stepsLabels[8].icon} 
                         subicon={stepsLabels[8].subicon} 

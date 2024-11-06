@@ -294,6 +294,9 @@ function SummaryResults() {
                                     <Col span={24} style={{ marginTop: 20, display: 'flex', justifyContent: 'center' }}>              
                                         <RadarChartData data={chartData} />
                                     </Col>
+                                    <Col span={24} style={{ marginTop: 20 }}>                                         
+                                        <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '100%' }}/>        
+                                    </Col>
                                 </Row>
                             }  
                         </Card>   
