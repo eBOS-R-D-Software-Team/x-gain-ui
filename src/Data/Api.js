@@ -1,4 +1,5 @@
 import { message } from 'antd';
+import { API_BASE_URL, API3_BASE_URL, API1_BASE_URL } from '../config';
 
 const USERNAME = 'xgain';
 const PASSWORD = 'xG4iN1Cc$-ins';
@@ -17,11 +18,6 @@ const apiRequest = async (url, method, headers, body) => {
 
     return response.json();
 };
-
-
-const API_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_BASE_URL : '/api';
-const API3_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API3_BASE_URL : '/api3';
-const API1_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API1_BASE_URL : '/api1';
 
 
 const fetchLoginToken = async (loginData) => {
