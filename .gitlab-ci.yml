@@ -25,7 +25,7 @@ deploy:
   stage: deploy
   script:
     - npm install -g netlify-cli
-    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN
+    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=8c79c186-5b13-4859-91f2-892e1251d373
   dependencies:
     - build
   only:
