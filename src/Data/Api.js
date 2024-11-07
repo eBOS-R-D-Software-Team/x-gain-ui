@@ -19,9 +19,9 @@ const apiRequest = async (url, method, headers, body) => {
 };
 
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
-const API3_BASE_URL = process.env.REACT_APP_API3_BASE_URL || '/api3';
-const API1_BASE_URL = process.env.REACT_APP_API1_BASE_URL || '/api1';
+const API_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_BASE_URL : '/api';
+const API3_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API3_BASE_URL : '/api3';
+const API1_BASE_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API1_BASE_URL : '/api1';
 
 
 const fetchLoginToken = async (loginData) => {
