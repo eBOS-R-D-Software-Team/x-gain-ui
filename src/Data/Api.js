@@ -20,7 +20,7 @@ const apiRequest = async (url, method, headers, body) => {
 
 
 const fetchLoginToken = async (loginData) => {
-    return apiRequest('/api/login', 'POST', {
+    return apiRequest('http://xgain.iccs.gr:8000/login', 'POST', {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*',
