@@ -1,6 +1,5 @@
 import React from 'react';
-import { Row, Col, Card } from 'antd';
-import { renderBulletedList } from '../../../HelperFunctions';
+import { Row, Col } from 'antd';
 import BusinessModelCard from '../../../Components/ResultsElements/BusinessModelCard';
 
 const PublicAuthorityBusinessModel = ({data}) => { 
