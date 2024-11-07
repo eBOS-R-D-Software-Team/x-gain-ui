@@ -26,7 +26,7 @@ deploy:
   script:
     - npm install -g netlify-cli
     - netlify sites:create --name=xgain --auth=$NETLIFY_AUTH_TOKEN || echo "Site already exists"
-    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=$(netlify sites:list --json | jq -r '.[] | select(.name == "<unique-site-name>").id')
+    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=$(netlify sites:list --json | jq -r '.[] | select(.name == "xgain").id')
   dependencies:
     - build
   only:
