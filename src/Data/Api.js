@@ -19,8 +19,13 @@ const apiRequest = async (url, method, headers, body) => {
 };
 
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
+const API3_BASE_URL = process.env.REACT_APP_API3_BASE_URL || '/api3';
+const API1_BASE_URL = process.env.REACT_APP_API1_BASE_URL || '/api1';
+
+
 const fetchLoginToken = async (loginData) => {
-    return apiRequest('http://xgain.iccs.gr:8000/login', 'POST', {
+    return apiRequest(`${API_BASE_URL}/login`, 'POST', {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*',
@@ -29,7 +34,7 @@ const fetchLoginToken = async (loginData) => {
 
 
 const postMainData = async (mainData, token) => {
-    return apiRequest('/api/main', 'POST', {
+    return apiRequest(`${API_BASE_URL}/main`, 'POST', {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
     }, JSON.stringify(mainData));
@@ -109,7 +114,7 @@ const postWithAccessToken = async (url, bodyData) => {
 export const postSolutionsAnalysis = async () => {
     try {
         const iccsResponseData = retrieveFromLocalStorage('iccs_response', 'No ICCS response data found in localStorage.');
-        const responseData = await postWithAccessToken('/api1/solutionsanalysis', iccsResponseData);
+        const responseData = await postWithAccessToken(`${API1_BASE_URL}/solutionanalysis`, iccsResponseData);
         if (responseData) {
             localStorage.setItem('solutionsAnalysisResponse', JSON.stringify(responseData));
             console.log('Solutions Analysis response:', responseData);
@@ -125,7 +130,7 @@ export const postSolutionsAnalysis = async () => {
 
 
 export const postSocialQuestions = async (mainData) => {
-    const responseData = await postWithAccessToken('/api3/Social/DetermineAdditionalQuestions', mainData);
+    const responseData = await postWithAccessToken(`${API3_BASE_URL}/Social/DetermineAdditionalQuestions`, mainData);
     if (responseData) {
         localStorage.setItem('socialQuestionsResponse', JSON.stringify(responseData));
     }
@@ -135,7 +140,7 @@ export const postSocialQuestions = async (mainData) => {
 
 export const postSocialAnswers = async (data) => {
     try {
-        const responseData = await postWithAccessToken('/api3/Social/CalculateSocialScore', data);
+        const responseData = await postWithAccessToken(`${API3_BASE_URL}/Social/CalculateSocialScore`, data);
         if (responseData) {
             localStorage.setItem('socialAnswersResponse', JSON.stringify(responseData));
             console.log('Calculate Social Score response:', responseData);
@@ -149,7 +154,7 @@ export const postSocialAnswers = async (data) => {
 
 
 export const postEnvironmentalData = async (data) => {
-    const responseData = await postWithAccessToken('/api3/Environmental/CalculateEnvironmentalScore', data);
+    const responseData = await postWithAccessToken(`${API3_BASE_URL}/Environmental/CalculateEnvironmentalScore`, data);
     if (responseData) {
         localStorage.setItem('environmentalDataResponse', JSON.stringify(responseData));
     }
