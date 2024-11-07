@@ -1,13 +1,32 @@
+image: node:16
+
 stages:
+  - build
   - deploy
 
-deploy_to_netlify:
-  image: node:14
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+  only:
+    - main  # or specify the branch you want to build and deploy from
+
+deploy:
   stage: deploy
   script:
     - npm install -g netlify-cli
-    - npm install
-    - npm run build
-    - netlify deploy --auth $NETLIFY_AUTH_TOKEN --prod --dir=build
+    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN
+  dependencies:
+    - build
   only:
-    - main  # or specify the branch you want to deploy
+    - main  # or specify the branch you want to deploy from
