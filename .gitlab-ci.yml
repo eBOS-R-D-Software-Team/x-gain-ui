@@ -25,8 +25,9 @@ deploy:
   stage: deploy
   script:
     - npm install -g netlify-cli
-    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN
+    - netlify sites:create --name=xgain --auth=$NETLIFY_AUTH_TOKEN || echo "Site already exists"
+    - netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=$(netlify sites:list --json | jq -r '.[] | select(.name == "<unique-site-name>").id')
   dependencies:
     - build
   only:
-    - main  # or specify the branch you want to deploy from
+    - main
