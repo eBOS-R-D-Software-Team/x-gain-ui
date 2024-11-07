@@ -21,12 +21,10 @@ const apiRequest = async (url, method, headers, body) => {
 
 
 const fetchLoginToken = async (loginData) => {
-    return apiRequest(`${API_BASE_URL}/login`, 'POST', {
+    return apiRequest(`/${API_BASE_URL}/login`, 'POST', {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': 'https://xgain.netlify.app',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        'Access-Control-Allow-Origin': '*',
     }, loginData);
 };
 
