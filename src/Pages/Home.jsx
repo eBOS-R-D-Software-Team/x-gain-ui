@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from "react-router-dom";
-import { Col, Row, Button, Avatar, List } from 'antd';
+import { Link } from "react-router-dom";
+import { Col, Row } from 'antd';
 import { stepsLabels } from '../Data/Data';
 import TitleForm from '../Components/WizardElements/TitleForm';
 function Home() {

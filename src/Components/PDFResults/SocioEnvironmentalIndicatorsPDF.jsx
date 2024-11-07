@@ -52,10 +52,6 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
             item.Biodiversity
         ]);
 
-        const columnStyles = {
-            0: { cellWidth: 40 },  // Width for the 'Category' column          
-        };
-
         doc.autoTable({
             startY: finalYPosition + 10,
             margin: {left: 10},
@@ -63,11 +59,10 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
             body: body,        // Table data
             theme: 'striped',
             columnStyles: {
-                0: { halign: 'left', fontStyle: 'bold' },    // Align 'Name' column to the left
+                0: { halign: 'left', fontStyle: 'bold', cellWidth: 40 },    // Align 'Name' column to the left
                 1: { halign: 'left' }    // Align 'Value' column to the right
             },
             bodyStyles: { fontSize: 10 },  // Adjust font size for better fit
-            columnStyles
         });
 
         finalYPosition = doc.lastAutoTable.finalY;

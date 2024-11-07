@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button } from 'antd';
+import { Button } from 'antd';
 
 
 const ConfirmButton = ({disabled, onClick, text, color}) => {

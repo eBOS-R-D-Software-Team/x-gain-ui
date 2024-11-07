@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate , useLocation } from "react-router-dom";
 import { message, Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
@@ -13,13 +13,12 @@ function QuestionsList() {
     const location = useLocation();
    const { lastKeyResult , isUpload , lastkey } = location.state || {};      
     const { setBackAction } = useBackButton(); // Access the function to set the back action  
-  let   savedInitDataQuestions ;
-  let  uploadDataQuestionButton;
-    if (isUpload){
-
-         savedInitDataQuestions = localStorage.getItem('questionsFormData');
-         uploadDataQuestionButton = localStorage.getItem('DataQuestionUploadButton');
-    }
+    let savedInitDataQuestions ;
+    let uploadDataQuestionButton;
+        if (isUpload){
+            savedInitDataQuestions = localStorage.getItem('questionsFormData');
+            uploadDataQuestionButton = localStorage.getItem('DataQuestionUploadButton');
+        }
 
     const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
     const [formData, setFormData] = useState({
@@ -120,14 +119,15 @@ function QuestionsList() {
 
 
         }
-    }, [lastkey, questions, isUpload, location.pathname]);
+    }, [lastkey, isUpload, location.pathname, lastKeyResult, navigate]);
    
+    
     // input validation 
     useEffect(() => {
        // console.log('questions' ,formData.initData[currentQuestionKey]);
         const inputValidationChoice =  formData.initData[currentQuestionKey].choice;
         const inputValidationValue =  formData.initData[currentQuestionKey].input;          
-        if (currentQuestionKey == 'personal_dev_type') {           
+        if (currentQuestionKey === 'personal_dev_type') {           
           if ( inputDevicesValues.tablet > 2500 || inputDevicesValues.laptop > 2500 ){
             message.error('The value must be less than 2500');
           }
@@ -145,7 +145,9 @@ function QuestionsList() {
             message.error('The value must be less than 75');
         }
         
-    }, [formData , inputDevicesValues]);
+    }, [formData , inputDevicesValues, currentQuestionKey]);
+
+
     // Effect to handle navigation after form data is updated
     useEffect(() => {
         if (nextQuestionKey && nextQuestionKey !== 'end') {
@@ -153,12 +155,52 @@ function QuestionsList() {
         }   
     }, [nextQuestionKey]);
 
+
     useEffect(() => { 
+        const handleBackPreviousQuestion = () => { 
+            const currentQuestion = questions[currentQuestionKey];      
+            const keysArray = Object.keys(formData.data); // Get all keys
+            const prevKey = keysArray[keysArray.length - 1]; // Find the last key
+            console.log('currentQuestion' ,currentQuestion);
+            console.log('prevKey' ,prevKey);
+            if (formData.data && Object.keys(formData.data).length > 0) {
+                if (keysArray.length > 0) {
+                    const updatedData = { ...formData.data };
+                    delete updatedData[prevKey];
+                    const updatedInitData = {
+                        ...formData.initData,
+                        [prevKey]: initQuestionsData[prevKey],
+                    };
+                   
+                    setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        initData: updatedInitData,
+                        data: updatedData,
+                    }));
+    
+                    if (prevKey === 'personal_dev_type' || prevKey === 'dev_per_type') {
+                        setDevicesChoice({
+                            tablet: false,
+                            laptop: false
+                        });
+                        setInputDevicesValues({
+                            tablet: '',
+                            laptop: ''
+                        });
+                    } 
+    
+                    setCurrentQuestionKey(prevKey);
+                }
+            } else {
+                navigate(-1);
+            }
+        };
+    
         setBackAction(() => handleBackPreviousQuestion); 
       
-        // Optional: Reset back action when the component is unmounted
         return () => setBackAction(null);
-    }, [setBackAction ,formData]);
+    }, [setBackAction, formData, currentQuestionKey, navigate]);
+    
       
     const handleChoiceChange = (choice) => {
         const nextQuestion = choice.nextQuestion;
@@ -327,50 +369,7 @@ function QuestionsList() {
         
     };
 
-    const handleBackPreviousQuestion = () => { 
-        const currentQuestion = questions[currentQuestionKey];      
-        const  keysArray = Object.keys(formData.data); // Get all keys
-        const  prevKey = keysArray[keysArray.length - 1]; // Find the last key
-        console.log('currentQuestion' ,currentQuestion);
-        console.log('prevKey' ,prevKey);
-        if (formData.data && Object.keys(formData.data).length > 0) {
-
-            if (keysArray.length > 0) {
-                // Remove the last key from the data object
-                const updatedData = { ...formData.data };
-                delete updatedData[prevKey];
     
-                // Reset the specific key to the initial value from initQuestionsData
-                const updatedInitData = {
-                    ...formData.initData,
-                    [prevKey]: initQuestionsData[prevKey],
-                };
-               
-                // Update state sequentially
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    initData: updatedInitData,
-                    data: updatedData,
-                }));
-
-                // Handle resetting devices choice if needed
-                if (prevKey === 'personal_dev_type' || prevKey === 'dev_per_type') {
-                    setDevicesChoice({
-                        tablet: false,
-                        laptop: false
-                    });
-                    setInputDevicesValues({
-                        tablet: '',
-                        laptop: ''
-                    });
-                } 
-    
-                setCurrentQuestionKey(prevKey); // Move to the previous question key
-            }
-        } else {
-            navigate(-1); // Navigate back if no data is present
-        }
-     } 
 
     const handleConfirmData = async () => {
         setLoading(true);

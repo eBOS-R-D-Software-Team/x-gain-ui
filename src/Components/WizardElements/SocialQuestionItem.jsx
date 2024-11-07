@@ -1,6 +1,5 @@
 import React from 'react';
-import { Col, Radio, Card, Button, Input, Row } from 'antd';
-import ConfirmButton from './ConfirmButton';
+import { Col, Radio, Card } from 'antd';
 
 const SocialQuestionItem = ({ questionId, questionText, items, selectedValue, onChange }) => {
     return (

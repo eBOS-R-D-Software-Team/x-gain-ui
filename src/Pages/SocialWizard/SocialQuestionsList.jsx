@@ -18,8 +18,8 @@ function SocialQuestionsList() {
     const getDataCalculateScore = JSON.parse(localStorage.getItem('dataCalculateSocialScore'));
 
     const [loading, setLoading] = useState(false);
-    const [iccsResponseData, setIccsResponseData] = useState(() => JSON.parse(localStorage.getItem('iccs_response')) || {});
-    const [questionsData, setQuestionsData] = useState(() => JSON.parse(localStorage.getItem('socialQuestionsResponse')) || []);
+    const [iccsResponseData] = useState(() => JSON.parse(localStorage.getItem('iccs_response')) || {});
+    const [questionsData] = useState(() => JSON.parse(localStorage.getItem('socialQuestionsResponse')) || []);
     const [answers, setAnswers] = useState(isUpload ? getAnswers : {});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(isUpload ? parseInt(indexQuestion) : 0);
     const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState(isUpload ? getDataCalculateScore : []);
@@ -32,48 +32,53 @@ function SocialQuestionsList() {
         }
     }, [isUpload, location.pathname, navigate]);
 
+
     // Update local storage when answers or score data changes
     useEffect(() => {
         localStorage.setItem('answers', JSON.stringify(answers));
         localStorage.setItem('dataCalculateSocialScore', JSON.stringify(dataCalculateSocialScore));
     }, [answers, dataCalculateSocialScore]);
 
+
     useEffect(() => {
         localStorage.setItem('currentQuestionIndexSocialQuestion', currentQuestionIndex);
     }, [currentQuestionIndex]);
 
+
     // Set back button behavior and cleanup on unmount
     useEffect(() => {
+         // Function to handle going back to previous question
+        const handleBackPreviousQuestion = () => {
+            if (currentQuestionIndex > 0) {
+                const prevQuestionID = questionsData[currentQuestionIndex - 1].id;
+                const currentQuestionID = questionsData[currentQuestionIndex].id;
+
+                setAnswers(prevAnswers => {
+                    const updatedAnswers = { ...prevAnswers };
+                    delete updatedAnswers[prevQuestionID];
+                    if (currentQuestionIndex === questionsData.length - 1) delete updatedAnswers[currentQuestionID];
+                    return updatedAnswers;
+                });
+
+                setDataCalculateSocialScore(prevResponses => {
+                    let updatedResponses = prevResponses.filter(response => response.id !== prevQuestionID);
+                    if (currentQuestionIndex === questionsData.length - 1) {
+                        updatedResponses = updatedResponses.filter(response => response.id !== currentQuestionID);
+                    }
+                    return updatedResponses;
+                });
+
+                setCurrentQuestionIndex(currentQuestionIndex - 1);
+            } else {
+                navigate(-1);
+            }
+        };
+
         setBackAction(() => handleBackPreviousQuestion);
+
         return () => setBackAction(null);
-    }, [setBackAction, dataCalculateSocialScore]);
+    }, [setBackAction, dataCalculateSocialScore, currentQuestionIndex, navigate, questionsData]);
 
-    // Function to handle going back to previous question
-    const handleBackPreviousQuestion = () => {
-        if (currentQuestionIndex > 0) {
-            const prevQuestionID = questionsData[currentQuestionIndex - 1].id;
-            const currentQuestionID = questionsData[currentQuestionIndex].id;
-
-            setAnswers(prevAnswers => {
-                const updatedAnswers = { ...prevAnswers };
-                delete updatedAnswers[prevQuestionID];
-                if (currentQuestionIndex === questionsData.length - 1) delete updatedAnswers[currentQuestionID];
-                return updatedAnswers;
-            });
-
-            setDataCalculateSocialScore(prevResponses => {
-                let updatedResponses = prevResponses.filter(response => response.id !== prevQuestionID);
-                if (currentQuestionIndex === questionsData.length - 1) {
-                    updatedResponses = updatedResponses.filter(response => response.id !== currentQuestionID);
-                }
-                return updatedResponses;
-            });
-
-            setCurrentQuestionIndex(currentQuestionIndex - 1);
-        } else {
-            navigate(-1);
-        }
-    };
 
     // Handle answer selection and moving to the next question
     const handleChange = (questionId, selectedOption) => {

@@ -23,9 +23,7 @@ function SectorServicesLevel() {
         
         
         if (localStorage.getItem('sectorsServicesLevelDetails') !== null  ){
-            const sectorsServicesLevelDetailslocalstorage = JSON.parse(localStorage.getItem('sectorsServicesLevelDetails'))
-            const level_of_assessment_localstorage =  sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result
-            const user_type_selection_localstorage = sectorsServicesLevelDetailslocalstorage["user_type_selection"].result                       
+            const sectorsServicesLevelDetailslocalstorage = JSON.parse(localStorage.getItem('sectorsServicesLevelDetails'))                  
             const level_of_assessment_localstorage_value = levels.find(a => a.text === sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result) 
 
             setSelectedLevel(level_of_assessment_localstorage_value.id)
@@ -55,10 +53,9 @@ function SectorServicesLevel() {
                 }
             }));
             setSelectedUserType(sectorsServicesLevelDetailslocalstorage["user_type_selection"].result);
-           
         }
+    }, [userTypes]); 
 
-    }, []);   
 
     const handleLevelChange = (selectedLevelId) => {
         setSelectedLevel(selectedLevelId);

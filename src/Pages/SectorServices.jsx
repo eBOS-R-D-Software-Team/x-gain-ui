@@ -57,14 +57,11 @@ function SectorServices() {
                      result: service.text
                  }
              }));
-
         }
-
-    }, []);  
+    }, [services]);  
 
 
     const handleSectorChange = (selectedSectorId) => {
-        
         setSelectedSector(selectedSectorId);
 
         const sector = sectors.find(c => c.id === selectedSectorId);

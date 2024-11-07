@@ -1,238 +1,177 @@
 import React, { useState , useRef   } from 'react';
-import { Link, Outlet , useNavigate ,Navigate , useLocation  } from 'react-router-dom';
-import { Layout, Menu , Modal , message } from 'antd';
-import { SaveOutlined , UploadOutlined , LeftCircleOutlined } from '@ant-design/icons';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { Layout, Modal, message } from 'antd';
+import { SaveOutlined, UploadOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd'; 
 import SaveButton from './Buttons/SaveButton';
 import { handleFileUpload } from './Buttons/UploadButton';
 import BackButton from './Buttons/BackButton';
 import { BackButtonProvider } from '../Context/BackButtonContext';
-import { postDataToICCSApi , postSocialQuestions ,  postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../Data/Api';
+import { postDataToICCSApi, postSocialQuestions,  postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../Data/Api';
 
 const { Header, Content } = Layout;
 
 const HeaderMenu = ({  handlePreviousQuestion }) => {
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    const [confirmLoading, setConfirmLoading] = useState(false);
-    const [fileContent, setFileContent] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const fileInputRef = useRef(null); // Ref to control file input element
-    const currentLocationPage = location.pathname;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [fileContent, setFileContent] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const fileInputRef = useRef(null);
+  const currentLocationPage = location.pathname;
 
-    const showModal = () => {
-      setIsModalOpen(true);
-    };
-    const handleOk = async () => {
-      setConfirmLoading(true);    
-      // Wait for file content to be set before proceeding
-      if (!fileContent) {
-        message.error('No file content available. Make sure to upload a JSON file.');
-        return;
-      }
-      // Set the values in localStorage if is not null 
-      if (fileContent.sectorsServicesLevelDetails !== null) {
-          localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(fileContent.sectorsServicesLevelDetails));
-      }
-      if (fileContent.sectorsServicesDetails !== null) {
-          localStorage.setItem('sectorsServicesDetails', JSON.stringify(fileContent.sectorsServicesDetails));
-      }
-      if (fileContent.locationDetails !== null) {
-          localStorage.setItem('locationDetails', JSON.stringify(fileContent.locationDetails));
-      }
-      if (fileContent.questionsFormData !== null) {
-          localStorage.setItem('questionsFormData', JSON.stringify(fileContent.questionsFormData));
-      }
-      if (fileContent.DataQuestionUploadButton !== null) {
-          localStorage.setItem('DataQuestionUploadButton', JSON.stringify(fileContent.DataQuestionUploadButton));
-      }
-      if (fileContent.Economicvalue !== null) {
-          localStorage.setItem('Economicvalue', JSON.stringify(fileContent.Economicvalue));
-      }
-      if (fileContent.Environmentalvalue !== null) {
-          localStorage.setItem('Environmentalvalue', JSON.stringify(fileContent.Environmentalvalue));
-      }
-      if (fileContent.Technologicalvalue !== null) {
-          localStorage.setItem('Technologicalvalue', JSON.stringify(fileContent.Technologicalvalue));
-      }
-      if (fileContent.completeQuestionsFormData !== null) {
-          localStorage.setItem('completeQuestionsFormData', JSON.stringify(fileContent.completeQuestionsFormData));
-      }
-      if (fileContent.hasEmployeeValue !== null) {
-          localStorage.setItem('hasEmployeeValue', JSON.stringify(fileContent.hasEmployeeValue));
-      }
-      if (fileContent.answers !== null) {
-          localStorage.setItem('answers', JSON.stringify(fileContent.answers));
-      }
-      if (fileContent.dataCalculateSocialScore !== null) {
-        localStorage.setItem('dataCalculateSocialScore', JSON.stringify(fileContent.dataCalculateSocialScore));
-      }
-      if (fileContent.currentQuestionIndexSocialQuestion !== null) {
-          localStorage.setItem('currentQuestionIndexSocialQuestion', parseInt(fileContent.currentQuestionIndexSocialQuestion));
-      }
-      if (fileContent.socialQuestionsResponse !== null) {
-        localStorage.setItem('socialQuestionsResponse', JSON.stringify(fileContent.socialQuestionsResponse));
-      }
+  const showModal = () => setIsModalOpen(true);
 
-      const isSectorsServicesLevelDetailsNotNull = fileContent?.sectorsServicesLevelDetails !== null;
-      const isSectorsServicesDetailsNotNull = fileContent?.sectorsServicesDetails !== null;
-      const isLocationDetailsNotNull = fileContent?.locationDetails !== null;
-      const isDataQuestionUploadButtonNotNull =  fileContent?.DataQuestionUploadButton && Object.keys(fileContent.DataQuestionUploadButton).length > 0;
-      const ishasEmployeeValueNotNull = fileContent?.hasEmployeeValue !== null;
-      const isEconomicvalueNotNull = fileContent?.Economicvalue !== null;
-      const isEnvironmentalvalueNotNull = fileContent?.Environmentalvalue !== null;
-      const isTechnologicalvalueNotNull = fileContent?.Technologicalvalue !== null;      
-      // console.log('isEconomicvalueNotNull',isEconomicvalueNotNull);
+  // Helper to save JSON fields to localStorage
+  const storeInLocalStorage = (key, value) => {
+    if (value !== null) localStorage.setItem(key, JSON.stringify(value));
+  };
 
-      switch (false) {   
-        case !isEconomicvalueNotNull && !isEnvironmentalvalueNotNull &&  !isTechnologicalvalueNotNull:
-          const response =  await postDataToICCSApi();    
-          if (response) {
-                const updatedData = {
-                  hasEmployees: fileContent.hasEmployeeValue,
-                  sector: fileContent.sectorsServicesDetails.sector.result,
-                  service: fileContent.sectorsServicesDetails.service.result
-              };                
-              localStorage.setItem('socialDetermineQuestionsRequest', JSON.stringify(updatedData));
-              const response = await postSocialQuestions(updatedData);            
-              if (response) {               
-                  try {
-                    const iccs_response = localStorage.getItem('iccs_response');                    
-                    await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate delay
-                    await postSolutionsAnalysis();
-                    await postSocialAnswers(fileContent?.dataCalculateSocialScore);
-                    await postEnvironmentalData(JSON.parse(iccs_response));
-                    setIsModalOpen(false);
-                    setConfirmLoading(false);
-                    navigate('/impact-assessment');
-                    break;
-                } catch (error) {
-                    message.error("An error occurred during the submission process");
-                    localStorage.removeItem('iccs_response');
-                    localStorage.removeItem('solutionsAnalysisResponse');
-                    navigate('/home');
-                    setIsModalOpen(false);
-                    setConfirmLoading(false);
-                    break;
-                }
-              } else {
-              setIsModalOpen(false);
-              setConfirmLoading(false);
-              console.error("Failed to submit data to ICCS API.");
-              message.error("Failed to submit data to ICCS API.");
-              break;
-          }                  
-        }
-        case isEconomicvalueNotNull && isEnvironmentalvalueNotNull &&  isTechnologicalvalueNotNull:     
-   
-           if (ishasEmployeeValueNotNull && fileContent.currentQuestionIndexSocialQuestion > 0) { 
-                const response =  await postDataToICCSApi();
-                console.log('ffffff');
-                if (response) {
-                        const updatedData = {
-                          hasEmployees: fileContent.hasEmployeeValue,
-                          sector: fileContent.sectorsServicesDetails.sector.result,
-                          service: fileContent.sectorsServicesDetails.service.result
-                      };                
-                      localStorage.setItem('socialDetermineQuestionsRequest', JSON.stringify(updatedData));
-                      const response = await postSocialQuestions(updatedData);            
-                      if (response) {
-                        setIsModalOpen(false);
-                        setConfirmLoading(false);
-                        navigate("/social-questions"  , { state: { indexQuestion:  fileContent.currentQuestionIndexSocialQuestion ,  isUpload: true  }  }) ;          
-                        break;                      
-                      } else {
-                      setIsModalOpen(false);
-                      setConfirmLoading(false);
-                      console.error("Failed to submit data to ICCS API.");
-                      message.error("Failed to submit data to ICCS API.")
-                      break;
-                  }                  
-                }
-            }
-            
-            if (ishasEmployeeValueNotNull && fileContent.currentQuestionIndexSocialQuestion == 0) {
-              console.log('ishasEmployeeValueNotNull');
-              const response =  await postDataToICCSApi();
-      
-              if (response) {
-                setIsModalOpen(false);
-                setConfirmLoading(false);
-                navigate('/has-employee');              
-                break;            
-              } else {
-                  console.error("Failed to submit data to ICCS API.");
-                  message.error("Failed to submit data to ICCS API.")
-                  break;
-              }
-             
-            }
+  // Function to check if specific fields in fileContent are available
+  const checkFileContent = () => ({
+    hasEmployeeValue: fileContent?.hasEmployeeValue !== null,
+    economicValue: fileContent?.Economicvalue !== null,
+    environmentalValue: fileContent?.Environmentalvalue !== null,
+    technologicalValue: fileContent?.Technologicalvalue !== null,
+    dataQuestionUploadButton: fileContent?.DataQuestionUploadButton && Object.keys(fileContent.DataQuestionUploadButton).length > 0,
+    sectorsServicesLevelDetails: fileContent?.sectorsServicesLevelDetails !== null,
+    sectorsServicesDetails: fileContent?.sectorsServicesDetails !== null,
+    locationDetails: fileContent?.locationDetails !== null,
+  });
 
-        case ishasEmployeeValueNotNull:                 
-          if (isDataQuestionUploadButtonNotNull){
-          
-            const keys = Object.keys(fileContent?.DataQuestionUploadButton);
-            const lastkey = keys[keys.length - 1];
-            const lastKeyResult = fileContent?.DataQuestionUploadButton[lastkey];
-            setIsModalOpen(false);
-            setConfirmLoading(false);            
-            navigate("/questions" , { state: { lastKeyResult:  lastKeyResult , lastkey: lastkey , isUpload: true } }) 
-            break;
-          }    
-        
-        case isDataQuestionUploadButtonNotNull:                 
-           if (isLocationDetailsNotNull) {   
-            setIsModalOpen(false);
-            setConfirmLoading(false);       
-            navigate("/location-details") 
-            break;            
-          }
-  
-        case isLocationDetailsNotNull:         
-          if (isSectorsServicesDetailsNotNull) {     
-            setIsModalOpen(false);
-            setConfirmLoading(false);       
-            navigate("/sector-services") 
-            break;
-          }         
-  
-        case isSectorsServicesDetailsNotNull:         
-          if (isSectorsServicesLevelDetailsNotNull) {   
-            setIsModalOpen(false);
-            setConfirmLoading(false);            
-            navigate("/sector-services-level") 
-            break;
-          }         
-  
-        case isSectorsServicesLevelDetailsNotNull:     
-          setIsModalOpen(false);
-          setConfirmLoading(false);    
-          navigate("/") 
-          break;
-  
-        default:             
-            navigate("/")
-      }
+  const handleOk = async () => {
+    setConfirmLoading(true);
+    if (!fileContent) {
+      message.error('No file content available. Make sure to upload a JSON file.');
+      return;
+    }
 
-        // After processing the file, reset fileContent and clear the file input
-        setFileContent(null);
+    // Store relevant fields from fileContent in localStorage
+    const keys = [
+      'sectorsServicesLevelDetails', 'sectorsServicesDetails', 'locationDetails',
+      'questionsFormData', 'DataQuestionUploadButton', 'Economicvalue', 'Environmentalvalue',
+      'Technologicalvalue', 'completeQuestionsFormData', 'hasEmployeeValue', 'answers',
+      'dataCalculateSocialScore', 'currentQuestionIndexSocialQuestion', 'socialQuestionsResponse'
+    ];
+    keys.forEach(key => storeInLocalStorage(key, fileContent[key]));
 
-        // Clear the file input by resetting its value
-        if (fileInputRef.current) {
-            fileInputRef.current.value = ''; // Clear the input field
-        }
+    const {
+      hasEmployeeValue, economicValue, environmentalValue, technologicalValue,
+      dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails,
+    } = checkFileContent();
 
-    };
-    const handleCancel = () => {
+    // Handle navigation based on data availability
+    await handleNavigation(
+      { hasEmployeeValue, economicValue, environmentalValue, technologicalValue, dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails }
+    );
+
+    setFileContent(null);
+    fileInputRef.current && (fileInputRef.current.value = '');
+  };
+
+  const loadingModalClose = () => {
+      setConfirmLoading(false);
       setIsModalOpen(false);
+  }
 
-      // Also clear fileContent and the file input when canceling the modal
-      setFileContent(null);
-      if (fileInputRef.current) {
-          fileInputRef.current.value = ''; // Clear the input field
+  const handleNavigation = async (checks) => {
+    const {
+      hasEmployeeValue, economicValue, environmentalValue, technologicalValue,
+      dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails
+    } = checks;
+
+    try {
+      if (economicValue && environmentalValue && technologicalValue && hasEmployeeValue) {
+        await completeImpactAssessment();
+      } else if (hasEmployeeValue && fileContent.currentQuestionIndexSocialQuestion > 0) {
+        await navigateSocialQuestions();
+      } else if (hasEmployeeValue) {
+        await handleHasEmployeeNavigation();
+      } else if (dataQuestionUploadButton) {
+        navigateQuestions();
+      } else if (locationDetails) {
+        navigate("/location-details");
+        loadingModalClose();
+      } else if (sectorsServicesDetails) {
+        navigate("/sector-services");
+        loadingModalClose();
+      } else if (sectorsServicesLevelDetails) {
+        navigate("/sector-services-level");
+        loadingModalClose();
+      } else {
+        navigate("/");
       }
-    };
+    } catch (error) {
+      message.error("An error occurred during the navigation process.");
+      resetModalState();
+      loadingModalClose();
+    }
+  };
+
+  const completeImpactAssessment = async () => {
+    const response = await postDataToICCSApi();
+    if (response) {
+      const updatedData = {
+        hasEmployees: fileContent.hasEmployeeValue,
+        sector: fileContent.sectorsServicesDetails.sector.result,
+        service: fileContent.sectorsServicesDetails.service.result,
+      };
+      localStorage.setItem('socialDetermineQuestionsRequest', JSON.stringify(updatedData));
+      if (await postSocialQuestions(updatedData)) {
+        const iccs_response = JSON.parse(localStorage.getItem('iccs_response') || '{}');
+        await postSolutionsAnalysis();
+        await postSocialAnswers(fileContent?.dataCalculateSocialScore);
+        await postEnvironmentalData(iccs_response);
+        navigate("/impact-assessment");
+      }
+    }
+    resetModalState();
+    loadingModalClose();
+  };
+
+  const navigateSocialQuestions = async () => {
+    const response = await postDataToICCSApi();
+    if (response) {
+      const updatedData = {
+        hasEmployees: fileContent.hasEmployeeValue,
+        sector: fileContent.sectorsServicesDetails.sector.result,
+        service: fileContent.sectorsServicesDetails.service.result,
+      };
+      localStorage.setItem('socialDetermineQuestionsRequest', JSON.stringify(updatedData));
+      await postSocialQuestions(updatedData);
+      navigate("/social-questions", {
+        state: { indexQuestion: fileContent.currentQuestionIndexSocialQuestion, isUpload: true },
+      });
+    }
+    resetModalState();
+    loadingModalClose();
+  };
+
+  const handleHasEmployeeNavigation = async () => {
+    if (await postDataToICCSApi()) {
+      navigate('/has-employee');
+    }
+    resetModalState();
+    loadingModalClose();
+  };
+
+  const navigateQuestions = () => {
+    const keys = Object.keys(fileContent?.DataQuestionUploadButton || {});
+    const lastKey = keys[keys.length - 1];
+    navigate("/questions", {
+      state: { lastKeyResult: fileContent?.DataQuestionUploadButton[lastKey], lastkey: lastKey, isUpload: true },
+    });
+    resetModalState();
+    loadingModalClose();
+  };
+
+  const resetModalState = () => {
+    setIsModalOpen(false);
+    setConfirmLoading(false);
+  };
+
+  const handleCancel = resetModalState;
 
     return(
         <BackButtonProvider>
