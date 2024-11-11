@@ -1,5 +1,5 @@
 import { message } from 'antd';
-import { API_BASE_URL, API3_BASE_URL, API1_BASE_URL } from './config';
+import { API_BASE_URL, API3_BASE_URL, API1_BASE_URL } from '../config';
 
 const USERNAME = 'xgain';
 const PASSWORD = 'xG4iN1Cc$-ins';
