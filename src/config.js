@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://xgain.iccs.gr:8000';
+const API_BASE_URL = 'https://xgain.iccs.gr:8000';
 const API3_BASE_URL = process.env.REACT_APP_API3_BASE_URL;
 const API1_BASE_URL = process.env.REACT_APP_API1_BASE_URL;
 
