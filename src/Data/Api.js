@@ -8,6 +8,7 @@ const iccsUrl = process.env.REACT_APP_API_BASE_URL;
 const incUrl = process.env.REACT_APP_API1_BASE_URL;
 const wrUrl = process.env.REACT_APP_API3_BASE_URL;
 
+
 const apiRequest = async (url, method, headers, body) => {
     const response = await fetch(url, {
         method,
