@@ -1,6 +1,0 @@
-[build]
-  command = "rm -rf /opt/build/cache && npm run build" # Replace with your build command
-  publish = "public" # Replace with the directory you want Netlify to publish (e.g., 'public', 'dist', or 'build')
-
-  # Optionally, you can specify a custom build image to ensure compatibility
-  # environment = { NODE_VERSION = "14" } # Example for a specific Node.js version
