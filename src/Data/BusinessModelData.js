@@ -1297,7 +1297,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 55,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Water Quality Monitoring",
         "user_type": "End-User",
         "label1_title": "Key Partners",
@@ -1321,7 +1321,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 56,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Water Quality Monitoring",
         "user_type": "Internet Service Provider (ISP)",
         "label1_title": "Key Partners",
@@ -1345,7 +1345,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 57,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Water Quality Monitoring",
         "user_type": "Public Authority",
         "label1_title": "Partnerships/Suppliers/Collaborators",
@@ -1369,7 +1369,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 58,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Land Use/ Land Cover",
         "user_type": "End-User",
         "label1_title": "Key Partners",
@@ -1393,7 +1393,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 59,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Land Use/ Land Cover",
         "user_type": "Internet Service Provider (ISP)",
         "label1_title": "Key Partners",
@@ -1417,7 +1417,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 60,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Land Use/ Land Cover",
         "user_type": "Public Authority",
         "label1_title": "Partnerships/Suppliers/Collaborators",
@@ -1441,7 +1441,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 61,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Broadband Connectivity (Access)",
         "user_type": "End-User",
         "label1_title": "Key Partners",
@@ -1465,7 +1465,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 62,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Broadband Connectivity (Access)",
         "user_type": "Internet Service Provider (ISP)",
         "label1_title": "Key Partners",
@@ -1489,7 +1489,7 @@ export const businessModelData = [
     },
     {
         "unique_id": 63,
-        "sector": "Environmental Monitoring",
+        "sector": "Environmental monitoring",
         "service": "Broadband Connectivity (Access)",
         "user_type": "Public Authority",
         "label1_title": "Partnerships/Suppliers/Collaborators",

@@ -115,9 +115,9 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         const totalColumnsData = ['Name', 'Value'];
 
         const totalDataSource = [
-            { name: 'Total Cost', value: formatDecimalNumber(solutionAnalysisData.totalCost) },
-            { name: 'Total CAPEX', value: formatDecimalNumber(solutionAnalysisData.totalCapex) },
-            { name: 'Total OPEX', value: formatDecimalNumber(solutionAnalysisData.totalOpex) }
+            { name: 'Total Cost (€)', value: formatDecimalNumber(solutionAnalysisData.totalCost) },
+            { name: 'Total CAPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalCapex) },
+            { name: 'Total OPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalOpex) }
         ];
     
         const body = totalDataSource.map(item => [

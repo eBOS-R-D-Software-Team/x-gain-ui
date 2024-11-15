@@ -42,7 +42,7 @@ export const PDFProvider = ({ children }) => {
         const columns = periods ? [
             title,
             ...periods.map(period => period.label),
-            ...(categoryTotal ? ['Total'] : [])
+            ...(categoryTotal ? ['Total (€)'] : [])
         ] : [];
 
 
@@ -64,7 +64,7 @@ export const PDFProvider = ({ children }) => {
 
         if (yearlyTotal && yearlyTotal.length > 0) {
             const totalRow = [
-                'Total',  
+                'Total (€)',  
                 ...periods.map((_, periodIndex) => formatDecimalNumber(yearlyTotal[periodIndex] !== null ? yearlyTotal[periodIndex] : 0))
             ];
 

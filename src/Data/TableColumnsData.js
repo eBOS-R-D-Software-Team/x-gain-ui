@@ -78,7 +78,7 @@ export const technologyMixesColumns = [
                 },
             },
             {
-                title: '*Warning',
+                title: 'Notes',
                 key: 'warning',
                 width: 50,
                 className: 'technology-table-child',
@@ -191,12 +191,12 @@ export const EnvironmentalTableColumns = [
         key: 'tools',
     },
     {
-        title: 'Carbon Footprint (kg of CO2 equivalent)',
+        title: 'Carbon Footprint (kg of CO₂ equivalent)',
         dataIndex: 'Carbon',
         key: 'Carbon',
     },
     {
-        title: 'Impact on Human Health (unit)',
+        title: 'Impact on Human Health (DALY)',
         dataIndex: 'Impact',
         key: 'Impact',
     },

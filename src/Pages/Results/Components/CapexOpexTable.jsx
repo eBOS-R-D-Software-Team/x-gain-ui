@@ -16,7 +16,7 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
             key: period.id,
         })),
         ...(categoryTotal ? [{     
-            title: 'Total',
+            title: 'Total (€)',
             dataIndex: 'rowTotal',
             key: 'rowTotal',
             className: 'rowTotal'
@@ -48,7 +48,7 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
     if (yearlyTotal && yearlyTotal.length > 0) {
         const totalRow = {
             key: 'total',
-            category: 'Total',
+            category: 'Total (€)',
         };
 
         periods.forEach((period, periodIndex) => {

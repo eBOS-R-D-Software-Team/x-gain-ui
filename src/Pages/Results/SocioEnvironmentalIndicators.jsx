@@ -29,7 +29,9 @@ function SocioEnvironmentalIndicators() {
 
     const footprintChartRef = useRef(null);
     const radarChartRef = useRef(null);
-    
+    const scoresRef = useRef(null);
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
+
 
     useEffect(() => {
        // Load environmental data from localStorage
@@ -70,7 +72,11 @@ function SocioEnvironmentalIndicators() {
         if (solData) {
             setSolutionData(solData);
         }
-        console.log(solData);
+        
+        // Once all data is loaded, set the data loaded flag
+        if (solData) {
+            setIsDataLoaded(true);
+        }
     }, []);
 
     
@@ -82,7 +88,7 @@ function SocioEnvironmentalIndicators() {
     const dataSource = [
         {
             key: '1',
-            name: 'Combined carbon footprint from the network devices and edge enablers (kg of CO2 equivalent)',
+            name: 'Combined carbon footprint from the network devices and edge enablers (kg of CO₂ equivalent)',
             value: formatDecimalNumber(environmentalData.combinedCarbonFootprint),
         },
     ];
@@ -100,17 +106,20 @@ function SocioEnvironmentalIndicators() {
                         level={2} 
                         color={stepsLabels[11].color}
                     />
-                    <PDFProvider>
-                        <PDFEdgeEnablersTableProvider>
-                            <SocioEnvironmentalIndicatorsPDF 
-                                solutionData={solutionData}
-                                environmentalData={dataSourceTools()}
-                                carbonFootprintData={dataSource}
-                                footprintChartRef={footprintChartRef}
-                                radarChartRef={radarChartRef}
-                            />
-                        </PDFEdgeEnablersTableProvider>
-                    </PDFProvider>
+                    {isDataLoaded && (
+                        <PDFProvider>
+                            <PDFEdgeEnablersTableProvider>
+                                <SocioEnvironmentalIndicatorsPDF 
+                                    solutionData={solutionData}
+                                    environmentalData={dataSourceTools()}
+                                    carbonFootprintData={dataSource}
+                                    footprintChartRef={footprintChartRef}
+                                    radarChartRef={radarChartRef}
+                                    scoresRef={scoresRef}
+                                />
+                            </PDFEdgeEnablersTableProvider>
+                        </PDFProvider>
+                    )}
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
@@ -152,7 +161,7 @@ function SocioEnvironmentalIndicators() {
                         />  
                     </div>
                     <div ref={footprintChartRef} style={{ marginTop: 50 }}>                                         
-                        <PieChartData title={'Carbon Footprint (Kg of CO2 equivalent)'} data={carboonFootprintData} />
+                        <PieChartData title={'Carbon Footprint (Kg of CO₂ equivalent)'} data={carboonFootprintData} />
                     </div> 
                 </Col>
                 <Col span={24} xl={12}>
@@ -164,7 +173,7 @@ function SocioEnvironmentalIndicators() {
                     <div ref={radarChartRef} style={{ marginTop: '30px', display: 'flex', justifyContent: 'center'}}>
                         <RadarChartData data={radarData} />
                     </div>  
-                    <div style={{ marginTop: 20 }}>                                         
+                    <div ref={scoresRef} style={{ marginTop: 20 }}>                                         
                         <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '100%' }}/>        
                     </div>              
                 </Col>

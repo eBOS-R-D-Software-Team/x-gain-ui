@@ -20,6 +20,7 @@ function TechnoEconomicIndicators() {
     const [solutionAnalysisData, setSolutionAnalysisData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
 
     // Refs for chart elements
     const capexChartRef = useRef(null);
@@ -40,6 +41,11 @@ function TechnoEconomicIndicators() {
 
         if (filteredSolAnalysisDataBySol) {
             setSolutionAnalysisData(filteredSolAnalysisDataBySol);
+        }
+
+        // Once all data is loaded, set the data loaded flag
+        if (solData && filteredSolAnalysisDataBySol) {
+            setIsDataLoaded(true);
         }
 
         console.log(solData);
@@ -71,17 +77,17 @@ function TechnoEconomicIndicators() {
     const dataSource = [
         {
             key: '1',
-            name: 'Total Cost',
+            name: 'Total Cost (€)',
             value: formatDecimalNumber(solutionAnalysisData.totalCost),
         },
         {
             key: '2',
-            name: 'Total CAPEX',
+            name: 'Total CAPEX (€)',
             value: formatDecimalNumber(solutionAnalysisData.totalCapex),
         },
         {
             key: '3',
-            name: 'Total OPEX',
+            name: 'Total OPEX (€)',
             value: formatDecimalNumber(solutionAnalysisData.totalOpex),
         },
     ];
@@ -99,18 +105,20 @@ function TechnoEconomicIndicators() {
                         level={2} 
                         color={stepsLabels[8].color}
                     />
-                    <PDFProvider>
-                        <PDFEdgeEnablersTableProvider>
-                            <TechnoEconomicIndicatorsPDF 
-                                solutionAnalysisData={solutionAnalysisData}
-                                solutionData={solutionData}
-                                capexChartRef={capexChartRef}
-                                capexBreakdownChartRef={capexBreakdownChartRef}
-                                opexChartRef={opexChartRef}
-                                opexBreakdownChartRef={opexBreakdownChartRef}
-                            />
-                        </PDFEdgeEnablersTableProvider>
-                    </PDFProvider>
+                    {isDataLoaded && (
+                        <PDFProvider>
+                            <PDFEdgeEnablersTableProvider>
+                                <TechnoEconomicIndicatorsPDF 
+                                    solutionAnalysisData={solutionAnalysisData}
+                                    solutionData={solutionData}
+                                    capexChartRef={capexChartRef}
+                                    capexBreakdownChartRef={capexBreakdownChartRef}
+                                    opexChartRef={opexChartRef}
+                                    opexBreakdownChartRef={opexBreakdownChartRef}
+                                />
+                            </PDFEdgeEnablersTableProvider>
+                        </PDFProvider>
+                    )}
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>

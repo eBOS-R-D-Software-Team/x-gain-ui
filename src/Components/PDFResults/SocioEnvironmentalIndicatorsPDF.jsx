@@ -7,7 +7,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 
-const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carbonFootprintData, footprintChartRef, radarChartRef}) => {
+const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carbonFootprintData, footprintChartRef, radarChartRef, scoresRef}) => {
     const { handleStyledText, handleExportChart } = usePDFContext();
     const { handleExportEdgeEnablersTable } = usePDFEdgeEnablersTableContext();
 
@@ -43,7 +43,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
 
         doc.text("Environmental Assessment", 10, finalYPosition);
 
-        const columns = ['Tools List', 'Carbon Footprint (kg of CO2 equivalent)', 'Impact on Human Health (unit)', 'Biodiversity Footprint (PDF)'];
+        const columns = ['Tools List', 'Carbon Footprint (kg of CO2 equivalent)', 'Impact on Human Health (DALY)', 'Biodiversity Footprint (PDF)'];
  
         const body = environmentalData.map(item => [
             item.tools,
@@ -67,7 +67,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
 
         finalYPosition = doc.lastAutoTable.finalY;
 
-        handleStyledText(doc, "Environmental impact (functional unit: per 1 hour of use)", 20, finalYPosition, {
+        handleStyledText(doc, "Environmental impact (functional DALY: per 1 hour of use)", 20, finalYPosition, {
             fontSize: 8,
             fontStyle: 'bold',
             textColor: [111, 111, 111], // White text
@@ -96,7 +96,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
         });
 
         if (footprintChartRef.current) {
-            await handleExportChart(doc, footprintChartRef, finalYPosition + 50, 210, 80);
+            await handleExportChart(doc, footprintChartRef, finalYPosition + 50, 210, 60);
         } 
 
         doc.addPage();
@@ -109,7 +109,11 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
 
 
         if (radarChartRef.current) {
-            await handleExportChart(doc, radarChartRef, finalYPosition + 10, 190, 220);
+            await handleExportChart(doc, radarChartRef, finalYPosition + 10, 190, 190);
+        } 
+
+        if (scoresRef.current) {
+            await handleExportChart(doc, scoresRef, finalYPosition + 200, 190, 50);
         } 
    
         window.open(doc.output('bloburl'), '_blank');
