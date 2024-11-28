@@ -724,7 +724,7 @@ export const tooltips = {
     "Key Partners": "The people, companies and organisations who will help in fulfilling the key activities, using the key resources.",
     "Key Activities": "The crucial actions that a business or an organisation must undertake to operate successfully, and deliver value to its customers and stakeholders.",
     "Key Resources": "The resources that are necessary to create value for the customer. These resources could be human, financial, physical, and intellectual.",
-    "Value Proposition": "The value proposition showcases the value of an organisation through various elements such as newness, performance, customisation, 'getting the job done', design, brand/status, price, cost reduction, usability etc.",
+    "Value Propositions": "The value proposition showcases the value of an organisation through various elements such as newness, performance, customisation, 'getting the job done', design, brand/status, price, cost reduction, usability etc.",
     "Customer Relationships": "The type of relationship an organisation wants to create with its identified customer segments.",
     "Customer Segments": "The groups of customers that can be targeted and served (e.g., farmers or local businesses).",
     "Channels": "Effective channels that will distribute the value proposition in ways that are fast, efficient and cost-effective.",
