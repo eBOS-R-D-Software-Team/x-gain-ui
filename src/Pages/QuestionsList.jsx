@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate , useLocation } from "react-router-dom";
 import { message, Row, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
-import { stepsLabels, questions } from '../Data/Data';
+import { stepsLabels, questions , tooltips } from '../Data/Data';
 import QuestionItem from '../Components/WizardElements/QuestionItem';
 import { postDataToICCSApi } from '../Data/Api';
 import { initQuestionsData } from '../Data/JsonObjects';
@@ -424,6 +424,7 @@ function QuestionsList() {
                         subtitle={stepsLabels[3].subtitle}
                         level={2} 
                         color={stepsLabels[3].color}
+                        tooltips={tooltips.deviceInfoButton.description}
                     />
                     <QuestionItem
                         questionData={currentQuestionData}

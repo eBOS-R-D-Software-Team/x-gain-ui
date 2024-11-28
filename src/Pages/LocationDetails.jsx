@@ -1,7 +1,7 @@
 import React, { useState , useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Col, Row, Card, Select, message } from 'antd';
-import { stepsLabels } from '../Data/Data';
+import { Col, Row, Card, Select, message  } from 'antd';
+import { stepsLabels ,tooltips } from '../Data/Data';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 import { countries, terrainTypes, weatherConditions } from '../Data/Data';
@@ -140,6 +140,7 @@ function LocationDetails() {
                     subtitle={stepsLabels[2].subtitle}
                     level={2} 
                     color={stepsLabels[2].color}
+                    tooltips={tooltips.locationInfoButton.description}
                 />
                 <Col span={6} xs={24} md={6}>
                     <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1 }}>
@@ -162,21 +163,23 @@ function LocationDetails() {
                             </Select>
                         </div>
                     </Card>
-
+                   
                     <LocationInput
                         inputName={'Area'}
                         label={<span>Area size (km<sup>2</sup>)</span>} 
                         value={area} 
                         onChange={(e) => handleChangeArea(e.target.value)} 
-                         
+                        tooltip={tooltips.locationInfoButton.areaSizeTooltip}
                     />
+                  
                     {checkedTerrainTypes.at(1) === 1 && (
                         <LocationInput 
                             inputName={'Vegetation Height'}
                             label={' Vegetation Height'} 
                             value={vegetationHeight} 
                             onChange={(e) => handleChangeVegetationHeight(e.target.value)} 
-                            text={'m'}                         
+                            text={'m'}
+                            tooltip={tooltips.locationInfoButton.vegetationHeightTooltip}                         
                         />
                     )}
                 </Col>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Layout, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
-import { stepsLabels } from '../Data/Data';
+import { stepsLabels , tooltips} from '../Data/Data';
 import ImpactWeightItem from '../Components/ImpactWeightItem';
 import ConfirmButton from '../Components/WizardElements/ConfirmButton';
 
@@ -65,7 +65,7 @@ const ImpactAssessment = () => {
                     // Get top 3 items based on RankTotalScore
                     const highestSolutions = Object.values(iccsResponse.results)
                         .sort((a, b) => b.RankTotalScore - a.RankTotalScore) // Sort descending
-                        .slice(0, 3); // Take top 3
+                        .slice(0, 10); // Take top 3
 
                     setHighestSolItems(highestSolutions);
                 }
@@ -113,6 +113,7 @@ const ImpactAssessment = () => {
                             subtitle={stepsLabels[5].subtitle}
                             level={2} 
                             color={stepsLabels[5].color}
+                            tooltips={tooltips.impactweightsInfoButton.description}
                         />
                     </Col>
                 </Row>
@@ -120,9 +121,9 @@ const ImpactAssessment = () => {
                     <Col span={24} style={{ color: "rgb(0, 103, 138)", fontSize: "24px", fontWeight: "600", marginBottom: "40px"}}>
                         Please move the sliders to assign importance weights to each impact indicator below for the assessment.
                     </Col>
-                    <ImpactWeightItem title={'Technological'} value={technologicalValue} onChange={handleChangeTechnological} />
-                    <ImpactWeightItem title={'Economic'} value={economicValue} onChange={handleChangeEconomic} />
-                    <ImpactWeightItem title={'Environmental'} value={environmentalValue} onChange={handleChangeEnvironmental} />               
+                    <ImpactWeightItem title={'Technological'} tooltip={tooltips.technologicalInfoButton.description}  value={technologicalValue} onChange={handleChangeTechnological} />
+                    <ImpactWeightItem title={'Economic'} tooltip={tooltips.economicInfoButton.description} value={economicValue} onChange={handleChangeEconomic} />
+                    <ImpactWeightItem title={'Environmental'} tooltip={tooltips.environmentalInfoButton.description} value={environmentalValue} onChange={handleChangeEnvironmental} />               
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '30px 20px'}}>
                     <Col span={24}>

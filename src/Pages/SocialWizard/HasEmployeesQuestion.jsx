@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { message, Row, Col, Spin, Radio, Card } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
-import { stepsLabels } from '../../Data/Data';
+import { stepsLabels ,tooltips } from '../../Data/Data';
 import { postSocialQuestions } from '../../Data/Api';
 
 function HasEmployeesQuestion() {
@@ -71,6 +71,7 @@ function HasEmployeesQuestion() {
                         subtitle={stepsLabels[9].subtitle}
                         level={2} 
                         color={stepsLabels[9].color}
+                        tooltips={tooltips.SocialAssessmentInfoButton.description}
                     />
                     <Col span={24}>
                         <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Col, Slider, ConfigProvider } from 'antd';
+import { Col, Slider, ConfigProvider ,Tooltip } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
-const ImpactWeightItem = ({ title, value, onChange }) => {
+
+const ImpactWeightItem = ({ title, value, onChange , tooltip }) => {
 
     const marks = {
         0: '0',
@@ -13,7 +15,13 @@ const ImpactWeightItem = ({ title, value, onChange }) => {
 
     return(
         <Col span={8} xs={24} lg={8}>
-            <h1 style={{ fontWeight: 400 }}>{title}</h1>
+            <h1 style={{ fontWeight: 400 }}>
+                <Tooltip title={tooltip} placement="top">
+                    <span>{title}</span>
+                    <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 20, color: "#00678A" }} />
+                </Tooltip>
+               
+            </h1>
             <ConfigProvider
                 theme={{
                     token: {

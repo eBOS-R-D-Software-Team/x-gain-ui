@@ -1,12 +1,16 @@
 import React from 'react';
-import { Col, Radio, Card } from 'antd';
+import { Col, Radio, Card ,Tooltip } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
-const SocialQuestionItem = ({ questionId, questionText, items, selectedValue, onChange }) => {
+const SocialQuestionItem = ({ questionId, questionText, items, selectedValue, onChange , tooltips }) => {
     return (
         <Col span={24}>
             <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>
                 <div style={{ color: "rgb(0, 103, 138)", fontSize: "20px", fontWeight: "700", marginBottom: "40px"}} key={questionId}>
                     {questionText}
+                    <Tooltip title={tooltips}>
+                        <InfoCircleOutlined style={{ marginLeft: 40, fontSize: 23, color: "#00678A" }} />
+                    </Tooltip>
                 </div>
                 {items.map((option, index) => (
                     <div style={{ width:'100%',

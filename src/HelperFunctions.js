@@ -79,3 +79,18 @@ export const environmentalTools = (edgeEnablersData, environmentalData) => {
         }
     ]
 }
+
+
+export const formatDescription = (text) => {
+    return text.split("\n").map((line, index) => {
+        // Check if the line contains a title (wrapped in quotes)
+        if (line.trim().startsWith('"') && line.trim().endsWith('"')) {
+            const title = line.replace(/"/g, '').trim(); // Remove quotes
+            return <p key={index}><b>{title}</b></p>;
+        } else if (line.trim().startsWith('-')) {
+            // Handle description lines starting with "-"
+            return <p key={index} style={{ marginLeft: '20px' }}>{line.trim()}</p>;
+        }
+        return null; // Ignore empty lines
+    });
+};

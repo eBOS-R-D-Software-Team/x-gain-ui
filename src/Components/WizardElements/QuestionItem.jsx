@@ -1,9 +1,10 @@
 import React from 'react';
-import { Col, Radio, Card, Button, Input, Row, Checkbox } from 'antd';
+import { Col, Radio, Card, Button, Input, Row, Checkbox ,Tooltip } from 'antd';
 import ConfirmButton from './ConfirmButton';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputChange, handleNext, handleConfirm, currentQuestionKey, handleCheckboxChange, devicesChoice, handleInputDevicesChange, inputDevicesValues }) => {
-    const { text, choices, input, tabletInput, laptopInput } = questionData;
+    const { text, choices, input, tabletInput, laptopInput ,tooltipQuestion } = questionData;
 
     const disableInput = (choices.length > 0 && !formData.choice);
     const isChoicesRequired = choices.length > 0;
@@ -21,6 +22,11 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                 <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>
                     <div style={{ color: "rgb(0, 103, 138)", fontSize: "20px", fontWeight: "700", marginBottom: "40px"}}>
                         {text}
+                        {tooltipQuestion && ( // Conditionally render the Tooltip only if the `tooltip` property exists
+                            <Tooltip title={tooltipQuestion}>
+                                <InfoCircleOutlined style={{ marginLeft: 40, fontSize: 23, color: "#00678A" }} />
+                            </Tooltip>
+                        )}
                     </div>
                     {currentQuestionKey === 'personal_dev_type' ?
                         (choices && choices.map((choice, index) => (
@@ -51,16 +57,23 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                 marginBottom: '8px',
                                 borderRadius: '4px',
                                 backgroundColor:'rgba(234, 234, 234, 0.56)' }} key={choice.id}>
+                                <Tooltip
+                                    key={choice.id}
+                                    title={choice.tooltip}
+                                    placement="top"
+                                >
                                 <Radio
                                     type="radio"
                                     name="choice"
                                     value={choice.text}
                                     checked={formData.choice === choice.text}
                                     onChange={() => handleChoiceChange(choice)}
-                                />
+                                />       
+                                 </Tooltip>                       
                                 <div style={{ display: 'flex', alignItems: 'end' }}>      
                                     <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}>{choice.text}</span>
                                 </div>
+                               
                             </div>
                         )))
                     }                  

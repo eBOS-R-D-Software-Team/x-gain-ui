@@ -1,3 +1,8 @@
+import { Tooltip } from 'antd';
+import { tooltips } from './Data';
+import { InfoCircleOutlined } from '@ant-design/icons';
+
+
 export const technologyMixesColumns = [
     {
         title: '#',
@@ -9,11 +14,19 @@ export const technologyMixesColumns = [
         },
     },
     {
-        title: 'Networks',
+        title: (
+            <Tooltip title={tooltips.networksmixes.description}>
+                Networks  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            </Tooltip>
+        ),
         className: 'technology-table-group',
         children: [
             {
-                title: 'Access Connectivity',
+                title: (
+                    <Tooltip title={tooltips.accessmixes.description}>
+                        Access Connectivity  <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 dataIndex: ['Connectivity_information', 'Nets', 0], // Access nested array
                 key: 'connectivityNets',
                 width: 50,
@@ -27,7 +40,11 @@ export const technologyMixesColumns = [
                 className: 'technology-table-child',
             },
             {
-                title: 'Local Connectivity',
+                title: (
+                    <Tooltip title={tooltips.localmixes.description}>
+                        Local Connectivity  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 key: 'localConnectivity',
                 className: 'technology-table-child',
                 render: (text, record) => {
@@ -53,7 +70,11 @@ export const technologyMixesColumns = [
                 },
             },
             {
-                title: '(Public) Internet \n Connectivity',
+                title: (
+                    <Tooltip title={tooltips.publicInternetmixes.description}>
+                        (Public) Internet Connectivity  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 key: 'internetConnectivity',
                 className: 'technology-table-child',
                 render: (text, record) => {
@@ -90,7 +111,11 @@ export const technologyMixesColumns = [
         ],
     },
     {
-        title: 'Edge Enablers',
+        title: (
+            <Tooltip title={tooltips.processingEnablersmixes.description}>
+                Processing Enablers  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            </Tooltip>
+        ),
         className: 'technology-table-group',
         children: [
             {
@@ -191,17 +216,29 @@ export const EnvironmentalTableColumns = [
         key: 'tools',
     },
     {
-        title: 'Carbon Footprint (kg of CO₂ equivalent)',
+        title: (
+            <Tooltip title={tooltips.carbonFootprint.description}>
+                Carbon Footprint (kg of CO₂ equivalent)  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            </Tooltip>
+        ),
         dataIndex: 'Carbon',
         key: 'Carbon',
     },
     {
-        title: 'Impact on Human Health (DALY)',
+        title: (
+            <Tooltip title={tooltips.impactOnHumanHealth.description}>
+                Impact on Human Health (DALY)  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            </Tooltip>
+        ),
         dataIndex: 'Impact',
         key: 'Impact',
     },
     {
-        title: 'Biodiversity Footprint (PDF)',
+        title: (
+            <Tooltip title={tooltips.biodiversityfootprint.description}>
+                Biodiversity Footprint (PDF)  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            </Tooltip>
+        ),
         dataIndex: 'Biodiversity',
         key: 'Biodiversity',
     },

@@ -1,7 +1,7 @@
 import React, { useState, useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Col, Row } from 'antd';
-import { stepsLabels, sectors, services as initialServices } from '../Data/Data';
+import { stepsLabels, sectors, services as initialServices  , tooltips} from '../Data/Data';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import SubtitleForm from '../Components/WizardElements/SubtitleForm';
 import ConfirmButton from '../Components/WizardElements/ConfirmButton';
@@ -116,6 +116,7 @@ function SectorServices() {
                     subtitle={stepsLabels[1].subtitle}
                     level={2} 
                     color={stepsLabels[1].color}
+                    tooltips={tooltips.sectorServiceButton.description}
                 />
                 <Col span={8} xs={24} lg={8}>
                     <SubtitleForm avatar={"/images/sector-icons/sector.svg"} text='Sector Selection'/>

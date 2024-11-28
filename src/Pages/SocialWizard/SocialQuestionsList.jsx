@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Row, Col, Spin, message } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import ConfirmButton from '../../Components/WizardElements/ConfirmButton';
-import { stepsLabels } from '../../Data/Data';
+import { stepsLabels ,socialquestiotooltips} from '../../Data/Data';
 import SocialQuestionItem from '../../Components/WizardElements/SocialQuestionItem';
 import { postSolutionsAnalysis, postSocialAnswers, postEnvironmentalData } from '../../Data/Api';
 import { useBackButton } from '../../Context/BackButtonContext';
@@ -131,10 +131,27 @@ function SocialQuestionsList() {
         }
     };
 
+    const matchedQuestions = questionsData.map((item) => {
+        // Get the key from the JSON structure that corresponds to the ID       
+        const keys = Object.keys(socialquestiotooltips);
+        const key = keys[item.id - 1]; // Assuming IDs align with order
+       
+        const description = socialquestiotooltips[key]?.description || "No description available";
+       
+        return {
+          ...item,
+          description
+        };
+    });
+    console.log('matchedQuestions' , matchedQuestions);
+    const questionID = questionsData[currentQuestionIndex].id;
+    // Find the description for the given ID
+    const descriptionSocialQuestion = matchedQuestions.find(item => item.id === questionID)?.description;
+    console.log('descriptionSocialQuestion' , descriptionSocialQuestion);
     const currentQuestion = questionsData[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === questionsData.length - 1;
     const hasSelectedOption = answers[currentQuestion?.id] !== undefined;
-
+    //console.log('key' , key);
     return (
         <Spin spinning={loading} tip="Loading...">
             <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
@@ -153,6 +170,7 @@ function SocialQuestionsList() {
                         items={currentQuestion.questionAnswerOptions}
                         selectedValue={answers[currentQuestion.id]}
                         onChange={handleChange}
+                        tooltips={descriptionSocialQuestion}
                     />
                 )}
                 {isLastQuestion && hasSelectedOption && (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Row, Col, Layout, Typography, Spin } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
-import { stepsLabels } from '../Data/Data';
+import { stepsLabels ,tooltips } from '../Data/Data';
 import TechnologyMixesTable from '../Components/ResultsElements/TechnologyMixesTable';
 
 const { Title } = Typography;
@@ -37,6 +37,7 @@ const TechnologyMixes = () => {
                             subtitle={stepsLabels[6].subtitle}
                             level={2} 
                             color={stepsLabels[6].color}
+                            tooltips={tooltips.resultsmixesInfoButton.description}
                         />
                     </Col>
 

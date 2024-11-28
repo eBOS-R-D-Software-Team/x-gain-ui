@@ -1,10 +1,15 @@
 import React from 'react';
-import { Radio, Avatar } from 'antd';
+import { Radio, Avatar , Tooltip } from 'antd';
 
-const SectorServiceItem = ({ data, selectedItemId, onItemChange }) => {
+const SectorServiceItem = ({ data, selectedItemId, onItemChange  }) => {
     return (
         <div style={{ textAlign: '-webkit-center' }}>
         {data.map((item) => (
+        <Tooltip
+        key={item.id}
+        title={item.tooltip}
+        placement="top"
+    >
             <div
                 style={{
                     width: '80%',
@@ -29,6 +34,7 @@ const SectorServiceItem = ({ data, selectedItemId, onItemChange }) => {
                     disabled={!item.isActive} 
                 />
             </div>
+            </Tooltip>
         ))}
     </div> 
     );
