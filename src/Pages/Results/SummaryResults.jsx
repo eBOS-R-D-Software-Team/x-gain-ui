@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Card, Spin, Button } from 'antd';
+import { Row, Col, Layout, Typography, Card, Spin, Button , Tooltip } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
-import { stepsLabels } from '../../Data/Data';
+import { stepsLabels , tooltips } from '../../Data/Data';
 import SelectedSectorItem from '../../Components/ResultsElements/SelectedSectorItem';
 import SelectedConnectivityEdgeEnablers from '../../Components/ResultsElements/SelectedConnectivityEdgeEnablers';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
 import { processPieChartData } from '../../HelperFunctions';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -152,7 +153,7 @@ function SummaryResults() {
 
 
     const netsLength = solutionData.Connectivity_information.Nets.length;
-    const netsData = solutionData.Connectivity_information.Nets.slice(0, netsLength).map((net, index) => {
+    const netsData = solutionData.Connectivity_information.Nets_User.slice(0, netsLength).map((net, index) => {
         if (!net || !solutionData.Connectivity_information.Number[index]) {
             return null;  // Return null if either is missing
         }
@@ -162,7 +163,7 @@ function SummaryResults() {
 
     
     const enablersLength = solutionData.Processing_information.Process_Dev_per_layer.length;
-    const enablersData = solutionData.Processing_information.Process_Dev_per_layer.slice(0, enablersLength).map((dev, index) => {
+    const enablersData = solutionData.Processing_information.Process_Dev_per_layer_User.slice(0, enablersLength).map((dev, index) => {
         // Get the number value for the current index, handling cases where it's empty
         const numberValue = solutionData.Processing_information.Number[index]?.length > 0 
             ? solutionData.Processing_information.Number[index] 
@@ -212,9 +213,11 @@ function SummaryResults() {
                             <Row>
                             <Col span={24}>
                                 <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                    <div style={{ display: 'block', margin: 'auto' }}>
-                                        Selected                      
-                                    </div>                 
+                                    <Tooltip title={tooltips.Selected.description}>
+                                        <div style={{ display: 'block', margin: 'auto' }}>
+                                            Selected   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                      
+                                        </div>                    
+                                    </Tooltip>             
                                 </Title> 
                             </Col>
                             </Row>
@@ -231,9 +234,11 @@ function SummaryResults() {
                             <Row>
                             <Col span={24}>
                                 <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                    <div style={{ display: 'block', margin: 'auto' }}>
-                                        Connectivity & Edge Enablers                      
-                                    </div>                 
+                                    <Tooltip title={tooltips.Connectivity_And_Edge_Solutions.description}>
+                                        <div style={{ display: 'block', margin: 'auto' }}>
+                                            Connectivity & Edge Enablers   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                    
+                                        </div> 
+                                    </Tooltip>                    
                                 </Title> 
                             </Col>
                             </Row>
@@ -257,9 +262,11 @@ function SummaryResults() {
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                        <div style={{ display: 'block', margin: 'auto' }}>
-                                            Techno-Economic Indicators                      
-                                        </div>                 
+                                         <Tooltip title={tooltips.Techno_Economic_Indicators.description}>
+                                            <div style={{ display: 'block', margin: 'auto' }}>
+                                                Techno-Economic Indicators   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                                        
+                                            </div>      
+                                        </Tooltip>              
                                     </Title> 
                                 </Col>
                             </Row>
@@ -278,9 +285,11 @@ function SummaryResults() {
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                        <div style={{ display: 'block', margin: 'auto' }}>
-                                            Business Model                      
-                                        </div>                 
+                                        <Tooltip title={tooltips.Business_Model.description}>
+                                            <div style={{ display: 'block', margin: 'auto' }}>
+                                                Business Model <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />
+                                            </div>    
+                                        </Tooltip>               
                                     </Title> 
                                 </Col>
                             </Row>                           
@@ -325,9 +334,11 @@ function SummaryResults() {
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                        <div style={{ display: 'block', margin: 'auto' }}>
-                                            Socio-Environmental Indicators                      
-                                        </div>                 
+                                        <Tooltip title={tooltips.Business_Model.description}>
+                                            <div style={{ display: 'block', margin: 'auto' }}>
+                                                Socio-Environmental Indicators <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                      
+                                            </div>
+                                        </Tooltip>                  
                                     </Title> 
                                 </Col>
                             </Row>

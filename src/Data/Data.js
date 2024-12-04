@@ -681,6 +681,30 @@ export const tooltips = {
         "Ethical treatment of animals"
         - To what extent the company/organisation manages the life, treatment, and death of animals (i.e. regular check-ups on the animals, good living circumstances for the animals, no serious injuries/illnesses).`
     },
+    Selected: {
+        description: "These are the sector and the service selected by the user of the KTF"
+    },
+    Connectivity_And_Edge_Solutions: {
+        description: "The proposed solution including access infrastructure, processing and end-users devices."
+    },
+    Techno_Economic_Indicators: {
+        description: "Quantitative metrics used to assess the technical and economic feasibility of deploying and/or operating infrastructure. They are crucial for decision-making, planning, and benchmarking."
+    },
+    Socio_Environmental_Indicators: {
+        description: "Measurable metrics that assess the environmental and social impacts of technologies. These indicators are essential for gaining insight into environmental sustainability and social outcomes, supporting informed decision-making, and identifying strategies to mitigate negative impacts."
+    },
+    Business_Model: {
+        description: "A framework that outlines how an entity (individual or organization) creates, delivers, and captures value. It serves as a blueprint for how it operates and sustains itself. The business model defines the key aspects of the business, including its value proposition, target customers, revenue streams, and operational structure."
+    },
+    CAPEX_Analysis: {
+        description: "CAPEX (Capital Expenditure) analysis involves evaluating the upfront investment (fiber, connectivity infrastructure, processing enablers and end-devices) required for setting up the network/project or system as well as components/devices replacements. It helps understanding and optimizing the costs related to building, replacing or expanding network/system capabilities."
+    },
+    OPEX_Analysis: {
+        description: "OPEX (Operational Expenditure) analysis involves evaluating the running/ongoing expenses needed to maintain and operate the system over its lifespan. These costs include maintenance, utilities (electricity cost), connectivity subscription fees and installations. The time series of OPEX breaks down the operating costs over time, which is vital for understanding long-term operational viability and optimizing resource allocation."
+    },
+    Total_Cost: {
+        description: "Total Cost is the overall expenditure, combining both CAPEX and OPEX. It represents the total investment needed for a solution/project, including both initial and running costs. It provides an indication of the funding requirements of the project."
+    }
   }
   
   export const socialquestiotooltips = {

@@ -27,7 +27,7 @@ export const technologyMixesColumns = [
                         Access Connectivity  <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 17, color: "#ffffff" }} />
                     </Tooltip>
                 ),
-                dataIndex: ['Connectivity_information', 'Nets', 0], // Access nested array
+                dataIndex: ['Connectivity_information', 'Nets_User', 0], // Access nested array
                 key: 'connectivityNets',
                 width: 50,
                 className: 'technology-table-child',
@@ -51,7 +51,7 @@ export const technologyMixesColumns = [
                     const linksLength = record.Connectivity_information.Links.length;
                     const netsValue = linksLength === 2 
                         ? null
-                        : record.Connectivity_information.Nets[1];
+                        : record.Connectivity_information.Nets_User[1];
                     return netsValue;
                 },
             },
@@ -80,8 +80,8 @@ export const technologyMixesColumns = [
                 render: (text, record) => {
                     const linksLength = record.Connectivity_information.Links.length;
                     const netsValue = linksLength === 2 
-                        ? record.Connectivity_information.Nets[1]
-                        : record.Connectivity_information.Nets[2];
+                        ? record.Connectivity_information.Nets_User[1]
+                        : record.Connectivity_information.Nets_User[2];
                     return netsValue;
                 },
             },
@@ -120,7 +120,7 @@ export const technologyMixesColumns = [
         children: [
             {
                 title: 'Extreme',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer', 0],
+                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 0],
                 key: 'extreme',
                 className: 'technology-table-child',
             },
@@ -133,7 +133,7 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'Far',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer', 1],
+                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 1],
                 key: 'far',
                 className: 'technology-table-child',
             },
@@ -146,7 +146,7 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'Near',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer', 2],
+                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 2],
                 key: 'near',
                 className: 'technology-table-child',
             },
@@ -159,7 +159,7 @@ export const technologyMixesColumns = [
             },
             {
                 title: 'Cloud',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer', 3],
+                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 3],
                 key: 'cloud',
                 className: 'technology-table-child',
             },

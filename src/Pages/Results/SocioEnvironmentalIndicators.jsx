@@ -176,7 +176,7 @@ function SocioEnvironmentalIndicators() {
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <div style={{ display: 'block', margin: 'auto' }}>                            
                             <Tooltip title="Click to view Social Assessment info" placement="top">
-                                <span style={{ cursor: 'pointer', color: '#00678A' }} onClick={handleModalOpen}>
+                                <span style={{ cursor: 'pointer' }} onClick={handleModalOpen}>
                                     Social Assessment 
                                     <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 30, color: "#00678A" }} />
                                 </span>

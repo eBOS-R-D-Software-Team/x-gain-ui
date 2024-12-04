@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Row, Col, Layout, Table, Typography } from 'antd';
-import { stepsLabels } from '../../Data/Data';
+import { Row, Col, Layout, Table, Typography , Tooltip } from 'antd';
+import { stepsLabels , tooltips } from '../../Data/Data';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import CapexOpexTable from './Components/CapexOpexTable';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
@@ -12,6 +12,8 @@ import TechnoEconomicIndicatorsPDF from '../../Components/PDFResults/TechnoEcono
 import { PDFProvider } from '../../Context/PDF/PDFContext';
 import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
 import { formatDecimalNumber } from '../../HelperFunctions';
+import { InfoCircleOutlined } from '@ant-design/icons';
+
 
 const { Title } = Typography;
 
@@ -77,7 +79,11 @@ function TechnoEconomicIndicators() {
     const dataSource = [
         {
             key: '1',
-            name: 'Total Cost (€)',
+            name: (
+                    <Tooltip title={tooltips.Total_Cost.description}>
+                        Total Cost (€) <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
+                    </Tooltip>           
+                   ) ,
             value: formatDecimalNumber(solutionAnalysisData.totalCost),
         },
         {
@@ -124,9 +130,11 @@ function TechnoEconomicIndicators() {
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                 <Col span={24} lg={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                        <div style={{ display: 'block', margin: 'auto' }}>
-                            CAPEX Analysis                      
-                        </div>                 
+                        <Tooltip title={tooltips.CAPEX_Analysis.description}>
+                            <div style={{ display: 'block', margin: 'auto' }}>
+                                CAPEX Analysis <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                 
+                            </div>
+                        </Tooltip>                 
                     </Title> 
                     <CapexOpexTable 
                         title={'CAPEX Per Component'} 
@@ -145,9 +153,11 @@ function TechnoEconomicIndicators() {
                 </Col>
                 <Col span={24} lg={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                        <div style={{ display: 'block', margin: 'auto' }}>
-                            OPEX Analysis                     
-                        </div>                 
+                        <Tooltip title={tooltips.OPEX_Analysis.description}>
+                            <div style={{ display: 'block', margin: 'auto' }}>
+                                OPEX Analysis <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                    
+                            </div>
+                        </Tooltip>                 
                     </Title> 
                     <CapexOpexTable 
                         title={'OPEX Per Category'} 
