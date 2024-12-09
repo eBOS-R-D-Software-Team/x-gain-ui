@@ -5,7 +5,7 @@ import TitleForm from '../../Components/WizardElements/TitleForm';
 import { EnvironmentalTableColumns, EnvironmentalCarbonFootprintColumns } from '../../Data/TableColumnsData';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
-import { formatDecimalNumber, environmentalTools } from '../../HelperFunctions';
+import { environmentalTools } from '../../HelperFunctions';
 import { PDFProvider } from '../../Context/PDF/PDFContext';
 import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
 import SocioEnvironmentalIndicatorsPDF from '../../Components/PDFResults/SocioEnvironmentalIndicatorsPDF';
