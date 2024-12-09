@@ -185,7 +185,7 @@ function SummaryResults() {
             [netsData.join(', '), filteredEnvironmentalData.cO2FPrEUD],
             [filteredEnablersData.join(', '), filteredEnvironmentalData.cO2FPrNetw],
             [solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0], filteredEnvironmentalData.cO2FPrEnabl],
-        ];
+        ];    
 
         setCarboonFootprintData(data); // Update the state with the fetched data  
     }, [filteredEnvironmentalData, solutionData, netsData, filteredEnablersData]);
@@ -243,14 +243,14 @@ function SummaryResults() {
                             </Col>
                             </Row>
                             {sectorServiceData && 
-                                <Row span={24}>  
-                                    <SelectedConnectivityEdgeEnablers text={netsData.join(', ')}/>
-                                    {filteredEnablersData.length > 0 && (
-                                        filteredEnablersData.map((item, idx) => <SelectedConnectivityEdgeEnablers key={item.id || idx} text={item}/>))
-                                    }
+                                <Row span={24}>                                
                                     {solutionData.End_dev_information.Number[0].length !== 0 &&
                                         <SelectedConnectivityEdgeEnablers text={solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0]}/>
                                     }
+                                    <SelectedConnectivityEdgeEnablers text={netsData.join(', ')}/>
+                                    {filteredEnablersData.length > 0 && (
+                                        filteredEnablersData.map((item, idx) => <SelectedConnectivityEdgeEnablers key={item.id || idx} text={item}/>))
+                                    }      
                                 </Row>
                             }                           
                         </Card>           

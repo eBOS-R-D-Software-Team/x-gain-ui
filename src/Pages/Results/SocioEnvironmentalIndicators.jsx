@@ -12,9 +12,6 @@ import SocioEnvironmentalIndicatorsPDF from '../../Components/PDFResults/SocioEn
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { formatDescription } from '../../HelperFunctions'
 
-
-
-
 const { Title } = Typography;
 
 function SocioEnvironmentalIndicators() {
@@ -66,12 +63,13 @@ function SocioEnvironmentalIndicators() {
     useEffect(() => {     
         const data = [
             ["Category", "Value"],
-            [edgeEnablersData?.[0]?.join(', ') || [], environmentalData.cO2FPrEUD],
-            [edgeEnablersData?.[1]?.join(', ') || [], environmentalData.cO2FPrNetw],
-            [edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [], environmentalData.cO2FPrEnabl],
+            [edgeEnablersData?.[0]?.join(', ') || [], environmentalData.cO2FPrNetw],
+            [edgeEnablersData?.[1]?.join(', ') || [], environmentalData.cO2FPrEnabl],
+            [edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [], environmentalData.cO2FPrEUD],
         ];
-
+        
         setCarboonFootprintData(data); // Update the state with the fetched data  
+        console.log(edgeEnablersData);
     }, [environmentalData, edgeEnablersData]);
 
 
@@ -98,7 +96,7 @@ function SocioEnvironmentalIndicators() {
         {
             key: '1',
             name: 'Combined carbon footprint from the network devices and edge enablers (kg of CO₂ equivalent)',
-            value: formatDecimalNumber(environmentalData.combinedCarbonFootprint),
+            value: environmentalData.combinedCarbonFootprint,
         },
     ];
 

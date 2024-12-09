@@ -31,25 +31,25 @@ export const PDFEdgeEnablersTableProvider = ({ children }) => {
         // Prepare table body
         const body = validData.map(record => {
             return [
-                (record.Connectivity_information?.Number?.[0] ? record.Connectivity_information.Number[0] + 'x ' : '') + (record.Connectivity_information?.Nets?.[0] ?? ''), 
+                (record.Connectivity_information?.Number?.[0] ? record.Connectivity_information.Number[0] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[0] ?? ''), 
                 record.Connectivity_information?.Links?.length === 2 
                     ? null 
-                    : (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets?.[1] ?? ''), // Local Connectivity
+                    : (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[1] ?? ''), // Local Connectivity
                 record.Connectivity_information?.Links?.length === 2 
-                    ? (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets?.[1] ?? '') 
-                    : (record.Connectivity_information?.Number?.[2] ? record.Connectivity_information.Number[2] + 'x ' : '') + (record.Connectivity_information?.Nets?.[2] ?? ''), // (Public) Internet Connectivity
+                    ? (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[1] ?? '') 
+                    : (record.Connectivity_information?.Number?.[2] ? record.Connectivity_information.Number[2] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[2] ?? ''), // (Public) Internet Connectivity
                 (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[0]?.length > 0 
                     ? record.Processing_information.Number[0][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer?.[0] ?? ''), // Extreme              
+                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[0] ?? ''), // Extreme              
                 (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[1]?.length > 0 
                     ? record.Processing_information.Number[1][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer?.[1] ?? ''), // Far               
+                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[1] ?? ''), // Far               
                 (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[2]?.length > 0 
                     ? record.Processing_information.Number[2][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer?.[2] ?? ''), // Near
+                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[2] ?? ''), // Near
                 (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[3]?.length > 0 
                     ? record.Processing_information.Number[3][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer?.[3] ?? ''), // Cloud
+                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[3] ?? ''), // Cloud
                 (record.End_dev_information?.Number?.[0] ? record.End_dev_information.Number[0] + 'x ' : '') + (record.End_dev_information?.Type?.[0] ?? ''), // End-devices Type
             ];
         });
