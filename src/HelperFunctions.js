@@ -58,24 +58,26 @@ export const environmentalTools = (edgeEnablersData, environmentalData) => {
     return [
         {
             key: '1',
-            tools: edgeEnablersData?.[0]?.join(', ') || [],
-            Carbon: formatExponentialNumber(environmentalData?.cO2FPrNetw),
-            Impact: formatExponentialNumber(environmentalData?.healtImpNetw),
-            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrNetw),
+            tools: Array.isArray(edgeEnablersData?.[0]) ? edgeEnablersData[0].join(', ') : '',
+            Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrNetw) || 0),
+            Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpNetw) || 0),
+            Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrNetw) || 0),
         },
         {
             key: '2',
-            tools: edgeEnablersData?.[1]?.join(', ') || [],
-            Carbon: formatExponentialNumber(environmentalData?.cO2FPrEnabl),
-            Impact: formatExponentialNumber(environmentalData?.healtImpEnabl),
-            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrEnabl),
+            tools: Array.isArray(edgeEnablersData?.[1]) ? edgeEnablersData[1].join(', ') : '',
+            Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrEnabl) || 0),
+            Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpEnabl) || 0),
+            Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrEnabl) || 0),
         },
         {
             key: '3',
-            tools: edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [],
-            Carbon: formatExponentialNumber(environmentalData?.cO2FPrEUD),
-            Impact: formatExponentialNumber(environmentalData?.healtImpEUD),
-            Biodiversity: formatExponentialNumber(environmentalData?.biodivFPrEUD),
+            tools: edgeEnablersData?.[2]?.End_dev_information?.Number?.[0] && edgeEnablersData?.[2]?.End_dev_information?.Type?.[0]
+                ? `${edgeEnablersData[2].End_dev_information.Number[0]}x ${edgeEnablersData[2].End_dev_information.Type[0]}`
+                : '',
+            Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrEUD) || 0),
+            Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpEUD) || 0),
+            Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrEUD) || 0),
         }
     ]
 }

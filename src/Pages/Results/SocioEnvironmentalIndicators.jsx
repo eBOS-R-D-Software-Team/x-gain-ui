@@ -63,9 +63,9 @@ function SocioEnvironmentalIndicators() {
     useEffect(() => {     
         const data = [
             ["Category", "Value"],
-            [edgeEnablersData?.[0]?.join(', ') || [], environmentalData.cO2FPrNetw],
-            [edgeEnablersData?.[1]?.join(', ') || [], environmentalData.cO2FPrEnabl],
-            [edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [], environmentalData.cO2FPrEUD],
+            [edgeEnablersData?.[0]?.join(', ') || [], parseFloat(environmentalData.cO2FPrNetw)],
+            [edgeEnablersData?.[1]?.join(', ') || [], parseFloat(environmentalData.cO2FPrEnabl)],
+            [edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [], parseFloat(environmentalData.cO2FPrEUD)],
         ];
         
         setCarboonFootprintData(data); // Update the state with the fetched data  
@@ -88,6 +88,7 @@ function SocioEnvironmentalIndicators() {
 
     
     const dataSourceTools = () => {
+        console.log(edgeEnablersData, environmentalData.solution);
         return environmentalTools(edgeEnablersData, environmentalData)
     }
 

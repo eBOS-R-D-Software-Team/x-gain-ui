@@ -182,9 +182,9 @@ function SummaryResults() {
     useEffect(() => {     
         const data = [
             ["Category", "Value"],
-            [netsData.join(', '), filteredEnvironmentalData.cO2FPrEUD],
-            [filteredEnablersData.join(', '), filteredEnvironmentalData.cO2FPrNetw],
-            [solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0], filteredEnvironmentalData.cO2FPrEnabl],
+            [netsData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrNetw)],
+            [filteredEnablersData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEnabl)],
+            [solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0], parseFloat(filteredEnvironmentalData.cO2FPrEUD)],
         ];    
 
         setCarboonFootprintData(data); // Update the state with the fetched data  
