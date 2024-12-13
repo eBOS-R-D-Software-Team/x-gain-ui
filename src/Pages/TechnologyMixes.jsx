@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Spin } from 'antd';
+import { Row, Col, Layout, Typography, Spin, Checkbox } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels ,tooltips } from '../Data/Data';
 import TechnologyMixesTable from '../Components/ResultsElements/TechnologyMixesTable';
@@ -11,12 +11,14 @@ const { Title } = Typography;
 const TechnologyMixes = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [showAll, setShowAll] = useState(false);
 
     const location = useLocation();
 
     const { highestSolItems } = location.state || {};  // Retrieve data
  
-    console.log('Top 3 items in Technology Mixes:', highestSolItems);
+    console.log('Top 10 items in Technology Mixes:', highestSolItems);
+
 
     const handleRowClick = (record) => {
         setLoading(true);
@@ -24,6 +26,20 @@ const TechnologyMixes = () => {
             navigate(`/solution/${record.Sol_ID}/summary-results`, { state: { solutionData: record } });
         }, 3000);
     };
+
+    
+    const onCheckboxChange = (e) => {
+        setLoading(true); // Show loading while filtering
+        setShowAll(e.target.checked);
+        setTimeout(() => {
+            setLoading(false); // Reset loading after filter state is updated
+        }, 500);
+    };
+
+    // Filter items based on the checkbox state
+    const filteredHighestSolItems = highestSolItems?.filter(item => 
+        showAll || !item.Connectivity_information.Existing_connectivity
+    );
 
     return (
         <Spin spinning={loading} tip="Loading...">
@@ -42,14 +58,30 @@ const TechnologyMixes = () => {
                     </Col>
 
                     <Col span={24} style={{ padding: '0 60px' }}>
+                        <div style={{ width:'100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            padding: '8px',
+                            marginBottom: '8px',
+                            borderRadius: '4px',
+                        }}>
+                            <Checkbox
+                                onChange={onCheckboxChange}
+                            />
+                            <div style={{ display: 'flex', alignItems: 'end' }}>      
+                                <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}>Existing Connectivity</span>
+                            </div>
+                        </div>
+
                         <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '16px', borderRadius: '10px', color: 'black', display: 'flex' }}>                
                             <div style={{ display: 'block', margin: 'auto' }}>
-                                Connectivity & Edge Enablers                      
+                                Connectivity & Processing Enablers                      
                             </div>                 
                         </Title>     
 
                         <TechnologyMixesTable 
-                            items={highestSolItems} 
+                            items={filteredHighestSolItems} 
                             onRowClick={(record) => ({
                                 onClick: () => handleRowClick(record), // Make the entire row clickable
                             })}
