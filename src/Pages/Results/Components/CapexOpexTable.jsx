@@ -2,7 +2,7 @@ import React from 'react';
 import TechnoEconomicAssessmentTable from '../../../Components/ResultsElements/TechnoEconomicAssessmentTable';
 import { formatDecimalNumber } from '../../../HelperFunctions';
 
-const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
+const CapexOpexTable = ({name, title, data, periods, yearlyTotal, categoryTotal}) => {
     // Create columns based on periods
     const columns = periods ? [
         {
@@ -27,11 +27,29 @@ const CapexOpexTable = ({title, data, periods, yearlyTotal, categoryTotal}) => {
     // Map capexData to the format expected by the table
     const dataSource = data ? Object.keys(data).map((key, index) => {
         const yearlyData = data[key];
+        
         const rowData = {
             key: index,
             category: key,
         };
-        
+
+        // let yearlyData;
+        // let rowData;
+
+        // if(name === 'capexPerComponent') {
+        //     yearlyData = data[key].values;
+        //     rowData = {
+        //         key: index,
+        //         category: data[key].layer,
+        //     };
+        // } else {
+        //     yearlyData = data[key];
+        //     rowData = {
+        //         key: index,
+        //         category: key,
+        //     };
+        // }
+     
         periods.forEach((period, periodIndex) => {
             rowData[period.label] = formatDecimalNumber(yearlyData[periodIndex]);
         });

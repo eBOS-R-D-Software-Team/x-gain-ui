@@ -38,7 +38,7 @@ export const PDFProvider = ({ children }) => {
     };
 
 
-    const handleExportTable = ({ doc, title, data, periods, categoryTotal, yearlyTotal, startY }) => {       
+    const handleExportTable = ({ doc, title, name, data, periods, categoryTotal, yearlyTotal, startY }) => {       
         const columns = periods ? [
             title,
             ...periods.map(period => period.label),
@@ -48,9 +48,20 @@ export const PDFProvider = ({ children }) => {
 
         const dataSource = data ? Object.keys(data).map((key) => {
             const yearlyData = data[key];
+            // let yearlyData;
+            // let layer;
+
+            // if(name === 'capexPerComponent') {
+            //     yearlyData = data[key].values;
+            //     layer = data[key].layer;
+            // } else {
+            //     yearlyData = data[key]
+            //     layer = key
+            // }
 
             const rowData = [
                 key,
+                // layer,
                 ...periods.map((_, periodIndex) => formatDecimalNumber(yearlyData[periodIndex] || 0))
             ];
 
