@@ -138,6 +138,7 @@ function TechnoEconomicIndicators() {
                     </Title> 
                     <CapexOpexTable 
                         title={'CAPEX Per Component'} 
+                        name={'capexPerComponent'} 
                         data={solutionAnalysisData.capexPerComponentTS} 
                         periods={solutionAnalysisData.periods} 
                         yearlyTotal={solutionAnalysisData.capexTotalTS}
@@ -145,6 +146,7 @@ function TechnoEconomicIndicators() {
                     />
                     <CapexOpexTable 
                         title={'CAPEX Per Layer'} 
+                        name={'capexPerLayer'} 
                         data={solutionAnalysisData.capexPerLayerTS} 
                         periods={solutionAnalysisData.periods} 
                         yearlyTotal={null}
@@ -161,6 +163,7 @@ function TechnoEconomicIndicators() {
                     </Title> 
                     <CapexOpexTable 
                         title={'OPEX Per Category'} 
+                        name={'opexPerCategory'} 
                         data={solutionAnalysisData.opexPerCategoryTS} 
                         periods={solutionAnalysisData.periods} 
                         yearlyTotal={solutionAnalysisData.opexTotalTS}
@@ -168,6 +171,7 @@ function TechnoEconomicIndicators() {
                     />
                     <CapexOpexTable 
                         title={'OPEX Per Layer'} 
+                        name={'opexPerLayer'} 
                         data={solutionAnalysisData.opexPerLayerTS} 
                         periods={solutionAnalysisData.periods} 
                         yearlyTotal={null}
@@ -176,15 +180,15 @@ function TechnoEconomicIndicators() {
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                <Col span={24} lg={8} style={{ marginTop: 30 }}>   
+                <Col span={24} lg={9}>   
                     <div ref={capexChartRef}>          
                         <ColumnChartData title={'CAPEX'} data={capexColumnsData} />
                     </div>
-                </Col>
-                <Col span={24} lg={8} style={{ marginTop: 30 }}> 
                     <div ref={capexBreakdownChartRef}>             
                         <PieChartData title={'CAPEX Breakdown'} data={capexCategoryData} />
                     </div>
+                </Col>
+                <Col span={24} lg={6} style={{ alignContent: 'center' }}> 
                     <Table 
                         columns={totalCapexOpexColumns} 
                         dataSource={dataSource} 
@@ -195,7 +199,7 @@ function TechnoEconomicIndicators() {
                         rowHoverable={false}
                     />  
                 </Col>
-                <Col span={24} lg={8}>
+                <Col span={24} lg={9}>
                     <div ref={opexChartRef}>          
                         <ColumnChartData title={'OPEX'} data={opexColumnsData} />
                     </div>
