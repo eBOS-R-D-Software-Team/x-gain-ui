@@ -58,7 +58,7 @@ export const environmentalTools = (edgeEnablersData, environmentalData) => {
     return [
         {
             key: '1',
-            tools: Array.isArray(edgeEnablersData?.[0]) ? edgeEnablersData[0].join(', ') : '',
+            tools: Array.isArray(edgeEnablersData?.[0]) ? edgeEnablersData[0].slice(0,-1).join(', ') : '',
             Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrNetw) || 0),
             Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpNetw) || 0),
             Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrNetw) || 0),
