@@ -30,7 +30,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         // Add subsequent text
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0); // Reset text color to black or any desired color
-        doc.text("Connectivity & Edge Enablers", 10, finalYPosition);
+        doc.text("Connectivity & Processing Enablers", 10, finalYPosition);
 
         handleExportEdgeEnablersTable({
             doc: doc,
@@ -45,6 +45,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         handleExportTable({
             doc: doc,
             title: 'CAPEX Per Component',
+            name: 'capexPerComponent',
             data: solutionAnalysisData.capexPerComponentTS,
             periods: solutionAnalysisData.periods,
             yearlyTotal: solutionAnalysisData.capexTotalTS,
@@ -57,6 +58,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         handleExportTable({
             doc: doc,
             title: 'CAPEX Per Layer',
+            name: 'capexPerLayer',
             data: solutionAnalysisData.capexPerLayerTS,
             periods: solutionAnalysisData.periods,
             yearlyTotal: null,
@@ -81,6 +83,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         handleExportTable({
             doc: doc,
             title: 'OPEX Per Category',
+            name: 'opexPerCategory',
             data: solutionAnalysisData.opexPerCategoryTS,
             periods: solutionAnalysisData.periods,
             yearlyTotal: solutionAnalysisData.opexTotalTS,
@@ -95,6 +98,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
         handleExportTable({
             doc: doc,
             title: 'OPEX Per Layer',
+            name: 'opexPerLayer',
             data: solutionAnalysisData.opexPerLayerTS,
             periods: solutionAnalysisData.periods,
             yearlyTotal: null,

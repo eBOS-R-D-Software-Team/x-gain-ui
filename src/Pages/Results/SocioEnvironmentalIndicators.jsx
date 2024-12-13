@@ -155,7 +155,7 @@ function SocioEnvironmentalIndicators() {
                             }}
                         />  
                     </div>
-                    <span style={{ display: 'flex', justifyContent: 'start', color: '#6F6F6F', fontSize: 12 }}>Environmental impact (functional unit: per 1 hour of use)</span>
+                    <span style={{ display: 'flex', justifyContent: 'start', color: '#6F6F6F', fontSize: 12 }}>Environmental impact (functional unit: per day of use)</span>
                     <div style={{ marginTop: 50}}>
                         <Table 
                             columns={EnvironmentalCarbonFootprintColumns} 
@@ -208,7 +208,7 @@ function SocioEnvironmentalIndicators() {
                         <RadarChartData data={radarData} />
                     </div>  
                     <div ref={scoresRef} style={{ marginTop: 20 }}>                                         
-                        <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '100%' }}/>        
+                        <img src='/images/scores.png' alt="Logo" style={{ maxWidth: '65%' }}/>        
                     </div>              
                 </Col>
             </Row>

@@ -31,7 +31,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
         // Add subsequent text
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0); // Reset text color to black or any desired color
-        doc.text("Connectivity & Edge Enablers", 10, finalYPosition);
+        doc.text("Connectivity & Processing Enablers", 10, finalYPosition);
 
         handleExportEdgeEnablersTable({
             doc: doc,
@@ -67,7 +67,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
 
         finalYPosition = doc.lastAutoTable.finalY;
 
-        handleStyledText(doc, "Environmental impact (functional DALY: per 1 hour of use)", 20, finalYPosition, {
+        handleStyledText(doc, "Environmental impact (functional unit: per day of use)", 20, finalYPosition, {
             fontSize: 8,
             fontStyle: 'bold',
             textColor: [111, 111, 111], // White text
@@ -113,7 +113,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
         } 
 
         if (scoresRef.current) {
-            await handleExportChart(doc, scoresRef, finalYPosition + 200, 190, 50);
+            await handleExportChart(doc, scoresRef, finalYPosition + 200, 140, 40);
         } 
    
         window.open(doc.output('bloburl'), '_blank');
