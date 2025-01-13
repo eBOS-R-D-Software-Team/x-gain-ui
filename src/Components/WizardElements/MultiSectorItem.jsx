@@ -1,7 +1,7 @@
 import React from 'react';
-import { Radio, Checkbox, Avatar, Tooltip } from 'antd';
+import { Avatar, Tooltip, Checkbox } from 'antd';
 
-const SectorServiceItem = ({ data, level, tag, selectedItemId, onItemChange }) => {
+const MultiSectorItem = ({ data, selectedItemId, onItemChange  }) => {
     return (
         <div style={{ textAlign: '-webkit-center' }}>
             {data.map((item) => (
@@ -28,19 +28,11 @@ const SectorServiceItem = ({ data, level, tag, selectedItemId, onItemChange }) =
                             <Avatar src={`/images/sector-icons/${item.icon}`} style={{ marginRight: '8px' }} size={'medium'} />
                             <span style={{ color: "white", marginLeft: '10px', fontWeight: '700', lineHeight: '15px', fontSize: '18px' }}>{item.text}</span>
                         </div>
-                        {(level === 'Community' && tag === 'sectors') ?
-                            <Checkbox 
-                                onChange={(e) => onItemChange(e, item.id)}
-                                checked={Array.isArray(selectedItemId) && selectedItemId.includes(item.id)}
-                                disabled={!item.isActive || (Array.isArray(selectedItemId) && selectedItemId.length >= 2 && !selectedItemId.includes(item.id))} 
-                            />
-                        :
-                            <Radio 
-                                checked={selectedItemId === item.id} 
-                                onChange={() => onItemChange(item.id)} 
-                                disabled={!item.isActive} 
-                            />                          
-                        }
+                        <Checkbox 
+                            onChange={(e) => onItemChange(e, item.id)}
+                            checked={Array.isArray(selectedItemId) && selectedItemId.includes(item.id)}
+                            disabled={!item.isActive || (Array.isArray(selectedItemId) && selectedItemId.length >= 2 && !selectedItemId.includes(item.id))} 
+                        />
                     </div>
                 </Tooltip>
             ))}
@@ -48,4 +40,4 @@ const SectorServiceItem = ({ data, level, tag, selectedItemId, onItemChange }) =
     );
 }
 
-export default SectorServiceItem;
+export default MultiSectorItem;

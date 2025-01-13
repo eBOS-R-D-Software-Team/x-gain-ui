@@ -31,11 +31,25 @@ function BusinessModel() {
 
     useEffect(() => {
         if (sectorServiceData?.sector?.result && sectorServiceData?.service?.result && sectorServiceLevelData?.user_type_selection?.result) {
-            const fetchBusinessData = businessModelData.find(c => 
-                c.sector === sectorServiceData.sector.result &&
-                c.service === sectorServiceData.service.result &&
-                c.user_type === sectorServiceLevelData.user_type_selection.result
-            );
+            let fetchBusinessData;
+
+            if(sectorServiceData.sector.result.includes(',')) {
+                const sectorsStringToArray = sectorServiceData.sector.result.split(",");
+                console.log(true)
+
+                fetchBusinessData = businessModelData.find(c => 
+                    sectorsStringToArray.every(sector => c.sector.includes(sector)) && // Ensure `c.sector` is in the selected sectors
+                    c.user_type === sectorServiceLevelData.user_type_selection.result
+                );
+            } else {
+                console.log(false)
+
+                fetchBusinessData = businessModelData.find(c => 
+                    c.sector === sectorServiceData.sector.result &&
+                    c.service === sectorServiceData.service.result &&
+                    c.user_type === sectorServiceLevelData.user_type_selection.result
+                );
+            }
 
             if (fetchBusinessData) {
                 setData(fetchBusinessData);
