@@ -5,6 +5,7 @@ const USERNAME = 'xgain';
 const PASSWORD = 'xG4iN1Cc$-ins';
 
 const iccsUrl = process.env.REACT_APP_API_BASE_URL;
+const communityIccsUrl = process.env.REACT_APP_API4_BASE_URL;
 const incUrl = process.env.REACT_APP_API1_BASE_URL;
 const wrUrl = process.env.REACT_APP_API3_BASE_URL;
 
@@ -34,7 +35,7 @@ const fetchLoginToken = async (loginData) => {
 
 
 const postMainData = async (mainData, token) => {
-    return apiRequest(`${iccsUrl}/main`, 'POST', {
+    return apiRequest(`${communityIccsUrl}/main`, 'POST', {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
     }, JSON.stringify(mainData));

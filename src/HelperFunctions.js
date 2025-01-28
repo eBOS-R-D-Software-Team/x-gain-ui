@@ -96,3 +96,57 @@ export const formatDescription = (text) => {
         return null; // Ignore empty lines
     });
 };
+
+
+export const mergeDevicesData = (devicesArray) => {
+    if (!Array.isArray(devicesArray)) {
+        return {
+            type: "string",
+            result: [], // Return an empty structure if input is invalid
+        };
+    }
+
+    const mergedResult = [];
+    const type = "string";
+
+    devicesArray.forEach(device => {
+        if (device && Array.isArray(device.result)) {
+            device.result.forEach((value, index) => {
+                if (!mergedResult[index]) {
+                    mergedResult[index] = 0; // Initialize if not already set
+                }
+                // Combine results by merging non-zero values or keeping existing ones
+                mergedResult[index] = value !== 0 ? value : mergedResult[index];
+            });
+        }
+    });
+
+    return {
+        dev_per_type: {
+            type,
+            result: mergedResult,
+        }
+    }
+};
+
+
+export const updateDevicesInStorage = (currentDevice, count, setNewDevicesPerType) => {
+    const devices = JSON.parse(localStorage.getItem('devices')) || [];
+    const existingDeviceIndex = devices.findIndex(device => device.counter === count);
+
+    if (existingDeviceIndex !== -1) {
+        devices[existingDeviceIndex] = currentDevice; // Replace existing
+    } else {
+        devices.push(currentDevice); // Add new device
+    }
+
+    localStorage.setItem('devices', JSON.stringify(devices));
+    // Automatically update newDevicesPerType state
+    const mergedResult = mergeDevicesData(devices);
+
+    if (setNewDevicesPerType) {
+        setNewDevicesPerType(mergedResult.dev_per_type);
+    }
+
+    return mergedResult.dev_per_type;
+};

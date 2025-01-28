@@ -3,7 +3,7 @@ import { Col, Radio, Card, Button, Input, Row, Checkbox ,Tooltip } from 'antd';
 import ConfirmButton from './ConfirmButton';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
-const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputChange, handleNext, handleConfirm, currentQuestionKey, handleCheckboxChange, devicesChoice, handleInputDevicesChange, inputDevicesValues }) => {
+const QuestionItem = ({ questionData, level, selectedDevicesList, formData, handleChoiceChange, handleInputChange, handleNext, handleConfirm, handleNewDevice, currentQuestionKey, handleCheckboxChange, devicesChoice, handleInputDevicesChange, inputDevicesValues }) => {
     const { text, choices, input, tabletInput, laptopInput ,tooltipQuestion } = questionData;
 
     const disableInput = (choices.length > 0 && !formData.choice);
@@ -15,6 +15,12 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
     const isNextButtonDisabled = isChoicesRequired && (!formData.choice || (input && !formData.input));
     const isConfirmButtonDisabled = (!formData.input) && (formData.choice !== 'Personal Devices (Smartphones / Tablets / Laptops)');
     const isLastQuestion = (input && input.nextQuestion === 'end') || (choices.length > 0 && choices.some(choice => formData.choice === choice.text && choice.nextQuestion === 'end'));
+
+
+    const isChoiceDisabled = (choiceText) => {
+        const devicesList = Array.isArray(selectedDevicesList) ? selectedDevicesList : [];
+        return devicesList.some(item => item.choice === choiceText);
+    };
     
     return (
         <>
@@ -39,7 +45,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                 borderRadius: '4px',
                                 backgroundColor:'rgba(234, 234, 234, 0.56)' }} key={choice.id}>
                                 <Checkbox
-                                     type="checkbox"
+                                    type="checkbox"
                                     checked={devicesChoice[choice.inputType]}
                                     onChange={() => handleCheckboxChange(choice.inputType)}
                                 />
@@ -48,7 +54,7 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                 </div>
                             </div>
                         ))) : 
-                        (choices && choices.map(choice => (
+                        (choices && choices.map((choice, index) => (
                             <div style={{ width:'100%',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -62,18 +68,19 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
                                     title={choice.tooltip}
                                     placement="top"
                                 >
-                                <Radio
-                                    type="radio"
-                                    name="choice"
-                                    value={choice.text}
-                                    checked={formData.choice === choice.text}
-                                    onChange={() => handleChoiceChange(choice)}
-                                />       
+                                    <Radio
+                                        key={index}
+                                        type="radio"
+                                        name="choice"
+                                        value={choice.text}
+                                        checked={formData.choice === choice.text}
+                                        disabled={level === 'Community' && isChoiceDisabled(choice.text) && formData.choice !== choice.text}
+                                        onChange={() => handleChoiceChange(choice)}
+                                   />
                                  </Tooltip>                       
                                 <div style={{ display: 'flex', alignItems: 'end' }}>      
                                     <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}>{choice.text}</span>
-                                </div>
-                               
+                                </div>                              
                             </div>
                         )))
                     }                  
@@ -187,8 +194,17 @@ const QuestionItem = ({ questionData, formData, handleChoiceChange, handleInputC
             )}
             {isLastQuestion && (         
                 <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
-                        <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                    <Row justify="space-evenly" style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
+                        {level === 'Community' && selectedDevicesList.length <= 4 && 
+                            <Col span={12} sm={12} xs={24} style={{marginBottom: 20}}>
+                                <ConfirmButton
+                                    onClick={handleNewDevice}
+                                    color={'#00A27B'} 
+                                    text={'Add New Device'}
+                                />     
+                            </Col>
+                        }
+                        <Col span={12} sm={12} xs={24}>
                             <ConfirmButton
                                 disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
                                 onClick={handleConfirm}
