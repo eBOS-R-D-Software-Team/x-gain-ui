@@ -11,7 +11,7 @@ import { postDataToICCSApi, postSocialQuestions,  postSolutionsAnalysis, postSoc
 
 const { Header, Content } = Layout;
 
-const HeaderMenu = ({  handlePreviousQuestion }) => {
+const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQuestion }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [confirmLoading, setConfirmLoading] = useState(false);
@@ -38,6 +38,7 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
         sectorsServicesLevelDetails: fileContent?.sectorsServicesLevelDetails !== null,
         sectorsServicesDetails: fileContent?.sectorsServicesDetails !== null,
         locationDetails: fileContent?.locationDetails !== null,
+        devices: fileContent?.devices !== null,
     });
 
 
@@ -53,18 +54,18 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
             'sectorsServicesLevelDetails', 'sectorsServicesDetails', 'locationDetails',
             'questionsFormData', 'DataQuestionUploadButton', 'Economicvalue', 'Environmentalvalue',
             'Technologicalvalue', 'completeQuestionsFormData', 'hasEmployeeValue', 'answers',
-            'dataCalculateSocialScore', 'currentQuestionIndexSocialQuestion', 'socialQuestionsResponse'
+            'dataCalculateSocialScore', 'currentQuestionIndexSocialQuestion', 'socialQuestionsResponse', 'devices'
         ];
         keys.forEach(key => storeInLocalStorage(key, fileContent[key]));
 
         const {
             hasEmployeeValue, economicValue, environmentalValue, technologicalValue,
-            dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails,
+            dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails, devices
         } = checkFileContent();
 
         // Handle navigation based on data availability
         await handleNavigation(
-            { hasEmployeeValue, economicValue, environmentalValue, technologicalValue, dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails }
+            { hasEmployeeValue, economicValue, environmentalValue, technologicalValue, dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails, devices }
         );
 
         setFileContent(null);
@@ -81,7 +82,7 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
     const handleNavigation = async (checks) => {
         const {
             hasEmployeeValue, economicValue, environmentalValue, technologicalValue,
-            dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails
+            dataQuestionUploadButton, sectorsServicesLevelDetails, sectorsServicesDetails, locationDetails, devices
         } = checks;
 
         try {
@@ -91,7 +92,7 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
                 await navigateSocialQuestions();
             } else if (hasEmployeeValue) {
                 await handleHasEmployeeNavigation();
-            } else if (dataQuestionUploadButton) {
+            } else if (dataQuestionUploadButton && devices) {
                 navigateQuestions();
             } else if (locationDetails) {
                 navigate("/location-details");
@@ -170,9 +171,10 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
 
     const navigateQuestions = () => {
         const keys = Object.keys(fileContent?.DataQuestionUploadButton || {});
+        const devices = fileContent?.devices || [];
         const lastKey = keys[keys.length - 1];
         navigate("/questions", {
-            state: { lastKeyResult: fileContent?.DataQuestionUploadButton[lastKey], lastkey: lastKey, isUpload: true },
+            state: { lastKeyResult: fileContent?.DataQuestionUploadButton[lastKey], lastkey: lastKey, isUpload: true, selectedDevicesListArray: devices },
         });
         resetModalState();
         loadingModalClose();
@@ -203,28 +205,37 @@ const HeaderMenu = ({  handlePreviousQuestion }) => {
                         </div>                    
                         <div className="right-navbar" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             {/* Save Button */}
-                            {currentLocationPage !== '/home' && currentLocationPage !== '/sector-services-level' && (
-                            <Tooltip title="Save as JSON">
-                                <button
-                                    onClick={SaveButton}
-                                    style={{
-                                        width: '80px',
-                                        height: '80px',
-                                        borderRadius: '7px',
-                                        background: '#00678A',
-                                        color: 'white',
-                                        border: 'none',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        padding: '10px',
-                                    }}
-                                >
-                                    <SaveOutlined style={{ fontSize: '30px' }} />
-                                    <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Save</span>
-                                </button>
-                            </Tooltip>
+                            {((selectedLevel === 'Local') || (selectedLevel === 'Community') || (!(
+                                (currentQuestionKey === 'dev_per_type' && count > 0) || 
+                                (currentQuestionKey === 'sensor_rate' && count > 0) ||
+                                (currentQuestionKey === 'type_of_drones' && count > 0) ||
+                                (currentQuestionKey === 'personal_dev_type' && count > 0) ||
+                                (currentQuestionKey === 'camera_rate' && count > 0) ||
+                                (currentQuestionKey === 'robot_type' && count > 0)
+                            ))) && (
+                                currentLocationPage !== '/home' && currentLocationPage !== '/sector-services-level' && (
+                                    <Tooltip title="Save as JSON">
+                                        <button
+                                            onClick={SaveButton}
+                                            style={{
+                                                width: '80px',
+                                                height: '80px',
+                                                borderRadius: '7px',
+                                                background: '#00678A',
+                                                color: 'white',
+                                                border: 'none',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                padding: '10px',
+                                            }}
+                                        >
+                                            <SaveOutlined style={{ fontSize: '30px' }} />
+                                            <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Save</span>
+                                        </button>
+                                    </Tooltip>
+                                )
                             )}
                             {/* Conditionally render the Upload button only on the home page */}
                             {currentLocationPage === '/home' && (

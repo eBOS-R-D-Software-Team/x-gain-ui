@@ -1,29 +1,63 @@
-import React from 'react';
-import { Col, Radio, Card, Button, Input, Row, Checkbox ,Tooltip } from 'antd';
+import React, {useState, useEffect} from 'react';
+import { Col, Radio, Card, Button, Input, Row, Checkbox ,Tooltip, message } from 'antd';
 import ConfirmButton from './ConfirmButton';
 import { InfoCircleOutlined } from '@ant-design/icons';
+import PersonalDeviceInputCard from './PersonalDeviceInputCard';
 
 const QuestionItem = ({ questionData, level, selectedDevicesList, formData, handleChoiceChange, handleInputChange, handleNext, handleConfirm, handleNewDevice, currentQuestionKey, handleCheckboxChange, devicesChoice, handleInputDevicesChange, inputDevicesValues }) => {
+    const [errorMessage, setErrorMessage] = useState(null);
+
     const { text, choices, input, tabletInput, laptopInput ,tooltipQuestion } = questionData;
 
     const disableInput = (choices.length > 0 && !formData.choice);
     const isChoicesRequired = choices.length > 0;
-    const isSensorsInputLess75000 = (formData.choice === 'Sensors' && formData.input > 75000);
-    const isDronesInputLess75 = (formData.choice === 'Drones' && formData.input > 75);
-    const isCamerasInputLess3750 = (formData.choice === 'Cameras' && formData.input > 3750);
-    const isRobotsInputLess3750 = (formData.choice === 'Other type of device' && formData.input > 3750);
     const isNextButtonDisabled = isChoicesRequired && (!formData.choice || (input && !formData.input));
     const isConfirmButtonDisabled = (!formData.input) && (formData.choice !== 'Personal Devices (Smartphones / Tablets / Laptops)');
     const isLastQuestion = (input && input.nextQuestion === 'end') || (choices.length > 0 && choices.some(choice => formData.choice === choice.text && choice.nextQuestion === 'end'));
 
-
+    // DISABLE SELECTED CHOICES FOR COMMUNITY LEVEL
     const isChoiceDisabled = (choiceText) => {
         const devicesList = Array.isArray(selectedDevicesList) ? selectedDevicesList : [];
         return devicesList.some(item => item.choice === choiceText);
     };
+
+
+    // VALIDATION INPUT MESSAGES
+    const isSensorsInputLess75000 = (formData.choice === 'Sensors' && formData.input > 75000);
+    const isDronesInputLess75 = (formData.choice === 'Drones' && formData.input > 75);
+    const isCamerasInputLess3750 = (formData.choice === 'Cameras' && formData.input > 3750);
+    const isRobotsInputLess3750 = (formData.choice === 'Other type of device' && formData.input > 3750);
+
+    useEffect(() => {
+        if (isSensorsInputLess75000) {
+            setErrorMessage('The value must be less than 75000');
+        } else if (isDronesInputLess75) {
+            setErrorMessage('The value must be less than 75');
+        } else if (isCamerasInputLess3750) {
+            setErrorMessage('The value must be less than 3750');
+        } else if (isRobotsInputLess3750) {
+            setErrorMessage('The value must be less than 3750');
+        } else if (devicesChoice.tablet && inputDevicesValues.tablet > 2500) {
+            setErrorMessage('The value must be less than 2500');
+        } else if (devicesChoice.laptop && inputDevicesValues.laptop > 2500) {
+            setErrorMessage('The value must be less than 2500');
+        } else {
+            setErrorMessage(null);
+        }
+    }, [isSensorsInputLess75000, isDronesInputLess75, isCamerasInputLess3750, isRobotsInputLess3750, devicesChoice.tablet, inputDevicesValues.tablet, devicesChoice.laptop, inputDevicesValues.laptop]); // Dependencies
     
+
+    useEffect(() => {
+        if (errorMessage) {
+            message.error(errorMessage);
+        }
+    }, [errorMessage]);
+    
+    const invalidInput = !!errorMessage;
+
+
     return (
-        <>
+        <> 
             <Col span={24}>
                 <Card style={{ background: "rgba(0, 44, 60, 0.10)", flex: 1, textAlign: 'left' }}>
                     <div style={{ color: "rgb(0, 103, 138)", fontSize: "20px", fontWeight: "700", marginBottom: "40px"}}>
@@ -109,7 +143,7 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
                                     <Button
                                         size="large"
                                         onClick={handleNext}
-                                        disabled={isConfirmButtonDisabled || isSensorsInputLess75000 || isDronesInputLess75 || isCamerasInputLess3750 || isRobotsInputLess3750}
+                                        disabled={isConfirmButtonDisabled || invalidInput}
                                         style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
                                     >
                                         Next Question
@@ -123,67 +157,32 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
             {currentQuestionKey === 'personal_dev_type' && ( 
                 <>
                     {devicesChoice.tablet && (
-                        <Col span={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <Card size="small" style={{ background: "rgba(0, 44, 60, 0.10)", textAlign: 'center', marginTop: 20, padding: '30px 0' }}>                    
-                                <Row>
-                                    <Col span={24}>
-                                        <label style={{color: "#00678A", fontSize: "20px", fontWeight: "700"}}>{tabletInput.label}</label>
-                                        <Input
-                                            type="text"
-                                            name="tabletInput"
-                                            value={inputDevicesValues.tablet}
-                                            onChange={(e) => handleInputDevicesChange(e, 'tablet')}
-                                            disabled={false}
-                                            style={{ width: "100%", margin: "20px 0", }}
-                                        />
-                                    </Col>
-                                </Row>    
-                            </Card>
-                        </Col>
+                        <PersonalDeviceInputCard 
+                            deviceType="tablet"
+                            label={tabletInput.label}
+                            value={inputDevicesValues.tablet}
+                            onChange={handleInputDevicesChange}
+                        />
                     )}
+
                     {devicesChoice.laptop && (
-                        <Col span={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <Card size="small" style={{ background: "rgba(0, 44, 60, 0.10)", textAlign: 'center', marginTop: 20, padding: '30px 0' }}>                    
-                                <Row>
-                                    <Col span={24}>
-                                        <label style={{color: "#00678A", fontSize: "20px", fontWeight: "700"}}>{laptopInput.label}</label>
-                                        <Input
-                                            type="text"
-                                            name="laptopInput"
-                                            value={inputDevicesValues.laptop}
-                                            onChange={(e) => handleInputDevicesChange(e, 'laptop')}
-                                            disabled={false}
-                                            style={{ width: "100%", margin: "20px 0", }}
-                                        />
-                                    </Col>
-                                </Row>    
-                            </Card>
-                        </Col>
+                        <PersonalDeviceInputCard 
+                            deviceType="laptop"
+                            label={laptopInput.label}
+                            value={inputDevicesValues.laptop}
+                            onChange={handleInputDevicesChange}
+                        />
                     )}
-                    <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
-                            <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
-                                <Button
-                                    size="large"
-                                    onClick={handleNext}
-                                    disabled={((devicesChoice.tablet && !inputDevicesValues.tablet) || (devicesChoice.laptop && !inputDevicesValues.laptop) || (inputDevicesValues.laptop > 2500) || (inputDevicesValues.tablet > 2500))}
-                                    style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
-                                >
-                                    Next Question
-                                </Button> 
-                            </Col>                  
-                        </Row>                       
-                    </Col>  
                 </>
             )}   
-            {formData.choice === 'Personal Devices (Smartphones / Tablets / Laptops)' && (
+            {(currentQuestionKey === 'personal_dev_type' || formData.choice === 'Personal Devices (Smartphones / Tablets / Laptops)') && (
                 <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Row style={{ textAlign: 'left', marginTop: 20, padding: '30px 0' }}>
                         <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
                             <Button
                                 size="large"
                                 onClick={handleNext}
-                                disabled={false}
+                                disabled={currentQuestionKey === 'personal_dev_type' ? (devicesChoice.tablet && !inputDevicesValues.tablet) || (devicesChoice.laptop && !inputDevicesValues.laptop) || invalidInput : formData.choice === 'Personal Devices (Smartphones / Tablets / Laptops)' ? false : undefined}
                                 style={{ backgroundColor: 'black', color: '#FFF', fontSize: 15, fontWeight: 700, justifyContent: 'center' }}
                             >
                                 Next Question

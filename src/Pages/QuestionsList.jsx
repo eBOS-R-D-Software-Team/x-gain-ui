@@ -7,12 +7,12 @@ import QuestionItem from '../Components/WizardElements/QuestionItem';
 import { postDataToICCSApi } from '../Data/Api';
 import { initQuestionsData } from '../Data/JsonObjects';
 import { useBackButton } from '../Context/BackButtonContext';
-import { mergeDevicesData, updateDevicesInStorage } from '../HelperFunctions';
+import { getDevicesFromStorage, returnUpdatedFormData } from '../Utils/ServicesUtils';
 
-function QuestionsList() {
+const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLevel, setSelectedLevel, count, setCount }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { lastKeyResult , isUpload , lastkey } = location.state || {};      
+    const { lastKeyResult , isUpload , lastkey, selectedDevicesListArray } = location.state || {};      
     const { setBackAction } = useBackButton(); // Access the function to set the back action  
     let savedInitDataQuestions ;
     let uploadDataQuestionButton;
@@ -20,7 +20,6 @@ function QuestionsList() {
         savedInitDataQuestions = localStorage.getItem('questionsFormData');
         uploadDataQuestionButton = localStorage.getItem('DataQuestionUploadButton');
     }
-    const [currentQuestionKey, setCurrentQuestionKey] = useState('dev_per_type');
     const [formData, setFormData] = useState({
         initData: isUpload ? JSON.parse(savedInitDataQuestions) : initQuestionsData,
         data: isUpload ? JSON.parse(uploadDataQuestionButton) : {}
@@ -35,37 +34,37 @@ function QuestionsList() {
         tablet: '',
         laptop: ''
     });    
-    const [count, setCount] = useState(0);
     const [newDevicesPerType, setNewDevicesPerType] = useState({});
-    const [selectedLevel, setSelectedLevel] = useState('');
+
+    // Ensure it navigates to the default question on first load
+    useEffect(() => {
+        setCurrentQuestionKey('dev_per_type')
+    }, [setCurrentQuestionKey]);
 
     
     useEffect(() => {
-        const storedDetails = localStorage.getItem('sectorsServicesLevelDetails');
-        if (storedDetails) {
-            try {
+        try {
+            const storedDetails = localStorage.getItem('sectorsServicesLevelDetails');
+            if (storedDetails) {      
                 const parsedDetails = JSON.parse(storedDetails);
                 const level = parsedDetails?.level_of_assessment?.result || '';
-                setSelectedLevel(level);
-            } catch (error) {
-                console.error('Failed to parse sectorsServicesLevelDetails:', error);
+                setSelectedLevel(level);       
             }
-        } else {
-            console.warn('No sectorsServicesLevelDetails found in localStorage');
-        }
-    }, []);
+        } catch (error) {
+            console.error('Failed to parse sectorsServicesLevelDetails:', error);
+        } 
+    }, [setSelectedLevel]);
 
     
     // Save formData to localStorage whenever it changes
     useEffect(() => {
         try {
-        localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
-        localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data));
-        
+            localStorage.setItem('questionsFormData', JSON.stringify(formData.initData));
+            localStorage.setItem('DataQuestionUploadButton', JSON.stringify(formData.data));
         } catch (error) {
-        console.error('Error saving data to localStorage:', error);
+            console.error('Error saving data to localStorage:', error);
         }
-        console.log(formData.data)
+            console.log(formData.data)
     }, [formData]); // This will run whenever formData changes   
 
 
@@ -77,6 +76,14 @@ function QuestionsList() {
     // Effect that runs when the user clicks the upload button and conditions are met
     useEffect(() => {
         if (lastkey && questions && questions[lastkey] && isUpload) {
+            console.log('selectedDevicesListArray', selectedDevicesListArray)
+            localStorage.setItem('devices', JSON.stringify(selectedDevicesListArray));
+
+            getDevicesFromStorage(false, setNewDevicesPerType, setCount);
+            // Find the highest counter value
+            const lastCounter = Math.max(...selectedDevicesListArray.map(item => item.counter));
+            setCount(lastCounter)
+
             const currentQuestion = questions[lastkey];    
             const foundItem = questions[lastkey];
             const arrayItemChoices = foundItem.choices; 
@@ -139,46 +146,15 @@ function QuestionsList() {
                 navigate(location.pathname, { replace: true }); // Redirect to the same page without state
             }
         }
-    }, [lastkey, isUpload, location.pathname, lastKeyResult, navigate]);
+    }, [setCurrentQuestionKey, lastkey, isUpload, selectedDevicesListArray, location.pathname, lastKeyResult, navigate, setCount]);
    
-    
-    // input validation 
-    useEffect(() => {
-        const inputValidationChoice =  formData.initData[currentQuestionKey].choice;
-        const inputValidationValue =  formData.initData[currentQuestionKey].input;          
-        if (currentQuestionKey === 'personal_dev_type') {           
-            if ( inputDevicesValues.tablet > 2500 || inputDevicesValues.laptop > 2500 ){
-                message.error('The value must be less than 2500');
-            }
-        }
-        if (inputValidationChoice === 'Cameras' && inputValidationValue > 3750){
-            message.error('The value must be less than 3750');
-        }
-        if (inputValidationChoice === 'Other type of device' && inputValidationValue > 3750){
-            message.error('The value must be less than 3750');
-        }      
-        if (inputValidationChoice === 'Sensors' && inputValidationValue > 75000){
-            message.error('The value must be less than 75000');
-        }    
-        if (inputValidationChoice === 'Drones' && inputValidationValue > 75){
-            message.error('The value must be less than 75');
-        } 
-    }, [formData , inputDevicesValues, currentQuestionKey]);
-
 
     // Effect to handle navigation after form data is updated
     useEffect(() => {
         if (nextQuestionKey && nextQuestionKey !== 'end') {
             setCurrentQuestionKey(nextQuestionKey);
         }   
-    }, [nextQuestionKey]);
-
-
-    useEffect(() => {
-        const devices = JSON.parse(localStorage.getItem('devices')) || [];
-        const mergedResult = mergeDevicesData(devices);
-        setNewDevicesPerType(mergedResult.dev_per_type); // Update state with the merged result
-    }, [count]);
+    }, [setCurrentQuestionKey, nextQuestionKey]);
 
 
     useEffect(() => { 
@@ -201,50 +177,21 @@ function QuestionsList() {
                     };
 
                     if(selectedLevel === 'Community') {
-                        const devices = JSON.parse(localStorage.getItem('devices')) || [];
+                        let devicesArray;
 
-                        // Check if the current count exists in any object's `counter`
-                        const countExists = Object.values(updatedData).some(
-                            (obj) => obj.counter === count
-                        );
+                        if (['sensor_rate', 'type_of_drones', 'personal_dev_type', 'camera_rate', 'robot_type'].includes(currentQuestionKey)) {   
+                            devicesArray = getDevicesFromStorage(true, setNewDevicesPerType, setCount);
 
-                        let mergedResult;
+                            updatedInitData = {
+                                ...formData.initData,
+                                dev_per_type: devicesArray.dev_per_type,
+                                [prevKey]: initQuestionsData[prevKey],
+                            };
 
-                        console.log('devices', devices);
-
-                        if (!countExists) {
-                            if(count === 0) {
-                                setCount(0);
-                            } else {
-                                setCount((prevCount) => prevCount - 1);
-                            }
-
-                            if (prevKey === 'dev_per_type') {
-                                const updateDevicesArray = devices.slice(0, -1)
-                                localStorage.setItem('devices', JSON.stringify(updateDevicesArray)); 
-                            }
-                        } else {                        
-                            if ((currentQuestionKey === 'sensor_rate') || (currentQuestionKey === 'type_of_drones') || (currentQuestionKey === 'personal_dev_type') || (currentQuestionKey === 'camera_rate') || (currentQuestionKey === 'robot_type')) {                         
-                                const updateDevicesArray = devices.slice(0, -1)
-                                localStorage.setItem('devices', JSON.stringify(updateDevicesArray)); 
-
-                                const devicesArray = JSON.parse(localStorage.getItem('devices')) || [];
-                                mergedResult = mergeDevicesData(devicesArray);
-            
-                                console.log('mergedResult', mergedResult?.dev_per_type)
-                                setNewDevicesPerType(mergedResult?.dev_per_type); // Update state with merged result
-
-                                updatedInitData = {
-                                    ...formData.initData,
-                                    dev_per_type: mergedResult?.dev_per_type,
-                                    [prevKey]: initQuestionsData[prevKey],
-                                };
-
-                                updatedData = {
-                                    ...formData.data,
-                                    dev_per_type: mergedResult?.dev_per_type,
-                                };
-                            }
+                            updatedData = {
+                                ...formData.data,
+                                dev_per_type: devicesArray.dev_per_type,
+                            };
                         }
                     }
             
@@ -254,16 +201,10 @@ function QuestionsList() {
                         data: updatedData,
                     }));
     
-                    if (prevKey === 'personal_dev_type' || prevKey === 'dev_per_type') {
-                        setDevicesChoice({
-                            tablet: false,
-                            laptop: false
-                        });
-                        setInputDevicesValues({
-                            tablet: '',
-                            laptop: ''
-                        });
-                    }              
+                    if (['personal_dev_type', 'dev_per_type'].includes(prevKey)) {
+                        setDevicesChoice({ tablet: false, laptop: false });
+                        setInputDevicesValues({ tablet: '', laptop: '' });
+                    }    
     
                     setCurrentQuestionKey(prevKey);             
                 }
@@ -275,49 +216,21 @@ function QuestionsList() {
         setBackAction(() => handleBackPreviousQuestion); 
       
         return () => setBackAction(null);
-    }, [setBackAction, selectedLevel, formData, currentQuestionKey, navigate, count]);
+    }, [setBackAction, selectedLevel, formData,setCurrentQuestionKey, currentQuestionKey, navigate, setCount, count]);
 
    
     const handleChoiceChange = (choice) => {
         const nextQuestion = choice.nextQuestion;
 
         setFormData(prevFormData => {
-            const devices = JSON.parse(localStorage.getItem('devices')) || [];
-            const mergedResult = mergeDevicesData(devices);
-
-            setNewDevicesPerType(mergedResult.dev_per_type); // Update state with merged result
-
-            const updatedData = {
-                ...prevFormData,
-                initData: {
-                    ...prevFormData.initData,
-                    dev_per_type: mergedResult.dev_per_type,
-                    [currentQuestionKey]: {
-                        ...prevFormData.initData[currentQuestionKey],
-                        type: "string",
-                        choice: choice.text,
-                        counter: count,
-                        result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0),
-                    },
-                },
-                data: {
-                    ...prevFormData.data,
-                    dev_per_type: mergedResult.dev_per_type,
-                    [currentQuestionKey]: {
-                        ...prevFormData.data[currentQuestionKey],
-                        type: "string",
-                        choice: choice.text,
-                        counter: count,
-                        result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0),
-                    },
-                },
+            const updateValues = {
+                type: "string",
+                choice: choice.text,
+                counter: count,
+                result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0),
             };
-
-            if (currentQuestionKey === 'dev_per_type') {
-                updateDevicesInStorage(updatedData.initData[currentQuestionKey], count, setNewDevicesPerType);
-            }
-
-            return updatedData;
+    
+            return returnUpdatedFormData('handleChoicesInputFunction', prevFormData, currentQuestionKey, updateValues, setNewDevicesPerType);
         });
         
         // Automatically proceed if there is no input field and nextQuestion is defined, but do not navigate to 'end'
@@ -333,12 +246,6 @@ function QuestionsList() {
 
         setFormData(prevFormData => {
             let updatedResult;
-
-            const devices = JSON.parse(localStorage.getItem('devices')) || [];
-            
-            //Merge all devices data
-            const mergedResult = mergeDevicesData(devices);
-            setNewDevicesPerType(mergedResult.dev_per_type); // Update state with merged result
 
             // Initialize updatedResult based on the current question type
             if (currentQuestionKey === 'robot_cost' || currentQuestionKey === 'robot_power') {
@@ -361,37 +268,14 @@ function QuestionsList() {
                 }
             }
   
-            const updatedFormData = {
-                ...prevFormData,
-                initData: {
-                    ...prevFormData.initData,
-                    dev_per_type: mergedResult.dev_per_type,
-                    [currentQuestionKey]: {
-                        ...prevFormData.initData[currentQuestionKey],
-                        type: "string",
-                        input: value,
-                        counter: count,
-                        result: updatedResult
-                    },
-                },
-                data: {
-                    ...prevFormData.data,
-                    dev_per_type: mergedResult.dev_per_type,
-                    [currentQuestionKey]: {
-                        ...prevFormData.data[currentQuestionKey],
-                        type: "string",
-                        input: value,
-                        counter: count,
-                        result: updatedResult
-                    }
-                }
+            const updateValues = {
+                type: "string",
+                input: value,
+                counter: count,
+                result: updatedResult
             };
-
-            if (currentQuestionKey === 'dev_per_type') {
-                updateDevicesInStorage(updatedFormData.initData[currentQuestionKey], count, setNewDevicesPerType);
-            }
-        
-            return updatedFormData;
+    
+            return returnUpdatedFormData('handleChoicesInputFunction', prevFormData, currentQuestionKey, updateValues, setNewDevicesPerType);
         });
     };
 
@@ -405,7 +289,7 @@ function QuestionsList() {
     };
 
 
-    // Handle input change
+    // Handle input change for Personal Devices
     const handleInputDevicesChange = (event, deviceType) => {
         const value = event.target.value;
 
@@ -424,25 +308,15 @@ function QuestionsList() {
                 updatedResult[1] = parseInt(value) || 0; // Update laptop count
             }
 
-            return {
-                ...prevState,
-                initData: {
-                    ...prevState.initData,
-                    [currentQuestionKey]: {
-                        ...prevState.initData[currentQuestionKey],
-                        result: updatedResult
-                    }
-                },
-                data: {
-                    ...prevState.data,
-                    [currentQuestionKey]: {
-                        ...prevState.data[currentQuestionKey],
-                        result: updatedResult
-                    }
-                }
+            const updateValues = {
+                type: "string",
+                result: updatedResult
             };
+    
+            return returnUpdatedFormData('handleCheckboxFunction', prevState, currentQuestionKey, updateValues, setNewDevicesPerType);
         });
     };
+
 
     // Check if both checkboxes are selected
     const selectedBothDevices = devicesChoice.tablet && devicesChoice.laptop;
@@ -528,33 +402,20 @@ function QuestionsList() {
     };
 
 
-
     const handleNewDevice = () => {
         setFormData((prevFormData) => {
             const currentArray = [...prevFormData.initData['dev_per_type'].result];
 
-            return {
-                ...prevFormData,
-                initData: {
-                    ...prevFormData.initData,
-                    dev_per_type: {
-                        ...prevFormData.initData['dev_per_type'],
-                        choice: '',
-                        input: '',
-                        result: currentArray,
-                    },
-                },
-                data: {
-                    ...prevFormData.data,
-                    dev_per_type: {
-                        ...prevFormData.data['dev_per_type'],
-                        choice: '',
-                        input: '',
-                        result: currentArray,
-                    },
-                },
+            const updateValues = {
+                type: "string",
+                choice: '',
+                input: '',
+                result: currentArray
             };
+    
+            return returnUpdatedFormData('handleNewDeviceFunction', prevFormData, currentQuestionKey, updateValues, setNewDevicesPerType);
         });
+
         setCount(count + 1);
         setCurrentQuestionKey('dev_per_type');
     };
@@ -579,7 +440,7 @@ function QuestionsList() {
                     <QuestionItem
                         questionData={currentQuestionData}
                         level={selectedLevel}
-                        selectedDevicesList={JSON.parse(localStorage.getItem('devices')) || {}}
+                        selectedDevicesList={JSON.parse(localStorage.getItem('devices')) || []}
                         formData={formData.initData[currentQuestionKey] || {}}
                         handleChoiceChange={handleChoiceChange}
                         handleInputChange={handleInputChange}

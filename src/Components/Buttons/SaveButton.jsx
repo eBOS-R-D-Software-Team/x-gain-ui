@@ -16,9 +16,9 @@ export default function SaveButton() {
     const dataCalculateSocialScore = JSON.parse(localStorage.getItem('dataCalculateSocialScore'));
     const currentQuestionIndexSocialQuestion = localStorage.getItem('currentQuestionIndexSocialQuestion');
     const socialQuestionsResponse = localStorage.getItem('socialQuestionsResponse');
+    const devices = JSON.parse(localStorage.getItem('devices'));
     
     
-
     // Merge all data into one object
     const dataToSave = {
         sectorsServicesLevelDetails,
@@ -35,10 +35,10 @@ export default function SaveButton() {
         dataCalculateSocialScore,
         currentQuestionIndexSocialQuestion,
         socialQuestionsResponse,
-    
+        devices
     };
 
     // Create a Blob and trigger download
     const blob = new Blob([JSON.stringify(dataToSave, null, 2)], { type: 'application/json' });
-    saveAs(blob, 'mergedData.json'); // Save as mergedData.json
+    saveAs(blob, 'saveAnswers.json'); // Save as mergedData.json
 }
