@@ -4,6 +4,43 @@ import 'jspdf-autotable';
 // Create the context
 const PDFEdgeEnablersTableContext = createContext();
 
+const flattenArray = (arr) => {
+    return arr.flatMap(item => Array.isArray(item) ? item : [item]);
+};
+
+const joinArray = (arr) => {
+    return Array.isArray(arr) ? arr.join(', ') : arr;
+};
+
+function getCombinedProcessingData(data, nums) {
+    console.log(data, nums)
+    return data.map((processes, index) => {
+        const numbers = nums[index];
+        
+        if (processes.length === 0 && numbers.length === 0) return '';
+
+        const combinedItems = processes.map((process, i) => {
+            const number = numbers[i] !== undefined ? numbers[i] + 'x ' : '';
+            return number + process;
+        });
+
+        return combinedItems.join(', ');
+    });
+}
+
+function getCombinedEndDevData(data, nums) {
+    const numbers = nums;
+    
+    if (data.length === 0 && numbers.length === 0) return '';
+
+    const combinedItems = data.map((device, i) => {
+        const number = numbers[i] !== undefined ? numbers[i] + 'x ' : '';
+        return number + device;
+    });
+
+    return combinedItems.join(', ');
+}
+
 // Provide the context to the entire app
 export const PDFEdgeEnablersTableProvider = ({ children }) => {
 
@@ -29,28 +66,43 @@ export const PDFEdgeEnablersTableProvider = ({ children }) => {
 
     
         // Prepare table body
-        const body = validData.map(record => {
+        const body = validData.map(record => {    
+            const netsNumbers = flattenArray(record.Connectivity_information?.Number || []);
+            const netsData = flattenArray(record.Connectivity_information?.Nets_User || []).map(joinArray);
+
+            const processingExtremeNumbers = flattenArray(record.Processing_information?.Number[0] || []);
+            const processingFarNumbers = flattenArray(record.Processing_information?.Number[1] || []);
+            const processingNearNumbers = flattenArray(record.Processing_information?.Number[2] || []);
+            const processingCloudNumbers = flattenArray(record.Processing_information?.Number[3] || []);
+
+            const endDevicesNumbers = flattenArray(record.End_dev_information.Number || []);
+
+            const combinedProcessingData = getCombinedProcessingData(record.Processing_information.Process_Dev_per_layer_User, record.Processing_information.Number);
+            const combinedEndDecivesData = getCombinedEndDevData(record.End_dev_information.Type, record.End_dev_information.Number);
+
             return [
-                (record.Connectivity_information?.Number?.[0] ? record.Connectivity_information.Number[0] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[0] ?? ''), 
+                (netsNumbers[0] ? netsNumbers[0] + 'x ' : '') + (netsData[0] ?? ''), 
                 record.Connectivity_information?.Links?.length === 2 
                     ? null 
-                    : (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[1] ?? ''), // Local Connectivity
+                    : (netsNumbers[1] ? netsNumbers[1] + 'x ' : '') + (netsData[1] ?? ''), // Local Connectivity
                 record.Connectivity_information?.Links?.length === 2 
-                    ? (record.Connectivity_information?.Number?.[1] ? record.Connectivity_information.Number[1] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[1] ?? '') 
-                    : (record.Connectivity_information?.Number?.[2] ? record.Connectivity_information.Number[2] + 'x ' : '') + (record.Connectivity_information?.Nets_User?.[2] ?? ''), // (Public) Internet Connectivity
-                (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[0]?.length > 0 
-                    ? record.Processing_information.Number[0][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[0] ?? ''), // Extreme              
-                (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[1]?.length > 0 
-                    ? record.Processing_information.Number[1][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[1] ?? ''), // Far               
-                (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[2]?.length > 0 
-                    ? record.Processing_information.Number[2][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[2] ?? ''), // Near
-                (Array.isArray(record.Processing_information?.Number) && record.Processing_information.Number[3]?.length > 0 
-                    ? record.Processing_information.Number[3][0] + 'x ' 
-                    : '') + (record.Processing_information?.Process_Dev_per_layer_User?.[3] ?? ''), // Cloud
-                (record.End_dev_information?.Number?.[0] ? record.End_dev_information.Number[0] + 'x ' : '') + (record.End_dev_information?.Type?.[0] ?? ''), // End-devices Type
+                    ? (netsNumbers[1] ? netsNumbers[1] + 'x ' : '') + (netsData[1] ?? '') 
+                    : (netsNumbers[2] ? netsNumbers[2] + 'x ' : '') + (netsData[2] ?? ''), // (Public) Internet Connectivity
+                (Array.isArray(processingExtremeNumbers) && processingExtremeNumbers?.length > 0 
+                    ? combinedProcessingData[0] 
+                    : ''), // Extreme              
+                (Array.isArray(processingFarNumbers) && processingFarNumbers?.length > 0 
+                    ? combinedProcessingData[1] 
+                    : ''), // Far               
+                (Array.isArray(processingNearNumbers) && processingNearNumbers?.length > 0 
+                    ? combinedProcessingData[2] 
+                    : ''), // Near
+                (Array.isArray(processingCloudNumbers) && processingCloudNumbers?.length > 0 
+                    ? combinedProcessingData[3] 
+                    : ''), // Cloud
+                (Array.isArray(endDevicesNumbers) && endDevicesNumbers?.length > 0 
+                    ? combinedEndDecivesData 
+                    : ''), // End-devices Type
             ];
         });
     

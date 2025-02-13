@@ -22,8 +22,9 @@ const TechnologyMixes = () => {
 
     const handleRowClick = (record) => {
         setLoading(true);
+        const originalRecord = highestSolItems?.find(item => item.Sol_ID === record.Sol_ID);
         setTimeout(() => {
-            navigate(`/solution/${record.Sol_ID}/summary-results`, { state: { solutionData: record } });
+            navigate(`/solution/${record.Sol_ID}/summary-results`, { state: { solutionData: originalRecord } });
         }, 3000);
     };
 

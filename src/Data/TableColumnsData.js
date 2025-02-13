@@ -3,15 +3,16 @@ import { tooltips } from './Data';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
 
-export const technologyMixesColumns = [
+export const technologyMixesColumns = (data) => [
     {
         title: '#',
         key: 'Sol_ID',
         width: 50,
         className: 'technology-table-group',
-        render: (text, record, index) => {
-            return index + 1;
-        },
+        onCell: (record) => ({
+            rowSpan: record.rowSpanIndex, // Dynamically merging rows
+        }),
+        render: (text, record) => record.displayIndex, 
     },
     {
         title: (
@@ -27,17 +28,23 @@ export const technologyMixesColumns = [
                         Access Connectivity  <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 17, color: "#ffffff" }} />
                     </Tooltip>
                 ),
-                dataIndex: ['Connectivity_information', 'Nets_User', 0], // Access nested array
+                dataIndex: ['Connectivity_information', 'NetsAccessUser'], // Access nested array
                 key: 'connectivityNets',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanAccessNetsUserData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['Connectivity_information', 'Number', 0],
+                dataIndex: ['Connectivity_information', 'NetsAccessNumber'],
                 key: 'no1',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanAccessNetsNumberData, // Dynamically merging rows
+                }),
             },
             {
                 title: (
@@ -47,25 +54,32 @@ export const technologyMixesColumns = [
                 ),
                 key: 'localConnectivity',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanLocalNetsUserData, // Dynamically merging rows
+                }),
                 render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links.length;
+                    const linksLength = record.Connectivity_information.Links;
                     const netsValue = linksLength === 2 
                         ? null
-                        : record.Connectivity_information.Nets_User[1];
+                        : record.Connectivity_information.NetsLocalUser;
+                    
                     return netsValue;
                 },
             },
             {
                 title: 'No',
-                //dataIndex: ['Connectivity_information', 'Number', 1],
                 key: 'no2',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanLocalNetsNumberData, // Dynamically merging rows
+                }),
                 render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links.length;
+                    const linksLength = record.Connectivity_information.Links;
                     const netsValue = linksLength === 2 
                         ? null
-                        : record.Connectivity_information.Number[1];
+                        : record.Connectivity_information.NetsLocalNumber;
+                    
                     return netsValue;
                 },
             },
@@ -77,11 +91,15 @@ export const technologyMixesColumns = [
                 ),
                 key: 'internetConnectivity',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanInternetNetsUserData, // Dynamically merging rows
+                }),
                 render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links.length;
+                    const linksLength = record.Connectivity_information.Links;
                     const netsValue = linksLength === 2 
-                        ? record.Connectivity_information.Nets_User[1]
-                        : record.Connectivity_information.Nets_User[2];
+                        ? record.Connectivity_information.NetsLocalUser
+                        : record.Connectivity_information.NetsInternetUser;
+                    
                     return netsValue;
                 },
             },
@@ -90,11 +108,15 @@ export const technologyMixesColumns = [
                 key: 'no3',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanInternetNetsNumberData, // Dynamically merging rows
+                }),
                 render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links.length;
+                    const linksLength = record.Connectivity_information.Links;
                     const netsValue = linksLength === 2 
-                        ? record.Connectivity_information.Number[1]
-                        : record.Connectivity_information.Number[2];
+                        ? record.Connectivity_information.NetsLocalNumber
+                        : record.Connectivity_information.NetsInternetNumber
+                    
                     return netsValue;
                 },
             },
@@ -103,12 +125,15 @@ export const technologyMixesColumns = [
                 key: 'warning',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanIndex, // Dynamically merging rows
+                }),
                 render: (text, record) => {
                     const disclaimer = record.Connectivity_information.Disclaimer;
                     return disclaimer.join(', ');
                 },
             },
-        ],
+       ],
     },
     {
         title: (
@@ -120,55 +145,77 @@ export const technologyMixesColumns = [
         children: [
             {
                 title: 'Extreme',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 0],
+                dataIndex: ['Processing_information', 'ProcessExtremeUser'],
                 key: 'extreme',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanExtremeProcessingData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['Processing_information', 'Number', 0],
+                dataIndex: ['Processing_information', 'ProcessExtremeNumber'],
                 key: 'noExtreme',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanExtremeProcessingNumberData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'Far',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 1],
+                dataIndex: ['Processing_information', 'ProcessFarUser'],
                 key: 'far',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanFarProcessingData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['Processing_information', 'Number', 1],
+                dataIndex: ['Processing_information', 'ProcessFarNumber'],
                 key: 'noFar',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanFarProcessingNumberData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'Near',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 2],
+                dataIndex: ['Processing_information', 'ProcessNearUser'],
                 key: 'near',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanNearProcessingData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['Processing_information', 'Number', 2],
+                dataIndex: ['Processing_information', 'ProcessNearNumber'],
                 key: 'noNear',
-                width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanNearProcessingNumberData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'Cloud',
-                dataIndex: ['Processing_information', 'Process_Dev_per_layer_User', 3],
+                dataIndex: ['Processing_information', 'ProcessCloudUser'],
                 key: 'cloud',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanCloudProcessingData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['Processing_information', 'Number', 3],
+                dataIndex: ['Processing_information', 'ProcessCloudNumber'],
                 key: 'noCloud',
-                width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanCloudProcessingNumberData, // Dynamically merging rows
+                }),
             },
         ],
     },
@@ -178,16 +225,22 @@ export const technologyMixesColumns = [
         children: [
             {
                 title: 'Type',
-                dataIndex: ['End_dev_information', 'Type', 0],
+                dataIndex: ['End_dev_information', 'Type'],
                 key: 'endDevices',
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanEndDevTypeData, // Dynamically merging rows
+                }),
             },
             {
                 title: 'No',
-                dataIndex: ['End_dev_information', 'Number', 0],
+                dataIndex: ['End_dev_information', 'Number'],
                 key: 'noDevices',
                 width: 50,
                 className: 'technology-table-child',
+                onCell: (record) => ({
+                    rowSpan: record.rowSpanEndDevNumberData, // Dynamically merging rows
+                }),
             },
         ]
     },

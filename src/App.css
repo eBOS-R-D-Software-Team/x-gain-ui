@@ -153,6 +153,33 @@ button .ant-btn-icon {
 .technology-table-child {
   font-size: 16px;
   text-align: center !important;
+  padding: 6px !important;
+}
+
+
+
+.splitCellText {
+  padding: 8px 10px;
+}
+
+.technology_mixes_table .table-row-light {
+  background-color: #e9e6e652 !important; 
+}
+
+.technology_mixes_table .table-row-dark {
+  background-color: #7f76762d !important; 
+}
+
+.technology_mixes_table table {
+  border-collapse: collapse
+}
+
+.technology_mixes_table .bordered {
+  border-top: 2px solid #FFF !important
+}
+
+.ant-table-tbody > tr:hover {
+  cursor: pointer; /* Add pointer cursor */
 }
 
 .selectedSectorsCard .ant-card-body {
