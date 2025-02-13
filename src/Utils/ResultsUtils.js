@@ -58,7 +58,7 @@ export const environmentalTools = (edgeEnablersData, environmentalData) => {
     return [
         {
             key: '1',
-            tools: Array.isArray(edgeEnablersData?.[0]) ? edgeEnablersData[0].slice(0,-1).join(', ') : '',
+            tools: Array.isArray(edgeEnablersData?.[0]) ? edgeEnablersData[0].join(', ') : '',
             Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrNetw) || 0),
             Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpNetw) || 0),
             Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrNetw) || 0),
@@ -72,9 +72,7 @@ export const environmentalTools = (edgeEnablersData, environmentalData) => {
         },
         {
             key: '3',
-            tools: edgeEnablersData?.[2]?.End_dev_information?.Number?.[0] && edgeEnablersData?.[2]?.End_dev_information?.Type?.[0]
-                ? `${edgeEnablersData[2].End_dev_information.Number[0]}x ${edgeEnablersData[2].End_dev_information.Type[0]}`
-                : '',
+            tools: Array.isArray(edgeEnablersData?.[3]) ? edgeEnablersData[3].join(', ') : '',
             Carbon: formatExponentialNumber(parseFloat(environmentalData?.cO2FPrEUD) || 0),
             Impact: formatExponentialNumber(parseFloat(environmentalData?.healtImpEUD) || 0),
             Biodiversity: formatExponentialNumber(parseFloat(environmentalData?.biodivFPrEUD) || 0),
@@ -97,56 +95,14 @@ export const formatDescription = (text) => {
     });
 };
 
+export const getConnectivityProcessingEnablers = (data, numbers) => {
+    return data.map((record, index) => {
+        const number = numbers[index];
 
-export const mergeDevicesData = (devicesArray) => {
-    if (!Array.isArray(devicesArray)) {
-        return {
-            type: "string",
-            result: [], // Return an empty structure if input is invalid
-        };
-    }
-
-    const mergedResult = [];
-    const type = "string";
-
-    devicesArray.forEach(device => {
-        if (device && Array.isArray(device.result)) {
-            device.result.forEach((value, index) => {
-                if (!mergedResult[index]) {
-                    mergedResult[index] = 0; // Initialize if not already set
-                }
-                // Combine results by merging non-zero values or keeping existing ones
-                mergedResult[index] = value !== 0 ? value : mergedResult[index];
-            });
+        if (number === undefined || !record) {
+            return null;
         }
-    });
 
-    return {
-        dev_per_type: {
-            type,
-            result: mergedResult,
-        }
-    }
-};
-
-
-export const updateDevicesInStorage = (currentDevice, count, setNewDevicesPerType) => {
-    const devices = JSON.parse(localStorage.getItem('devices')) || [];
-    const existingDeviceIndex = devices.findIndex(device => device.counter === count);
-
-    if (existingDeviceIndex !== -1) {
-        devices[existingDeviceIndex] = currentDevice; // Replace existing
-    } else {
-        devices.push(currentDevice); // Add new device
-    }
-
-    localStorage.setItem('devices', JSON.stringify(devices));
-    // Automatically update newDevicesPerType state
-    const mergedResult = mergeDevicesData(devices);
-
-    if (setNewDevicesPerType) {
-        setNewDevicesPerType(mergedResult.dev_per_type);
-    }
-
-    return mergedResult.dev_per_type;
-};
+        return `${number}x ${record}`;
+    }).filter(item => item !== null);
+}

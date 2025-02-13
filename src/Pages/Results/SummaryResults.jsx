@@ -6,7 +6,7 @@ import { stepsLabels , tooltips } from '../../Data/Data';
 import SelectedSectorItem from '../../Components/ResultsElements/SelectedSectorItem';
 import SelectedConnectivityEdgeEnablers from '../../Components/ResultsElements/SelectedConnectivityEdgeEnablers';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
-import { processPieChartData } from '../../HelperFunctions';
+import { processPieChartData, getConnectivityProcessingEnablers } from '../../Utils/ResultsUtils';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
@@ -121,10 +121,57 @@ function SummaryResults() {
     }, [socialScoresData]);
 
 
+    // END DEVICES (1ST COLUMN)
+    const endDevicesLength = solutionData.End_dev_information.Type.length;
+    const endDevicesData = solutionData.End_dev_information.Type.slice(0, endDevicesLength).map((device, index) => {
+        if (!device || !solutionData.End_dev_information.Number[index]) {
+            return null;  // Return null if either is missing
+        }
+      
+        return `${solutionData.End_dev_information.Number[index]}x ${device}`;
+    }).filter(item => item !== null);
+
+
+    // NETS (2ND COLUMN)
+    const flattenArray = (arr) => {
+        return arr.flatMap(item => Array.isArray(item) ? item : [item]);
+    };
+    
+    const numbers = flattenArray(solutionData.Connectivity_information.Number);
+
+    let netsUserWithInternet = solutionData.Connectivity_information.Nets_User; // Keep all items
+    let netsUserWithoutInternet = netsUserWithInternet.slice(0, -1); // Without the last item
+
+    let netsWithInternet = flattenArray(netsUserWithInternet);
+    let netsWithoutInternet = flattenArray(netsUserWithoutInternet);
+
+    const netsDataWithInternet = getConnectivityProcessingEnablers(netsWithInternet, numbers);
+    const netsDataWithoutInternet = getConnectivityProcessingEnablers(netsWithoutInternet, numbers);
+
+    // PROCESSING (3RD COLUMN)
+    const processingNumbers = flattenArray(solutionData.Processing_information.Number);
+    const processingEnablers = flattenArray(solutionData.Processing_information.Process_Dev_per_layer_User);
+
+    const enablersData = getConnectivityProcessingEnablers(processingEnablers, processingNumbers);
+    
+
+    useEffect(() => {     
+        const data = [
+            ["Category", "Value"],
+            [netsDataWithoutInternet.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrNetw)],
+            [enablersData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEnabl)],
+            [endDevicesData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEUD)],
+        ];    
+
+        setCarboonFootprintData(data); // Update the state with the fetched data  
+    }, [filteredEnvironmentalData, solutionData, netsDataWithoutInternet, endDevicesData, enablersData]);
+
+
     const handleTechnoEconomicCardClick = () => {
         setLoading(true);
         localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
         localStorage.setItem('solData', JSON.stringify(solutionData));
+        console.log(solutionData);
 
         setTimeout(() => {
             navigate('/techno-economic-indicators');
@@ -136,7 +183,7 @@ function SummaryResults() {
         setLoading(true);
         localStorage.setItem('filteredEnvironmentalDataBySol', JSON.stringify(filteredEnvironmentalData));
         localStorage.setItem('socialRadarData', JSON.stringify(chartData));
-        localStorage.setItem('connectivityEdgeEnablers', JSON.stringify([netsData, filteredEnablersData, solutionData]));
+        localStorage.setItem('connectivityEdgeEnablers', JSON.stringify([netsDataWithoutInternet, enablersData, solutionData, endDevicesData]));
         console.log(solutionData);
         setTimeout(() => {
             navigate('/socio-environmental-indicators');
@@ -150,47 +197,7 @@ function SummaryResults() {
             navigate('/business-model');
         }, 1000);
     };
-
-
-    const netsLength = solutionData.Connectivity_information.Nets.length;
-    const netsData = solutionData.Connectivity_information.Nets_User.slice(0, netsLength).map((net, index) => {
-        if (!net || !solutionData.Connectivity_information.Number[index]) {
-            return null;  // Return null if either is missing
-        }
-      
-        return `${solutionData.Connectivity_information.Number[index]}x ${net}`;
-    }).filter(item => item !== null);
-
-    
-    const enablersLength = solutionData.Processing_information.Process_Dev_per_layer.length;
-    const enablersData = solutionData.Processing_information.Process_Dev_per_layer_User.slice(0, enablersLength).map((dev, index) => {
-        // Get the number value for the current index, handling cases where it's empty
-        const numberValue = solutionData.Processing_information.Number[index]?.length > 0 
-            ? solutionData.Processing_information.Number[index] 
-            : 0;
-
-        if (dev.length > 0) {
-            return `${numberValue}x ${dev}`;
-        }
-
-        return null;
-    });
-
-    // Filtering out null values (from empty arrays) before displaying
-    const filteredEnablersData = enablersData.filter(item => item !== null);
-
-    useEffect(() => {     
-        const data = [
-            ["Category", "Value"],
-            [netsData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrNetw)],
-            [filteredEnablersData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEnabl)],
-            [solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0], parseFloat(filteredEnvironmentalData.cO2FPrEUD)],
-        ];    
-
-        setCarboonFootprintData(data); // Update the state with the fetched data  
-    }, [filteredEnvironmentalData, solutionData, netsData, filteredEnablersData]);
         
-
 
     return(
         <Spin spinning={loading} tip="Loading...">
@@ -211,15 +218,15 @@ function SummaryResults() {
                     <Col span={24} lg={12} xxl={8}>
                         <Card hoverable bordered={false} className="selectedSectorsCard">
                             <Row>
-                            <Col span={24}>
-                                <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                    <Tooltip title={tooltips.Selected.description}>
-                                        <div style={{ display: 'block', margin: 'auto' }}>
-                                            Selected   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                      
-                                        </div>                    
-                                    </Tooltip>             
-                                </Title> 
-                            </Col>
+                                <Col span={24}>
+                                    <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
+                                        <Tooltip title={tooltips.Selected.description}>
+                                            <div style={{ display: 'block', margin: 'auto' }}>
+                                                Selected   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                      
+                                            </div>                    
+                                        </Tooltip>             
+                                    </Title> 
+                                </Col>
                             </Row>
                             {sectorServiceData && 
                                 <Row span={24}>                             
@@ -243,14 +250,10 @@ function SummaryResults() {
                             </Col>
                             </Row>
                             {sectorServiceData && 
-                                <Row span={24}>                                
-                                    {solutionData.End_dev_information.Number[0].length !== 0 &&
-                                        <SelectedConnectivityEdgeEnablers text={solutionData.End_dev_information.Number[0] + 'x ' + solutionData.End_dev_information.Type[0]}/>
-                                    }
-                                    <SelectedConnectivityEdgeEnablers text={netsData.join(', ')}/>
-                                    {filteredEnablersData.length > 0 && (
-                                        filteredEnablersData.map((item, idx) => <SelectedConnectivityEdgeEnablers key={item.id || idx} text={item}/>))
-                                    }      
+                                <Row span={24}>   
+                                    <SelectedConnectivityEdgeEnablers text={endDevicesData.join(', ')}/>                             
+                                    <SelectedConnectivityEdgeEnablers text={netsDataWithInternet.join(', ')}/>
+                                    <SelectedConnectivityEdgeEnablers text={enablersData.join(', ')}/>
                                 </Row>
                             }                           
                         </Card>           

@@ -5,12 +5,11 @@ import TitleForm from '../../Components/WizardElements/TitleForm';
 import { EnvironmentalTableColumns, EnvironmentalCarbonFootprintColumns } from '../../Data/TableColumnsData';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
-import { environmentalTools } from '../../HelperFunctions';
 import { PDFProvider } from '../../Context/PDF/PDFContext';
 import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
 import SocioEnvironmentalIndicatorsPDF from '../../Components/PDFResults/SocioEnvironmentalIndicatorsPDF';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { formatDescription } from '../../HelperFunctions'
+import { environmentalTools, formatDescription } from '../../Utils/ResultsUtils';
 
 const { Title } = Typography;
 
@@ -47,9 +46,9 @@ function SocioEnvironmentalIndicators() {
         }
 
         // Load edge enablers data from localStorage
-        const savedEdgeEnablersData = localStorage.getItem('connectivityEdgeEnablers');
+        const savedEdgeEnablersData = JSON.parse(localStorage.getItem('connectivityEdgeEnablers'));
         if (savedEdgeEnablersData) {
-            setEdgeEnablersData(JSON.parse(savedEdgeEnablersData));
+            setEdgeEnablersData(savedEdgeEnablersData);
         }
 
         // Load radar data from localStorage
@@ -57,7 +56,7 @@ function SocioEnvironmentalIndicators() {
         if (savedRadarData) {
             setRadarData(JSON.parse(savedRadarData));
         }
-    }, []);
+    }, [solutionData]);
 
 
     useEffect(() => {     
@@ -65,7 +64,7 @@ function SocioEnvironmentalIndicators() {
             ["Category", "Value"],
             [edgeEnablersData?.[0]?.join(', ') || [], parseFloat(environmentalData.cO2FPrNetw)],
             [edgeEnablersData?.[1]?.join(', ') || [], parseFloat(environmentalData.cO2FPrEnabl)],
-            [edgeEnablersData?.[2]?.End_dev_information.Number?.[0] + 'x ' + edgeEnablersData?.[2]?.End_dev_information.Type?.[0] || [], parseFloat(environmentalData.cO2FPrEUD)],
+            [edgeEnablersData?.[3]?.join(', ') || [], parseFloat(environmentalData.cO2FPrEUD)],
         ];
         
         setCarboonFootprintData(data); // Update the state with the fetched data  
@@ -117,7 +116,7 @@ function SocioEnvironmentalIndicators() {
                         <PDFProvider>
                             <PDFEdgeEnablersTableProvider>
                                 <SocioEnvironmentalIndicatorsPDF 
-                                    solutionData={solutionData}
+                                    solutionData={edgeEnablersData[2]}
                                     environmentalData={dataSourceTools()}
                                     carbonFootprintData={dataSource}
                                     footprintChartRef={footprintChartRef}

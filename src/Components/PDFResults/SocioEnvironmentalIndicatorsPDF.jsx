@@ -113,7 +113,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
         } 
 
         if (scoresRef.current) {
-            await handleExportChart(doc, scoresRef, finalYPosition + 200, 140, 40);
+            await handleExportChart(doc, scoresRef, finalYPosition + 200, 180, 40);
         } 
    
         window.open(doc.output('bloburl'), '_blank');

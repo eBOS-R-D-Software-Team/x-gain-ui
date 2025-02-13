@@ -4,14 +4,13 @@ import { stepsLabels , tooltips } from '../../Data/Data';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import CapexOpexTable from './Components/CapexOpexTable';
 import PieChartData from '../../Components/ResultsElements/PieChartData';
-import { processPieChartData, processColumnChartData } from '../../HelperFunctions';
 import ColumnChartData from '../../Components/ResultsElements/ColumnChartData';
 import { totalCapexOpexColumns } from '../../Data/TableColumnsData';
 import 'jspdf-autotable';
 import TechnoEconomicIndicatorsPDF from '../../Components/PDFResults/TechnoEconomicIndicatorsPDF';
 import { PDFProvider } from '../../Context/PDF/PDFContext';
 import { PDFEdgeEnablersTableProvider } from '../../Context/PDF/PDFEdgeEnablersTableContext';
-import { formatDecimalNumber } from '../../HelperFunctions';
+import { processPieChartData, processColumnChartData, formatDecimalNumber } from '../../Utils/ResultsUtils';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
 
