@@ -47,7 +47,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. Anchor usage payment receipts\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This model leverages partnerships with ISPs, tech providers, and NGOs to deliver eco-friendly, cost-effective connectivity for Precision Agriculture, targeting SMEs and local communities while driving rural connectivity and efficiency."
+        "label_canvastitle": "This model leverages partnerships with ISPs, tech providers, and NGOs to deliver eco-friendly, cost-effective connectivity for Precision Agriculture, targeting SMEs and local communities while driving rural connectivity and efficiency."
     },
     {
         "unique_id": 3,
@@ -72,7 +72,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model enables fast internet for Precision Agriculture through strategic partnerships with governments, academia, and private sectors, supported by robust resources and processes. It drives universal connectivity, boosts local economies, promotes sustainable agriculture, and enhances societal well-being."
+        "label_canvastitle": "This business model enables fast internet for Precision Agriculture through strategic partnerships with governments, academia, and private sectors, supported by robust resources and processes. It drives universal connectivity, boosts local economies, promotes sustainable agriculture, and enhances societal well-being."
     },
     {
         "unique_id": 4,
@@ -97,7 +97,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of drones and drone center for testing/evaluating services & solutions.  (Pay per hour/monthly/per lesson)\nDrone rental",
-"label_canvastitle": "This business model for drone-based agriculture leverages partnerships with ISPs, tech providers, and regulators to develop real-time monitoring and autonomous solutions. It optimizes operations, reduces costs, and supports biodiversity while providing tailored services and testing opportunities for SMEs, operators, and public authorities."
+        "label_canvastitle": "This business model for drone-based agriculture leverages partnerships with ISPs, tech providers, and regulators to develop real-time monitoring and autonomous solutions. It optimizes operations, reduces costs, and supports biodiversity while providing tailored services and testing opportunities for SMEs, operators, and public authorities."
     },
     {
         "unique_id": 5,
@@ -122,7 +122,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This business model supports drone operations in agriculture through partnerships with ISPs, academic institutions, and manufacturers, focusing on cost-effective, high-quality, and eco-friendly connectivity. It serves SMEs, local communities, and public authorities while driving revenue via subscriptions, application services, and government subsidies."
+        "label_canvastitle": "This business model supports drone operations in agriculture through partnerships with ISPs, academic institutions, and manufacturers, focusing on cost-effective, high-quality, and eco-friendly connectivity. It serves SMEs, local communities, and public authorities while driving revenue via subscriptions, application services, and government subsidies."
     },
     {
         "unique_id": 6,
@@ -147,7 +147,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nIncrease of the State PID\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model promotes fast internet for drone operations in agriculture through collaboration with governments, universities, and private sectors, supported by robust resources and strategic processes. It delivers universal connectivity, boosts economic growth, and fosters sustainable agriculture while reducing social inequality."
+        "label_canvastitle": "This business model promotes fast internet for drone operations in agriculture through collaboration with governments, universities, and private sectors, supported by robust resources and strategic processes. It delivers universal connectivity, boosts economic growth, and fosters sustainable agriculture while reducing social inequality."
     },
     {
         "unique_id": 7,
@@ -172,7 +172,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure  and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling farming products (B2B/B2C)\nIncreased profitability via increased production\nIncreased profitability via cost reductions",
-"label_canvastitle": "This business model leverages partnerships with ISPs, tech providers, and regulators to deliver fast internet solutions for livestock health management. It improves welfare, streamlines farm operations, and enhances profitability for SMEs, researchers, and advisors through tailored support and efficient resource use."
+        "label_canvastitle": "This business model leverages partnerships with ISPs, tech providers, and regulators to deliver fast internet solutions for livestock health management. It improves welfare, streamlines farm operations, and enhances profitability for SMEs, researchers, and advisors through tailored support and efficient resource use."
     },
     {
         "unique_id": 8,
@@ -197,7 +197,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice rent (technology, software, mobile and broadband network providers)\nGovt. subsidies for rural connectivity\nLocal municipality or MNOs (Mobile network Operators) funding",
-"label_canvastitle": "This business model supports livestock health through fast internet connectivity, leveraging partnerships with ISPs, academic institutions, and government bodies. It offers cost-effective, eco-friendly solutions with high-quality coverage, targeting SMEs, researchers, and local communities to enhance efficiency and profitability."
+        "label_canvastitle": "This business model supports livestock health through fast internet connectivity, leveraging partnerships with ISPs, academic institutions, and government bodies. It offers cost-effective, eco-friendly solutions with high-quality coverage, targeting SMEs, researchers, and local communities to enhance efficiency and profitability."
     },
     {
         "unique_id": 9,
@@ -222,7 +222,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nSustainable farming\nProtection of animals",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model drives fast internet for livestock health through strategic partnerships with governments, academia, and private sectors, offering tailored services to enhance animal welfare and farm management. It fosters digital connectivity, promotes sustainable farming, and strengthens local economies while protecting animals and reducing social inequality."
+        "label_canvastitle": "This business model drives fast internet for livestock health through strategic partnerships with governments, academia, and private sectors, offering tailored services to enhance animal welfare and farm management. It fosters digital connectivity, promotes sustainable farming, and strengthens local economies while protecting animals and reducing social inequality."
     },
     {
         "unique_id": 10,
@@ -247,7 +247,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned/Rent Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling farming products (B2B/B2C)\nIncreased profitability via increased production\nIncreased profitability via cost reductions",
-"label_canvastitle": "This business model enhances farm management by leveraging 5G connectivity for timely data from drones, improving livestock productivity and welfare. It provides tailored services to farmers, researchers, and SMEs, optimizing time and reducing stress while driving profitability and efficiency."
+        "label_canvastitle": "This business model enhances farm management by leveraging 5G connectivity for timely data from drones, improving livestock productivity and welfare. It provides tailored services to farmers, researchers, and SMEs, optimizing time and reducing stress while driving profitability and efficiency."
     },
     {
         "unique_id": 11,
@@ -272,7 +272,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "The hardware could be purchased once, and pay for the software (SaaS subscription)\nRent both hardware and software and pay monthly/yearly etc. (Haas-SaaS)",
-"label_canvastitle": "This business model provides fast internet connectivity for farm management through partnerships with ISPs, tech providers, and regulators, offering cost-effective, eco-friendly solutions with high-quality coverage. It targets farmers and SMEs, offering flexible hardware and software payment options while optimizing farm operations."
+        "label_canvastitle": "This business model provides fast internet connectivity for farm management through partnerships with ISPs, tech providers, and regulators, offering cost-effective, eco-friendly solutions with high-quality coverage. It targets farmers and SMEs, offering flexible hardware and software payment options while optimizing farm operations."
     },
     {
         "unique_id": 12,
@@ -297,7 +297,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable farming\nProtection of animals\nReduction of social inequality\nReduction of desertification\nEnhance citizens� health and well-being\nEnhance citizens� digital literacy",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs and biodiversity protection.",
-"label_canvastitle": "This business model drives fast internet connectivity for farm management, supported by strategic partnerships with governments, academic institutions, and private sectors. It enhances sustainable farming, job creation, and digital literacy while promoting societal well-being and economic growth for SMEs and local communities."
+        "label_canvastitle": "This business model drives fast internet connectivity for farm management, supported by strategic partnerships with governments, academic institutions, and private sectors. It enhances sustainable farming, job creation, and digital literacy while promoting societal well-being and economic growth for SMEs and local communities."
     },
     {
         "unique_id": 13,
@@ -322,7 +322,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)",
-"label_canvastitle": "This business model focuses on fast internet connectivity to enhance remote farming through real-time monitoring, pest detection, and automated surveillance, optimizing agricultural practices. It supports SMEs and local agriculture, reducing costs while boosting profitability and operational efficiency."
+        "label_canvastitle": "This business model focuses on fast internet connectivity to enhance remote farming through real-time monitoring, pest detection, and automated surveillance, optimizing agricultural practices. It supports SMEs and local agriculture, reducing costs while boosting profitability and operational efficiency."
     },
     {
         "unique_id": 14,
@@ -347,7 +347,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This business model leverages fast internet connectivity for remote farming by providing affordable, high-quality, and sustainable solutions, fostering partnerships with various stakeholders. It offers low-maintenance, high-speed data services for enhanced agricultural productivity, supporting SMEs and local communities with tailored connectivity and data analytics."
+        "label_canvastitle": "This business model leverages fast internet connectivity for remote farming by providing affordable, high-quality, and sustainable solutions, fostering partnerships with various stakeholders. It offers low-maintenance, high-speed data services for enhanced agricultural productivity, supporting SMEs and local communities with tailored connectivity and data analytics."
     },
     {
         "unique_id": 15,
@@ -372,7 +372,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing fast, reliable internet connectivity for remote farming, involving strategic collaborations with various stakeholders like governments, universities, and NGOs. By enabling digital access and fostering sustainable agriculture, it aims to enhance societal well-being, create job opportunities, and promote economic growth in rural areas."
+        "label_canvastitle": "This business model focuses on providing fast, reliable internet connectivity for remote farming, involving strategic collaborations with various stakeholders like governments, universities, and NGOs. By enabling digital access and fostering sustainable agriculture, it aims to enhance societal well-being, create job opportunities, and promote economic growth in rural areas."
     },
     {
         "unique_id": 16,
@@ -397,7 +397,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)",
-"label_canvastitle": "This business model focuses on fast internet connectivity to support smart farming practices, enabling real-time monitoring of crops, livestock, and pest detection. By leveraging data analytics and automation, it aims to optimize agricultural operations, reduce costs, and enhance sustainability through improved network quality and efficiency."
+        "label_canvastitle": "This business model focuses on fast internet connectivity to support smart farming practices, enabling real-time monitoring of crops, livestock, and pest detection. By leveraging data analytics and automation, it aims to optimize agricultural operations, reduce costs, and enhance sustainability through improved network quality and efficiency."
     },
     {
         "unique_id": 17,
@@ -422,7 +422,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. Anchor usage payment receipts\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This business model focuses on providing fast internet connectivity for smart farming by leveraging low-cost, high-quality, and environmentally-friendly solutions. It aims to create sustainable agricultural practices through partnerships with various stakeholders, offering a comprehensive platform with high-speed data and cloud-based content for rural and agricultural communities."
+        "label_canvastitle": "This business model focuses on providing fast internet connectivity for smart farming by leveraging low-cost, high-quality, and environmentally-friendly solutions. It aims to create sustainable agricultural practices through partnerships with various stakeholders, offering a comprehensive platform with high-speed data and cloud-based content for rural and agricultural communities."
     },
     {
         "unique_id": 18,
@@ -447,7 +447,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on fostering sustainable agricultural practices through high-speed internet connectivity, aiming for universal access to digital tools that enhance farm productivity. By collaborating with governmental and private partners, it supports the development of regulatory frameworks and creates a prosperous, digitally inclusive rural economy"
+        "label_canvastitle": "This business model focuses on fostering sustainable agricultural practices through high-speed internet connectivity, aiming for universal access to digital tools that enhance farm productivity. By collaborating with governmental and private partners, it supports the development of regulatory frameworks and creates a prosperous, digitally inclusive rural economy"
     },
     {
         "unique_id": 19,
@@ -472,7 +472,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model leverages fast broadband connectivity to boost local businesses in sectors like agriculture, tourism, and eHealth, creating new market opportunities and reducing operational costs. By partnering with network operators, ISPs, and government bodies, the initiative aims to optimize the region's digital infrastructure, driving economic growth and enhancing community services."
+        "label_canvastitle": "This business model leverages fast broadband connectivity to boost local businesses in sectors like agriculture, tourism, and eHealth, creating new market opportunities and reducing operational costs. By partnering with network operators, ISPs, and government bodies, the initiative aims to optimize the region's digital infrastructure, driving economic growth and enhancing community services."
     },
     {
         "unique_id": 20,
@@ -497,7 +497,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing affordable, high-quality broadband connectivity in agriculture by partnering with ISPs, tech providers, and government bodies to create a sustainable and environment-friendly solution. By offering flexible hardware rental and data-based pricing options, the model aims to enhance connectivity for SMEs, local communities, and public sectors, driving growth and reducing costs."
+        "label_canvastitle": "This business model focuses on providing affordable, high-quality broadband connectivity in agriculture by partnering with ISPs, tech providers, and government bodies to create a sustainable and environment-friendly solution. By offering flexible hardware rental and data-based pricing options, the model aims to enhance connectivity for SMEs, local communities, and public sectors, driving growth and reducing costs."
     },
     {
         "unique_id": 21,
@@ -522,7 +522,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model emphasizes collaboration with governments, NGOs, and the private sector to enhance broadband connectivity in agriculture. It aims to provide universal access to high-speed internet, driving economic growth, job creation, and digital literacy while reducing social inequality and supporting the financial sustainability of local SMEs."
+        "label_canvastitle": "This business model emphasizes collaboration with governments, NGOs, and the private sector to enhance broadband connectivity in agriculture. It aims to provide universal access to high-speed internet, driving economic growth, job creation, and digital literacy while reducing social inequality and supporting the financial sustainability of local SMEs."
     },
     {
         "unique_id": 22,
@@ -547,7 +547,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned Drones) and maintenance\nOperational costs\nSatellite connectivity costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)",
-"label_canvastitle": "This business model focuses on enhancing aquaculture operations through fast internet connectivity, enabling real-time water quality monitoring and efficient farm management. By improving farm productivity and offering global market access, it aims to support SMEs in the aquaculture and logistics sectors, boosting profitability and sustainability."
+        "label_canvastitle": "This business model focuses on enhancing aquaculture operations through fast internet connectivity, enabling real-time water quality monitoring and efficient farm management. By improving farm productivity and offering global market access, it aims to support SMEs in the aquaculture and logistics sectors, boosting profitability and sustainability."
     },
     {
         "unique_id": 23,
@@ -572,7 +572,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. Subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This business model focuses on providing reliable, low-cost, high-speed internet connectivity to remote aquaculture operations, enhancing productivity through advanced technology solutions. By partnering with local and international stakeholders, it aims to deliver scalable, environmentally-friendly solutions while ensuring continuous support and fostering economic growth within the aquaculture industry."
+        "label_canvastitle": "This business model focuses on providing reliable, low-cost, high-speed internet connectivity to remote aquaculture operations, enhancing productivity through advanced technology solutions. By partnering with local and international stakeholders, it aims to deliver scalable, environmentally-friendly solutions while ensuring continuous support and fostering economic growth within the aquaculture industry."
     },
     {
         "unique_id": 24,
@@ -597,7 +597,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nProtection of water",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to bridge the connectivity gap in remote aquaculture regions by providing high-speed internet, enabling efficient farm management, sustainable practices, and enhanced water protection. By collaborating with a wide range of stakeholders, it focuses on fostering economic growth, job creation, and improving the digital literacy of communities while promoting environmental sustainability and the welfare of SMEs."
+        "label_canvastitle": "This business model aims to bridge the connectivity gap in remote aquaculture regions by providing high-speed internet, enabling efficient farm management, sustainable practices, and enhanced water protection. By collaborating with a wide range of stakeholders, it focuses on fostering economic growth, job creation, and improving the digital literacy of communities while promoting environmental sustainability and the welfare of SMEs."
     },
     {
         "unique_id": 25,
@@ -622,7 +622,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling farming products (B2B/B2C)\nIncreased profitability via increased production\nIncreased profitability via cost reductions",
-"label_canvastitle": "This business model focuses on providing fast internet connectivity to monitor water quality in aquaculture, enabling real-time data transmission for optimized resource use and environmental protection. It aims to help SMEs reduce operational costs, improve farming productivity, and meet environmental standards by integrating advanced technology for water quality monitoring."
+        "label_canvastitle": "This business model focuses on providing fast internet connectivity to monitor water quality in aquaculture, enabling real-time data transmission for optimized resource use and environmental protection. It aims to help SMEs reduce operational costs, improve farming productivity, and meet environmental standards by integrating advanced technology for water quality monitoring."
     },
     {
         "unique_id": 26,
@@ -647,7 +647,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nLoRaWAN integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model aims to provide efficient internet connectivity solutions for monitoring water quality in aquaculture, emphasizing low-cost, low-power, and environmentally-friendly technology. By leveraging cloud-based platforms and high-speed data transmission, it facilitates seamless monitoring, ensuring sustainability and optimized resource management for SMEs, public authorities, and environmental researchers."
+        "label_canvastitle": "This business model aims to provide efficient internet connectivity solutions for monitoring water quality in aquaculture, emphasizing low-cost, low-power, and environmentally-friendly technology. By leveraging cloud-based platforms and high-speed data transmission, it facilitates seamless monitoring, ensuring sustainability and optimized resource management for SMEs, public authorities, and environmental researchers."
     },
     {
         "unique_id": 27,
@@ -672,7 +672,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection of water\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on leveraging fast internet connectivity for water quality monitoring in aquaculture, aiming to protect the environment and promote sustainable practices. By partnering with governments, universities, and NGOs, it enables better regulation, resource management, and inclusive growth in local communities while contributing to economic and societal development."
+        "label_canvastitle": "This business model focuses on leveraging fast internet connectivity for water quality monitoring in aquaculture, aiming to protect the environment and promote sustainable practices. By partnering with governments, universities, and NGOs, it enables better regulation, resource management, and inclusive growth in local communities while contributing to economic and societal development."
     },
     {
         "unique_id": 28,
@@ -697,7 +697,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model aims to provide broadband access for aquaculture by establishing key partnerships with ISPs, data providers, and government bodies, ensuring high-quality connectivity to local stakeholders. It focuses on enhancing market reach, reducing operational costs, and optimizing aquaculture operations through seamless internet infrastructure and tailored services for businesses and citizens."
+        "label_canvastitle": "This business model aims to provide broadband access for aquaculture by establishing key partnerships with ISPs, data providers, and government bodies, ensuring high-quality connectivity to local stakeholders. It focuses on enhancing market reach, reducing operational costs, and optimizing aquaculture operations through seamless internet infrastructure and tailored services for businesses and citizens."
     },
     {
         "unique_id": 29,
@@ -722,7 +722,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model canvas focuses on providing broadband access for aquaculture by forming strategic partnerships with ISPs, government bodies, and other stakeholders to deliver affordable, low-maintenance, and environmentally friendly connectivity solutions. It aims to expand market reach for SMEs and local communities, optimize operations with high-quality services, and offer flexible revenue streams based on hardware rental and data usage."
+        "label_canvastitle": "This business model canvas focuses on providing broadband access for aquaculture by forming strategic partnerships with ISPs, government bodies, and other stakeholders to deliver affordable, low-maintenance, and environmentally friendly connectivity solutions. It aims to expand market reach for SMEs and local communities, optimize operations with high-quality services, and offer flexible revenue streams based on hardware rental and data usage."
     },
     {
         "unique_id": 30,
@@ -747,7 +747,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to foster broadband access in aquaculture through collaborations with various stakeholders, including governments, financial institutions, and academia, to ensure sustainable growth in the sector. By leveraging resources, strategic planning, and partnerships, it aims to promote universal digital connectivity, enhance economic opportunities, and reduce social inequality, benefiting both local communities and the aquaculture industry."
+        "label_canvastitle": "This business model aims to foster broadband access in aquaculture through collaborations with various stakeholders, including governments, financial institutions, and academia, to ensure sustainable growth in the sector. By leveraging resources, strategic planning, and partnerships, it aims to promote universal digital connectivity, enhance economic opportunities, and reduce social inequality, benefiting both local communities and the aquaculture industry."
     },
     {
         "unique_id": 31,
@@ -759,7 +759,7 @@ export const businessModelData = [
         "label2_title": "Key Activities",
         "label2_content": "Provision of various services and information to citizens, businesses, and other stakeholders\nAccess to learning material\nAccess to e-learning platforms",
         "label3_title": "Value Propositions",
-        "label3_content": "Accessibility\synchronous and asynchronous education\nEnhanced communication\nQ&A in real time\n24/7 Availability\nCost-effectiveness\nCustomisation\nGlobal Reach\nContinuous learning",
+        "label3_content": "Accessibility\nsynchronous and asynchronous education\nEnhanced communication\nQ&A in real time\n24/7 Availability\nCost-effectiveness\nCustomisation\nGlobal Reach\nContinuous learning",
         "label4_title": "Customer Relationships",
         "label4_content": "Personal assistance\nCo-creation (tailor made)",
         "label5_title": "Customer Segments",
@@ -772,7 +772,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned PC/Laptop/Tablet) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses\nReduced time of travel \nIncreased Productivity",
-"label_canvastitle": "This business model focuses on delivering fast internet connectivity to support distance learning, enabling accessible and cost-effective education for a diverse range of learners. By partnering with ISPs, tech providers, and governments, it ensures global reach, continuous learning, and enhanced communication through e-learning platforms."
+        "label_canvastitle": "This business model focuses on delivering fast internet connectivity to support distance learning, enabling accessible and cost-effective education for a diverse range of learners. By partnering with ISPs, tech providers, and governments, it ensures global reach, continuous learning, and enhanced communication through e-learning platforms."
     },
     {
         "unique_id": 32,
@@ -797,7 +797,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice rent (technology, software, mobile and broadband network providers)\nGovnt. subsidies for rural connectivity\nLocal municipality or MNOs funding",
-"label_canvastitle": "This business model outlines how fast internet connectivity for distance learning can be implemented through partnerships with ISPs, academic institutions, and NGOs. By focusing on low-cost, high-quality solutions and leveraging local networks, it aims to provide affordable, sustainable access to education for SMEs, local communities, and public authorities."
+        "label_canvastitle": "This business model outlines how fast internet connectivity for distance learning can be implemented through partnerships with ISPs, academic institutions, and NGOs. By focusing on low-cost, high-quality solutions and leveraging local networks, it aims to provide affordable, sustainable access to education for SMEs, local communities, and public authorities."
     },
     {
         "unique_id": 33,
@@ -822,7 +822,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSocial inclusiveness\nEconomic Sustainability\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nEnhance citizens� health and well-being\nEnhance citizens� continuous learning",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on enhancing fast internet connectivity for distance learning by collaborating with governments, private sector, and educational institutions. It aims to create universal access, fostering social inclusion, continuous learning, and economic sustainability, while reducing inequality and improving the overall well-being of citizens."
+        "label_canvastitle": "This business model focuses on enhancing fast internet connectivity for distance learning by collaborating with governments, private sector, and educational institutions. It aims to create universal access, fostering social inclusion, continuous learning, and economic sustainability, while reducing inequality and improving the overall well-being of citizens."
     },
     {
         "unique_id": 34,
@@ -847,7 +847,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned PCs/Laptops/Tablets) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\ne-Learning platform revenues for businesses",
-"label_canvastitle": "This business model focuses on providing fast internet connectivity to enhance high data rate services for education. Key activities include delivering e-learning platforms for synchronous and asynchronous learning, while the value proposition centers on accessibility, cost-effectiveness, and global reach, aimed at empowering educational institutions, SMEs, and individuals with continuous learning opportunities."
+        "label_canvastitle": "This business model focuses on providing fast internet connectivity to enhance high data rate services for education. Key activities include delivering e-learning platforms for synchronous and asynchronous learning, while the value proposition centers on accessibility, cost-effectiveness, and global reach, aimed at empowering educational institutions, SMEs, and individuals with continuous learning opportunities."
     },
     {
         "unique_id": 35,
@@ -872,7 +872,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice rent (technology, software, mobile and broadband network providers)\nGovt. subsidies for rural connectivity\nLocal municipality or MNOs funding",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for education, emphasizing low-cost, low-power, and environment-friendly solutions. By forming partnerships with various stakeholders, it offers high-quality services like end-to-end IP platforms, cloud servers, and high data rates, aiming to enhance accessibility and connectivity for local communities, SMEs, and public authorities."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for education, emphasizing low-cost, low-power, and environment-friendly solutions. By forming partnerships with various stakeholders, it offers high-quality services like end-to-end IP platforms, cloud servers, and high data rates, aiming to enhance accessibility and connectivity for local communities, SMEs, and public authorities."
     },
     {
         "unique_id": 36,
@@ -897,7 +897,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSocial inclusiveness\nEconomic Sustainability\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nEnhance citizens� health and well-being\nEnhance citizens� continuous learning",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for the education sector by collaborating with municipalities, governments, and educational institutions. It aims to enhance digital literacy, foster economic sustainability, and reduce social inequality by offering universal access to reliable internet services, thus promoting continuous learning and improving overall societal well-being."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for the education sector by collaborating with municipalities, governments, and educational institutions. It aims to enhance digital literacy, foster economic sustainability, and reduce social inequality by offering universal access to reliable internet services, thus promoting continuous learning and improving overall societal well-being."
     },
     {
         "unique_id": 37,
@@ -922,7 +922,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model leverages strategic partnerships with ISPs, technology providers, and government bodies to install and maintain broadband infrastructure for education. By optimizing costs and expanding market opportunities, it ensures tailored connectivity solutions that enhance learning experiences and drive socio-economic development."
+        "label_canvastitle": "This business model leverages strategic partnerships with ISPs, technology providers, and government bodies to install and maintain broadband infrastructure for education. By optimizing costs and expanding market opportunities, it ensures tailored connectivity solutions that enhance learning experiences and drive socio-economic development."
     },
     {
         "unique_id": 38,
@@ -947,7 +947,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing cost-effective, high-quality broadband connectivity for education through partnerships with ISPs, NGOs, and academic institutions. By utilizing advanced technologies and offering scalable infrastructure solutions, it ensures accessibility, sustainability, and tailored services to support diverse educational needs."
+        "label_canvastitle": "This business model focuses on providing cost-effective, high-quality broadband connectivity for education through partnerships with ISPs, NGOs, and academic institutions. By utilizing advanced technologies and offering scalable infrastructure solutions, it ensures accessibility, sustainability, and tailored services to support diverse educational needs."
     },
     {
         "unique_id": 39,
@@ -972,7 +972,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model emphasizes building collaborative partnerships across government, private sectors, and educational institutions to deliver universal broadband connectivity for education. By fostering digital inclusion, it enhances societal well-being, reduces inequality, and strengthens local economies through accessible, high-speed internet."
+        "label_canvastitle": "This business model emphasizes building collaborative partnerships across government, private sectors, and educational institutions to deliver universal broadband connectivity for education. By fostering digital inclusion, it enhances societal well-being, reduces inequality, and strengthens local economies through accessible, high-speed internet."
     },
     {
         "unique_id": 40,
@@ -997,7 +997,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned/Rent Robots) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses\nReduced time of travel to local Authorities\nIncreased Productivity",
-"label_canvastitle": "This business model aims to streamline governance e-services by leveraging high-speed internet connectivity to enhance transparency, efficiency, and accessibility. It empowers citizens, businesses, and stakeholders with cost-effective, user-friendly digital platforms, fostering digital literacy and improving productivity."
+        "label_canvastitle": "This business model aims to streamline governance e-services by leveraging high-speed internet connectivity to enhance transparency, efficiency, and accessibility. It empowers citizens, businesses, and stakeholders with cost-effective, user-friendly digital platforms, fostering digital literacy and improving productivity."
     },
     {
         "unique_id": 41,
@@ -1022,7 +1022,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice (technology, software, mobile and broadband network providers)\nGovernment subsidies for rural connectivity\nLocal municipality or MNOs funding",
-"label_canvastitle": "This business model leverages fast internet connectivity to revolutionize government e-services in the governance sector, emphasizing cost-effective, eco-friendly, and high-quality solutions. By fostering strategic partnerships and innovative platforms, it enhances accessibility, efficiency, and inclusivity for communities, SMEs, and public authorities."
+        "label_canvastitle": "This business model leverages fast internet connectivity to revolutionize government e-services in the governance sector, emphasizing cost-effective, eco-friendly, and high-quality solutions. By fostering strategic partnerships and innovative platforms, it enhances accessibility, efficiency, and inclusivity for communities, SMEs, and public authorities."
     },
     {
         "unique_id": 42,
@@ -1047,7 +1047,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSocial inclusiveness\nEconomic Sustainability\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nEnhance citizens� health and well-being",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to provide fast and reliable internet connectivity for government e-services in the governance sector, fostering universal access, inclusivity, and economic sustainability. It empowers public authorities, businesses, and citizens by enhancing digital literacy, streamlining communication, and strengthening local economies through efficient, transparent, and accessible digital platforms."
+        "label_canvastitle": "This business model aims to provide fast and reliable internet connectivity for government e-services in the governance sector, fostering universal access, inclusivity, and economic sustainability. It empowers public authorities, businesses, and citizens by enhancing digital literacy, streamlining communication, and strengthening local economies through efficient, transparent, and accessible digital platforms."
     },
     {
         "unique_id": 43,
@@ -1072,7 +1072,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned PCs/Laptops/Tablets) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced time of travel to local authorities\nIncreased productivity",
-"label_canvastitle": "This business model leverages high internet connectivity to enhance e-governance by collaborating with ISPs, technology, and financial providers to deliver cost-effective, transparent, and efficient services. It empowers public authorities, SMEs, and citizens through accessible digital platforms, personalized support, and improved e-literacy, driving productivity and reducing travel costs."
+        "label_canvastitle": "This business model leverages high internet connectivity to enhance e-governance by collaborating with ISPs, technology, and financial providers to deliver cost-effective, transparent, and efficient services. It empowers public authorities, SMEs, and citizens through accessible digital platforms, personalized support, and improved e-literacy, driving productivity and reducing travel costs."
     },
     {
         "unique_id": 44,
@@ -1097,7 +1097,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice rent (technology, software, mobile and broadband network providers)\nGovt. subsidies for rural connectivity\nLocal municipality or MNOs funding",
-"label_canvastitle": "This business model focuses on delivering high-speed internet connectivity for land use/land cover services in e-governance by forming strategic alliances with MNOs, ISPs, NGOs, and academic institutions. It offers low-cost, eco-friendly solutions with high-quality coverage and localized content, catering to local communities, SMEs, and public authorities through diverse sales channels and subscription-based revenue streams."
+        "label_canvastitle": "This business model focuses on delivering high-speed internet connectivity for land use/land cover services in e-governance by forming strategic alliances with MNOs, ISPs, NGOs, and academic institutions. It offers low-cost, eco-friendly solutions with high-quality coverage and localized content, catering to local communities, SMEs, and public authorities through diverse sales channels and subscription-based revenue streams."
     },
     {
         "unique_id": 45,
@@ -1122,7 +1122,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSocial inclusiveness\nEconomic Sustainability\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification\nEnhance citizens and well-being",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to provide universal high-speed internet connectivity for land use/land cover e-governance services by collaborating with governments, universities, development agencies, and the private sector. It fosters societal well-being, economic sustainability, and digital literacy, creating inclusive growth, reducing inequality, and supporting municipalities, businesses, and education institutions."
+        "label_canvastitle": "This business model aims to provide universal high-speed internet connectivity for land use/land cover e-governance services by collaborating with governments, universities, development agencies, and the private sector. It fosters societal well-being, economic sustainability, and digital literacy, creating inclusive growth, reducing inequality, and supporting municipalities, businesses, and education institutions."
     },
     {
         "unique_id": 46,
@@ -1147,7 +1147,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model enhances broadband connectivity in the e-governance sector by collaborating with ISPs, technology providers, and government bodies to build and maintain infrastructure. It empowers local businesses, public authorities, and citizens by expanding market opportunities, optimizing operations, and driving cost efficiency through tailored solutions and strategic partnerships."
+        "label_canvastitle": "This business model enhances broadband connectivity in the e-governance sector by collaborating with ISPs, technology providers, and government bodies to build and maintain infrastructure. It empowers local businesses, public authorities, and citizens by expanding market opportunities, optimizing operations, and driving cost efficiency through tailored solutions and strategic partnerships."
     },
     {
         "unique_id": 47,
@@ -1172,7 +1172,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model enables high-speed broadband connectivity in the e-governance sector through partnerships with MNOs, ISPs, NGOs, and academia, leveraging low-cost, green solutions and localized content delivery. By offering flexible hardware and infrastructure-as-a-service (HaaS/IaaS) options, it supports ISPs, SMEs, and local communities, fostering digital inclusivity and sustainable development."
+        "label_canvastitle": "This business model enables high-speed broadband connectivity in the e-governance sector through partnerships with MNOs, ISPs, NGOs, and academia, leveraging low-cost, green solutions and localized content delivery. By offering flexible hardware and infrastructure-as-a-service (HaaS/IaaS) options, it supports ISPs, SMEs, and local communities, fostering digital inclusivity and sustainable development."
     },
     {
         "unique_id": 48,
@@ -1197,7 +1197,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model ensures universal high-speed broadband connectivity for e-governance by collaborating with governments, ISPs, academia, and NGOs. It fosters digital literacy, social equality, and economic growth while strengthening municipalities, SMEs, and educational institutions through strategic planning and reliable infrastructure."
+        "label_canvastitle": "This business model ensures universal high-speed broadband connectivity for e-governance by collaborating with governments, ISPs, academia, and NGOs. It fosters digital literacy, social equality, and economic growth while strengthening municipalities, SMEs, and educational institutions through strategic planning and reliable infrastructure."
     },
     {
         "unique_id": 49,
@@ -1222,7 +1222,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned/Rent Robots) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Monetize the added value of robot connection in retirement homes",
-"label_canvastitle": "This business model delivers high-speed internet connectivity for health monitoring in the e-health sector, focusing on improving elderly well-being and fostering social interaction. By partnering with ISPs and leveraging tailored solutions, it supports rural communities, retirement homes, and public authorities through innovative technologies and personalized assistance."
+        "label_canvastitle": "This business model delivers high-speed internet connectivity for health monitoring in the e-health sector, focusing on improving elderly well-being and fostering social interaction. By partnering with ISPs and leveraging tailored solutions, it supports rural communities, retirement homes, and public authorities through innovative technologies and personalized assistance."
     },
     {
         "unique_id": 50,
@@ -1247,7 +1247,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nNetwork slice rent (technology, software, mobile and broadband network providers)\nGovt. subsidies for rural connectivity\nLocal municipality or MNOs funding",
-"label_canvastitle": "This business model enhances health monitoring services in the e-health sector through high-speed internet connectivity, collaborating with ISPs, NGOs, and academic institutions. It offers low-cost, eco-friendly solutions for retirement homes and local communities, supporting rural connectivity and improving health outcomes with tailored services and sustainable technologies."
+        "label_canvastitle": "This business model enhances health monitoring services in the e-health sector through high-speed internet connectivity, collaborating with ISPs, NGOs, and academic institutions. It offers low-cost, eco-friendly solutions for retirement homes and local communities, supporting rural connectivity and improving health outcomes with tailored services and sustainable technologies."
     },
     {
         "unique_id": 51,
@@ -1272,7 +1272,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens� health and well-being\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model provides high-speed internet connectivity for health monitoring services in the e-health sector, fostering partnerships with governments, ISPs, and medical organizations. It aims to enhance health and well-being, increase digital literacy, and support retirement homes and local communities, promoting social inclusion, job creation, and economic development."
+        "label_canvastitle": "This business model provides high-speed internet connectivity for health monitoring services in the e-health sector, fostering partnerships with governments, ISPs, and medical organizations. It aims to enhance health and well-being, increase digital literacy, and support retirement homes and local communities, promoting social inclusion, job creation, and economic development."
     },
     {
         "unique_id": 52,
@@ -1297,7 +1297,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model focuses on providing high-speed broadband connectivity for the e-health sector by establishing infrastructure with ISPs and network operators, enhancing access for local businesses and public authorities. It promotes market growth, operational efficiency, and cost reductions while supporting SMEs and improving healthcare services through reliable connectivity."
+        "label_canvastitle": "This business model focuses on providing high-speed broadband connectivity for the e-health sector by establishing infrastructure with ISPs and network operators, enhancing access for local businesses and public authorities. It promotes market growth, operational efficiency, and cost reductions while supporting SMEs and improving healthcare services through reliable connectivity."
     },
     {
         "unique_id": 53,
@@ -1322,7 +1322,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model leverages high-speed broadband connectivity to enhance e-health services by partnering with ISPs, NGOs, and academic institutions, offering low-cost, eco-friendly solutions. It supports local communities, SMEs, and public authorities with scalable, high-quality internet access, facilitating improved healthcare delivery through reliable, high-data-rate connections."
+        "label_canvastitle": "This business model leverages high-speed broadband connectivity to enhance e-health services by partnering with ISPs, NGOs, and academic institutions, offering low-cost, eco-friendly solutions. It supports local communities, SMEs, and public authorities with scalable, high-quality internet access, facilitating improved healthcare delivery through reliable, high-data-rate connections."
     },
     {
         "unique_id": 54,
@@ -1347,7 +1347,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for the e-health sector by collaborating with governments, ISPs, and academic institutions. It aims to improve societal well-being, enhance digital literacy, and promote economic development through universal, reliable connectivity, benefiting municipalities, eHealth services, and educational institutions."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for the e-health sector by collaborating with governments, ISPs, and academic institutions. It aims to improve societal well-being, enhance digital literacy, and promote economic development through universal, reliable connectivity, benefiting municipalities, eHealth services, and educational institutions."
     },
     {
         "unique_id": 55,
@@ -1372,7 +1372,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling environmental monitoring services of any kind (B2B/B2Goverment)\nBetter quality services due to better connectivity",
-"label_canvastitle": "This business model provides high-speed internet connectivity for water quality monitoring, leveraging advanced sensors and data analytics to optimize operations and reduce environmental impact. By enabling real-time, widespread monitoring, it offers valuable insights to SMEs, environmental agencies, and research institutions while improving service quality."
+        "label_canvastitle": "This business model provides high-speed internet connectivity for water quality monitoring, leveraging advanced sensors and data analytics to optimize operations and reduce environmental impact. By enabling real-time, widespread monitoring, it offers valuable insights to SMEs, environmental agencies, and research institutions while improving service quality."
     },
     {
         "unique_id": 56,
@@ -1397,7 +1397,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nLoRaWAN integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed connectivity for water quality monitoring services, integrating low-cost, low-power, and environmentally friendly solutions. Through strategic partnerships and cloud-based platforms, it offers scalable, real-time monitoring to public authorities and environmental agencies, optimizing data transmission and reducing operational costs."
+        "label_canvastitle": "This business model focuses on providing high-speed connectivity for water quality monitoring services, integrating low-cost, low-power, and environmentally friendly solutions. Through strategic partnerships and cloud-based platforms, it offers scalable, real-time monitoring to public authorities and environmental agencies, optimizing data transmission and reducing operational costs."
     },
     {
         "unique_id": 57,
@@ -1422,7 +1422,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection of water\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for water quality monitoring services, promoting environmental sustainability and economic development. Through strategic partnerships and regulatory frameworks, it aims to enhance water and soil protection while fostering job creation and reducing social inequality."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for water quality monitoring services, promoting environmental sustainability and economic development. Through strategic partnerships and regulatory frameworks, it aims to enhance water and soil protection while fostering job creation and reducing social inequality."
     },
     {
         "unique_id": 58,
@@ -1447,7 +1447,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling environmental monitoring services of any kind (B2B/B2Goverment)\nBetter quality services due to better connectivity",
-"label_canvastitle": "This business model offers high-speed internet connectivity to support land use and environmental monitoring, including data transmission for air and water quality, biodiversity, and windmill/solar panel inspections. It aims to optimize operations, reduce environmental impact, and provide extensive coverage for various industries and governmental agencies."
+        "label_canvastitle": "This business model offers high-speed internet connectivity to support land use and environmental monitoring, including data transmission for air and water quality, biodiversity, and windmill/solar panel inspections. It aims to optimize operations, reduce environmental impact, and provide extensive coverage for various industries and governmental agencies."
     },
     {
         "unique_id": 59,
@@ -1472,7 +1472,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nLoRaWAN integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model delivers high-speed internet connectivity for land use and environmental monitoring, focusing on providing low-cost, low-power, and maintenance-efficient solutions. It aims to support environmental agencies and public authorities with extensive coverage, high-quality data services, and eco-friendly technologies."
+        "label_canvastitle": "This business model delivers high-speed internet connectivity for land use and environmental monitoring, focusing on providing low-cost, low-power, and maintenance-efficient solutions. It aims to support environmental agencies and public authorities with extensive coverage, high-quality data services, and eco-friendly technologies."
     },
     {
         "unique_id": 60,
@@ -1497,7 +1497,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on expanding high-speed internet connectivity for environmental monitoring, aiming to support sustainable land use and resource management. It promotes collaboration across governments, NGOs, and the private sector, ensuring equitable access and fostering economic, social, and environmental benefits for communities."
+        "label_canvastitle": "This business model focuses on expanding high-speed internet connectivity for environmental monitoring, aiming to support sustainable land use and resource management. It promotes collaboration across governments, NGOs, and the private sector, ensuring equitable access and fostering economic, social, and environmental benefits for communities."
     },
     {
         "unique_id": 61,
@@ -1522,7 +1522,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model aims to provide high-speed broadband connectivity to support environmental monitoring and local businesses, enhancing opportunities in sectors like agriculture, tourism, and eHealth. It focuses on leveraging partnerships with ISPs, governments, and the private sector to expand coverage and optimize operations while reducing costs."
+        "label_canvastitle": "This business model aims to provide high-speed broadband connectivity to support environmental monitoring and local businesses, enhancing opportunities in sectors like agriculture, tourism, and eHealth. It focuses on leveraging partnerships with ISPs, governments, and the private sector to expand coverage and optimize operations while reducing costs."
     },
     {
         "unique_id": 62,
@@ -1547,7 +1547,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model provides high-speed broadband connectivity for environmental monitoring, offering a cost-effective, low-power, and sustainable solution. It focuses on partnering with ISPs, NGOs, and technology providers to deliver high-quality services, expand market reach, and support local communities and SMEs."
+        "label_canvastitle": "This business model provides high-speed broadband connectivity for environmental monitoring, offering a cost-effective, low-power, and sustainable solution. It focuses on partnering with ISPs, NGOs, and technology providers to deliver high-quality services, expand market reach, and support local communities and SMEs."
     },
     {
         "unique_id": 63,
@@ -1572,7 +1572,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nProtection and rational use of water and soil\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to provide universal high-speed internet connectivity for environmental monitoring, fostering economic growth and social equity. It leverages strategic partnerships, regulatory frameworks, and sustainable development initiatives to enhance environmental and societal outcomes while promoting digital literacy and job creation."
+        "label_canvastitle": "This business model aims to provide universal high-speed internet connectivity for environmental monitoring, fostering economic growth and social equity. It leverages strategic partnerships, regulatory frameworks, and sustainable development initiatives to enhance environmental and societal outcomes while promoting digital literacy and job creation."
     },
     {
         "unique_id": 64,
@@ -1597,7 +1597,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned.Rent Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions",
-"label_canvastitle": "This business model focuses on utilizing high-speed internet connectivity and drone technology to monitor and manage forests, helping detect fire risks, illegal logging, and forest health issues. It aims to provide proactive solutions to prevent losses and ensure sustainable forestry practices through real-time data and analytics."
+        "label_canvastitle": "This business model focuses on utilizing high-speed internet connectivity and drone technology to monitor and manage forests, helping detect fire risks, illegal logging, and forest health issues. It aims to provide proactive solutions to prevent losses and ensure sustainable forestry practices through real-time data and analytics."
     },
     {
         "unique_id": 65,
@@ -1622,7 +1622,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Product-as-a-Service: The charge is based on the area the farmer wants to cover (use of drone )\nNetwork slice rent (technology, software, mobile and broadband network providers)\nInfrastructure-as-a-Service: The charge is based on the data amount to be processed, plus a subscription fee to access the information system which provides the tools for analysis and decision-making",
-"label_canvastitle": "This business model combines high-speed connectivity and drone technology to enhance forest management, providing cost-effective, low-maintenance solutions for monitoring forest health, detecting fire risks, and managing resources. It offers services like drone coverage for forest areas and data processing subscriptions, benefiting both public authorities and private forest owners."
+        "label_canvastitle": "This business model combines high-speed connectivity and drone technology to enhance forest management, providing cost-effective, low-maintenance solutions for monitoring forest health, detecting fire risks, and managing resources. It offers services like drone coverage for forest areas and data processing subscriptions, benefiting both public authorities and private forest owners."
     },
     {
         "unique_id": 66,
@@ -1647,7 +1647,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nProtection and rational use of soil and water\nProtection of forests\nReduction of social inequality\nReduction of desertification\nEnhance citizens� health and well-being\nEnhance citizens� digital literacy",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to integrate high-speed connectivity and forest management services, promoting environmental sustainability through improved monitoring and risk prevention. By leveraging strategic partnerships with governments, NGOs, and private sector players, it creates public value through enhanced connectivity, job creation, and the protection of natural resources."
+        "label_canvastitle": "This business model aims to integrate high-speed connectivity and forest management services, promoting environmental sustainability through improved monitoring and risk prevention. By leveraging strategic partnerships with governments, NGOs, and private sector players, it creates public value through enhanced connectivity, job creation, and the protection of natural resources."
     },
     {
         "unique_id": 67,
@@ -1672,7 +1672,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model leverages partnerships with ISPs, technology providers, and governments to install and maintain broadband infrastructure in the forestry sector, fostering local business growth, optimizing operations, and enabling tailored connectivity solutions for diverse stakeholders. Revenue is generated through enhanced productivity, cost reductions, and direct sales to businesses and communities."
+        "label_canvastitle": "This business model leverages partnerships with ISPs, technology providers, and governments to install and maintain broadband infrastructure in the forestry sector, fostering local business growth, optimizing operations, and enabling tailored connectivity solutions for diverse stakeholders. Revenue is generated through enhanced productivity, cost reductions, and direct sales to businesses and communities."
     },
     {
         "unique_id": 68,
@@ -1697,7 +1697,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing low-cost, eco-friendly broadband connectivity with high QoS and coverage in the forestry sector through partnerships with ISPs, NGOs, and technology providers. Revenue is generated via hardware-as-a-service (HaaS) and infrastructure-as-a-service (IaaS) models, catering to diverse customer segments including ISPs, SMEs, and local communities."
+        "label_canvastitle": "This business model focuses on providing low-cost, eco-friendly broadband connectivity with high QoS and coverage in the forestry sector through partnerships with ISPs, NGOs, and technology providers. Revenue is generated via hardware-as-a-service (HaaS) and infrastructure-as-a-service (IaaS) models, catering to diverse customer segments including ISPs, SMEs, and local communities."
     },
     {
         "unique_id": 69,
@@ -1722,7 +1722,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity.\nIncrease of per capita income.\nJob creation.\nHigher HDI.\nEconomic and societal strengthening of municipalities and strategic regions of the state.\nEnhance citizens� digital literacy.\nReduction of social inequality.\nReduction of desertification.",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model establishes strategic partnerships with governments, academic institutions, and private sector players to provide universal high-speed internet access in the forestry sector. It aims to reduce social inequality, boost economic growth, and enhance digital literacy, creating public value through equitable and sustainable connectivity solutions."
+        "label_canvastitle": "This business model establishes strategic partnerships with governments, academic institutions, and private sector players to provide universal high-speed internet access in the forestry sector. It aims to reduce social inequality, boost economic growth, and enhance digital literacy, creating public value through equitable and sustainable connectivity solutions."
     },
     {
         "unique_id": 70,
@@ -1747,7 +1747,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure (Owned Drones) and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Monetise the use of drones and drone centres for testing/evaluating services/solutions.(Pay per hour/ Monthly/lesson)\nDrone rental\nIncreased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This business model leverages ISPs, technology providers, and government collaboration to enhance tourism experiences with seamless digital connectivity, AR/VR virtual tours, and online promotions. Revenue streams include drone rentals, monetized drone services, and increased profitability for local SMEs through improved visitor engagement and operational efficiency."
+        "label_canvastitle": "This business model leverages ISPs, technology providers, and government collaboration to enhance tourism experiences with seamless digital connectivity, AR/VR virtual tours, and online promotions. Revenue streams include drone rentals, monetized drone services, and increased profitability for local SMEs through improved visitor engagement and operational efficiency."
     },
     {
         "unique_id": 71,
@@ -1772,7 +1772,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovt. subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)",
-"label_canvastitle": "This business model integrates partnerships with ISPs, academic institutions, and drone manufacturers to deliver cost-effective, eco-friendly broadband connectivity for the tourism sector. Revenue streams include subscription fees, content service revenue shares, and government subsidies, enhancing tourist experiences while supporting SMEs and local communities."
+        "label_canvastitle": "This business model integrates partnerships with ISPs, academic institutions, and drone manufacturers to deliver cost-effective, eco-friendly broadband connectivity for the tourism sector. Revenue streams include subscription fees, content service revenue shares, and government subsidies, enhancing tourist experiences while supporting SMEs and local communities."
     },
     {
         "unique_id": 72,
@@ -1797,7 +1797,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nIncrease of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Tourism\nEnhance citizens� digital literacy\nReduction of social inequality\nReduction of desertification",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model fosters universal digital connectivity in the tourism sector through strategic partnerships with governments, educational institutions, and private entities. It aims to promote sustainable tourism, reduce social inequality, and strengthen regional economies while enhancing digital literacy and creating public value through equitable internet access."
+        "label_canvastitle": "This business model fosters universal digital connectivity in the tourism sector through strategic partnerships with governments, educational institutions, and private entities. It aims to promote sustainable tourism, reduce social inequality, and strengthen regional economies while enhancing digital literacy and creating public value through equitable internet access."
     },
     {
         "unique_id": 73,
@@ -1822,7 +1822,7 @@ export const businessModelData = [
         "label9_content": "Infrastructure Costs: Towers, cables, and maintenance.\nOperational Costs: Staff salaries, energy, and ongoing maintenance.\nLegal and Regulatory Compliance Costs.",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production.\nIncreased profitability via cost reductions.\nSelling of products & services (B2B/B2C).",
-"label_canvastitle": "This business model focuses on building partnerships with ISPs and government bodies to establish and maintain broadband infrastructure, enabling connectivity for local businesses and tourism. By optimizing operations and reducing costs, it fosters economic growth and community development while generating revenue through product and service sales."
+        "label_canvastitle": "This business model focuses on building partnerships with ISPs and government bodies to establish and maintain broadband infrastructure, enabling connectivity for local businesses and tourism. By optimizing operations and reducing costs, it fosters economic growth and community development while generating revenue through product and service sales."
     },
     {
         "unique_id": 74,
@@ -1847,7 +1847,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi hotspot integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Haas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the amount of sensor systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model leverages partnerships with ISPs, NGOs, and technology providers to deliver cost-effective, eco-friendly broadband connectivity in the tourism sector. Revenue streams include hardware-as-a-service (HaaS) and infrastructure-as-a-service (IaaS), supporting local communities, SMEs, and public authorities with high-quality and sustainable connectivity solutions."
+        "label_canvastitle": "This business model leverages partnerships with ISPs, NGOs, and technology providers to deliver cost-effective, eco-friendly broadband connectivity in the tourism sector. Revenue streams include hardware-as-a-service (HaaS) and infrastructure-as-a-service (IaaS), supporting local communities, SMEs, and public authorities with high-quality and sustainable connectivity solutions."
     },
     {
         "unique_id": 75,
@@ -1896,7 +1896,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance productivity and sustainability in the agriculture and aquaculture sectors. By providing real-time monitoring, data analytics, and autonomous operations, it helps optimize resource use, reduce environmental impact, and increase profitability. The model promotes collaboration between key stakeholders, ensuring efficient and cost-effective practices in farming and aquaculture."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance productivity and sustainability in the agriculture and aquaculture sectors. By providing real-time monitoring, data analytics, and autonomous operations, it helps optimize resource use, reduce environmental impact, and increase profitability. The model promotes collaboration between key stakeholders, ensuring efficient and cost-effective practices in farming and aquaculture."
     },
     {
         "unique_id": 77,
@@ -1921,7 +1921,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model aims to provide sustainable and high-quality internet connectivity for the agriculture and aquaculture sectors. By offering low-cost, energy-efficient solutions with robust coverage, it supports real-time monitoring, environmental protection, and cost optimization in farming practices. The model fosters collaboration with various stakeholders to ensure efficient operations and enable access to funding for growth and expansion."
+        "label_canvastitle": "This business model aims to provide sustainable and high-quality internet connectivity for the agriculture and aquaculture sectors. By offering low-cost, energy-efficient solutions with robust coverage, it supports real-time monitoring, environmental protection, and cost optimization in farming practices. The model fosters collaboration with various stakeholders to ensure efficient operations and enable access to funding for growth and expansion."
     },
     {
         "unique_id": 78,
@@ -1946,7 +1946,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nSustainable Aquaculture\nProtection of water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to support sustainable agriculture and aquaculture practices, promoting environmental protection, job creation, and economic growth. By collaborating with stakeholders such as governments, academic institutions, and private sectors, it aims to enhance real-time monitoring, improve agricultural efficiency, and foster innovation. The model encourages policy development and regulatory frameworks to ensure the integration of advanced technologies like drones, satellite operations, and veterinary services for a thriving and equitable sector.."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to support sustainable agriculture and aquaculture practices, promoting environmental protection, job creation, and economic growth. By collaborating with stakeholders such as governments, academic institutions, and private sectors, it aims to enhance real-time monitoring, improve agricultural efficiency, and foster innovation. The model encourages policy development and regulatory frameworks to ensure the integration of advanced technologies like drones, satellite operations, and veterinary services for a thriving and equitable sector.."
     },
     {
         "unique_id": 79,
@@ -1971,7 +1971,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling quaculture products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per lesson)",
-"label_canvastitle": "This business model integrates high-speed internet connectivity to optimize operations in both the aquaculture and forestry sectors. By enabling services such as water quality monitoring and automated surveillance, it enhances operational efficiency, reduces costs, and supports environmental protection. The model offers tailored solutions to local businesses, public authorities, and environmental agencies, helping them monitor water parameters and forest health, while preventing illegal activities and reducing risks."
+        "label_canvastitle": "This business model integrates high-speed internet connectivity to optimize operations in both the aquaculture and forestry sectors. By enabling services such as water quality monitoring and automated surveillance, it enhances operational efficiency, reduces costs, and supports environmental protection. The model offers tailored solutions to local businesses, public authorities, and environmental agencies, helping them monitor water parameters and forest health, while preventing illegal activities and reducing risks."
     },
     {
         "unique_id": 80,
@@ -1996,7 +1996,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance the efficiency and sustainability of both the forestry and aquaculture sectors. By providing low-cost, low-maintenance, and environmentally friendly solutions, it offers reliable connectivity, real-time data analytics, and enhanced monitoring capabilities. The model supports local communities, businesses, and environmental agencies, driving optimized operations, reduced costs, and environmental protection across both industries."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance the efficiency and sustainability of both the forestry and aquaculture sectors. By providing low-cost, low-maintenance, and environmentally friendly solutions, it offers reliable connectivity, real-time data analytics, and enhanced monitoring capabilities. The model supports local communities, businesses, and environmental agencies, driving optimized operations, reduced costs, and environmental protection across both industries."
     },
     {
         "unique_id": 81,
@@ -2021,7 +2021,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model aims to provide high-speed internet connectivity to the forestry and aquaculture sectors, fostering sustainable practices and economic growth. By collaborating with governments, universities, and private sector partners, it promotes efficient resource management, environmental protection, and job creation. The initiative enhances digital literacy, ensures better connectivity for rural areas, and supports the growth of SMEs while strengthening regional economies and societal well-being."
+        "label_canvastitle": "This cross-sectoral business model aims to provide high-speed internet connectivity to the forestry and aquaculture sectors, fostering sustainable practices and economic growth. By collaborating with governments, universities, and private sector partners, it promotes efficient resource management, environmental protection, and job creation. The initiative enhances digital literacy, ensures better connectivity for rural areas, and supports the growth of SMEs while strengthening regional economies and societal well-being."
     },
     {
         "unique_id": 82,
@@ -2046,7 +2046,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart farming infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet to optimize agricultural and forestry operations, improving efficiency, sustainability, and environmental protection. By enabling real-time monitoring of crops, livestock, pests, and forest health, it enhances resource management and reduces costs. The model supports businesses, public authorities, and environmental agencies in achieving sustainable agricultural practices and ensuring forest preservation through advanced technological solutions like autonomous driving and automated surveillance."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet to optimize agricultural and forestry operations, improving efficiency, sustainability, and environmental protection. By enabling real-time monitoring of crops, livestock, pests, and forest health, it enhances resource management and reduces costs. The model supports businesses, public authorities, and environmental agencies in achieving sustainable agricultural practices and ensuring forest preservation through advanced technological solutions like autonomous driving and automated surveillance."
     },
     {
         "unique_id": 83,
@@ -2071,7 +2071,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity in the forestry and agriculture sectors, using a low-cost, low-maintenance infrastructure with strong coverage and high data rates. Through strategic partnerships and local manufacturing, it delivers tailored solutions for rural communities, businesses, and authorities, while also supporting environmental engineers with eco-friendly technology. By offering subscription-based services and exploring public funding, the model ensures sustainable operations, promotes digital literacy, and strengthens rural economies."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity in the forestry and agriculture sectors, using a low-cost, low-maintenance infrastructure with strong coverage and high data rates. Through strategic partnerships and local manufacturing, it delivers tailored solutions for rural communities, businesses, and authorities, while also supporting environmental engineers with eco-friendly technology. By offering subscription-based services and exploring public funding, the model ensures sustainable operations, promotes digital literacy, and strengthens rural economies."
     },
     {
         "unique_id": 84,
@@ -2096,7 +2096,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI) (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to enhance connectivity in the forestry and agriculture sectors by leveraging partnerships with government entities, private sector, and educational institutions. It focuses on providing universal high-speed internet access while supporting sustainable agricultural and forestry practices, reducing environmental impacts, and fostering job creation. By establishing robust regulatory frameworks, this model strengthens rural economies and promotes digital literacy, ensuring broad societal and economic benefits."
+        "label_canvastitle": "This business model aims to enhance connectivity in the forestry and agriculture sectors by leveraging partnerships with government entities, private sector, and educational institutions. It focuses on providing universal high-speed internet access while supporting sustainable agricultural and forestry practices, reducing environmental impacts, and fostering job creation. By establishing robust regulatory frameworks, this model strengthens rural economies and promotes digital literacy, ensuring broad societal and economic benefits."
     },
     {
         "unique_id": 85,
@@ -2121,7 +2121,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Aquaculture products (B2B/B2C)\nSelling environmental monitoring services of any kind (B2B/B2Goverment)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/montlhy/per project)",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for enhanced environmental monitoring and aquaculture practices. It supports efficient data collection and analysis for water quality, biodiversity, and air quality, offering optimized services that reduce operational costs and environmental impact. Through collaboration with key stakeholders, it enables sustainable practices in both sectors, fostering competitiveness and long-term economic growth."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for enhanced environmental monitoring and aquaculture practices. It supports efficient data collection and analysis for water quality, biodiversity, and air quality, offering optimized services that reduce operational costs and environmental impact. Through collaboration with key stakeholders, it enables sustainable practices in both sectors, fostering competitiveness and long-term economic growth."
     },
     {
         "unique_id": 86,
@@ -2146,7 +2146,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model aims to provide high-speed internet connectivity to support environmental monitoring and aquaculture sectors by offering affordable, low-power, and environmentally friendly solutions. It fosters strategic partnerships to reduce costs, ensure high-quality service, and improve data management, while enabling scalable and flexible services. By focusing on local communities and businesses, it creates new revenue streams through subscription fees, content services, and government subsidies."
+        "label_canvastitle": "This business model aims to provide high-speed internet connectivity to support environmental monitoring and aquaculture sectors by offering affordable, low-power, and environmentally friendly solutions. It fosters strategic partnerships to reduce costs, ensure high-quality service, and improve data management, while enabling scalable and flexible services. By focusing on local communities and businesses, it creates new revenue streams through subscription fees, content services, and government subsidies."
     },
     {
         "unique_id": 87,
@@ -2171,7 +2171,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI) (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection and rational use of soil and water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model seeks to enhance connectivity in the environmental monitoring and aquaculture sectors through strategic partnerships with governments, universities, and private companies. It aims to foster sustainable development by creating laws and regulatory frameworks for key technologies like internet connectivity, satellite, and drone operations. The model benefits society by promoting job creation, improving digital literacy, and enhancing economic resilience, with a focus on sustainable aquaculture practices and environmental protection."
+        "label_canvastitle": "This cross-sectoral business model seeks to enhance connectivity in the environmental monitoring and aquaculture sectors through strategic partnerships with governments, universities, and private companies. It aims to foster sustainable development by creating laws and regulatory frameworks for key technologies like internet connectivity, satellite, and drone operations. The model benefits society by promoting job creation, improving digital literacy, and enhancing economic resilience, with a focus on sustainable aquaculture practices and environmental protection."
     },
     {
         "unique_id": 88,
@@ -2196,7 +2196,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nSelling environmental monitoring services of any kind (B2B/B2Goverment)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)",
-"label_canvastitle": "This business model for high internet connectivity in the environmental monitoring and agriculture sectors leverages cutting-edge technologies such as real-time crop, pest, and livestock monitoring, along with autonomous driving and environmental data transmission. It enhances operational efficiency, sustainability, and cost reduction by providing vast coverage and optimized services, with a focus on reducing environmental impact. Key customers include local businesses, agricultural sectors, public authorities, and research institutions, while revenue streams are generated through product sales, environmental monitoring services, and smart infrastructure monetization."
+        "label_canvastitle": "This business model for high internet connectivity in the environmental monitoring and agriculture sectors leverages cutting-edge technologies such as real-time crop, pest, and livestock monitoring, along with autonomous driving and environmental data transmission. It enhances operational efficiency, sustainability, and cost reduction by providing vast coverage and optimized services, with a focus on reducing environmental impact. Key customers include local businesses, agricultural sectors, public authorities, and research institutions, while revenue streams are generated through product sales, environmental monitoring services, and smart infrastructure monetization."
     },
     {
         "unique_id": 89,
@@ -2221,7 +2221,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity for environmental monitoring and agriculture sectors by leveraging low-cost, low-power, and eco-friendly solutions. Through strategic partnerships and alliances with MNOs, ISPs, and financial institutions, the model offers end-to-end IP platforms, high data rates, and localized cloud services. Revenue is generated through subscription fees, specialized B2B offerings, and government subsidies, ensuring efficient operations, sustainability, and significant value for local communities and businesses."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity for environmental monitoring and agriculture sectors by leveraging low-cost, low-power, and eco-friendly solutions. Through strategic partnerships and alliances with MNOs, ISPs, and financial institutions, the model offers end-to-end IP platforms, high data rates, and localized cloud services. Revenue is generated through subscription fees, specialized B2B offerings, and government subsidies, ensuring efficient operations, sustainability, and significant value for local communities and businesses."
     },
     {
         "unique_id": 90,
@@ -2246,7 +2246,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nProtection and rational use of soil and water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to expand high-speed internet connectivity for the agriculture and environmental monitoring sectors, leveraging partnerships with governments, academia, NGOs, and the private sector. By promoting sustainable practices, efficient resource management, and enhanced digital literacy, the model fosters economic growth, job creation, and improved environmental stewardship. Key outcomes include improved societal well-being, enhanced agricultural productivity, and stronger regional development, driven by collaborative efforts and regulatory frameworks that support connectivity, technology use, and environmental protection."
+        "label_canvastitle": "This business model aims to expand high-speed internet connectivity for the agriculture and environmental monitoring sectors, leveraging partnerships with governments, academia, NGOs, and the private sector. By promoting sustainable practices, efficient resource management, and enhanced digital literacy, the model fosters economic growth, job creation, and improved environmental stewardship. Key outcomes include improved societal well-being, enhanced agricultural productivity, and stronger regional development, driven by collaborative efforts and regulatory frameworks that support connectivity, technology use, and environmental protection."
     },
     {
         "unique_id": 91,
@@ -2271,7 +2271,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling environmental monitoring services of any kind (B2B/B2Goverment)",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance environmental monitoring in forestry, enabling real-time data on forest health, fire risk, and biodiversity. By improving operational efficiency and reducing environmental impacts, it supports sustainable forestry practices and fosters collaboration across sectors"
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance environmental monitoring in forestry, enabling real-time data on forest health, fire risk, and biodiversity. By improving operational efficiency and reducing environmental impacts, it supports sustainable forestry practices and fosters collaboration across sectors"
     },
     {
         "unique_id": 92,
@@ -2296,7 +2296,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model for high-speed internet connectivity aims to support environmental monitoring and forestry sectors by offering affordable, high-quality solutions with low maintenance. Through strategic partnerships, it enhances coverage, enables real-time data transmission, and drives sustainable practices, while generating revenue through subscription fees, B2B offerings, government subsidies, and network slice rentals"
+        "label_canvastitle": "This business model for high-speed internet connectivity aims to support environmental monitoring and forestry sectors by offering affordable, high-quality solutions with low maintenance. Through strategic partnerships, it enhances coverage, enables real-time data transmission, and drives sustainable practices, while generating revenue through subscription fees, B2B offerings, government subsidies, and network slice rentals"
     },
     {
         "unique_id": 93,
@@ -2321,7 +2321,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to the environmental monitoring and forestry sectors, fostering sustainable development through enhanced data transmission and monitoring capabilities. It promotes universal access to digital connectivity, improves economic and societal resilience, and supports the protection of natural resources, ensuring the financial sustainability of SMEs and a fairer, more prosperous society."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to the environmental monitoring and forestry sectors, fostering sustainable development through enhanced data transmission and monitoring capabilities. It promotes universal access to digital connectivity, improves economic and societal resilience, and supports the protection of natural resources, ensuring the financial sustainability of SMEs and a fairer, more prosperous society."
     },
     {
         "unique_id": 94,
@@ -2346,7 +2346,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Aquaculture products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions. (Pay per hour/monthly/per project)\nMonetize the added value of robot connection in Retirement Homes",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance both aquaculture efficiency and the well-being of elderly people in rural areas. Revenue streams are generated through increased production and cost reductions in aquaculture, subscription fees for smart infrastructure use, and monetizing robot connectivity in retirement homes"
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance both aquaculture efficiency and the well-being of elderly people in rural areas. Revenue streams are generated through increased production and cost reductions in aquaculture, subscription fees for smart infrastructure use, and monetizing robot connectivity in retirement homes"
     },
     {
         "unique_id": 95,
@@ -2371,7 +2371,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model leverages high-speed internet to optimize aquaculture practices and enhance the well-being of elderly people in rural areas through digital health interventions. Revenue streams include increased aquaculture production, cost reductions, B2B/B2C product sales, smart infrastructure services, and robot connectivity for retirement homes"
+        "label_canvastitle": "This business model leverages high-speed internet to optimize aquaculture practices and enhance the well-being of elderly people in rural areas through digital health interventions. Revenue streams include increased aquaculture production, cost reductions, B2B/B2C product sales, smart infrastructure services, and robot connectivity for retirement homes"
     },
     {
         "unique_id": 96,
@@ -2396,7 +2396,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection of water\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to drive sustainability in aquaculture and improve health outcomes through digital health services. The public value lies in providing universal access to reliable internet, fostering economic growth, enhancing health and well-being, and supporting the financial sustainability of SMEs."
+        "label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to drive sustainability in aquaculture and improve health outcomes through digital health services. The public value lies in providing universal access to reliable internet, fostering economic growth, enhancing health and well-being, and supporting the financial sustainability of SMEs."
     },
     {
         "unique_id": 97,
@@ -2421,7 +2421,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nMonetize the added value of robot connection in Retirement Homes",
-"label_canvastitle": "This business model leverages high-speed internet to enhance agricultural practices and improve rural health outcomes through real-time monitoring and interventions. It offers a sustainable, cost-effective solution for farmers and rural communities, while supporting elderly well-being and fostering economic growth through optimized operations and innovative technologies."
+        "label_canvastitle": "This business model leverages high-speed internet to enhance agricultural practices and improve rural health outcomes through real-time monitoring and interventions. It offers a sustainable, cost-effective solution for farmers and rural communities, while supporting elderly well-being and fostering economic growth through optimized operations and innovative technologies."
     },
     {
         "unique_id": 98,
@@ -2446,7 +2446,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model utilizes high-speed internet connectivity to drive innovation in the agriculture and eHealth sectors, offering cost-effective, environmentally-friendly solutions. It focuses on empowering rural communities and businesses through advanced technology, strategic partnerships, and tailored services, ensuring improved sustainability, efficiency, and access to essential resources."
+        "label_canvastitle": "This business model utilizes high-speed internet connectivity to drive innovation in the agriculture and eHealth sectors, offering cost-effective, environmentally-friendly solutions. It focuses on empowering rural communities and businesses through advanced technology, strategic partnerships, and tailored services, ensuring improved sustainability, efficiency, and access to essential resources."
     },
     {
         "unique_id": 99,
@@ -2471,7 +2471,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on enabling high-speed internet connectivity to transform the eHealth and agriculture sectors, fostering sustainable practices and improving well-being. By partnering with key stakeholders, it supports inclusive growth, enhances rural health services, and ensures access to essential resources for agricultural innovation, benefiting society at large."
+        "label_canvastitle": "This business model focuses on enabling high-speed internet connectivity to transform the eHealth and agriculture sectors, fostering sustainable practices and improving well-being. By partnering with key stakeholders, it supports inclusive growth, enhances rural health services, and ensures access to essential resources for agricultural innovation, benefiting society at large."
     },
     {
         "unique_id": 100,
@@ -2496,7 +2496,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nMonetize the added value of robot connection in Retirement Homes",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance forest monitoring and improve the health and well-being of rural communities. By offering tailored solutions for forest health assessments and elderly care, it generates revenue through smart infrastructure use and robotic services in retirement homes, while driving efficiency and cost reductions."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance forest monitoring and improve the health and well-being of rural communities. By offering tailored solutions for forest health assessments and elderly care, it generates revenue through smart infrastructure use and robotic services in retirement homes, while driving efficiency and cost reductions."
     },
     {
         "unique_id": 101,
@@ -2521,7 +2521,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model provides high-speed internet connectivity to eHealth and forestry sectors, enhancing rural access to healthcare and environmental monitoring. Revenue streams include subscription fees, B2B services, government subsidies, and network slice rentals, driving sustainable development and operational efficiency."
+        "label_canvastitle": "This business model provides high-speed internet connectivity to eHealth and forestry sectors, enhancing rural access to healthcare and environmental monitoring. Revenue streams include subscription fees, B2B services, government subsidies, and network slice rentals, driving sustainable development and operational efficiency."
     },
     {
         "unique_id": 102,
@@ -2546,7 +2546,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model for high-speed internet connectivity serves the eHealth and forestry sectors, enhancing rural healthcare access and promoting sustainable forest management. It fosters public value through universal connectivity, economic growth, environmental protection, and social equity. By enabling improved health outcomes, forest preservation, and digital literacy, it strengthens local communities, SMEs, and contributes to a prosperous, equitable society."
+        "label_canvastitle": "This business model for high-speed internet connectivity serves the eHealth and forestry sectors, enhancing rural healthcare access and promoting sustainable forest management. It fosters public value through universal connectivity, economic growth, environmental protection, and social equity. By enabling improved health outcomes, forest preservation, and digital literacy, it strengthens local communities, SMEs, and contributes to a prosperous, equitable society."
     },
     {
         "unique_id": 103,
@@ -2571,7 +2571,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling environmental monitoring services of any kind (B2B/B2Goverment)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nMonetize the added value of robot connection in Retirement Homes",
-"label_canvastitle": "This business model integrates high-speed internet connectivity in the eHealth and environmental monitoring sectors, providing real-time data on air quality, water quality, and biodiversity while enhancing rural health services. Revenue streams include selling environmental monitoring services, testing/evaluating smart infrastructure, and monetizing robot connections in retirement homes. The model optimizes operations, supports sustainability, and promotes well-being through innovative digital solutions."
+        "label_canvastitle": "This business model integrates high-speed internet connectivity in the eHealth and environmental monitoring sectors, providing real-time data on air quality, water quality, and biodiversity while enhancing rural health services. Revenue streams include selling environmental monitoring services, testing/evaluating smart infrastructure, and monetizing robot connections in retirement homes. The model optimizes operations, supports sustainability, and promotes well-being through innovative digital solutions."
     },
     {
         "unique_id": 104,
@@ -2596,7 +2596,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to support eHealth and environmental monitoring, providing scalable, low-cost, and eco-friendly solutions. It generates revenue through subscription fees, B2B offerings, government subsidies, and mobile data offload, while fostering partnerships with key players like ISPs, technology providers, and public authorities. The model ensures wide-reaching coverage, enhances operational efficiency, and promotes sustainable development."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to support eHealth and environmental monitoring, providing scalable, low-cost, and eco-friendly solutions. It generates revenue through subscription fees, B2B offerings, government subsidies, and mobile data offload, while fostering partnerships with key players like ISPs, technology providers, and public authorities. The model ensures wide-reaching coverage, enhances operational efficiency, and promotes sustainable development."
     },
     {
         "unique_id": 105,
@@ -2621,7 +2621,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model aims to integrate high-speed internet connectivity in eHealth and environmental monitoring, fostering partnerships across governments, academia, and private sector to drive innovation and sustainability. By enhancing digital access and promoting environmental protection, it aims to improve health outcomes, boost economic growth, and foster job creation. Revenue is generated through public-private collaborations, while the model supports societal development and reduces inequalities through increased digital literacy and connectivity."
+        "label_canvastitle": "This cross-sectoral business model aims to integrate high-speed internet connectivity in eHealth and environmental monitoring, fostering partnerships across governments, academia, and private sector to drive innovation and sustainability. By enhancing digital access and promoting environmental protection, it aims to improve health outcomes, boost economic growth, and foster job creation. Revenue is generated through public-private collaborations, while the model supports societal development and reduces inequalities through increased digital literacy and connectivity."
     },
     {
         "unique_id": 106,
@@ -2646,7 +2646,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Aquaculture products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nReduced time of travel to local authorities\nImprove efficiency of public authorities",
-"label_canvastitle": "This business model integrates high-speed internet connectivity into eGovernance and aquaculture, enhancing government transparency and optimizing aquaculture practices through data-driven decision-making. By improving operational efficiency and environmental protection, it drives cost reductions, boosts productivity, and fosters digital literacy for all stakeholders. Revenue is generated through service fees, B2B/B2C aquaculture product sales, and the monetization of smart infrastructure for testing and evaluation."
+        "label_canvastitle": "This business model integrates high-speed internet connectivity into eGovernance and aquaculture, enhancing government transparency and optimizing aquaculture practices through data-driven decision-making. By improving operational efficiency and environmental protection, it drives cost reductions, boosts productivity, and fosters digital literacy for all stakeholders. Revenue is generated through service fees, B2B/B2C aquaculture product sales, and the monetization of smart infrastructure for testing and evaluation."
     },
     {
         "unique_id": 107,
@@ -2671,7 +2671,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on delivering high-speed internet connectivity to enhance eGovernance and aquaculture, driving efficiency, sustainability, and environmental protection. By providing low-cost, high-quality services and leveraging strategic partnerships, the model offers robust connectivity solutions to various sectors, improving transparency and operational efficiency. Revenue is generated through subscription fees, B2B offerings, government subsidies, and monetization of network infrastructure."
+        "label_canvastitle": "This business model focuses on delivering high-speed internet connectivity to enhance eGovernance and aquaculture, driving efficiency, sustainability, and environmental protection. By providing low-cost, high-quality services and leveraging strategic partnerships, the model offers robust connectivity solutions to various sectors, improving transparency and operational efficiency. Revenue is generated through subscription fees, B2B offerings, government subsidies, and monetization of network infrastructure."
     },
     {
         "unique_id": 108,
@@ -2696,7 +2696,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection of water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to support eGovernance and sustainable aquaculture, driving societal and economic development. By fostering public-private partnerships and providing universal access to digital services, it enhances transparency, improves operational efficiency, and contributes to environmental protection. The model focuses on creating jobs, improving digital literacy, and ensuring sustainable growth in aquaculture while promoting fairness and prosperity for SMEs."
+        "label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to support eGovernance and sustainable aquaculture, driving societal and economic development. By fostering public-private partnerships and providing universal access to digital services, it enhances transparency, improves operational efficiency, and contributes to environmental protection. The model focuses on creating jobs, improving digital literacy, and ensuring sustainable growth in aquaculture while promoting fairness and prosperity for SMEs."
     },
     {
         "unique_id": 109,
@@ -2721,7 +2721,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nReduced time of travel to local authorities\nImprove efficiency of public authorities",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance efficiency and sustainability in agriculture and eGovernance. By integrating real-time crop monitoring, pest detection, and automated surveillance, it boosts productivity, reduces costs, and promotes environmental protection. The model empowers local businesses, government transparency, and digital skills, while driving profitability in agriculture and improving public service efficiency."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance efficiency and sustainability in agriculture and eGovernance. By integrating real-time crop monitoring, pest detection, and automated surveillance, it boosts productivity, reduces costs, and promotes environmental protection. The model empowers local businesses, government transparency, and digital skills, while driving profitability in agriculture and improving public service efficiency."
     },
     {
         "unique_id": 110,
@@ -2746,7 +2746,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance eGovernance and agriculture, offering a low-cost, environmentally-friendly solution with high-quality service. It integrates local manufacturing, strategic partnerships, and public funding to reduce costs and improve coverage, while delivering specialized services for rural businesses, cooperatives, and public authorities. By leveraging scalable cloud infrastructure and revenue-sharing models, the initiative aims to optimize operations and ensure the sustainability of rural connectivity and agricultural advancements."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance eGovernance and agriculture, offering a low-cost, environmentally-friendly solution with high-quality service. It integrates local manufacturing, strategic partnerships, and public funding to reduce costs and improve coverage, while delivering specialized services for rural businesses, cooperatives, and public authorities. By leveraging scalable cloud infrastructure and revenue-sharing models, the initiative aims to optimize operations and ensure the sustainability of rural connectivity and agricultural advancements."
     },
     {
         "unique_id": 111,
@@ -2771,7 +2771,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to provide universal high-speed internet connectivity to support eGovernance and agriculture, enhancing operational efficiency and sustainability across sectors. By partnering with government, academic, and private sector entities, it fosters collaboration to create robust infrastructure, enabling real-time data transmission and digital services. The initiative drives socio-economic benefits, including job creation, improved digital literacy, and strengthened agricultural practices, contributing to a fair and prosperous society."
+        "label_canvastitle": "This business model aims to provide universal high-speed internet connectivity to support eGovernance and agriculture, enhancing operational efficiency and sustainability across sectors. By partnering with government, academic, and private sector entities, it fosters collaboration to create robust infrastructure, enabling real-time data transmission and digital services. The initiative drives socio-economic benefits, including job creation, improved digital literacy, and strengthened agricultural practices, contributing to a fair and prosperous society."
     },
     {
         "unique_id": 112,
@@ -2796,7 +2796,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nReduced time of travel to local authorities\nImprove efficiency of public authorities",
-"label_canvastitle": "This business model focuses on leveraging high-speed internet connectivity to support eGovernance and the forestry sector, enabling real-time forest health monitoring, fire risk assessment, and wildlife tracking. By integrating drones, sensors, and data analytics, it optimizes forest management, enhances transparency, and reduces operational costs for stakeholders. The initiative promotes sustainability, economic growth, and digital skills development, benefiting local businesses, environmental agencies, and the broader community."
+        "label_canvastitle": "This business model focuses on leveraging high-speed internet connectivity to support eGovernance and the forestry sector, enabling real-time forest health monitoring, fire risk assessment, and wildlife tracking. By integrating drones, sensors, and data analytics, it optimizes forest management, enhances transparency, and reduces operational costs for stakeholders. The initiative promotes sustainability, economic growth, and digital skills development, benefiting local businesses, environmental agencies, and the broader community."
     },
     {
         "unique_id": 113,
@@ -2821,7 +2821,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on deploying high-speed internet connectivity to empower eGovernance and forestry sectors, improving efficiency in forest management, monitoring, and data-driven decision-making. Through strategic partnerships and low-cost, high-quality solutions, it ensures sustainable, environment-friendly practices and reliable services for local communities, businesses, and public authorities. The model generates revenue via subscriptions, government subsidies, and specialized content, all while promoting digital inclusivity and enhancing operational capabilities across various sectors."
+        "label_canvastitle": "This business model focuses on deploying high-speed internet connectivity to empower eGovernance and forestry sectors, improving efficiency in forest management, monitoring, and data-driven decision-making. Through strategic partnerships and low-cost, high-quality solutions, it ensures sustainable, environment-friendly practices and reliable services for local communities, businesses, and public authorities. The model generates revenue via subscriptions, government subsidies, and specialized content, all while promoting digital inclusivity and enhancing operational capabilities across various sectors."
     },
     {
         "unique_id": 114,
@@ -2846,7 +2846,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to enhance internet connectivity for eGovernance and forestry sectors, fostering improved forest management, sustainable practices, and real-time data analytics. Through strategic collaborations with public and private entities, it supports the development of regulatory frameworks, environmental protection, and digital literacy. By ensuring reliable connectivity, it contributes to economic growth, job creation, and reduced social inequality, while promoting the protection of forests and natural resources."
+        "label_canvastitle": "This business model aims to enhance internet connectivity for eGovernance and forestry sectors, fostering improved forest management, sustainable practices, and real-time data analytics. Through strategic collaborations with public and private entities, it supports the development of regulatory frameworks, environmental protection, and digital literacy. By ensuring reliable connectivity, it contributes to economic growth, job creation, and reduced social inequality, while promoting the protection of forests and natural resources."
     },
     {
         "unique_id": 115,
@@ -2871,7 +2871,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling environmental monitoring services of any kind (B2B/B2Goverment)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nReduced time of travel to local authorities\nImprove efficiency of public authorities",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to enhance environmental monitoring and eGovernance, offering real-time data on air, water, noise, and biodiversity quality. By improving accessibility, government transparency, and operational efficiency, it enables cost reductions and optimized resource management for public and private entities. With a focus on sustainable practices, it supports the growth of environmental agencies, local businesses, and citizens through tailored solutions and continuous engagement."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to enhance environmental monitoring and eGovernance, offering real-time data on air, water, noise, and biodiversity quality. By improving accessibility, government transparency, and operational efficiency, it enables cost reductions and optimized resource management for public and private entities. With a focus on sustainable practices, it supports the growth of environmental agencies, local businesses, and citizens through tailored solutions and continuous engagement."
     },
     {
         "unique_id": 116,
@@ -2896,7 +2896,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model focuses on providing high-speed internet connectivity to enhance eGovernance and environmental monitoring, offering low-cost, low-power, and environmentally-friendly solutions. It enables real-time data transmission for effective environmental management while promoting government transparency, local community engagement, and business optimization. Through strategic partnerships and tailored solutions, the model creates sustainable value for various stakeholders, including public authorities, local businesses, and environmental engineers."
+        "label_canvastitle": "This cross-sectoral business model focuses on providing high-speed internet connectivity to enhance eGovernance and environmental monitoring, offering low-cost, low-power, and environmentally-friendly solutions. It enables real-time data transmission for effective environmental management while promoting government transparency, local community engagement, and business optimization. Through strategic partnerships and tailored solutions, the model creates sustainable value for various stakeholders, including public authorities, local businesses, and environmental engineers."
     },
     {
         "unique_id": 117,
@@ -2921,7 +2921,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model aims to provide universal, high-speed internet connectivity, fostering eGovernance and environmental monitoring to ensure societal and environmental well-being. By collaborating with key stakeholders such as governments, private sectors, and NGOs, it creates a framework for sustainable development, job creation, and enhanced public services. The model facilitates economic growth, environmental protection, and improved digital literacy, benefiting municipalities, businesses, and citizens alike."
+        "label_canvastitle": "This cross-sectoral business model aims to provide universal, high-speed internet connectivity, fostering eGovernance and environmental monitoring to ensure societal and environmental well-being. By collaborating with key stakeholders such as governments, private sectors, and NGOs, it creates a framework for sustainable development, job creation, and enhanced public services. The model facilitates economic growth, environmental protection, and improved digital literacy, benefiting municipalities, businesses, and citizens alike."
     },
     {
         "unique_id": 118,
@@ -2946,7 +2946,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced time of travel to local authorities\nImprove efficiency of public authorities\nMonetize the added value of robot connection in elderly homes",
-"label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity with eGovernance and eHealth to enhance accessibility, well-being, and public services. By partnering with ISPs, technology providers, and government bodies, it offers health guidance and social support for rural populations, especially the elderly. The model promotes cost savings, improves communication, and strengthens both community health and public sector efficiency."
+        "label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity with eGovernance and eHealth to enhance accessibility, well-being, and public services. By partnering with ISPs, technology providers, and government bodies, it offers health guidance and social support for rural populations, especially the elderly. The model promotes cost savings, improves communication, and strengthens both community health and public sector efficiency."
     },
     {
         "unique_id": 119,
@@ -2971,7 +2971,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on delivering high-speed internet connectivity for eGovernance and eHealth by leveraging partnerships with MNOs, ISPs, and government bodies. The model emphasizes cost-effective, low-power solutions, with end-to-end platforms and cloud servers for local content, ensuring high coverage and quality of service. It aims to improve rural connectivity, enhance public services, and create opportunities for local businesses and authorities through innovative technology and data-driven applications."
+        "label_canvastitle": "This business model focuses on delivering high-speed internet connectivity for eGovernance and eHealth by leveraging partnerships with MNOs, ISPs, and government bodies. The model emphasizes cost-effective, low-power solutions, with end-to-end platforms and cloud servers for local content, ensuring high coverage and quality of service. It aims to improve rural connectivity, enhance public services, and create opportunities for local businesses and authorities through innovative technology and data-driven applications."
     },
     {
         "unique_id": 120,
@@ -2996,7 +2996,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance eGovernance and eHealth services, with a collaborative approach involving governments, private sectors, and medical organizations. By fostering partnerships and developing legislative frameworks, it aims to increase access to digital services for rural communities, improve healthcare delivery, and boost local economic development. The model promotes inclusive growth, reduces inequality, and enhances citizens' well-being and digital literacy, ultimately creating a more connected and prosperous society."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance eGovernance and eHealth services, with a collaborative approach involving governments, private sectors, and medical organizations. By fostering partnerships and developing legislative frameworks, it aims to increase access to digital services for rural communities, improve healthcare delivery, and boost local economic development. The model promotes inclusive growth, reduces inequality, and enhances citizens' well-being and digital literacy, ultimately creating a more connected and prosperous society."
     },
     {
         "unique_id": 121,
@@ -3021,7 +3021,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Aquaculture products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This business model integrates high-speed internet connectivity to enhance both the tourism and aquaculture sectors, offering seamless information access, e-commerce, and augmented reality (AR) for tourism, while supporting data transmission for water quality monitoring in aquaculture. It boosts the sustainability and efficiency of aquaculture operations, while also improving the competitiveness of local SMEs in tourism by promoting digital skills, remote work opportunities, and enriched customer experiences. By enhancing services and operational capabilities, the model fosters growth in both sectors, benefiting businesses, local authorities, and consumers."
+        "label_canvastitle": "This business model integrates high-speed internet connectivity to enhance both the tourism and aquaculture sectors, offering seamless information access, e-commerce, and augmented reality (AR) for tourism, while supporting data transmission for water quality monitoring in aquaculture. It boosts the sustainability and efficiency of aquaculture operations, while also improving the competitiveness of local SMEs in tourism by promoting digital skills, remote work opportunities, and enriched customer experiences. By enhancing services and operational capabilities, the model fosters growth in both sectors, benefiting businesses, local authorities, and consumers."
     },
     {
         "unique_id": 122,
@@ -3046,7 +3046,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model facilitates high-speed internet connectivity to enhance the tourism and aquaculture sectors, combining affordable, low-maintenance solutions with high-quality service and environmental sustainability. It offers a broad range of digital services including cloud-based content and specialized applications, enabling enhanced customer experiences in both industries. Through strategic partnerships and localized support, the model drives growth in rural and remote areas, while ensuring profitability through diversified revenue streams, including subscription services and government subsidies."
+        "label_canvastitle": "This business model facilitates high-speed internet connectivity to enhance the tourism and aquaculture sectors, combining affordable, low-maintenance solutions with high-quality service and environmental sustainability. It offers a broad range of digital services including cloud-based content and specialized applications, enabling enhanced customer experiences in both industries. Through strategic partnerships and localized support, the model drives growth in rural and remote areas, while ensuring profitability through diversified revenue streams, including subscription services and government subsidies."
     },
     {
         "unique_id": 123,
@@ -3071,7 +3071,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection of water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity to drive growth in the tourism and aquaculture sectors, promoting sustainability and efficiency. By collaborating with key stakeholders, it aims to enhance the competitiveness of local businesses, ensure environmental protection, and create job opportunities while providing universal access to digital services. The model supports the development of regulatory frameworks and policies that facilitate infrastructure growth, benefiting society, local economies, and the protection of natural resources."
+        "label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity to drive growth in the tourism and aquaculture sectors, promoting sustainability and efficiency. By collaborating with key stakeholders, it aims to enhance the competitiveness of local businesses, ensure environmental protection, and create job opportunities while providing universal access to digital services. The model supports the development of regulatory frameworks and policies that facilitate infrastructure growth, benefiting society, local economies, and the protection of natural resources."
     },
     {
         "unique_id": 124,
@@ -3096,7 +3096,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance both the agriculture and tourism sectors, optimizing operations and boosting sustainability. By enabling real-time crop monitoring, pest detection, and seamless tourism experiences through digital platforms, the model benefits local businesses and strengthens economic opportunities. It promotes efficient practices in agriculture while offering innovative digital marketing solutions and virtual tourism experiences for enhanced visitor engagement."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance both the agriculture and tourism sectors, optimizing operations and boosting sustainability. By enabling real-time crop monitoring, pest detection, and seamless tourism experiences through digital platforms, the model benefits local businesses and strengthens economic opportunities. It promotes efficient practices in agriculture while offering innovative digital marketing solutions and virtual tourism experiences for enhanced visitor engagement."
     },
     {
         "unique_id": 125,
@@ -3121,7 +3121,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to both the agriculture and tourism sectors through cost-effective and sustainable solutions. By partnering with mobile network operators, government bodies, and technology providers, the model offers efficient data transmission and enhanced services for local businesses, public authorities, and rural communities. It creates a seamless experience by integrating digital tools for agriculture management and tourism promotion while reducing costs and increasing operational efficiency."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to both the agriculture and tourism sectors through cost-effective and sustainable solutions. By partnering with mobile network operators, government bodies, and technology providers, the model offers efficient data transmission and enhanced services for local businesses, public authorities, and rural communities. It creates a seamless experience by integrating digital tools for agriculture management and tourism promotion while reducing costs and increasing operational efficiency."
     },
     {
         "unique_id": 126,
@@ -3146,7 +3146,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model fosters high-speed internet connectivity for the agriculture and tourism sectors, leveraging partnerships with governments, private sector, and academic institutions. By creating an ecosystem of sustainable practices and enhanced digital services, it supports local economies, increases agricultural efficiency, and improves tourism experiences. The model aims to provide equitable access to connectivity, improve societal well-being, and promote economic growth through innovative technology and collaborative efforts."
+        "label_canvastitle": "This business model fosters high-speed internet connectivity for the agriculture and tourism sectors, leveraging partnerships with governments, private sector, and academic institutions. By creating an ecosystem of sustainable practices and enhanced digital services, it supports local economies, increases agricultural efficiency, and improves tourism experiences. The model aims to provide equitable access to connectivity, improve societal well-being, and promote economic growth through innovative technology and collaborative efforts."
     },
     {
         "unique_id": 127,
@@ -3171,7 +3171,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Increased profitability via increased production\nIncreased profitability via cost reductions\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance both the forestry and tourism sectors. It enables real-time forest monitoring for sustainability, reduces environmental risks, and boosts tourism by offering seamless access to information, virtual tours, and digital marketing for local SMEs. Through strategic partnerships and innovative technology, this model aims to improve efficiency, increase profitability, and contribute to the economic and environmental well-being of the regions involved."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet connectivity to enhance both the forestry and tourism sectors. It enables real-time forest monitoring for sustainability, reduces environmental risks, and boosts tourism by offering seamless access to information, virtual tours, and digital marketing for local SMEs. Through strategic partnerships and innovative technology, this model aims to improve efficiency, increase profitability, and contribute to the economic and environmental well-being of the regions involved."
     },
     {
         "unique_id": 128,
@@ -3196,7 +3196,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model facilitates high-speed internet connectivity in the tourism and forestry sectors by leveraging partnerships with mobile operators, ISPs, and government bodies. It offers a low-cost, environmentally friendly solution, promoting seamless communication, enhanced services, and data-driven insights for local businesses, environmental engineers, and tourism operators. By combining local manufacturing, strategic alliances, and cloud technologies, the model aims to improve operational efficiency and provide sustainable, high-quality connectivity to underserved regions."
+        "label_canvastitle": "This business model facilitates high-speed internet connectivity in the tourism and forestry sectors by leveraging partnerships with mobile operators, ISPs, and government bodies. It offers a low-cost, environmentally friendly solution, promoting seamless communication, enhanced services, and data-driven insights for local businesses, environmental engineers, and tourism operators. By combining local manufacturing, strategic alliances, and cloud technologies, the model aims to improve operational efficiency and provide sustainable, high-quality connectivity to underserved regions."
     },
     {
         "unique_id": 129,
@@ -3221,7 +3221,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to enhance internet connectivity in the tourism and forestry sectors through strategic partnerships with government bodies, NGOs, and private sector players. By focusing on high-speed internet infrastructure, the model promotes sustainable forest management, tourism development, and environmental protection, while supporting local economies. It ensures broad access to digital services, fosters job creation, and contributes to the sustainable use of natural resources, ultimately improving societal well-being and economic growth."
+        "label_canvastitle": "This business model aims to enhance internet connectivity in the tourism and forestry sectors through strategic partnerships with government bodies, NGOs, and private sector players. By focusing on high-speed internet infrastructure, the model promotes sustainable forest management, tourism development, and environmental protection, while supporting local economies. It ensures broad access to digital services, fosters job creation, and contributes to the sustainable use of natural resources, ultimately improving societal well-being and economic growth."
     },
     {
         "unique_id": 130,
@@ -3246,7 +3246,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for Infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Selling environmental monitoring services of any kind (B2B/B2Goverment)\nIncreased profitability via cost reductions\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to support environmental monitoring and tourism sectors through real-time data transmission on environmental parameters like air quality and biodiversity. It enhances operational efficiency, reduces environmental impact, and improves the visitor experience by providing seamless information access and immersive AR/VR virtual tours. The model also facilitates the promotion of local SMEs, contributing to sustainable tourism and environmental protection."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to support environmental monitoring and tourism sectors through real-time data transmission on environmental parameters like air quality and biodiversity. It enhances operational efficiency, reduces environmental impact, and improves the visitor experience by providing seamless information access and immersive AR/VR virtual tours. The model also facilitates the promotion of local SMEs, contributing to sustainable tourism and environmental protection."
     },
     {
         "unique_id": 131,
@@ -3271,7 +3271,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity with environmental monitoring and tourism, offering a low-cost, high-performance, and eco-friendly solution. It empowers local communities and businesses by enabling seamless access to environmental data and tourism services, with a focus on sustainability and digital innovation. Through strategic partnerships and targeted solutions, it drives economic growth, environmental protection, and enhanced visitor experiences."
+        "label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity with environmental monitoring and tourism, offering a low-cost, high-performance, and eco-friendly solution. It empowers local communities and businesses by enabling seamless access to environmental data and tourism services, with a focus on sustainability and digital innovation. Through strategic partnerships and targeted solutions, it drives economic growth, environmental protection, and enhanced visitor experiences."
     },
     {
         "unique_id": 132,
@@ -3296,7 +3296,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model fosters high-speed internet connectivity across tourism and environmental monitoring sectors, promoting sustainable growth and digital inclusion. By leveraging strategic partnerships with governments, NGOs, and the private sector, it ensures access to critical environmental data and enhances the tourism experience. The initiative aims to empower local communities, protect natural resources, and drive economic development through improved connectivity and digital literacy."
+        "label_canvastitle": "This business model fosters high-speed internet connectivity across tourism and environmental monitoring sectors, promoting sustainable growth and digital inclusion. By leveraging strategic partnerships with governments, NGOs, and the private sector, it ensures access to critical environmental data and enhances the tourism experience. The initiative aims to empower local communities, protect natural resources, and drive economic development through improved connectivity and digital literacy."
     },
     {
         "unique_id": 133,
@@ -3321,7 +3321,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Monetize the added value of robot connection in elderly homes\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This business model focuses on high-speed internet connectivity to enhance health and well-being in rural areas while improving tourism experiences. It offers digital solutions for elderly care and well-being guidance, alongside seamless access to tourism information, AR/VR experiences, and local SME services. Through strategic partnerships, it aims to provide comprehensive services that support both healthcare and tourism sectors, contributing to the overall welfare and economic growth of rural communities."
+        "label_canvastitle": "This business model focuses on high-speed internet connectivity to enhance health and well-being in rural areas while improving tourism experiences. It offers digital solutions for elderly care and well-being guidance, alongside seamless access to tourism information, AR/VR experiences, and local SME services. Through strategic partnerships, it aims to provide comprehensive services that support both healthcare and tourism sectors, contributing to the overall welfare and economic growth of rural communities."
     },
     {
         "unique_id": 134,
@@ -3346,7 +3346,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to support both the tourism and eHealth sectors, focusing on rural areas. It aims to provide low-cost, environmentally sustainable, and high-quality connectivity solutions while fostering strategic partnerships with ISPs, academic institutions, and government bodies. Through seamless service delivery, it enhances rural healthcare, tourism experiences, and local business growth, driving economic and social development."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to support both the tourism and eHealth sectors, focusing on rural areas. It aims to provide low-cost, environmentally sustainable, and high-quality connectivity solutions while fostering strategic partnerships with ISPs, academic institutions, and government bodies. Through seamless service delivery, it enhances rural healthcare, tourism experiences, and local business growth, driving economic and social development."
     },
     {
         "unique_id": 135,
@@ -3371,7 +3371,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to enhance high-speed internet connectivity in rural areas, supporting both the tourism and eHealth sectors. Through strategic partnerships with governments, ISPs, medical organizations, and other stakeholders, it enables universal access to healthcare services, improves tourism experiences, and drives local economic growth. By fostering digital inclusion, it improves citizens’ well-being, promotes job creation, and reduces social inequalities, ultimately strengthening municipalities and regional economies."
+        "label_canvastitle": "This business model aims to enhance high-speed internet connectivity in rural areas, supporting both the tourism and eHealth sectors. Through strategic partnerships with governments, ISPs, medical organizations, and other stakeholders, it enables universal access to healthcare services, improves tourism experiences, and drives local economic growth. By fostering digital inclusion, it improves citizens’ well-being, promotes job creation, and reduces social inequalities, ultimately strengthening municipalities and regional economies."
     },
     {
         "unique_id": 136,
@@ -3396,7 +3396,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced time of travel to local authorities\nImprove efficiency of public authorities\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to enhance both tourism and eGovernance. By enabling seamless access to government services, improving transparency, and supporting local businesses, it helps boost citizen engagement, e-literacy, and economic development. The model also enhances the tourism experience through digital tools such as AR/VR and online platforms, driving both tourism and digital government efficiency."
+        "label_canvastitle": "This cross-sectoral business model promotes high-speed internet connectivity to enhance both tourism and eGovernance. By enabling seamless access to government services, improving transparency, and supporting local businesses, it helps boost citizen engagement, e-literacy, and economic development. The model also enhances the tourism experience through digital tools such as AR/VR and online platforms, driving both tourism and digital government efficiency."
     },
     {
         "unique_id": 137,
@@ -3421,7 +3421,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance both tourism and eGovernance through partnerships with ISPs, governments, and local businesses. It offers low-cost, eco-friendly, and high-quality solutions while promoting efficiency and reducing operational costs. The model leverages cloud-based platforms, localized content, and advanced technologies to improve government transparency, tourism experiences, and economic growth, particularly in rural areas."
+        "label_canvastitle": "This business model focuses on providing high-speed internet connectivity to enhance both tourism and eGovernance through partnerships with ISPs, governments, and local businesses. It offers low-cost, eco-friendly, and high-quality solutions while promoting efficiency and reducing operational costs. The model leverages cloud-based platforms, localized content, and advanced technologies to improve government transparency, tourism experiences, and economic growth, particularly in rural areas."
     },
     {
         "unique_id": 138,
@@ -3446,7 +3446,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model aims to foster high-speed internet connectivity by collaborating with governments, private sector players, and educational institutions to enhance tourism and eGovernance. It focuses on creating regulatory frameworks and policies to ensure equitable access to digital services, improve transparency, and empower local communities. By enabling efficient government operations and enriching the tourism experience, the model seeks to drive economic growth, job creation, and reduce social inequality."
+        "label_canvastitle": "This business model aims to foster high-speed internet connectivity by collaborating with governments, private sector players, and educational institutions to enhance tourism and eGovernance. It focuses on creating regulatory frameworks and policies to ensure equitable access to digital services, improve transparency, and empower local communities. By enabling efficient government operations and enriching the tourism experience, the model seeks to drive economic growth, job creation, and reduce social inequality."
     },
     {
         "unique_id": 139,
@@ -3471,7 +3471,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\ne-Learning platform revenues for businesses\nIncreased profitability via increased production\nIncreased profitability via cost reductions\nSelling Aquaculture products (B2B/B2C)\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)",
-"label_canvastitle": "This business model leverages high-speed internet to enhance education and aquaculture sectors, offering accessible, customizable e-learning platforms and improving aquaculture operations through data-driven insights. By enabling continuous learning and providing real-time water quality monitoring, it aims to boost productivity and sustainability in both sectors. The model supports local businesses and communities while fostering economic growth, reducing costs, and increasing efficiency across education and aquaculture practices."
+        "label_canvastitle": "This business model leverages high-speed internet to enhance education and aquaculture sectors, offering accessible, customizable e-learning platforms and improving aquaculture operations through data-driven insights. By enabling continuous learning and providing real-time water quality monitoring, it aims to boost productivity and sustainability in both sectors. The model supports local businesses and communities while fostering economic growth, reducing costs, and increasing efficiency across education and aquaculture practices."
     },
     {
         "unique_id": 140,
@@ -3496,7 +3496,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model integrates high-speed internet solutions to enhance education and aquaculture sectors, offering low-cost, low-power, and environment-friendly solutions with high-quality service and cloud-based content delivery. By fostering strategic partnerships with various stakeholders, it supports local businesses, communities, and academia through cost-effective internet connectivity and data-driven services. With a strong focus on rural businesses, the model generates revenue through specialized B2B offerings, subscription fees, and government subsidies, driving economic growth and sustainability."
+        "label_canvastitle": "This business model integrates high-speed internet solutions to enhance education and aquaculture sectors, offering low-cost, low-power, and environment-friendly solutions with high-quality service and cloud-based content delivery. By fostering strategic partnerships with various stakeholders, it supports local businesses, communities, and academia through cost-effective internet connectivity and data-driven services. With a strong focus on rural businesses, the model generates revenue through specialized B2B offerings, subscription fees, and government subsidies, driving economic growth and sustainability."
     },
     {
         "unique_id": 141,
@@ -3521,7 +3521,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Aquaculture\nProtection of water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on fostering high-speed internet connectivity in the education and aquaculture sectors, aiming to improve digital access for communities and enhance sustainability. Through collaborations with governments, universities, and private sectors, it drives innovations in sustainable aquaculture practices and accessible, cost-effective education. The model aims to benefit society by promoting job creation, digital literacy, and economic growth while protecting natural resources and reducing social inequality."
+        "label_canvastitle": "This business model focuses on fostering high-speed internet connectivity in the education and aquaculture sectors, aiming to improve digital access for communities and enhance sustainability. Through collaborations with governments, universities, and private sectors, it drives innovations in sustainable aquaculture practices and accessible, cost-effective education. The model aims to benefit society by promoting job creation, digital literacy, and economic growth while protecting natural resources and reducing social inequality."
     },
     {
         "unique_id": 142,
@@ -3546,7 +3546,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\ne-Learning platform revenues for businesses\nIncreased profitability via increased production\nIncreased profitability via cost reductions\nSelling Agricultural products (B2B/B2C)\nMonetise the use of smart farming infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to transform the education and agriculture sectors by providing accessible e-learning platforms and innovative agricultural solutions. It enhances the efficiency of farming practices through real-time crop monitoring, pest detection, and livestock health management while enabling global access to education. The model aims to boost productivity, reduce operational costs, and promote sustainability, benefiting local businesses, farmers, and communities."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to transform the education and agriculture sectors by providing accessible e-learning platforms and innovative agricultural solutions. It enhances the efficiency of farming practices through real-time crop monitoring, pest detection, and livestock health management while enabling global access to education. The model aims to boost productivity, reduce operational costs, and promote sustainability, benefiting local businesses, farmers, and communities."
     },
     {
         "unique_id": 143,
@@ -3571,7 +3571,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model aims to provide high-speed internet connectivity to enhance education and agricultural practices. By leveraging strategic partnerships, it offers low-cost, sustainable solutions with high-quality service, enabling access to learning platforms and optimized farming operations. The model supports rural communities, businesses, and public authorities, while fostering innovation and growth in both sectors."
+        "label_canvastitle": "This cross-sectoral business model aims to provide high-speed internet connectivity to enhance education and agricultural practices. By leveraging strategic partnerships, it offers low-cost, sustainable solutions with high-quality service, enabling access to learning platforms and optimized farming operations. The model supports rural communities, businesses, and public authorities, while fostering innovation and growth in both sectors."
     },
     {
         "unique_id": 144,
@@ -3596,7 +3596,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nSustainable Agriculture\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model focuses on providing high-speed internet connectivity to enhance both education and agriculture, supported by partnerships across government, academia, and the private sector. It fosters sustainable agriculture, digital literacy, and equitable access to learning, while driving economic growth in rural areas. The model aims to bridge connectivity gaps, strengthen societal resilience, and promote job creation through smart infrastructure and regulatory frameworks."
+        "label_canvastitle": "This cross-sectoral business model focuses on providing high-speed internet connectivity to enhance both education and agriculture, supported by partnerships across government, academia, and the private sector. It fosters sustainable agriculture, digital literacy, and equitable access to learning, while driving economic growth in rural areas. The model aims to bridge connectivity gaps, strengthen societal resilience, and promote job creation through smart infrastructure and regulatory frameworks."
     },
     {
         "unique_id": 145,
@@ -3621,7 +3621,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\neLearning platform revenues for businesses\nIncreased profitability via increased production\nIncreased profitability via cost reductions",
-"label_canvastitle": "This cross-sectoral business model focuses on delivering high-speed internet to support education and forestry sectors. It offers accessible e-learning for global reach while enhancing forestry practices through real-time monitoring, fire risk management, and wildlife tracking. By improving communication and surveillance capabilities, the model aims to boost productivity, sustainability, and forest conservation."
+        "label_canvastitle": "This cross-sectoral business model focuses on delivering high-speed internet to support education and forestry sectors. It offers accessible e-learning for global reach while enhancing forestry practices through real-time monitoring, fire risk management, and wildlife tracking. By improving communication and surveillance capabilities, the model aims to boost productivity, sustainability, and forest conservation."
     },
     {
         "unique_id": 146,
@@ -3646,7 +3646,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet to enhance education and forestry sectors. It offers affordable, low-maintenance connectivity with high data rates, supporting efficient operations in both sectors through localized cloud servers and real-time data analytics. The model focuses on empowering local communities, businesses, and public authorities while promoting environmental sustainability and digital inclusion."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet to enhance education and forestry sectors. It offers affordable, low-maintenance connectivity with high data rates, supporting efficient operations in both sectors through localized cloud servers and real-time data analytics. The model focuses on empowering local communities, businesses, and public authorities while promoting environmental sustainability and digital inclusion."
     },
     {
         "unique_id": 147,
@@ -3671,7 +3671,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nProtection of forests\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model for high-speed internet connectivity aims to transform education and forestry sectors through strategic partnerships and cross-sector collaboration. By integrating advanced technologies such as drones for forest monitoring and e-learning platforms, it fosters sustainable practices in both sectors while ensuring universal access to digital services. The initiative supports environmental protection, job creation, and enhanced societal development, contributing to the economic strength and digital inclusion of municipalities and local communities."
+        "label_canvastitle": "This business model for high-speed internet connectivity aims to transform education and forestry sectors through strategic partnerships and cross-sector collaboration. By integrating advanced technologies such as drones for forest monitoring and e-learning platforms, it fosters sustainable practices in both sectors while ensuring universal access to digital services. The initiative supports environmental protection, job creation, and enhanced societal development, contributing to the economic strength and digital inclusion of municipalities and local communities."
     },
     {
         "unique_id": 148,
@@ -3696,7 +3696,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\neLearning platform revenues for businesses\nSelling environmental monitoring services of any kind (B2B/B2Goverment)\nBetter quality services due to better connectivity",
-"label_canvastitle": "This business model leverages high-speed internet connectivity to drive digital education and environmental monitoring across sectors. By integrating e-learning platforms and real-time environmental data transmission, it enhances access to education and promotes sustainable environmental practices. The model fosters collaboration with diverse stakeholders, optimizing resources, reducing operational costs, and improving overall service quality in both sectors."
+        "label_canvastitle": "This business model leverages high-speed internet connectivity to drive digital education and environmental monitoring across sectors. By integrating e-learning platforms and real-time environmental data transmission, it enhances access to education and promotes sustainable environmental practices. The model fosters collaboration with diverse stakeholders, optimizing resources, reducing operational costs, and improving overall service quality in both sectors."
     },
     {
         "unique_id": 149,
@@ -3721,7 +3721,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity to enhance education and environmental monitoring through innovative, low-cost solutions. By leveraging partnerships with ISPs, NGOs, academic institutions, and government bodies, it offers high-quality services, including e-learning platforms and environmental data analytics. The model drives sustainable development with tailored solutions, optimized operations, and diversified revenue streams, ensuring wide accessibility and significant societal impact."
+        "label_canvastitle": "This cross-sectoral business model integrates high-speed internet connectivity to enhance education and environmental monitoring through innovative, low-cost solutions. By leveraging partnerships with ISPs, NGOs, academic institutions, and government bodies, it offers high-quality services, including e-learning platforms and environmental data analytics. The model drives sustainable development with tailored solutions, optimized operations, and diversified revenue streams, ensuring wide accessibility and significant societal impact."
     },
     {
         "unique_id": 150,
@@ -3746,7 +3746,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher HDI\nEconomic and societal strengthening of municipalities and strategic regions of the state\nProtection and rational use of soil and water\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model leverages partnerships with governments, educational institutions, and environmental organizations to deliver high-speed internet connectivity for education and environmental monitoring. By fostering inclusive access, enabling digital literacy, and supporting sustainable practices, it creates public value and strengthens regional economies. The model drives societal and environmental impact while promoting equitable growth and resource optimization."
+        "label_canvastitle": "This cross-sectoral business model leverages partnerships with governments, educational institutions, and environmental organizations to deliver high-speed internet connectivity for education and environmental monitoring. By fostering inclusive access, enabling digital literacy, and supporting sustainable practices, it creates public value and strengthens regional economies. The model drives societal and environmental impact while promoting equitable growth and resource optimization."
     },
     {
         "unique_id": 151,
@@ -3771,7 +3771,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\neLearning platform revenues for businesses\nMonetize the added value of robot connection in elderly homes",
-"label_canvastitle": "This cross-sectoral business model integrates high-speed internet to enhance education and eHealth services, focusing on rural and underserved areas. It provides accessible learning platforms, real-time health guidance, and social support for elderly populations, promoting inclusivity and well-being. By reducing costs and improving productivity, it fosters societal benefits and economic growth."
+        "label_canvastitle": "This cross-sectoral business model integrates high-speed internet to enhance education and eHealth services, focusing on rural and underserved areas. It provides accessible learning platforms, real-time health guidance, and social support for elderly populations, promoting inclusivity and well-being. By reducing costs and improving productivity, it fosters societal benefits and economic growth."
     },
     {
         "unique_id": 152,
@@ -3796,7 +3796,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet to revolutionize education and eHealth services, focusing on affordability, accessibility, and sustainability. By integrating advanced technologies, localized content, and robust partnerships, it ensures seamless connectivity and tailored solutions. The approach fosters improved learning, enhanced healthcare for rural communities, and economic growth through innovative revenue streams."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet to revolutionize education and eHealth services, focusing on affordability, accessibility, and sustainability. By integrating advanced technologies, localized content, and robust partnerships, it ensures seamless connectivity and tailored solutions. The approach fosters improved learning, enhanced healthcare for rural communities, and economic growth through innovative revenue streams."
     },
     {
         "unique_id": 153,
@@ -3821,7 +3821,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ health and well-being\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This cross-sectoral business model harnesses high-speed internet to enhance education and eHealth, ensuring universal connectivity for underserved regions. It establishes robust partnerships and strategic frameworks to improve access, support societal well-being, and foster digital literacy. The model drives economic growth, reduces social inequality, and strengthens health and educational infrastructure through sustainable, innovative solutions."
+        "label_canvastitle": "This cross-sectoral business model harnesses high-speed internet to enhance education and eHealth, ensuring universal connectivity for underserved regions. It establishes robust partnerships and strategic frameworks to improve access, support societal well-being, and foster digital literacy. The model drives economic growth, reduces social inequality, and strengthens health and educational infrastructure through sustainable, innovative solutions."
     },
     {
         "unique_id": 154,
@@ -3846,7 +3846,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\ne-Learning platform revenues for businesses\nReduced time of travel to local authorities\nImprove efficiency of public authorities",
-"label_canvastitle": "This cross-sectoral business model leverages high-speed internet to transform education and eGovernance by enhancing access, efficiency, and transparency. By providing cost-effective digital learning platforms and seamless e-governance services, it empowers citizens, businesses, and public authorities. The model fosters digital literacy, streamlines administrative processes, and drives socio-economic growth through innovative and inclusive connectivity solutions."
+        "label_canvastitle": "This cross-sectoral business model leverages high-speed internet to transform education and eGovernance by enhancing access, efficiency, and transparency. By providing cost-effective digital learning platforms and seamless e-governance services, it empowers citizens, businesses, and public authorities. The model fosters digital literacy, streamlines administrative processes, and drives socio-economic growth through innovative and inclusive connectivity solutions."
     },
     {
         "unique_id": 155,
@@ -3871,7 +3871,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model integrates high-speed internet connectivity to advance education and eGovernance through cost-effective, eco-friendly solutions. By leveraging partnerships with ISPs, NGOs, and government bodies, it delivers accessible education platforms and efficient governance tools. Key activities focus on fostering digital inclusion, reducing operational costs, and generating revenue through tailored B2B offerings, subscriptions, and government subsidies, ensuring long-term sustainability and societal benefits."
+        "label_canvastitle": "This business model integrates high-speed internet connectivity to advance education and eGovernance through cost-effective, eco-friendly solutions. By leveraging partnerships with ISPs, NGOs, and government bodies, it delivers accessible education platforms and efficient governance tools. Key activities focus on fostering digital inclusion, reducing operational costs, and generating revenue through tailored B2B offerings, subscriptions, and government subsidies, ensuring long-term sustainability and societal benefits."
     },
     {
         "unique_id": 156,
@@ -3896,7 +3896,7 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model promotes universal high-speed internet access to transform education and eGovernance, enhancing efficiency and inclusivity. By partnering with governments, universities, and private sectors, it supports digital literacy, reduces social inequality, and boosts economic growth. The framework fosters public value through streamlined services, job creation, and sustainable regional development."
+        "label_canvastitle": "This business model promotes universal high-speed internet access to transform education and eGovernance, enhancing efficiency and inclusivity. By partnering with governments, universities, and private sectors, it supports digital literacy, reduces social inequality, and boosts economic growth. The framework fosters public value through streamlined services, job creation, and sustainable regional development."
     },
     {
         "unique_id": 157,
@@ -3921,7 +3921,7 @@ export const businessModelData = [
         "label9_content": "Fixed costs for infrastructure and maintenance\nOperational costs",
         "label10_title": "Revenue Streams",
         "label10_content": "Reduced cost of travel expenses (for rural citizen & educators)\nReduced time of travel (for rural citizen & educators)\nIncreased Productivity for businesses\neLearning platform revenues for businesses\nMonetise the use of smart infrastructure for testing/evaluating services & solutions.  (Pay per hour/monthly/per project)\nSelling Touristic services (B2C)",
-"label_canvastitle": "This business model leverages high-speed internet to advance education and tourism, creating opportunities for remote learning and enhancing visitor experiences. By integrating AR/VR technologies and digital marketing, it empowers local SMEs, promotes cultural heritage, and streamlines services for tourists. The approach fosters economic growth, supports sustainable tourism, and broadens access to global educational resources."
+        "label_canvastitle": "This business model leverages high-speed internet to advance education and tourism, creating opportunities for remote learning and enhancing visitor experiences. By integrating AR/VR technologies and digital marketing, it empowers local SMEs, promotes cultural heritage, and streamlines services for tourists. The approach fosters economic growth, supports sustainable tourism, and broadens access to global educational resources."
     },
     {
         "unique_id": 158,
@@ -3946,7 +3946,7 @@ export const businessModelData = [
         "label9_content": "Manufacturing & Sourcing\nWi-Fi integration, funding, deployment, operation & maintenance\nEmployees & office\nR&D & Training\nSales & Marketing",
         "label10_title": "Revenue Streams",
         "label10_content": "Subscription fee\nSpecialised B2B offerings for rural businesses and cooperatives\nContent/ Application services revenue share\nGovernment subsidies for rural connectivity\nMobile Data offload revenues\nNetwork slice rent (technology, software, mobile and broadband network providers)\nHaas. Rent the set of hardware including deployment of the network (The client would be billed monthly, based on the systems deployed).\nIaas. The client should use his own hardware or purchase a device from us. Charge the client based on the amount of data to be transmitted.",
-"label_canvastitle": "This business model combines high-speed internet with innovative technologies to enhance education and tourism, offering scalable, low-cost, and eco-friendly solutions. It fosters collaboration among ISPs, governments, and academic institutions while supporting digital learning and immersive travel experiences like AR/VR tours. Revenue streams include subscription fees, specialized B2B services, and government subsidies, driving socio-economic growth and connectivity."
+        "label_canvastitle": "This business model combines high-speed internet with innovative technologies to enhance education and tourism, offering scalable, low-cost, and eco-friendly solutions. It fosters collaboration among ISPs, governments, and academic institutions while supporting digital learning and immersive travel experiences like AR/VR tours. Revenue streams include subscription fees, specialized B2B services, and government subsidies, driving socio-economic growth and connectivity."
     },
     {
         "unique_id": 159,
@@ -3971,6 +3971,6 @@ export const businessModelData = [
         "label9_content": "Universal and democratic access to digital connectivity\nPossible increase of per capita income\nJob creation\nHigher Human Development Index (HDI)\nEconomic and societal strengthening of municipalities and strategic regions of the state\nEnhance citizens’ digital literacy\nReduction of social inequality",
         "label10_title": "Public Value",
         "label10_content": "Provide universal access to High-Speed Internet services by means of trustable and credible service, generating a fair and prosperous state that guarantees the well-being of the population as well as the financial sustainability of SMEs.",
-"label_canvastitle": "This business model focuses on creating high-speed internet connectivity to drive growth in education and tourism sectors. By fostering collaboration between governments, universities, and the private sector, it supports digital learning and immersive tourism experiences. The model promotes economic development, enhances digital literacy, and ensures accessible, inclusive connectivity for all stakeholders."
+        "label_canvastitle": "This business model focuses on creating high-speed internet connectivity to drive growth in education and tourism sectors. By fostering collaboration between governments, universities, and the private sector, it supports digital learning and immersive tourism experiences. The model promotes economic development, enhances digital literacy, and ensures accessible, inclusive connectivity for all stakeholders."
     }
 ]
