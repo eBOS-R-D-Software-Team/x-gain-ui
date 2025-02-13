@@ -10,7 +10,7 @@ const BusinessModelPDF = ({ businessModelRef }) => {
     const { handleStyledText, handleExportBusinessModelImage } = usePDFContext();
 
     const handlePDFTemplate = async () => {
-        const doc = new jsPDF('l', 'mm', [397, 290]);
+        const doc = new jsPDF('l', 'mm', [397, 400]);
 
         let finalYPosition = 15;
 
@@ -25,16 +25,20 @@ const BusinessModelPDF = ({ businessModelRef }) => {
         const screenWidth = window.innerWidth;
 
         if (businessModelRef.current) {
-            if (screenWidth >= 1200) {
-                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 400, 150);
+            if (screenWidth >= 1900) {
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 20, 400, 150);
+            } else if (screenWidth >= 1200) {
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 20, 400, 340);
             } else if(screenWidth >= 992) {
-                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 350, 220);
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 300, 330);
             } else if(screenWidth >= 767) {
                 await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 200, 220);
             } else if(screenWidth >= 576) {
-                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 150, 220);
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 130, 330);
+            } else if(screenWidth >= 424) {
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 100, 320);
             } else {
-                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 50, 100, 220);
+                await handleExportBusinessModelImage(doc, businessModelRef, finalYPosition + 20, 40, 330);
             }
         } 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Avatar, Tooltip } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { renderBulletedList } from '../../HelperFunctions';
+import { renderBulletedList } from '../../Utils/ResultsUtils';
 import { descriptionsBusinessModel } from '../../Data/Data';
 
 const BusinessModelCard = ({ type, title, content, icon, color }) => { 
