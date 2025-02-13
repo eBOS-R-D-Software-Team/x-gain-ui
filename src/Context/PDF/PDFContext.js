@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { formatDecimalNumber } from '../../HelperFunctions';
+import { formatDecimalNumber } from '../../Utils/ResultsUtils';
 import 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 
@@ -48,20 +48,20 @@ export const PDFProvider = ({ children }) => {
 
         const dataSource = data ? Object.keys(data).map((key) => {
             const yearlyData = data[key];
-            // let yearlyData;
-            // let layer;
+            let layer
 
-            // if(name === 'capexPerComponent') {
-            //     yearlyData = data[key].values;
-            //     layer = data[key].layer;
-            // } else {
-            //     yearlyData = data[key]
-            //     layer = key
-            // }
+            const solutionAnalysisData = JSON.parse(localStorage.getItem('filteredSolutionAnalysisDataBySol'))       
+            const metadataExists = solutionAnalysisData?.componentMetadata && solutionAnalysisData.componentMetadata[key];
+            const fetchName = metadataExists ? solutionAnalysisData.componentMetadata[key].name : undefined;         
+
+            if(name === 'capexPerComponent') {
+                layer = fetchName ?? key;
+            } else {
+                layer = key
+            }
 
             const rowData = [
-                key,
-                // layer,
+                layer,
                 ...periods.map((_, periodIndex) => formatDecimalNumber(yearlyData[periodIndex] || 0))
             ];
 

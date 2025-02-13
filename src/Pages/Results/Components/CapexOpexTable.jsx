@@ -1,6 +1,6 @@
 import React from 'react';
 import TechnoEconomicAssessmentTable from '../../../Components/ResultsElements/TechnoEconomicAssessmentTable';
-import { formatDecimalNumber } from '../../../HelperFunctions';
+import { formatDecimalNumber } from '../../../Utils/ResultsUtils';
 
 const CapexOpexTable = ({name, title, data, periods, yearlyTotal, categoryTotal}) => {
     // Create columns based on periods
@@ -26,29 +26,26 @@ const CapexOpexTable = ({name, title, data, periods, yearlyTotal, categoryTotal}
 
     // Map capexData to the format expected by the table
     const dataSource = data ? Object.keys(data).map((key, index) => {
+        const solutionAnalysisData = JSON.parse(localStorage.getItem('filteredSolutionAnalysisDataBySol'))       
+
         const yearlyData = data[key];
-        
-        const rowData = {
-            key: index,
-            category: key,
-        };
+        let rowData;
 
-        // let yearlyData;
-        // let rowData;
+        const metadataExists = solutionAnalysisData?.componentMetadata && solutionAnalysisData.componentMetadata[key];
 
-        // if(name === 'capexPerComponent') {
-        //     yearlyData = data[key].values;
-        //     rowData = {
-        //         key: index,
-        //         category: data[key].layer,
-        //     };
-        // } else {
-        //     yearlyData = data[key];
-        //     rowData = {
-        //         key: index,
-        //         category: key,
-        //     };
-        // }
+        const fetchName = metadataExists ? solutionAnalysisData.componentMetadata[key].name : undefined;
+
+        if(name === 'capexPerComponent') {
+            rowData = {
+                key: index,
+                category: fetchName ?? key,
+            };
+        } else {
+            rowData = {
+                key: index,
+                category: key,
+            };
+        }
      
         periods.forEach((period, periodIndex) => {
             rowData[period.label] = formatDecimalNumber(yearlyData[periodIndex]);

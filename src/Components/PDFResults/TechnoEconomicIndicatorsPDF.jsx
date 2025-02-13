@@ -3,7 +3,7 @@ import { usePDFContext } from '../../Context/PDF/PDFContext';
 import { usePDFEdgeEnablersTableContext } from '../../Context/PDF/PDFEdgeEnablersTableContext';
 import { Tooltip, Button } from 'antd'; 
 import { DownloadOutlined } from '@ant-design/icons';
-import { formatDecimalNumber } from '../../HelperFunctions';
+import { formatDecimalNumber } from '../../Utils/ResultsUtils';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
