@@ -39,7 +39,8 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
     // Ensure it navigates to the default question on first load
     useEffect(() => {
         setCurrentQuestionKey('dev_per_type')
-    }, [setCurrentQuestionKey]);
+        setCount(0)
+    }, [setCurrentQuestionKey, setCount]);
 
     
     useEffect(() => {
@@ -164,6 +165,7 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
             const prevKey = keysArray[keysArray.length - 1]; // Find the last key
             console.log('currentQuestion' ,currentQuestion?.device);
             console.log('prevKey' ,prevKey);
+            const inputValueRobot =  formData.initData['robot_type'].result;          
 
             if (formData.data && Object.keys(formData.data).length > 0) {
                 if (keysArray.length > 0) {
@@ -179,7 +181,22 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
                     if(selectedLevel === 'Community') {
                         let devicesArray;
 
-                        if (['sensor_rate', 'type_of_drones', 'personal_dev_type', 'camera_rate', 'robot_type'].includes(currentQuestionKey)) {   
+                        if(prevKey === 'dev_per_type') {
+                            setCount(0)
+                            localStorage.setItem('devices', JSON.stringify([]));
+                        }
+
+                        if(prevKey !== 'dev_per_type' && currentQuestionKey === 'robot_type' && (inputValueRobot === '' || inputValueRobot === null)) {
+                            devicesArray = getDevicesFromStorage(true, setNewDevicesPerType, setCount);
+                        }
+
+                        const notSelectedDevices = Object.values(devicesChoice).every(value => value === false);
+
+                        if(prevKey !== 'dev_per_type' && currentQuestionKey === 'personal_dev_type' && notSelectedDevices) {
+                            devicesArray = getDevicesFromStorage(true, setNewDevicesPerType, setCount);
+                        }
+
+                        if (['sensor_rate', 'type_of_drones', 'camera_rate'].includes(currentQuestionKey)) {
                             devicesArray = getDevicesFromStorage(true, setNewDevicesPerType, setCount);
 
                             updatedInitData = {
@@ -216,7 +233,7 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
         setBackAction(() => handleBackPreviousQuestion); 
       
         return () => setBackAction(null);
-    }, [setBackAction, selectedLevel, formData,setCurrentQuestionKey, currentQuestionKey, navigate, setCount, count]);
+    }, [setBackAction, selectedLevel, formData, devicesChoice, setCurrentQuestionKey, currentQuestionKey, navigate, setCount, count]);
 
    
     const handleChoiceChange = (choice) => {
@@ -227,6 +244,7 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
                 type: "string",
                 choice: choice.text,
                 counter: count,
+                input: '',
                 result: questions[currentQuestionKey].choices.map(c => c.text === choice.text ? 1 : 0),
             };
     
@@ -300,7 +318,7 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
 
         // Update formData result accordingly
         setFormData((prevState) => {
-            const updatedResult = [...prevState.initData[currentQuestionKey].result];
+            const updatedResult = [...(prevState.initData[currentQuestionKey].result || [])];
             
             if (deviceType === 'tablet') {
                 updatedResult[0] = parseInt(value) || 0; // Update tablet count
@@ -395,7 +413,19 @@ const QuestionsList = ({ currentQuestionKey, setCurrentQuestionKey, selectedLeve
             }
         } catch (error) {
             console.error("An error occurred during the submission process:", error);
-            message.error("An error occurred during the submission process:", error)
+            let errorMessage = "An error occurred during the submission process";
+            if (error.response) {
+                try {
+                    const errorData = await error.response.json();
+                    errorMessage = errorData?.message || errorMessage;
+                } catch (jsonError) {
+                    console.error("Failed to parse error response:", jsonError);
+                }
+            } else if (error.message) {
+                errorMessage = error.message;
+            }
+
+            message.error(errorMessage);
         } finally {
             setLoading(false);
         }

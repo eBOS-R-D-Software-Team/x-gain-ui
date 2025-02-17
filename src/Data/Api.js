@@ -83,6 +83,14 @@ export const postDataToICCSApi = async () => {
         };
 
         const mainResponseData = await postMainData(mainData, loginResponseData.access_token);
+
+        if (!mainResponseData || mainResponseData.error) {
+            // If the API response contains an error message, show it
+            const errorMessage = mainResponseData?.error?.message || "Failed to submit data";
+            message.error(errorMessage);
+            return false;
+        }
+
         localStorage.setItem('iccs_response', JSON.stringify(mainResponseData));
 
         console.log('Main response:', mainResponseData);
@@ -90,7 +98,20 @@ export const postDataToICCSApi = async () => {
 
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
-        message.error('There was a problem with the fetch operation');
+
+        let errorMessage = "There was a problem with the fetch operation";
+        if (error.response) {
+            try {
+                const errorData = await error.response.json();
+                errorMessage = errorData?.message || errorMessage;
+            } catch (jsonError) {
+                console.error("Failed to parse error response:", jsonError);
+            }
+        } else if (error.message) {
+            errorMessage = error.message;
+        }
+
+        message.error(errorMessage);
         return false;
     }
 };

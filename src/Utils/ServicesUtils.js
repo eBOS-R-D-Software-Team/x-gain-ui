@@ -114,14 +114,14 @@ export const returnUpdatedFormData = (fun, prevFormData, key, updateValues, setN
                     ...prevFormData.initData,
                     [key]: {
                         ...prevFormData.initData[key],
-                        result: updateValues
+                        result: updateValues.result || []
                     }
                 },
                 data: {
                     ...prevFormData.data,
                     [key]: {
                         ...prevFormData.data[key],
-                        result: updateValues
+                        result: updateValues.result || []
                     }
                 }
             }
