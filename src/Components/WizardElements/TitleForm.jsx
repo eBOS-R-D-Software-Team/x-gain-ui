@@ -38,7 +38,7 @@ const TitleForm = ({icon, subicon, title, subtitle, level, color ,tooltips }) =>
             </div>
             { !isHiddenPath  && (
                 <Tooltip title={tooltips}>
-                    <InfoCircleOutlined style={{ marginLeft: 120, fontSize: 40, color: "#00678A" }} />
+                    <InfoCircleOutlined style={{ paddingLeft: 30, fontSize: 40, color: "#00678A" }} />
                 </Tooltip>
             )}
         </Col>

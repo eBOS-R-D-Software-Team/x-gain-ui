@@ -460,12 +460,12 @@ export const questions = {
         ]
     },
     robot_type: {
-        text: "What type of personal device will you be using? Please provide the number of each.",
+        text: "Please specify type of device you want to deploy.",
         choices: [
         ],
         input: {
             nextQuestion: "robot_service",
-            label: "Specify type of device you want to deploy",
+            label: "",
             value: "" // Initialize with an empty string
         }
     },
@@ -516,7 +516,7 @@ export const questions = {
         choices: [],
         input: {
             nextQuestion: "robot_cost",
-            label: "What is the power consumption of your device? (In Watt, W)",
+            label: "",
             value: "" // Initialize with an empty string
         }
     },
@@ -525,7 +525,7 @@ export const questions = {
         choices: [],
         input: {
             nextQuestion: "end",
-            label: "What is the cost of your device? (In Euro)",
+            label: "",
             value: "" // Initialize with an empty string
         }
     },

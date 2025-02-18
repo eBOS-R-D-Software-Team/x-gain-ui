@@ -205,15 +205,17 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                         </div>                    
                         <div className="right-navbar" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             {/* Save Button */}
-                            {((selectedLevel === 'Local') || (selectedLevel === 'Community') || (!(
-                                (currentQuestionKey === 'dev_per_type' && count > 0) || 
-                                (currentQuestionKey === 'sensor_rate' && count > 0) ||
-                                (currentQuestionKey === 'type_of_drones' && count > 0) ||
-                                (currentQuestionKey === 'personal_dev_type' && count > 0) ||
-                                (currentQuestionKey === 'camera_rate' && count > 0) ||
-                                (currentQuestionKey === 'robot_type' && count > 0)
-                            ))) && (
-                                currentLocationPage !== '/home' && currentLocationPage !== '/sector-services-level' && (
+                            {(selectedLevel === 'Local' || (currentQuestionKey === 'dev_per_type' && count === 0) ||
+                                (selectedLevel === 'Community' && !(
+                                    (currentQuestionKey === 'dev_per_type' && count > 0) || 
+                                    (currentQuestionKey === 'sensor_rate' && count > 0) ||
+                                    (currentQuestionKey === 'type_of_drones' && count > 0) ||
+                                    (currentQuestionKey === 'personal_dev_type' && count > 0) ||
+                                    (currentQuestionKey === 'camera_rate' && count > 0) ||
+                                    (currentQuestionKey === 'robot_type' && count > 0)
+                                ))) &&
+                                currentLocationPage !== '/home' && 
+                                currentLocationPage !== '/sector-services-level' && (
                                     <Tooltip title="Save as JSON">
                                         <button
                                             onClick={SaveButton}
@@ -236,7 +238,7 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                         </button>
                                     </Tooltip>
                                 )
-                            )}
+                            }
                             {/* Conditionally render the Upload button only on the home page */}
                             {currentLocationPage === '/home' && (
                                 <Tooltip title="Upload JSON file">

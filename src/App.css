@@ -325,24 +325,26 @@ button .ant-btn-icon {
 }
 
 .startButtonTermsIndex{
-  width: 10%;
-  height: 20%;
   font-size: 20px;
   font-family: Tahoma, Verdana, sans-serif;  
+  padding: 20px 40px;
 }
 
 /* hide top logo */
 @media (min-width: 604px) {
+  .backbuttonMargin{
+    margin-left: 70px;
+  }
+}
+
+@media (min-width: 603px) {
   .logoHiden{
     display: none !important;
   }
+
   .layoutPaddingTop{
     padding-top: 60px !important;   
   }
-  .backbuttonMargin{
-    margin-left: 100px;
-  }
-
 }
 
 /* hide left side logo */
