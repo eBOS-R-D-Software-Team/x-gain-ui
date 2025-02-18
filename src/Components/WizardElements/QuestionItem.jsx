@@ -29,7 +29,22 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
     const isRobotsInputLess3750 = (formData.choice === 'Other type of device' && formData.input > 3750);
 
     useEffect(() => {
-        if (isSensorsInputLess75000) {
+        const tabletValue = inputDevicesValues.tablet !== '' ? Number(inputDevicesValues.tablet) : null;
+        const laptopValue = inputDevicesValues.laptop !== '' ? Number(inputDevicesValues.laptop) : null;
+        const inputValue = formData.input !== '' ? Number(formData.input) : null;
+
+        if (currentQuestionKey === 'dev_per_type' && (formData.input === '' || formData.input === null || formData.input === undefined)) {
+            setErrorMessage(null);
+            return;
+        }
+
+        if(isChoicesRequired && inputValue === 0) {
+            setErrorMessage('The value cannot be 0');
+        } else if(/[-]/.test(formData.input)) {
+            setErrorMessage('The value cannot be negative numbers');
+        } else if(/[-]/.test(tabletValue)) {
+            setErrorMessage('The value cannot be negative numbers');
+        } else if (isSensorsInputLess75000) {
             setErrorMessage('The value must be less than 75000');
         } else if (isDronesInputLess75) {
             setErrorMessage('The value must be less than 75');
@@ -37,14 +52,22 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
             setErrorMessage('The value must be less than 3750');
         } else if (isRobotsInputLess3750) {
             setErrorMessage('The value must be less than 3750');
-        } else if (devicesChoice.tablet && inputDevicesValues.tablet > 2500) {
+        } else if (devicesChoice.tablet && tabletValue !== null && tabletValue === 0) {
+            setErrorMessage('The value for tablets cannot be 0');  // This only runs if tabletValue is not empty
+        } else if (devicesChoice.tablet && tabletValue !== null && tabletValue < 0) {
+            setErrorMessage('The value for tablets cannot be negative');
+        }else if (devicesChoice.tablet && tabletValue !== null && tabletValue > 2500) {
             setErrorMessage('The value must be less than 2500');
-        } else if (devicesChoice.laptop && inputDevicesValues.laptop > 2500) {
+        } else if (devicesChoice.laptop && laptopValue !== null && laptopValue === 0) {
+            setErrorMessage('The value for laptops cannot be 0');
+        } else if (devicesChoice.laptop && laptopValue !== null && laptopValue < 0) {
+            setErrorMessage('The value for laptops cannot be negative');
+        } else if (devicesChoice.laptop && laptopValue !== null && laptopValue > 2500) {
             setErrorMessage('The value must be less than 2500');
         } else {
             setErrorMessage(null);
         }
-    }, [isSensorsInputLess75000, isDronesInputLess75, isCamerasInputLess3750, isRobotsInputLess3750, devicesChoice.tablet, inputDevicesValues.tablet, devicesChoice.laptop, inputDevicesValues.laptop]); // Dependencies
+    }, [isChoicesRequired, formData.input, isSensorsInputLess75000, isDronesInputLess75, isCamerasInputLess3750, isRobotsInputLess3750, devicesChoice.tablet, inputDevicesValues.tablet, devicesChoice.laptop, inputDevicesValues.laptop, currentQuestionKey]); // Dependencies
     
 
     useEffect(() => {
@@ -123,7 +146,7 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
 
             {input && currentQuestionKey !== 'personal_dev_type' && formData.choice !== 'Personal Devices (Smartphones / Tablets / Laptops)' && (           
                 <Col span={24} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Card size="small" style={{ background: "rgba(0, 44, 60, 0.10)", textAlign: 'center', marginTop: 20, padding: '30px 0' }}>                                         
+                    <Card size="small" style={{ minWidth: '40%', background: "rgba(0, 44, 60, 0.10)", textAlign: 'center', marginTop: 20, padding: '30px 0' }}>                                         
                         <Row>
                             <Col span={24}>
                                 <label style={{color: "#00678A", fontSize: "20px", fontWeight: "700"}}>{input.label}</label>
@@ -134,11 +157,12 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
                                     onChange={(e) => handleInputChange(e, 'input')}
                                     disabled={disableInput }
                                     style={{ width: "100%", margin: "20px 0", }}
+                                    autoComplete='off'
                                 />
                             </Col>
                         </Row> 
                         <Row style={{ justifyContent: 'center' }}>
-                            <Col span={8}>
+                            <Col span={24}>
                                 {!isLastQuestion && input && (
                                     <Button
                                         size="large"
@@ -197,6 +221,7 @@ const QuestionItem = ({ questionData, level, selectedDevicesList, formData, hand
                         {level === 'Community' && selectedDevicesList.length <= 4 && 
                             <Col span={12} sm={12} xs={24} style={{marginBottom: 20}}>
                                 <ConfirmButton
+                                    disabled={(isChoicesRequired && isNextButtonDisabled) || (!isChoicesRequired && !formData.input)}
                                     onClick={handleNewDevice}
                                     color={'#00A27B'} 
                                     text={'Add New Device'}

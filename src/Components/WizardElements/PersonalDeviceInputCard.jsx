@@ -15,6 +15,7 @@ const PersonalDeviceInputCard = ({ deviceType, label, value, onChange }) => {
                             onChange={(e) => onChange(e, deviceType)}
                             disabled={false}
                             style={{ width: "100%", margin: "20px 0" }}
+                            autoComplete='off'
                         />
                     </Col>
                 </Row>    

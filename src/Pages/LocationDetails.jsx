@@ -48,24 +48,45 @@ function LocationDetails() {
 
 
     useEffect(() => {          
-        if ( !location  ||  !checkedTerrainTypes.includes(1) || checkedWeatherConditions.slice(0, 3).filter(value => value === 1).length !== 1   ){
-            setDisabled(true)
-        } else if (vegetationHeight > 50 && checkedTerrainTypes.at(1) === 1){
-            message.error('The average vegetation height cannot be higher than 50 meters')
-            setDisabled(true)
+        let errorMessage = '';
+
+        if (!location || !checkedTerrainTypes.includes(1) || checkedWeatherConditions.slice(0, 3).filter(value => value === 1).length !== 1) {
+            setDisabled(true);
+            return;
         }
-        else if (area > 5000  ){ 
-            message.error('The area cannot be higher than 5000.')
-            setDisabled(true)
-        }
-        else if (!area){
-            setDisabled(true)
-        }
-        else{        
-            setDisabled(false)
-        }    
-    }, [vegetationHeight ,location , checkedTerrainTypes , checkedWeatherConditions , area]);
     
+        if (checkedTerrainTypes.at(1) === 1) {
+            if (vegetationHeight > 50) {
+                errorMessage = 'The average vegetation height cannot be higher than 50 meters';
+            } else if (!vegetationHeight) {
+                errorMessage = 'The vegetation height is empty';
+            } else if (/[-]/.test(vegetationHeight)) {
+                errorMessage = 'The vegetation height cannot be a negative number.';
+            }
+        }
+    
+        if (!errorMessage) {
+            if (Number(area) > 5000) {
+                errorMessage = 'The area cannot be higher than 5000.';
+            } else if (Number(area) === 0) {
+                errorMessage = 'The area cannot be 0.';
+            } else if (!area && area !== 0) {
+                setDisabled(true);
+                return;
+            } else if (/[-]/.test(area)) {
+                errorMessage = 'The area cannot be a negative number.';
+            }
+        }
+    
+        if (errorMessage) {
+            message.error(errorMessage);
+            setDisabled(true);
+        } else {
+            setDisabled(false);
+        }
+    }, [vegetationHeight, location, checkedTerrainTypes, checkedWeatherConditions, area]);
+    
+
     const handleChangeTerrain = (index) => {
         const newCheckedItems = [...checkedTerrainTypes];
         newCheckedItems[index] = newCheckedItems[index] === 1 ? 0 : 1;
@@ -83,24 +104,29 @@ function LocationDetails() {
         setCheckedTerrainTypes(newCheckedItems);
     };
 
+
     const handleChangeWeather = (index) => {
         const newCheckedItems = [...checkedWeatherConditions];
         newCheckedItems[index] = newCheckedItems[index] === 1 ? 0 : 1;
         setCheckedWeatherConditions(newCheckedItems);
     };
 
+
     const handleChangeLocation= (value) => {
         setLocation(value);
     };
 
+
     const handleChangeArea = (value) => {       
-        setArea(value); 
+        setArea(value ? Number(value) : ''); 
     };
+
 
     const handleChangeVegetationHeight = (value) => {
         setVegetationHeight(value); 
     };
 
+    
     const handleNextClick = () => {
         const data = {
             location: {
