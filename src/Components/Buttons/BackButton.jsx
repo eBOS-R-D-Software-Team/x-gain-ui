@@ -3,12 +3,22 @@ import React from 'react';
 import { Tooltip } from 'antd'; 
 import { LeftCircleOutlined } from '@ant-design/icons';
 import { useBackButton } from '../../Context/BackButtonContext';
+import { useNavigate } from 'react-router-dom';
 
 const BackButton = ({ currentLocationPage }) => {
     
     const { backAction, defaultBackAction } = useBackButton(); // Get the back action from context
-    const handleBackClick = () => {        
-        if (currentLocationPage === '/questions') {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {     
+        const previousPage = document.referrer; // Get the last visited page
+        console.log('previousPage' ,previousPage );
+        console.log('currentLocationPage' ,currentLocationPage );
+        if (currentLocationPage === '/sector-services-level' &&  localStorage.getItem('levelRegional') === 'true' ) {   
+            localStorage.removeItem('levelRegional')        
+            navigate('/home'); 
+        }
+        else if (currentLocationPage === '/questions') {
             // Call the backAction
             backAction();        
         }

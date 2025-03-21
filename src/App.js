@@ -18,6 +18,7 @@ import HasEmployeesQuestion from './Pages/SocialWizard/HasEmployeesQuestion';
 import SocialQuestionsList from './Pages/SocialWizard/SocialQuestionsList';
 import BusinessModel from './Pages/Results/BusinessModel';
 import SocioEnvironmentalIndicators from './Pages/Results/SocioEnvironmentalIndicators';
+import RegionalAssessment from './Pages/Regional/RegionalAssessment';
 
 function App() { 
 	//Pass States from QuestionsList
@@ -40,6 +41,7 @@ function App() {
 		<div className="App">
 			<Routes>
 				<Route exact path="/" element={!checkTerms ?  <TermsIndex />  : <Navigate to='/home'/> } />   
+				<Route path="/regionalAssessment" element={<RegionalAssessment/>} />
 				<Route element={<HeaderMenu currentQuestionKey={currentQuestionKey} selectedLevel={selectedLevel} count={count} />}>        
 					<Route path="/home" element={<Home />} />          
 					<Route path="/sector-services-level" element={<SectorServicesLevel />} />
