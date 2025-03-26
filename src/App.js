@@ -19,6 +19,8 @@ import SocialQuestionsList from './Pages/SocialWizard/SocialQuestionsList';
 import BusinessModel from './Pages/Results/BusinessModel';
 import SocioEnvironmentalIndicators from './Pages/Results/SocioEnvironmentalIndicators';
 import RegionalAssessment from './Pages/Regional/RegionalAssessment';
+import clarity from '@microsoft/clarity';
+
 
 function App() { 
 	//Pass States from QuestionsList
@@ -28,6 +30,12 @@ function App() {
   	const navigate = useNavigate();
 
 	const checkTerms = localStorage.getItem('Terms'); 
+
+	useEffect(() => {
+		clarity.init('qu6da2ly1q');
+	}, []);
+
+
 	useEffect(() => {
 		// Check the condition if not accept terms then navigate the terms page 
 		if (!checkTerms ) {
