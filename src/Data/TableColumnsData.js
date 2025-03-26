@@ -53,35 +53,21 @@ export const technologyMixesColumns = (data) => [
                     </Tooltip>
                 ),
                 key: 'localConnectivity',
+                dataIndex: ['Connectivity_information', 'NetsLocalUser'],
                 className: 'technology-table-child',
                 onCell: (record) => ({
                     rowSpan: record.rowSpanLocalNetsUserData, // Dynamically merging rows
                 }),
-                render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links;
-                    const netsValue = linksLength === 2 
-                        ? null
-                        : record.Connectivity_information.NetsLocalUser;
-                    
-                    return netsValue;
-                },
             },
             {
                 title: 'No',
                 key: 'no2',
                 width: 50,
+                dataIndex: ['Connectivity_information', 'NetsLocalUser'],
                 className: 'technology-table-child',
                 onCell: (record) => ({
                     rowSpan: record.rowSpanLocalNetsNumberData, // Dynamically merging rows
                 }),
-                render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links;
-                    const netsValue = linksLength === 2 
-                        ? null
-                        : record.Connectivity_information.NetsLocalNumber;
-                    
-                    return netsValue;
-                },
             },
             {
                 title: (
@@ -89,36 +75,22 @@ export const technologyMixesColumns = (data) => [
                         (Public) Internet Connectivity  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
                     </Tooltip>
                 ),
+                dataIndex: ['Connectivity_information', 'NetsLocalNumber'],
                 key: 'internetConnectivity',
                 className: 'technology-table-child',
                 onCell: (record) => ({
                     rowSpan: record.rowSpanInternetNetsUserData, // Dynamically merging rows
                 }),
-                render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links;
-                    const netsValue = linksLength === 2 
-                        ? record.Connectivity_information.NetsLocalUser
-                        : record.Connectivity_information.NetsInternetUser;
-                    
-                    return netsValue;
-                },
             },
             {
                 title: 'No',
+                dataIndex: ['Connectivity_information', 'NetsInternetNumber'],
                 key: 'no3',
                 width: 50,
                 className: 'technology-table-child',
                 onCell: (record) => ({
                     rowSpan: record.rowSpanInternetNetsNumberData, // Dynamically merging rows
                 }),
-                render: (text, record) => {
-                    const linksLength = record.Connectivity_information.Links;
-                    const netsValue = linksLength === 2 
-                        ? record.Connectivity_information.NetsLocalNumber
-                        : record.Connectivity_information.NetsInternetNumber
-                    
-                    return netsValue;
-                },
             },
             {
                 title: 'Notes',

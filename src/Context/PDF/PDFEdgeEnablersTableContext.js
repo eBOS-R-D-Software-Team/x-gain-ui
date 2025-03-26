@@ -82,12 +82,8 @@ export const PDFEdgeEnablersTableProvider = ({ children }) => {
 
             return [
                 (netsNumbers[0] ? netsNumbers[0] + 'x ' : '') + (netsData[0] ?? ''), 
-                record.Connectivity_information?.Links?.length === 2 
-                    ? null 
-                    : (netsNumbers[1] ? netsNumbers[1] + 'x ' : '') + (netsData[1] ?? ''), // Local Connectivity
-                record.Connectivity_information?.Links?.length === 2 
-                    ? (netsNumbers[1] ? netsNumbers[1] + 'x ' : '') + (netsData[1] ?? '') 
-                    : (netsNumbers[2] ? netsNumbers[2] + 'x ' : '') + (netsData[2] ?? ''), // (Public) Internet Connectivity
+                (netsNumbers[1] ? netsNumbers[1] + 'x ' : '') + (netsData[1] ?? ''), 
+                (netsNumbers[2] ? netsNumbers[2] + 'x ' : '') + (netsData[2] ?? ''), 
                 (Array.isArray(processingExtremeNumbers) && processingExtremeNumbers?.length > 0 
                     ? combinedProcessingData[0] 
                     : ''), // Extreme              
