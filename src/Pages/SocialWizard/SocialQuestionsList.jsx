@@ -116,10 +116,17 @@ function SocialQuestionsList() {
     const handleConfirmButton = async () => {
         setLoading(true);
         try {
+            await postSocialAnswers(dataCalculateSocialScore);
+        } catch (error) {
+            message.warning("Failed to submit social answers, but other data was submitted.");
+            console.error("Error during postSocialAnswers:", error);
+        }
+
+        try {
             await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate delay
             setIsCompleted(true);
             await postSolutionsAnalysis();
-            await postSocialAnswers(dataCalculateSocialScore);
+            // await postSocialAnswers(dataCalculateSocialScore);
             await postEnvironmentalData(iccsResponseData);
             navigate('/impact-assessment');
         } catch (error) {

@@ -63,7 +63,7 @@ export const technologyMixesColumns = (data) => [
                 title: 'No',
                 key: 'no2',
                 width: 50,
-                dataIndex: ['Connectivity_information', 'NetsLocalUser'],
+                dataIndex: ['Connectivity_information', 'NetsLocalNumber'],
                 className: 'technology-table-child',
                 onCell: (record) => ({
                     rowSpan: record.rowSpanLocalNetsNumberData, // Dynamically merging rows
@@ -75,7 +75,7 @@ export const technologyMixesColumns = (data) => [
                         (Public) Internet Connectivity  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
                     </Tooltip>
                 ),
-                dataIndex: ['Connectivity_information', 'NetsLocalNumber'],
+                dataIndex: ['Connectivity_information', 'NetsInternetUser'],
                 key: 'internetConnectivity',
                 className: 'technology-table-child',
                 onCell: (record) => ({
