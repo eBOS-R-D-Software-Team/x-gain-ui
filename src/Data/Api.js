@@ -4,12 +4,15 @@ import { message } from 'antd';
 const USERNAME = 'xgain';
 const PASSWORD = 'xG4iN1Cc$-ins';
 
-const iccsUrl = process.env.REACT_APP_API_BASE_URL;
+// const USERNAME = process.env.REACT_APP_API_USERNAME;
+// const PASSWORD = process.env.REACT_APP_API_PASSWORD;
+//const iccsUrl = process.env.REACT_APP_API_BASE_URL;
 const communityIccsUrl = process.env.REACT_APP_API4_BASE_URL;
 const incUrl = process.env.REACT_APP_API1_BASE_URL;
 const wrUrl = process.env.REACT_APP_API3_BASE_URL;
 
-
+console.log("Username:", USERNAME);
+console.log("Password:", PASSWORD);
 const apiRequest = async (url, method, headers, body) => {
     const response = await fetch(url, {
         method,
@@ -26,7 +29,7 @@ const apiRequest = async (url, method, headers, body) => {
 
 
 const fetchLoginToken = async (loginData) => {
-    return apiRequest(`${iccsUrl}/login`, 'POST', {
+    return apiRequest(`${communityIccsUrl}/login`, 'POST', {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*',
