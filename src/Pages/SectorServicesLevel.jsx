@@ -24,7 +24,7 @@ function SectorServicesLevel() {
         if (localStorage.getItem('sectorsServicesLevelDetails') !== null  ){
             const sectorsServicesLevelDetailslocalstorage = JSON.parse(localStorage.getItem('sectorsServicesLevelDetails'))                  
             const level_of_assessment_localstorage_value = levels.find(a => a.text === sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result) 
-
+            console.log(sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result);
             setSelectedLevel(level_of_assessment_localstorage_value.id)
             const level = levels.find(c => c.id === level_of_assessment_localstorage_value.id);
             setFormData(prevFormData => ({
@@ -48,10 +48,15 @@ function SectorServicesLevel() {
                 ...prevFormData,
                 user_type_selection: {
                     type: "text", 
-                    result: sectorsServicesLevelDetailslocalstorage["user_type_selection"].result
+                    result: sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result !== 'Regional' ? sectorsServicesLevelDetailslocalstorage["user_type_selection"].result : null
                 }
             }));
-            setSelectedUserType(sectorsServicesLevelDetailslocalstorage["user_type_selection"].result);
+
+            if(sectorsServicesLevelDetailslocalstorage["level_of_assessment"].result === 'Regional') {
+                setSelectedUserType(null);
+            } else {
+                setSelectedUserType(sectorsServicesLevelDetailslocalstorage["user_type_selection"].result);
+            }
         }
     }, [userTypes]); 
 
@@ -71,7 +76,7 @@ function SectorServicesLevel() {
         setSelectedUserType(null); // Reset selected user type
 
         //Enable user types based on level selection
-        const updatedUserTypes = userTypes.map(userType => ({
+        const updatedUserTypes = initialUserTypes.map(userType => ({
             ...userType,
             isActive: userType.level_ids.includes(selectedLevelId)
         }));
@@ -93,13 +98,13 @@ function SectorServicesLevel() {
 
 
     const handleNextClick = () => {    
+        localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(formData));
+
         if ((selectedLevel === 1 && selectedUserType) || (selectedLevel === 2 && selectedUserType)) {
-            localStorage.setItem('sectorsServicesLevelDetails', JSON.stringify(formData));
             navigate('/sector-services');
         }
         else{
             navigate('/regionalAssessment');
-            localStorage.setItem('levelRegional' , true)
         }
     };
   

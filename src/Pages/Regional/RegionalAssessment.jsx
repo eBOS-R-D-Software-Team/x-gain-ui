@@ -10,7 +10,6 @@ import {
 	EnvironmentOutlined,
 	LeftCircleOutlined,
 } from "@ant-design/icons";
-import "./RegionalAssessment.css"; // Import the CSS file
 import { useNavigate } from "react-router-dom";
 import DynamicRegionalCard from "./DynamicRegionalCard";
 import {
@@ -79,29 +78,29 @@ const RegionalAssessment = () => {
 						{/* First Row with Two Columns */}
 						<Row gutter={16}>
 							{/* Left Side with Low Population Density and Geographical Barriers */}
-							<Col xs={24} sm={12} md={12} lg={12}>
+							<Col xs={24} xl={12}>
 								<Card
-								title={<span style={{ fontSize: "25px" }}>Low Population Density</span>}
-								style={{
-									marginBottom: "20px",
-									padding: "20px",
-									borderRadius: "12px",
-									backgroundColor: "#f9f9f9",
-									borderLeft: "5px solid rgb(5, 119, 5)",
-									boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.08)",
-									transition: "transform 0.3s ease, box-shadow 0.3s ease",
-								}}
+									title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Low Population Density</span>}
+									style={{
+										marginBottom: "20px",
+										padding: "20px 2px",
+										borderRadius: "12px",
+										backgroundColor: "#f9f9f9",
+										borderLeft: "5px solid rgb(5, 119, 5)",
+										boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.08)",
+										transition: "transform 0.3s ease, box-shadow 0.3s ease",
+									}}
 								>
-								<p style={{ fontSize: "20px", lineHeight: "1.7", color: "#555" }}>
-									The population density of rural areas tends to be lower than that of urban areas. The cost per user
-									for infrastructure deployment is higher, making such investments unattractive for telecom operators.
-								</p>
+									<p style={{ fontSize: "20px", lineHeight: "1.7", color: "#555" }}>
+										The population density of rural areas tends to be lower than that of urban areas. The cost per user
+										for infrastructure deployment is higher, making such investments unattractive for telecom operators.
+									</p>
 								</Card>
 
 								<Card
-									title={<span style={{ fontSize: "25px" }}>Geographical Barriers</span>}
+									title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Geographical Barriers</span>}
 									style={{
-										padding: "20px",
+										padding: "20px 2px",
 										borderRadius: "12px",
 										backgroundColor: "#f9f9f9",
 										borderLeft: "5px solid rgb(5, 119, 5)",
@@ -118,13 +117,13 @@ const RegionalAssessment = () => {
 							</Col>
 
 							{/* Right Side with Absence of Existing Infrastructure */}
-							<Col xs={24} sm={12} md={12} lg={12}>
+							<Col xs={24} xl={12}>
 								<Card
-									title={<span style={{ fontSize: "25px" }}>Absence of Existing Infrastructure</span>}
+									title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Absence of Existing Infrastructure</span>}
 									style={{
 										height: "100%",
 										marginBottom: "20px",
-										padding: "20px",
+										padding: "20px 2px",
 										borderRadius: "12px",
 										backgroundColor: "#f9f9f9",
 										borderLeft: "5px solid rgb(5, 119, 5)",

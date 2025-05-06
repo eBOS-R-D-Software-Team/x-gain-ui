@@ -4,8 +4,7 @@ import { Card } from "antd"; // Assuming you're using Ant Design
 const DynamicRegionalCard = ({ title, body }) => {
 	return (
 		<Card
-			title={title}
-			bordered={false}
+			title={<span style={{ whiteSpace: 'normal' }}>{title}</span>}
 			style={{        
 				background: "#ffffff",
 				boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.1)",
@@ -15,14 +14,14 @@ const DynamicRegionalCard = ({ title, body }) => {
 			}}
 			styles={{
 				header: {
-				background: "#00678A",
-				color: "#fff",
-				fontSize: "30px",
+					background: "#00678A",
+					color: "#fff",
+					fontSize: "30px",
 				},
 				body: {
-				paddingTop: "3%",
-				height: "90%", // Set the body height here
-				overflow: "auto", // Optional: Allows scrolling inside the body if content overflows
+					paddingTop: "3%",
+					height: "90%", // Set the body height here
+					overflow: "auto", // Optional: Allows scrolling inside the body if content overflows
 				},
 			}}
 		>

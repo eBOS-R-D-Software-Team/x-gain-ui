@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Card, Spin, Button , Tooltip } from 'antd';
+import { Row, Col, Layout, Typography, Card, Spin, Button , Tooltip, FloatButton } from 'antd';
 import TitleForm from '../../Components/WizardElements/TitleForm';
 import { stepsLabels , tooltips } from '../../Data/Data';
 import SelectedSectorItem from '../../Components/ResultsElements/SelectedSectorItem';
@@ -8,7 +8,7 @@ import SelectedConnectivityEdgeEnablers from '../../Components/ResultsElements/S
 import PieChartData from '../../Components/ResultsElements/PieChartData';
 import { processPieChartData, getConnectivityProcessingEnablers } from '../../Utils/ResultsUtils';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -216,7 +216,7 @@ function SummaryResults() {
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <Col span={24} lg={12} xxl={8}>
-                        <Card hoverable bordered={false} className="selectedSectorsCard">
+                        <Card hoverable className="selectedSectorsCard">
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -237,7 +237,7 @@ function SummaryResults() {
                         </Card>      
                     </Col>
                     <Col span={24} lg={12} xxl={16}>
-                        <Card hoverable bordered={false} className="selectedSectorsCard">
+                        <Card hoverable className="selectedSectorsCard">
                             <Row>
                             <Col span={24}>
                                 <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -261,11 +261,22 @@ function SummaryResults() {
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <Col span={24} lg={12}>                   
-                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleTechnoEconomicCardClick}>
+                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }}>
+                            <div onClick={handleTechnoEconomicCardClick}
+                                style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                zIndex: 10,
+                                cursor: 'pointer',
+                                }}
+                            />
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                         <Tooltip title={tooltips.Techno_Economic_Indicators.description}>
+                                        <Tooltip title={tooltips.Techno_Economic_Indicators.description}>
                                             <div style={{ display: 'block', margin: 'auto' }}>
                                                 Techno-Economic Indicators   <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                                        
                                             </div>      
@@ -284,7 +295,18 @@ function SummaryResults() {
                                 </Row>
                             }  
                         </Card>   
-                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleBusinessModelClick} style={{ marginTop: '20px'}}>
+                        <Card hoverable className="selectedSectorsCard" style={{ marginTop: '20px', position: 'relative'}}>
+                            <div onClick={handleBusinessModelClick}
+                                style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                zIndex: 10,
+                                cursor: 'pointer',
+                                }}
+                            />
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -329,11 +351,22 @@ function SummaryResults() {
                                         See More
                                     </Button>                        
                                 </Col>
-                            </Row>                          
+                            </Row> 
                         </Card>  
                     </Col>    
                     <Col span={24} lg={12}>                   
-                        <Card hoverable bordered={false} className="selectedSectorsCard" onClick={handleSocioEnvironmentalCardClick}>
+                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }}>
+                            <div onClick={handleSocioEnvironmentalCardClick}
+                                style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                zIndex: 10,
+                                cursor: 'pointer',
+                                }}
+                            />
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
@@ -361,6 +394,15 @@ function SummaryResults() {
                         </Card>   
                     </Col>           
                 </Row>
+                <FloatButton 
+                    tooltip={<div>Provide a feedback</div>} 
+                    icon={<QuestionCircleOutlined />} 
+                    type="primary" 
+                    href='https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform'
+                    target='new blank'
+                    style={{ insetInlineEnd: 94, width: 50, height: 50 }} 
+                    className='feedbackBtn'
+                />
             </Layout>
         </Spin>
     )

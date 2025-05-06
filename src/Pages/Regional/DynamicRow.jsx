@@ -22,7 +22,7 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 	const [hoveredCard, setHoveredCard] = useState(null);
 
 	return (
-		<Col xs={24} sm={12}>
+		<Col xs={24} xl={12}>			
 			<h2 style={{ color: borderColor }}>{title}</h2>
 			<div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 				{data.map((item) => {
@@ -32,17 +32,18 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 						<Card
 							key={item.key}
 							title={
-								<span style={{ fontSize: "25px" }}>
+								<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>
 									{item.title}{" "}
 									{hasInfo && (
 										<Tooltip title="More Info">
-										<InfoCircleOutlined style={{ marginLeft: 8, color: borderColor }} />
+											<InfoCircleOutlined style={{ marginLeft: 8, color: borderColor }} />
 										</Tooltip>
 									)}
 								</span>
 							}
 							style={{
-								padding: "20px",
+								whiteSpace: 'normal',
+								padding: "20px 2px",
 								borderRadius: "12px",
 								backgroundColor: hasInfo && hoveredCard === item.key ? hoverColor : "#f9f9f9",
 								borderLeft: `5px solid ${borderColor}`,
@@ -71,17 +72,18 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 const DynamicRow = ({ challenges, proposals }) => {
 	return (
 		<Row gutter={[24, 24]}>
-		<CardList
-			title={<span style={{ fontSize: "25px" }}>Challenges</span>}
-			data={challenges}
-			borderColor="rgb(5, 119, 5)"
-			hoverColor="#e0f7e9"
-		/>
-		<CardList 
-			title={<span style={{ fontSize: "25px" }}>Proposals and Solutions</span>} 
-			data={proposals} 
-			borderColor="#00678A" 
-			hoverColor="#bce2f1" />
+			<CardList
+				title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Challenges</span>}
+				data={challenges}
+				borderColor="rgb(5, 119, 5)"
+				hoverColor="#e0f7e9"
+			/>
+			<CardList 
+				title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Proposals and Solutions</span>} 
+				data={proposals} 
+				borderColor="#00678A" 
+				hoverColor="#bce2f1" 
+			/>
 		</Row>
 	);
 };

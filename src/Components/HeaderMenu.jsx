@@ -2,7 +2,6 @@ import React, { useState , useRef   } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Modal, message } from 'antd';
 import { SaveOutlined, UploadOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd'; 
 import SaveButton from './Buttons/SaveButton';
 import { handleFileUpload } from './Buttons/UploadButton';
 import BackButton from './Buttons/BackButton';
@@ -216,34 +215,8 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                 ))) &&
                                 currentLocationPage !== '/home' && 
                                 currentLocationPage !== '/sector-services-level' && (
-                                    <Tooltip title="Save as JSON">
-                                        <button
-                                            onClick={SaveButton}
-                                            style={{
-                                                width: '80px',
-                                                height: '80px',
-                                                borderRadius: '7px',
-                                                background: '#00678A',
-                                                color: 'white',
-                                                border: 'none',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                padding: '10px',
-                                            }}
-                                        >
-                                            <SaveOutlined style={{ fontSize: '30px' }} />
-                                            <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Save</span>
-                                        </button>
-                                    </Tooltip>
-                                )
-                            }
-                            {/* Conditionally render the Upload button only on the home page */}
-                            {currentLocationPage === '/home' && (
-                                <Tooltip title="Upload JSON file">
                                     <button
-                                        onClick={showModal}
+                                        onClick={SaveButton}
                                         style={{
                                             width: '80px',
                                             height: '80px',
@@ -256,12 +229,36 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             padding: '10px',
+                                            cursor: 'pointer'
                                         }}
                                     >
-                                        <UploadOutlined style={{ fontSize: '30px' }} />
-                                        <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Upload</span>
+                                        <SaveOutlined style={{ fontSize: '30px' }} />
+                                        <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Save</span>
                                     </button>
-                                </Tooltip>
+                                )
+                            }
+                            {/* Conditionally render the Upload button only on the home page */}
+                            {currentLocationPage === '/home' && (
+                                <button
+                                    onClick={showModal}
+                                    style={{
+                                        width: '80px',
+                                        height: '80px',
+                                        borderRadius: '7px',
+                                        background: '#00678A',
+                                        color: 'white',
+                                        border: 'none',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        padding: '10px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    <UploadOutlined style={{ fontSize: '30px' }} />
+                                    <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Upload</span>
+                                </button>
                             )}
 
                             {/* Modal Popup */}

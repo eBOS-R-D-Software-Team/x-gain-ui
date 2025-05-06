@@ -1,6 +1,4 @@
-// BackButton.jsx
-import React from 'react';
-import { Tooltip } from 'antd'; 
+import React, { useEffect, useState } from 'react';
 import { LeftCircleOutlined } from '@ant-design/icons';
 import { useBackButton } from '../../Context/BackButtonContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,17 +7,28 @@ const BackButton = ({ currentLocationPage }) => {
     
     const { backAction, defaultBackAction } = useBackButton(); // Get the back action from context
     const navigate = useNavigate();
+    const [selectedLevel, setSelectedLevel] = useState('');
 
-    const handleBackClick = () => {     
-        const previousPage = document.referrer; // Get the last visited page
-        console.log('previousPage' ,previousPage );
-        console.log('currentLocationPage' ,currentLocationPage );
-        if (currentLocationPage === '/sector-services-level' &&  localStorage.getItem('levelRegional') === 'true' ) {   
-            localStorage.removeItem('levelRegional')        
+    useEffect(() => {
+        const storedDetails = localStorage.getItem('sectorsServicesLevelDetails');
+        if (storedDetails) {
+            try {
+                const parsedDetails = JSON.parse(storedDetails);
+                const level = parsedDetails?.level_of_assessment?.result || '';
+                setSelectedLevel(level);
+            } catch (error) {
+                console.error('Failed to parse sectorsServicesLevelDetails:', error);
+            }
+        } else {
+            console.warn('No sectorsServicesLevelDetails found in localStorage');
+        }
+    }, []);
+
+    const handleBackClick = () => {    
+        if (currentLocationPage === '/sector-services-level' && selectedLevel === 'Regional' ) {   
             navigate('/home'); 
         }
         else if (currentLocationPage === '/questions') {
-            // Call the backAction
             backAction();        
         }
         else if (currentLocationPage === '/social-questions'){           
@@ -33,28 +42,27 @@ const BackButton = ({ currentLocationPage }) => {
     };
 
     return (
-        <Tooltip title="Back">
-            <button 
-                className='backbuttonMargin'
-                onClick={handleBackClick}
-                style={{                    
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '7px',
-                    background: '#00678A',
-                    color: 'white',
-                    border: 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '10px',
-                  }}
-            >
-                <LeftCircleOutlined style={{ fontSize: '30px' }} />
-                <span style={{ fontSize: '18px' , paddingTop: '10%' , paddingRight: '2%' }}>Back</span>
-            </button>
-        </Tooltip>
+        <button 
+            className='backbuttonMargin'
+            onClick={handleBackClick}
+            style={{                    
+                width: '80px',
+                height: '80px',
+                borderRadius: '7px',
+                background: '#00678A',
+                color: 'white',
+                border: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '10px',
+                cursor: 'pointer'
+            }}
+        >
+            <LeftCircleOutlined style={{ fontSize: '30px' }} />
+            <span style={{ fontSize: '18px' , paddingTop: '10%' , paddingRight: '2%' }}>Back</span>
+        </button>
     );
 };
 

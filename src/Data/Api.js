@@ -1,18 +1,12 @@
 import { message } from 'antd';
 
+const USERNAME = process.env.REACT_APP_USERNAME;
+const PASSWORD = process.env.REACT_APP_PASSWORD;
 
-const USERNAME = 'xgain';
-const PASSWORD = 'xG4iN1Cc$-ins';
-
-// const USERNAME = process.env.REACT_APP_API_USERNAME;
-// const PASSWORD = process.env.REACT_APP_API_PASSWORD;
-//const iccsUrl = process.env.REACT_APP_API_BASE_URL;
 const communityIccsUrl = process.env.REACT_APP_API4_BASE_URL;
 const incUrl = process.env.REACT_APP_API1_BASE_URL;
 const wrUrl = process.env.REACT_APP_API3_BASE_URL;
 
-console.log("Username:", USERNAME);
-console.log("Password:", PASSWORD);
 const apiRequest = async (url, method, headers, body) => {
     const response = await fetch(url, {
         method,
@@ -32,7 +26,6 @@ const fetchLoginToken = async (loginData) => {
     return apiRequest(`${communityIccsUrl}/login`, 'POST', {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*',
     }, loginData);
 };
 
@@ -43,7 +36,6 @@ const postMainData = async (mainData, token) => {
         'Authorization': `Bearer ${token}`,
     }, JSON.stringify(mainData));
 };
-
 
 
 const retrieveAccessToken = () => {
@@ -65,14 +57,10 @@ const retrieveFromLocalStorage = (key, errorMessage) => {
 
 
 export const postDataToICCSApi = async () => {
-    const loginData = new URLSearchParams({
-        grant_type: '',
-        username: USERNAME,
-        password: PASSWORD,
-        scope: '',
-        client_id: '',
-        client_secret: ''
-    });
+    const loginData = new URLSearchParams();
+    loginData.append("username", USERNAME);
+    loginData.append("password", PASSWORD);
+
 
     try {
         const loginResponseData = await fetchLoginToken(loginData);
