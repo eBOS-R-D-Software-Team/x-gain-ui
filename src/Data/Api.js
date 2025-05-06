@@ -1,7 +1,7 @@
 import { message } from 'antd';
 
-const USERNAME = process.env.REACT_APP_USERNAME;
-const PASSWORD = process.env.REACT_APP_PASSWORD;
+const USERNAME = 'xgain';
+const PASSWORD = 'xG4iN1Cc$-ins';
 
 const communityIccsUrl = process.env.REACT_APP_API4_BASE_URL;
 const incUrl = process.env.REACT_APP_API1_BASE_URL;
@@ -57,9 +57,14 @@ const retrieveFromLocalStorage = (key, errorMessage) => {
 
 
 export const postDataToICCSApi = async () => {
-    const loginData = new URLSearchParams();
-    loginData.append("username", USERNAME);
-    loginData.append("password", PASSWORD);
+    const loginData = new URLSearchParams({
+        grant_type: '',
+        username: USERNAME,
+        password: PASSWORD,
+        scope: '',
+        client_id: '',
+        client_secret: ''
+    });
 
 
     try {
