@@ -314,7 +314,7 @@ button .ant-btn-icon {
 
 .selectedSectorsCard {
   -webkit-tap-highlight-color: transparent; /* Remove gray overlay */
-  /* touch-action: manipulation;               */
+  touch-action: manipulation;              
 }
 
 
