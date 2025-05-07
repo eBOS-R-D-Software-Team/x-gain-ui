@@ -404,8 +404,10 @@ function SummaryResults() {
                     icon={<QuestionCircleOutlined />} 
                     type="primary" 
                     target='new blank'
-                    style={{ insetInlineEnd: 60, width: 50, height: 50 }} 
+                    style={{ insetInlineEnd: 60, width: 75, height: 75 }} 
                     className='feedbackBtn'
+                    description="Feedback"
+
                     onTouchStart={(e) => {
                         e.currentTarget.startY = e.touches[0].clientY;
                     }}

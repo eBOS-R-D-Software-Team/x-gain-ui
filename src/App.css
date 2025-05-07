@@ -88,6 +88,11 @@ button .ant-btn-icon {
   background: #00678A !important;
 }
 
+.ant-spin {
+  position: fixed !important;
+  top: 25% !important
+}
+
 .ant-spin-nested-loading {
   background-color: #FFF;
 }
