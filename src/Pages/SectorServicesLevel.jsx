@@ -165,7 +165,7 @@ function SectorServicesLevel() {
                         ))}  
                     </div> 
                 </Col>
-                <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30 }}>
+                <Col span={24} style={{ display: 'flex', justifyContent: 'end', paddingBottom: 30, paddingTop: 20 }}>
                     <ConfirmButton disabled={( selectedLevel === 1 && !selectedUserType ) || ( selectedLevel === 2 && !selectedUserType ) || ( selectedLevel === 3 && selectedUserType ) || ( selectedLevel !== 3 && !selectedUserType ) } onClick={() => handleNextClick()} color={'black'} text={'Confirm Selection'}/>  
                 </Col> 
             </Row>

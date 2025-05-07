@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePDFContext } from '../../Context/PDF/PDFContext';
-import { Tooltip, Button } from 'antd'; 
+import { Button } from 'antd'; 
 import { DownloadOutlined } from '@ant-design/icons';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -51,31 +51,29 @@ const BusinessModelPDF = ({ businessModelRef }) => {
     
     return(
         <div className="downloadBtn">
-            <Tooltip title="Export PDF">
-                <Button
-                    onClick={handlePDFTemplate}
-                    style={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '7px',
-                        background: '#00678A',
-                        color: 'white',
-                        border: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '50px',
-                        whiteSpace: 'unset',
-                        gap: 0,
-                        lineHeight: 1,
-                        fontWeight: 600
-                    }}
-                >
-                    <DownloadOutlined style={{ fontSize: '40px' }} />
-                    <span style={{ fontSize: '18px', paddingTop: '8px', paddingRight: '2%' }}>Export Results</span>
-                </Button>
-            </Tooltip>
+            <Button
+                onClick={handlePDFTemplate}
+                style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '7px',
+                    background: '#00678A',
+                    color: 'white',
+                    border: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '50px',
+                    whiteSpace: 'unset',
+                    gap: 0,
+                    lineHeight: 1,
+                    fontWeight: 600
+                }}
+            >
+                <DownloadOutlined style={{ fontSize: '40px' }} />
+                <span style={{ fontSize: '18px', paddingTop: '8px', paddingRight: '2%' }}>Export Results</span>
+            </Button>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { Col } from 'antd';
 
 const SelectedSectorItem = ({ text }) => {
     return(
-        <Col span={12}>
+        <Col span={24} lg={12}>
             <div style={{ textAlign: '-webkit-center' }}>
                 <div
                     style={{

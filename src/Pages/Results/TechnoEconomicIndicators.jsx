@@ -100,7 +100,7 @@ function TechnoEconomicIndicators() {
     
     return(
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-            <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+            <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                 <Col className="title_results_col" span={24}>
                     <TitleForm 
                         icon={stepsLabels[8].icon} 
@@ -126,7 +126,7 @@ function TechnoEconomicIndicators() {
                     )}
                 </Col>
             </Row>
-            <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+            <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                 <Col span={24} lg={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <Tooltip title={tooltips.CAPEX_Analysis.description}>
@@ -178,7 +178,7 @@ function TechnoEconomicIndicators() {
                     />
                 </Col>
             </Row>
-            <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+            <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                 <Col span={24} lg={9}>   
                     <div ref={capexChartRef}>          
                         <ColumnChartData title={'CAPEX'} data={capexColumnsData} />

@@ -202,7 +202,7 @@ function SummaryResults() {
     return(
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-                <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+                <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                     <Col span={24}>
                         <TitleForm 
                             icon={stepsLabels[7].icon} 
@@ -214,7 +214,7 @@ function SummaryResults() {
                         />
                     </Col>
                 </Row>
-                <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+                <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                     <Col span={24} lg={12} xxl={8}>
                         <Card hoverable className="selectedSectorsCard">
                             <Row>
@@ -259,7 +259,7 @@ function SummaryResults() {
                         </Card>           
                     </Col>              
                 </Row>
-                <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
+                <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                     <Col span={24} lg={12}>                   
                         <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }}>
                             <div onClick={handleTechnoEconomicCardClick}
@@ -400,7 +400,7 @@ function SummaryResults() {
                     type="primary" 
                     href='https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform'
                     target='new blank'
-                    style={{ insetInlineEnd: 94, width: 50, height: 50 }} 
+                    style={{ insetInlineEnd: 60, width: 50, height: 50 }} 
                     className='feedbackBtn'
                 />
             </Layout>

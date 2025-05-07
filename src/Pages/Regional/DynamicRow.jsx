@@ -32,7 +32,7 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 						<Card
 							key={item.key}
 							title={
-								<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>
+								<span style={{ whiteSpace: 'normal' }}>
 									{item.title}{" "}
 									{hasInfo && (
 										<Tooltip title="More Info">
@@ -43,7 +43,7 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 							}
 							style={{
 								whiteSpace: 'normal',
-								padding: "20px 2px",
+								padding: "0px 2px",
 								borderRadius: "12px",
 								backgroundColor: hasInfo && hoveredCard === item.key ? hoverColor : "#f9f9f9",
 								borderLeft: `5px solid ${borderColor}`,
@@ -60,7 +60,7 @@ const CardList = ({ title, data, borderColor, hoverColor }) => {
 							onMouseLeave={() => hasInfo && setHoveredCard(null)}
 							onClick={() => hasInfo && showInfoModal(item.title, regionalPopupcontent[item.key], item.image)}
 						>
-							<p style={{ fontSize: "20px", lineHeight: "1.7", color: "#555", flexGrow: 1 }}>{item.description}</p>
+							<p style={{ lineHeight: "1.7", color: "#555", flexGrow: 1 }}>{item.description}</p>
 						</Card>
 					);
 				})}
@@ -73,13 +73,13 @@ const DynamicRow = ({ challenges, proposals }) => {
 	return (
 		<Row gutter={[24, 24]}>
 			<CardList
-				title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Challenges</span>}
+				title={<span style={{ whiteSpace: 'normal' }}>Challenges</span>}
 				data={challenges}
 				borderColor="rgb(5, 119, 5)"
 				hoverColor="#e0f7e9"
 			/>
 			<CardList 
-				title={<span style={{ fontSize: "25px", whiteSpace: 'normal' }}>Proposals and Solutions</span>} 
+				title={<span style={{ whiteSpace: 'normal' }}>Proposals and Solutions</span>} 
 				data={proposals} 
 				borderColor="#00678A" 
 				hoverColor="#bce2f1" 

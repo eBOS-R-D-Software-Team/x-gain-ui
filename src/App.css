@@ -75,6 +75,10 @@ button .ant-btn-icon {
   padding-right: 20px;
 }
 
+.mobileMenu .ant-btn-icon {
+  padding-right: 0px;
+} 
+
 .wizard_steps_col {
   display: flex;
   justify-content: center;
@@ -375,6 +379,19 @@ button .ant-btn-icon {
   padding: 20px 40px;
 }
 
+@media (min-width: 992px) {
+  .technologyMixesContentCol {
+    padding: 0 60px
+  }
+}
+
+@media (max-width: 991px) {
+  .technologyMixesContentCol {
+    padding: 0
+  }
+}
+
+
 /* hide top logo */
 @media (min-width: 604px) {
   .backbuttonMargin{
@@ -390,12 +407,26 @@ button .ant-btn-icon {
   .layoutPaddingTop{
     padding-top: 60px !important;   
   }
+
+  .tooltipPages {
+    font-size: 40px;
+  }
 }
 
 /* hide left side logo */
-@media (max-width: 603px) {
+@media (max-width: 602px) {
   .logoLeftSideHiden{
     display: none !important;
+  }
+
+  .tooltipPages {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 602px) {
+  .logoHiden{
+    width: 45%;
   }
 }
 
@@ -410,11 +441,124 @@ button .ant-btn-icon {
   .downloadBtn {
     margin: auto;
   }
+
+  .titleFormCol .ant-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .right-navbar button, .left-navbar button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .right-navbar button span.anticon, .left-navbar button span.anticon {
+    font-size: 30px
+  }
+
+  .right-navbar button .headerBtnText, .left-navbar button .headerBtnText {
+    font-size: 18px
+  }
+
+  .ant-layout-content {
+    padding: 36px
+  }
+
+  .subtitleLabels {
+    font-size: 24px;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .laptopMenu {
+    display: block;
+  }
 }
 
 @media (max-width: 575px) {
   .downloadBtn {
     display: flex;
     justify-content: center;
+  }
+
+  .titleFormCol .ant-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .titleFormCol h2 {
+    font-size: 20px;
+  }
+
+  .right-navbar button, .left-navbar button {
+    width: 57px;
+    height: 57px;
+  }
+
+  .right-navbar button span.anticon, .left-navbar button span.anticon {
+    font-size: 20px
+  }
+
+  .right-navbar button .headerBtnText, .left-navbar button .headerBtnText {
+    font-size: 13px
+  }
+
+  .ant-layout-content {
+    padding: 10px 20px
+  }
+
+  .regionalContent  .ant-layout-content {
+    padding: 10px 0
+  }
+
+  .subtitleLabels {
+    font-size: 20px !important;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .laptopMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 767px) {
+  .regionalCard .ant-card-head .ant-card-head-title {
+    font-size: 30px;
+  }
+
+  .regionalCard .ant-card-body .ant-card-head .ant-card-head-wrapper span {
+    font-size: 25px;
+  }
+
+  .regionalCard .ant-card-body  p {
+    font-size: 20px;
+  }
+
+  .regionalAdditionalContent p {
+    font-size: 20px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .regionalCard .ant-card-head .ant-card-head-title {
+    font-size: 20px;
+  }
+
+  .regionalCard .ant-card-body .ant-card-head .ant-card-head-wrapper span {
+    font-size: 18px;
+  }
+
+  .regionalCard .ant-card-body p {
+    font-size: 12px;
+  }
+
+  .regionalAdditionalContent p {
+    font-size: 12px;
   }
 }

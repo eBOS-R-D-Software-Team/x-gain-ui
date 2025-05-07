@@ -46,19 +46,17 @@ const TechnologyMixes = () => {
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
-                    <Col span={24}>
-                        <TitleForm 
-                            icon={stepsLabels[6].icon} 
-                            subicon={stepsLabels[6].subicon} 
-                            title={stepsLabels[6].title} 
-                            subtitle={stepsLabels[6].subtitle}
-                            level={2} 
-                            color={stepsLabels[6].color}
-                            tooltips={tooltips.resultsmixesInfoButton.description}
-                        />
-                    </Col>
+                    <TitleForm 
+                        icon={stepsLabels[6].icon} 
+                        subicon={stepsLabels[6].subicon} 
+                        title={stepsLabels[6].title} 
+                        subtitle={stepsLabels[6].subtitle}
+                        level={2} 
+                        color={stepsLabels[6].color}
+                        tooltips={tooltips.resultsmixesInfoButton.description}
+                    />
 
-                    <Col span={24} style={{ padding: '0 60px' }}>
+                    <Col span={24} className="technologyMixesContentCol">
                         <div style={{ width:'100%',
                             display: 'flex',
                             alignItems: 'center',

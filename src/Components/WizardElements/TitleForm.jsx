@@ -17,11 +17,11 @@ const TitleForm = ({icon, subicon, title, subtitle, level, color ,tooltips }) =>
                 <Title level={level} style={{ backgroundColor: color, padding: '16px', borderRadius: '10px', color: '#FFF', display: 'flex' }}>
                     <div>
                         <div>
-                            <Avatar src={icon} style={{ marginRight: 10}} size={50}/>
+                            <Avatar src={icon} style={{ marginRight: 10}}/>
                         </div>
                         {subicon &&
                             <div>
-                                <Avatar src={subicon} style={{ marginRight: 10}} size={50}/>
+                                <Avatar src={subicon} style={{ marginRight: 10}}/>
                             </div>
                         }
                     </div>
@@ -38,7 +38,7 @@ const TitleForm = ({icon, subicon, title, subtitle, level, color ,tooltips }) =>
             </div>
             { !isHiddenPath  && (
                 <Tooltip title={tooltips}>
-                    <InfoCircleOutlined style={{ paddingLeft: 30, fontSize: 40, color: "#00678A" }} />
+                    <InfoCircleOutlined className="tooltipPages" style={{ paddingLeft: 30, color: "#00678A" }} />
                 </Tooltip>
             )}
         </Col>

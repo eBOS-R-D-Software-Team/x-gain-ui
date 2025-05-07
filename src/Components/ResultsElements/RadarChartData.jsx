@@ -6,6 +6,8 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, 
 
 const RadarChartData = ({ data }) => {
     const options = {
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
             r: {
                 angleLines: {
@@ -32,7 +34,9 @@ const RadarChartData = ({ data }) => {
     };
 
     return(
-        <Radar data={data} options={options} />
+        <div style={{ width: '100%', height: '600px' }}>
+            <Radar data={data} options={options} />
+        </div>
     )
 }
 

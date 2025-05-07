@@ -190,7 +190,7 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
     return(
         <BackButtonProvider>
             <Layout className='layoutPaddingTop' style={{ backgroundColor: '#00A27B', minHeight: '100vh'}}>   
-                <img src='/images/icons/logo.png' alt="Logo" className='logoHiden' style={{cursor:'pointer' , width:'60%' , paddingTop:'0px', margin: 'auto', paddingBottom:'20px' }}/>        
+                <img src='/images/icons/logo.png' alt="Logo" className='logoHiden' style={{cursor:'pointer', paddingTop:'0px', margin: 'auto', paddingBottom:'20px' }}/>        
                 <Header className="site-layout-background" style={{ backgroundColor: 'transparent'}}>
                     <div className="header-content" style={{ height: '100%' }}>
                         <div className="left-navbar">
@@ -218,8 +218,6 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                     <button
                                         onClick={SaveButton}
                                         style={{
-                                            width: '80px',
-                                            height: '80px',
                                             borderRadius: '7px',
                                             background: '#00678A',
                                             color: 'white',
@@ -232,8 +230,8 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                             cursor: 'pointer'
                                         }}
                                     >
-                                        <SaveOutlined style={{ fontSize: '30px' }} />
-                                        <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Save</span>
+                                        <SaveOutlined />
+                                        <span className='headerBtnText' style={{ paddingTop: '10%', paddingRight: '2%' }}>Save</span>
                                     </button>
                                 )
                             }
@@ -242,8 +240,6 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                 <button
                                     onClick={showModal}
                                     style={{
-                                        width: '80px',
-                                        height: '80px',
                                         borderRadius: '7px',
                                         background: '#00678A',
                                         color: 'white',
@@ -256,8 +252,8 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                                         cursor: 'pointer'
                                     }}
                                 >
-                                    <UploadOutlined style={{ fontSize: '30px' }} />
-                                    <span style={{ fontSize: '18px', paddingTop: '10%', paddingRight: '2%' }}>Upload</span>
+                                    <UploadOutlined />
+                                    <span className='headerBtnText' style={{ paddingTop: '10%', paddingRight: '2%' }}>Upload</span>
                                 </button>
                             )}
 
@@ -276,7 +272,7 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                 <Content
                     style={{
                         // margin: '24px 16px',
-                        padding: 36,
+                        // padding: 16,
                         // background: '#F6FFF4',
                         minHeight: 280,
                     }}

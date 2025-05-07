@@ -5,6 +5,7 @@ const DynamicRegionalCard = ({ title, body }) => {
 	return (
 		<Card
 			title={<span style={{ whiteSpace: 'normal' }}>{title}</span>}
+			className="regionalCard"
 			style={{        
 				background: "#ffffff",
 				boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.1)",
@@ -16,7 +17,6 @@ const DynamicRegionalCard = ({ title, body }) => {
 				header: {
 					background: "#00678A",
 					color: "#fff",
-					fontSize: "30px",
 				},
 				body: {
 					paddingTop: "3%",

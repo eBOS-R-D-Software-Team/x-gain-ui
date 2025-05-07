@@ -46,8 +46,6 @@ const BackButton = ({ currentLocationPage }) => {
             className='backbuttonMargin'
             onClick={handleBackClick}
             style={{                    
-                width: '80px',
-                height: '80px',
                 borderRadius: '7px',
                 background: '#00678A',
                 color: 'white',
@@ -60,8 +58,8 @@ const BackButton = ({ currentLocationPage }) => {
                 cursor: 'pointer'
             }}
         >
-            <LeftCircleOutlined style={{ fontSize: '30px' }} />
-            <span style={{ fontSize: '18px' , paddingTop: '10%' , paddingRight: '2%' }}>Back</span>
+            <LeftCircleOutlined />
+            <span className='headerBtnText' style={{ paddingTop: '10%' , paddingRight: '2%' }}>Back</span>
         </button>
     );
 };
