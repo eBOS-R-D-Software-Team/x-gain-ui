@@ -355,26 +355,15 @@ function SummaryResults() {
                         </Card>  
                     </Col>    
                     <Col span={24} lg={12}>                   
-                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }}>
-                            <div onClick={handleSocioEnvironmentalCardClick}
-                                style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
-                                zIndex: 10,
-                                cursor: 'pointer',
-                                }}
-                            />
+                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }} onClick={handleSocioEnvironmentalCardClick}>
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
-                                        <Tooltip title={tooltips.Socio_Environmental_Indicators.description}>
+                                        {/* <Tooltip title={tooltips.Socio_Environmental_Indicators.description}> */}
                                             <div style={{ display: 'block', margin: 'auto' }}>
                                                 Socio-Environmental Indicators <InfoCircleOutlined style={{ marginLeft: 1, fontSize: 25, color: "#00678A" }} />                      
                                             </div>
-                                        </Tooltip>                  
+                                        {/* </Tooltip>                   */}
                                     </Title> 
                                 </Col>
                             </Row>
@@ -395,7 +384,6 @@ function SummaryResults() {
                     </Col>           
                 </Row>
                 <FloatButton 
-                    tooltip={<div>Provide a feedback</div>} 
                     icon={<QuestionCircleOutlined />} 
                     type="primary" 
                     href='https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform'
