@@ -262,7 +262,7 @@ function SummaryResults() {
                 <Row gutter={[32, 16]} style={{ margin: '10px'}}>
                     <Col span={24} lg={12}>                   
                         <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }}>
-                            <div onClick={handleTechnoEconomicCardClick}
+                            <div onClick={handleTechnoEconomicCardClick} onTouchStart={handleTechnoEconomicCardClick}
                                 style={{
                                 position: 'absolute',
                                 top: 0,
@@ -355,7 +355,8 @@ function SummaryResults() {
                         </Card>  
                     </Col>    
                     <Col span={24} lg={12}>                   
-                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }} onClick={handleSocioEnvironmentalCardClick}>
+                        <Card hoverable className="selectedSectorsCard" style={{ position: 'relative' }} onClick={handleSocioEnvironmentalCardClick} onTouchStart={handleSocioEnvironmentalCardClick} // Fix for iOS
+                        >
                             <Row>
                                 <Col span={24}>
                                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                

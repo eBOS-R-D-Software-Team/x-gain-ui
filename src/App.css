@@ -307,6 +307,16 @@ button .ant-btn-icon {
   transition: all 0.2s;
 }
 
+.selectedSectorsCard div {
+  -webkit-tap-highlight-color: transparent; /* Remove gray overlay */
+  touch-action: manipulation;              /* Ensure touch events propagate */
+}
+
+.selectedSectorsCard {
+  -webkit-tap-highlight-color: transparent; /* Remove gray overlay */
+  touch-action: manipulation;              /* Ensure touch events propagate */
+}
+
 
 @media (max-width: 1199px) {
 .ant-col:nth-child(5) .business_card {
