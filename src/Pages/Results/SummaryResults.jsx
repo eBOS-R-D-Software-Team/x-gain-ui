@@ -404,6 +404,7 @@ function SummaryResults() {
                     icon={<QuestionCircleOutlined />} 
                     type="primary" 
                     target='new blank'
+                    href='https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform'
                     style={{ insetInlineEnd: 60, width: 75, height: 75 }} 
                     className='feedbackBtn'
                     description="Feedback"
