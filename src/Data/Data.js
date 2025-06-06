@@ -219,7 +219,7 @@ export const weatherConditions = [
     { id: 2, text: "Mostly Rainy", checked: false, color: "#929292", isActive: true },
     { id: 3, text: "Mixed (Rainy/Sunny)", checked: false, color: "#072B71", isActive: true },
     { id: 4, text: "Foggy", checked: false, color: "#072B71", isActive: true },
-    { id: 5, text: " Freezing Temperatures", checked: false, color: "#072B71", isActive: true },
+    { id: 5, text: "Freezing Temperatures", checked: false, color: "#072B71", isActive: true },
 ];
 
 
@@ -301,7 +301,7 @@ export const questions = {
         text: "What type of digital processing needs to be done with the data produced by your device?",
         choices: [
             { id: 1, text: "Image processing (e.g. object detection and recognition, image analysis)", checked: false, nextQuestion: "drone_image_lat" },
-            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "drone_image_lat" }
+            { id: 2, text: "No processing requirements (only transmission of data)", checked: false, nextQuestion: "end" }
         ]
     },
     drone_image_lat: {

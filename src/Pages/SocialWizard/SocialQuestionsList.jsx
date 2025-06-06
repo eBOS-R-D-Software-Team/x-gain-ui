@@ -16,13 +16,15 @@ function SocialQuestionsList() {
 
     const getAnswers = JSON.parse(localStorage.getItem('answers'));
     const getDataCalculateScore = JSON.parse(localStorage.getItem('dataCalculateSocialScore'));
+    const getLocationDetails = JSON.parse(localStorage.getItem('locationDetails'));
+    console.log(getLocationDetails)
 
     const [loading, setLoading] = useState(false);
     const [iccsResponseData] = useState(() => JSON.parse(localStorage.getItem('iccs_response')) || {});
     const [questionsData] = useState(() => JSON.parse(localStorage.getItem('socialQuestionsResponse')) || []);
     const [answers, setAnswers] = useState(isUpload ? getAnswers : {});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(isUpload ? parseInt(indexQuestion) : 0);
-    const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState(isUpload ? getDataCalculateScore : []);
+    const [dataCalculateSocialScore, setDataCalculateSocialScore] = useState({countryCode: getLocationDetails.location.result, additionalQuestions: isUpload ? getDataCalculateScore : []});
     const [isCompleted, setIsCompleted] = useState(false);
 
     // Clear location state after upload processing
@@ -35,6 +37,7 @@ function SocialQuestionsList() {
 
     // Update local storage when answers or score data changes
     useEffect(() => {
+        console.log('dataCalculateSocialScore', dataCalculateSocialScore)
         localStorage.setItem('answers', JSON.stringify(answers));
         localStorage.setItem('dataCalculateSocialScore', JSON.stringify(dataCalculateSocialScore));
     }, [answers, dataCalculateSocialScore]);
@@ -60,12 +63,18 @@ function SocialQuestionsList() {
                     return updatedAnswers;
                 });
 
-                setDataCalculateSocialScore(prevResponses => {
+                setDataCalculateSocialScore(prevState => {
+                    const prevResponses = prevState?.additionalQuestions || [];
+
                     let updatedResponses = prevResponses.filter(response => response.id !== prevQuestionID);
                     if (currentQuestionIndex === questionsData.length - 1) {
                         updatedResponses = updatedResponses.filter(response => response.id !== currentQuestionID);
                     }
-                    return updatedResponses;
+                     
+                    return {
+                        ...prevState,
+                        additionalQuestions: updatedResponses
+                    };
                 });
 
                 setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -94,7 +103,9 @@ function SocialQuestionsList() {
             [questionId]: selectedOption
         }));
 
-        setDataCalculateSocialScore(prevResponses => {
+        setDataCalculateSocialScore(prevState => {
+            const prevResponses = prevState?.additionalQuestions || [];
+
             const updatedResponses = [...prevResponses];
             const existingIndex = updatedResponses.findIndex(res => res.id === questionId);
 
@@ -104,7 +115,13 @@ function SocialQuestionsList() {
                 updatedResponses.push(newResponse);
             }
 
-            return updatedResponses;
+            const updatedData = {
+                ...prevState,
+                countryCode: getLocationDetails.location.result,
+                additionalQuestions: updatedResponses,
+            };
+
+            return updatedData;
         });
 
         if (currentQuestionIndex < questionsData.length - 1) {
@@ -140,10 +157,11 @@ function SocialQuestionsList() {
         const description = socialquestiotooltips[key]?.description || "No description available";
        
         return {
-          ...item,
-          description
+            ...item,
+            description
         };
     });
+
     console.log('matchedQuestions' , matchedQuestions);
     const questionID = questionsData[currentQuestionIndex].id;
     // Find the description for the given ID
