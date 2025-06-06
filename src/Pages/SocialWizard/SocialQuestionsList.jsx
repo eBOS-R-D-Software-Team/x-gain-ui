@@ -103,6 +103,7 @@ function SocialQuestionsList() {
             [questionId]: selectedOption
         }));
 
+        
         setDataCalculateSocialScore(prevState => {
             const prevResponses = prevState?.additionalQuestions || [];
 
