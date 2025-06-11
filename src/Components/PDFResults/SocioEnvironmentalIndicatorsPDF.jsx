@@ -11,8 +11,6 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
     const { handleStyledText, handleExportChart } = usePDFContext();
     const { handleExportEdgeEnablersTable } = usePDFEdgeEnablersTableContext();
 
-    console.log(carbonFootprintData)
-
     const handlePDFTemplate = async () => {
         const doc = new jsPDF();
 

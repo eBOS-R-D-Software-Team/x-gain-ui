@@ -112,7 +112,7 @@ function SocioEnvironmentalIndicators() {
                         level={2} 
                         color={stepsLabels[11].color}
                     />
-                    {isDataLoaded && (
+                    {edgeEnablersData?.[2] && radarData?.labels?.length > 0 && environmentalData && (
                         <PDFProvider>
                             <PDFEdgeEnablersTableProvider>
                                 <SocioEnvironmentalIndicatorsPDF 
