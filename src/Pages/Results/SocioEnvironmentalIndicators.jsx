@@ -31,7 +31,6 @@ function SocioEnvironmentalIndicators() {
     const footprintChartRef = useRef(null);
     const radarChartRef = useRef(null);
     const scoresRef = useRef(null);
-    const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleModalOpen = () => setIsModalOpen(true);
@@ -77,11 +76,6 @@ function SocioEnvironmentalIndicators() {
 
         if (solData) {
             setSolutionData(solData);
-        }
-        
-        // Once all data is loaded, set the data loaded flag
-        if (solData) {
-            setIsDataLoaded(true);
         }
     }, []);
 
