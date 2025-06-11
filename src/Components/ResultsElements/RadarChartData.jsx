@@ -5,6 +5,21 @@ import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler,
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 const RadarChartData = ({ data }) => {
+
+    const wrapTooltipText = (text, maxLineLength = 60) => {
+        const lines = [];
+        let current = text;
+        while (current.length > maxLineLength) {
+            const breakIndex = current.lastIndexOf(" ", maxLineLength);
+            const index = breakIndex > 0 ? breakIndex : maxLineLength;
+            lines.push(current.slice(0, index));
+            current = current.slice(index).trim();
+        }
+        if (current.length > 0) lines.push(current);
+        return lines;
+    };
+
+    
     const options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -27,6 +42,20 @@ const RadarChartData = ({ data }) => {
             },
         },
         plugins: {
+            tooltip: {
+                callbacks: {
+                label: function (context) {
+                    const score = context.raw;
+                    const index = context.dataIndex;
+                    const tooltipText = context.dataset.tooltips?.[index] || '';
+                    const wrapped = wrapTooltipText(tooltipText, 60);
+                    return [`Score: ${score}`, ...wrapped];
+                }
+            },
+            boxWidth: 10,
+            boxHeight: 10,
+            padding: 10,
+            },
             legend: {
                 position: 'top',
             },

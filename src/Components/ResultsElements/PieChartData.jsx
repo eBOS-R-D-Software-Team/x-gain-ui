@@ -7,7 +7,14 @@ const PieChartData = ({ title, data }) => {
         is3D: true,
         pieHole: 0.4,
         sliceVisibilityThreshold: 0, // Show all slices, regardless of size
-        legend: { position: 'right' }, // Ensure the legend is visible
+        legend: {
+            position: "right",
+            alignment: "top",
+            textStyle: {
+                color: "#233238",
+                fontSize: 14,
+            },
+        }, // Ensure the legend is visible
         chartArea: { width: '80%', height: '80%' }, // Adjust the chart area to make room for the legend
     };
 

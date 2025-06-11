@@ -127,7 +127,7 @@ function TechnoEconomicIndicators() {
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px'}}>
-                <Col span={24} lg={12}>
+                <Col span={24} xl={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <Tooltip title={tooltips.CAPEX_Analysis.description}>
                             <div style={{ display: 'block', margin: 'auto' }}>
@@ -152,7 +152,7 @@ function TechnoEconomicIndicators() {
                         categoryTotal={solutionAnalysisData.capexPerLayer}
                     />
                 </Col>
-                <Col span={24} lg={12}>
+                <Col span={24} xl={12}>
                     <Title level={2} style={{ backgroundColor: "#BEE1D9", boxShadow: "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)", padding: '2px', borderRadius: '10px', color: 'black', display: 'flex', margin: 0 }}>                
                         <Tooltip title={tooltips.OPEX_Analysis.description}>
                             <div style={{ display: 'block', margin: 'auto' }}>
@@ -179,7 +179,7 @@ function TechnoEconomicIndicators() {
                 </Col>
             </Row>
             <Row gutter={[32, 16]} style={{ margin: '10px'}}>
-                <Col span={24} lg={9}>   
+                <Col span={24} xl={9}>   
                     <div ref={capexChartRef}>          
                         <ColumnChartData title={'CAPEX'} data={capexColumnsData} />
                     </div>
@@ -187,7 +187,7 @@ function TechnoEconomicIndicators() {
                         <PieChartData title={'CAPEX Breakdown'} data={capexCategoryData} />
                     </div>
                 </Col>
-                <Col span={24} lg={6} style={{ alignContent: 'center' }}> 
+                <Col span={24} xl={6} style={{ alignContent: 'center' }}> 
                     <Table 
                         columns={totalCapexOpexColumns} 
                         dataSource={dataSource} 
@@ -198,7 +198,7 @@ function TechnoEconomicIndicators() {
                         rowHoverable={false}
                     />  
                 </Col>
-                <Col span={24} lg={9}>
+                <Col span={24} xl={9}>
                     <div ref={opexChartRef}>          
                         <ColumnChartData title={'OPEX'} data={opexColumnsData} />
                     </div>

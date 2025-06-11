@@ -324,9 +324,16 @@ button .ant-btn-icon {
 
 
 @media (max-width: 1199px) {
-.ant-col:nth-child(5) .business_card {
-  border-right: 2px solid #006187;
+  .ant-col:nth-child(5) .business_card {
+    border-right: 2px solid #006187;
+  }
 }
+
+
+@media (min-width: 1199px) {
+  .termsCheckboxCol {
+    padding: 0 10%
+  }
 }
 
 
@@ -385,7 +392,7 @@ button .ant-btn-icon {
 }
 
 .logoTermsIndex{
-  width: 20%;  
+  max-width: 50%;  
 }
 
 .startButtonTermsIndex{

@@ -8,7 +8,7 @@ import SelectedConnectivityEdgeEnablers from '../../Components/ResultsElements/S
 import PieChartData from '../../Components/ResultsElements/PieChartData';
 import { processPieChartData, getConnectivityProcessingEnablers } from '../../Utils/ResultsUtils';
 import RadarChartData from '../../Components/ResultsElements/RadarChartData';
-import { InfoCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, QuestionCircleOutlined, DeploymentUnitOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -89,38 +89,38 @@ function SummaryResults() {
         setLoading(false);
     }, [filteredSolutionAnalysisData]);
 
-
+    
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const questions = socialScoresData.map(item => item.category);
-                const scores = socialScoresData.map(item => item.score);
-        
-                setChartData({
-                    labels: questions,
-                    datasets: [
-                        {
-                            label: 'Scores',
-                            data: scores,
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-                        },
-                    ],
-                });
+        if (socialScoresData.length > 0) {
+            const labels = socialScoresData.map(item => `${item.category} ⓘ`);
+            const scores = socialScoresData.map(item => item.score);
+            const tooltips = socialScoresData.map(item => {
+                const general = item.generalToolTip || '';
+                const country = item.countryToolTip || '';
+                return general && country ? `${general}\n\n${country}` : general || country || '';
+            });
 
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            }
-        };
+            const chart = {
+                labels,
+                datasets: [
+                    {
+                        label: 'Scores (hover your mouse on the scores to see more details)',
+                        data: scores,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        tooltips
+                    },
+                ],
+            };
 
-        // Fetch data once when the component mounts
-        fetchData();
-
+            setChartData(chart);
+            setLoading(false); // stop loading spinner
+        }
     }, [socialScoresData]);
 
-
+    
     // END DEVICES (1ST COLUMN)
     const endDevicesLength = solutionData.End_dev_information.Type.length;
     const endDevicesData = solutionData.End_dev_information.Type.slice(0, endDevicesLength).map((device, index) => {
@@ -148,6 +148,9 @@ function SummaryResults() {
     const netsDataWithInternet = getConnectivityProcessingEnablers(netsWithInternet, numbers);
     const netsDataWithoutInternet = getConnectivityProcessingEnablers(netsWithoutInternet, numbers);
 
+    const netsData = netsDataWithInternet.length === 1 ? netsDataWithInternet : netsDataWithoutInternet;
+    
+
     // PROCESSING (3RD COLUMN)
     const processingNumbers = flattenArray(solutionData.Processing_information.Number);
     const processingEnablers = flattenArray(solutionData.Processing_information.Process_Dev_per_layer_User);
@@ -158,7 +161,7 @@ function SummaryResults() {
     useEffect(() => {     
         const data = [
             ["Category", "Value"],
-            [netsDataWithoutInternet.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrNetw)],
+            [netsData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrNetw)],
             [enablersData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEnabl)],
             [endDevicesData.join(', '), parseFloat(filteredEnvironmentalData.cO2FPrEUD)],
         ];    
@@ -183,7 +186,7 @@ function SummaryResults() {
         setLoading(true);
         localStorage.setItem('filteredEnvironmentalDataBySol', JSON.stringify(filteredEnvironmentalData));
         localStorage.setItem('socialRadarData', JSON.stringify(chartData));
-        localStorage.setItem('connectivityEdgeEnablers', JSON.stringify([netsDataWithoutInternet, enablersData, solutionData, endDevicesData]));
+        localStorage.setItem('connectivityEdgeEnablers', JSON.stringify([netsData, enablersData, solutionData, endDevicesData]));
         console.log(solutionData);
         setTimeout(() => {
             navigate('/socio-environmental-indicators');
@@ -203,7 +206,7 @@ function SummaryResults() {
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <Row gutter={[32, 16]} style={{ margin: '10px'}}>
-                    <Col span={24}>
+                    <Col className="title_results_col" span={24}>
                         <TitleForm 
                             icon={stepsLabels[7].icon} 
                             subicon={stepsLabels[7].subicon} 
@@ -212,6 +215,32 @@ function SummaryResults() {
                             level={2} 
                             color={stepsLabels[7].color}
                         />
+                        <div className="downloadBtn">
+                            <Button
+                                href='/documents/guide_to_local_broadband_deployment.pdf'
+                                target='_blank'
+                                style={{
+                                    width: '60px',
+                                    height: '60px',
+                                    borderRadius: '7px',
+                                    background: '#00678A',
+                                    color: 'white',
+                                    border: 'none',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '50px',
+                                    whiteSpace: 'unset',
+                                    gap: 0,
+                                    lineHeight: 1,
+                                    fontWeight: 600
+                                }}
+                            >
+                                <DeploymentUnitOutlined style={{ fontSize: '40px' }} />
+                                <span style={{ fontSize: '16px', paddingTop: '8px', paddingRight: '2%' }}>Deployment Guide</span>
+                            </Button>
+                        </div>
                     </Col>
                 </Row>
                 <Row gutter={[32, 16]} style={{ margin: '10px'}}>
@@ -409,7 +438,6 @@ function SummaryResults() {
                     style={{ insetInlineEnd: 60, width: 75, height: 75, backgroundColor: '#00678a', display: 'flex' }} 
                     className='feedbackBtn'
                     description="Feedback"
-
                     onTouchStart={(e) => {
                         e.currentTarget.startY = e.touches[0].clientY;
                     }}

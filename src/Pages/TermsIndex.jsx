@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox } from 'antd';
+import { Button, Checkbox, Row, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -23,12 +23,14 @@ function TermsIndex() {
             <img className='logoTermsIndex' src='../../images/logo.png' alt='logo'></img>         
             <h1 style={{color:'white'}}>KNOWLEDGE FACILITATION TOOL</h1>
             <Button className='startButtonTermsIndex' onClick={buttonStart} disabled={!checked}>START</Button>
-            <p style={{  width: '20%' , marginLeft:'40%'   }}>
-                <Checkbox style={{color:'white' , fontSize:'1.1rem' }} checked={checked} onChange={onChange}>
-                            I understand that the generated data will be kept for
-                             evaluation and research purposes only and that it is fully anonymised.
-                </Checkbox>
-            </p>
+            <Row>
+                <Col span={12} offset={6} className='termsCheckboxCol'>
+                    <Checkbox style={{color:'white', fontSize:'1.1rem', marginTop: 40 }} checked={checked} onChange={onChange}>
+                        I understand that the generated data will be kept for evaluation and research purposes only and that it is fully anonymised.
+                    </Checkbox>
+                </Col>
+            </Row>
+           
         </div>
     )
 }

@@ -109,7 +109,7 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
 
 
         if (radarChartRef.current) {
-            await handleExportChart(doc, radarChartRef, finalYPosition + 10, 190, 190);
+            await handleExportChart(doc, radarChartRef, finalYPosition + 10, 190, 130);
         } 
 
         if (scoresRef.current) {

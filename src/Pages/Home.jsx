@@ -33,7 +33,7 @@ function Home() {
                         style={{ 
                             //marginRight: "10px",
                             pointerEvents: enabledSteps[index] ? 'auto' : 'none', // Disable pointer events if the step is not enabled
-                            opacity: enabledSteps[index] ? 1 : 0.5 // Visually disable the step by reducing opacity
+                            filter: enabledSteps[index] ? 'opacity(1)' : 'opacity(0.5)' // Visually disable the step by reducing opacity
                         }}>
                             <TitleForm 
                                 icon={step.icon} 
