@@ -167,7 +167,7 @@ function SummaryResults() {
         ];    
 
         setCarboonFootprintData(data); // Update the state with the fetched data  
-    }, [filteredEnvironmentalData, solutionData, netsDataWithoutInternet, endDevicesData, enablersData]);
+    }, [filteredEnvironmentalData, solutionData, netsData, endDevicesData, enablersData]);
 
 
     const handleTechnoEconomicCardClick = () => {
