@@ -205,7 +205,7 @@ function SummaryResults() {
     return(
         <Spin spinning={loading} tip="Loading...">
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-                <Row gutter={[32, 16]} style={{ margin: '10px'}}>
+                <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                     <Col className="title_results_col" span={24}>
                         <TitleForm 
                             icon={stepsLabels[7].icon} 
@@ -438,17 +438,23 @@ function SummaryResults() {
                     style={{ insetInlineEnd: 60, width: 75, height: 75, backgroundColor: '#00678a', display: 'flex' }} 
                     className='feedbackBtn'
                     description="Feedback"
+                    onClick={() => {
+                        window.open(
+                        'https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform',
+                        '_blank'
+                        );
+                    }}
                     onTouchStart={(e) => {
                         e.currentTarget.startY = e.touches[0].clientY;
                     }}
                     onTouchEnd={(e) => {
                         const endY = e.changedTouches[0].clientY;
                         const distance = Math.abs(endY - e.currentTarget.startY);
-                    
+
                         if (distance < 10) {
                             window.open(
-                            'https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform',
-                            '_blank'
+                                'https://docs.google.com/forms/d/e/1FAIpQLScDClOO6eA1Y_-YeyD79M_F9kwhm3-Z7YlXrU4fCT6dj-ropw/viewform',
+                                '_blank'
                             );
                         }
                     }}

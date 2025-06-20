@@ -283,3 +283,51 @@ export const EnvironmentalCarbonFootprintColumns = [
         //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
     }, 
 ];
+
+
+export const EnvironmentalCountriesSolarColumns =  [
+    {
+        title: "EU countries",
+        dataIndex: "eu_countries",
+        key: "eu_countries",
+        render: (text) => <strong>{text}</strong>,
+    },
+    {
+        title: "Emission factor electirity grid per country [kg CO₂eq per kWh]",
+        dataIndex: "emission_factor_electirity",
+        key: "emission_factor_electirity",
+        render: (value) => value.toFixed(3),
+    },
+    {
+        title: "Emission factor Solar Photovoltaics (PV)",
+        dataIndex: "emission_factor_solar_hotovoltaics",
+        key: "emission_factor_solar_hotovoltaics",
+        render: (value) => value.toFixed(3),
+    },
+    {
+        title: "Reduction",
+        dataIndex: "reduction",
+        key: "reduction",
+    },
+    {
+        title: "Information",
+        dataIndex: "information",
+        key: "information",
+        render: (text) => {
+            const replacedText = text.replace(/CO2/g, "CO₂");
+            const urlMatch = replacedText.match(/https?:\/\/\S+/);
+            const description = replacedText.split(" See the")[0];
+            const url = urlMatch ? urlMatch[0] : "";
+            return (
+                <div>
+                <div>{description}</div>
+                {url && (
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                    See source mix
+                    </a>
+                )}
+                </div>
+            );
+        },
+    },
+];

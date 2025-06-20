@@ -5,7 +5,7 @@ import { Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-
+import { countriesSolarData } from '../../Data/EnvironmentalCountriesSolarData';
 
 const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carbonFootprintData, footprintChartRef, radarChartRef, scoresRef}) => {
     const { handleStyledText, handleExportChart } = usePDFContext();
@@ -96,6 +96,36 @@ const SocioEnvironmentalIndicatorsPDF = ({ solutionData, environmentalData, carb
         if (footprintChartRef.current) {
             await handleExportChart(doc, footprintChartRef, finalYPosition + 50, 210, 60);
         } 
+        doc.addPage();
+
+        finalYPosition = 20;
+        // Add subsequent text
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0); // Reset text color to black or any desired color
+        doc.text("EU Countries Solar Emission Data", 10, finalYPosition);
+
+        const solarElectricitycolumns = ['EU countries', 'Emission factor electirity grid per country [kg CO₂eq per kWh]', 'Emission factor Solar Photovoltaics (PV)', 'Reduction', 'Information'];
+ 
+        const solarElectricityBody = countriesSolarData.map(item => [
+            item.eu_countries,
+            item.emission_factor_electirity,
+            item.emission_factor_solar_hotovoltaics,
+            item.reduction,
+            item.information
+        ]);
+
+        doc.autoTable({
+            startY: finalYPosition + 10,
+            margin: {left: 10},
+            head: [solarElectricitycolumns],   // Table headers
+            body: solarElectricityBody,        // Table data
+            theme: 'striped',
+            columnStyles: {
+                0: { halign: 'left', fontStyle: 'bold', cellWidth: 40 },    // Align 'Name' column to the left
+                1: { halign: 'left' }    // Align 'Value' column to the right
+            },
+            bodyStyles: { fontSize: 10 },  // Adjust font size for better fit
+        });
 
         doc.addPage();
 

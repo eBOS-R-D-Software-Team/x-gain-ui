@@ -63,7 +63,7 @@ function BusinessModel() {
 
     return (
         <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
-            <Row gutter={[32, 16]} style={{ margin: '10px' }}>
+            <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                 <Col className="title_results_col" span={24}>
                     <TitleForm
                         icon={stepsLabels[10].icon}

@@ -171,11 +171,19 @@ button .ant-btn-icon {
   padding: 8px 10px;
 }
 
-.technology_mixes_table .table-row-light {
+.ant-table-cell {
+  color: #595959; /* Medium gray */
+}
+
+.table-row-white {
+  background-color: #FFF !important; 
+}
+
+.table-row-light {
   background-color: #e9e6e652 !important; 
 }
 
-.technology_mixes_table .table-row-dark {
+.table-row-dark {
   background-color: #7f76762d !important; 
 }
 
@@ -548,7 +556,7 @@ button .ant-btn-icon {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .regionalCard .ant-card-head .ant-card-head-title {
     font-size: 30px;
   }
@@ -564,10 +572,20 @@ button .ant-btn-icon {
   .regionalAdditionalContent p {
     font-size: 20px;
   }
-  
+
+  .solarElectricityCol {
+    display: flex;
+    justify-content: center;
+  }
+
+  .solarElectricityCol .ant-card-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .regionalCard .ant-card-head .ant-card-head-title {
     font-size: 20px;
   }

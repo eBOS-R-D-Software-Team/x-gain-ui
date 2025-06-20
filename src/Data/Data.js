@@ -589,20 +589,21 @@ export const questions = {
     }
 };
 
+
 export const tooltips = {
     generalButton: {
-      description: "Please choose the level of assessment and which user type you are. Additional information is available when hovering above the possible selections.",
+        description: "Please choose the level of assessment and which user type you are. Additional information is available when hovering above the possible selections.",
     },
     sectorServiceButton: {
-      description: "Please select the sector(s) and service(s) you plan on deploying and for which you would like assessment. You can hover over the possible selections to obtain additional information on each sector and service."
+        description: "Please select the sector(s) and service(s) you plan on deploying and for which you would like assessment. You can hover over the possible selections to obtain additional information on each sector and service."
     },
     locationInfoButton: {
-      description: "To provide an assessment adapted to the environment in which you want to deploy, please provide information about the location and the typical weather conditions of the deployment area. The tool will use this information to optimize the technology proposals and several assessment categories.",
-      areaSizeTooltip: "Please provide the approximate area size. The tool assumes a circular area.",
-      vegetationHeightTooltip: "Please indicate the height of the prevalent vegetation. If there is no vegetation or it is very sparse, enter 0."
+        description: "To provide an assessment adapted to the environment in which you want to deploy, please provide information about the location and the typical weather conditions of the deployment area. The tool will use this information to optimize the technology proposals and several assessment categories.",
+        areaSizeTooltip: "Please provide the approximate area size. The tool assumes a circular area.",
+        vegetationHeightTooltip: "Please indicate the height of the prevalent vegetation. If there is no vegetation or it is very sparse, enter 0."
     },
     deviceInfoButton: {
-      description: "To find a proper technology mix, the tool requires you to indicate which type of devices you want to deploy and the expected quantity. Please hover over the possible selections for additional information.",
+        description: "To find a proper technology mix, the tool requires you to indicate which type of devices you want to deploy and the expected quantity. Please hover over the possible selections for additional information.",
     },
     SocialAssessmentInfoButton: {
         description: "In these views, questions relevant for the social assessment of your deployment are requested.",
@@ -637,6 +638,18 @@ export const tooltips = {
     publicInternetmixes:{
         description:"Existing connectivity in the area that is able to cover the unserved rate demand."    
     },
+    extrememixes:{
+        description:"The processing devices are hosted on end devices."    
+    },
+    farmixes:{
+        description:"The processing devices are hosted on access connectivity points (farther from end devices)."    
+    },
+    nearmixes:{
+        description:"The processing devices are hosted on the aggregation point of local connectivity links (at a greater distance from end devices)."    
+    },
+    cloudmixes:{
+        description:"The processing devices are hosted on the cloud provider (away from the end devices)."    
+    },
     carbonFootprint:{
         description:"Carbon Footprint (kg CO₂ equivalent): This metric quantifies the total greenhouse gas emissions associated with an activity, expressed in kilograms of CO₂ equivalent (kg CO₂eq). It accounts for various gases' differing impacts on global warming. A higher value indicates a larger contribution to climate change. For example, transferring 1 gigabyte of data over the internet can result in approximately 3 kg CO₂eq emissions, depending on the energy sources powering the data centres and network infrastructure.  This metric helps assess the climate impact of different technologies or activities by consolidating emissions into a single comparable unit."
     },
@@ -648,38 +661,39 @@ export const tooltips = {
     },
     socialAssessment: {
         description: `
-        "Relationship with your employees"
-        - To what extent the company/organisation offers a formal contract legally defining their relationship and provide protection.
+            "Relationship with your employees"
+            - To what extent the company/organisation offers a formal contract legally defining their relationship and provide protection.
 
-        "Access to (im)material resources" 
-        - To what extent the company/organisation respects or improves community access to (im)material resources (such as clean water, clean soil, internet, transport, forms of cultural heritage, community services, education, etc.). If some of these resources are missing the community's quality of life will decrease. 
+            "Access to (im)material resources" 
+            - To what extent the company/organisation respects or improves community access to (im)material resources (such as clean water, clean soil, internet, transport, forms of cultural heritage, community services, education, etc.). If some of these resources are missing the community's quality of life will decrease. 
 
-        "Economic development"
-        - To what extent the company/organisation contributes (through their production) to the economic development in the region.
+            "Economic development"
+            - To what extent the company/organisation contributes (through their production) to the economic development in the region.
 
-        "Technology development"
-        - To what extent the company/organisation participates in joint research for the develoment of efficient and environmental sound technologies. Technology transfer is key for the improvement of social conditions.
+            "Technology development"
+            - To what extent the company/organisation participates in joint research for the develoment of efficient and environmental sound technologies. Technology transfer is key for the improvement of social conditions.
 
-        "Fair salary"
-        - To what extent the company/organisation pays wages in compliance with industry standards and whether they can be considered a living wage.
+            "Fair salary"
+            - To what extent the company/organisation pays wages in compliance with industry standards and whether they can be considered a living wage.
 
-        "Working hours"
-        - To what extent the company/organisation complies with ILO standards and when overtime occurs pays compensation in money or free time.
+            "Working hours"
+            - To what extent the company/organisation complies with ILO standards and when overtime occurs pays compensation in money or free time.
 
-        "Occupational health and safety"
-        - To what extent the company/organisation causes incidents/accidents and the status of measures to prevent work-related incidents or ill health.
+            "Occupational health and safety"
+            - To what extent the company/organisation causes incidents/accidents and the status of measures to prevent work-related incidents or ill health.
 
-        "Safe and healthy living conditions"
-        - To what extent the company/organisation affects community safety and health, including the general safety conditions of operations and their public health impacts (i.e. by using hazardous substances).
+            "Safe and healthy living conditions"
+            - To what extent the company/organisation affects community safety and health, including the general safety conditions of operations and their public health impacts (i.e. by using hazardous substances).
 
-        "Community engagement"
-        - To what extent the company/organisation includes the community in relevant decisions and in general.
+            "Community engagement"
+            - To what extent the company/organisation includes the community in relevant decisions and in general.
 
-        "Local employment"
-        - To what extent the company/organisation (in)directly affects local employment, because of hiring preferences related to required skills.
+            "Local employment"
+            - To what extent the company/organisation (in)directly affects local employment, because of hiring preferences related to required skills.
 
-        "Ethical treatment of animals"
-        - To what extent the company/organisation manages the life, treatment, and death of animals (i.e. regular check-ups on the animals, good living circumstances for the animals, no serious injuries/illnesses).`
+            "Ethical treatment of animals"
+            - To what extent the company/organisation manages the life, treatment, and death of animals (i.e. regular check-ups on the animals, good living circumstances for the animals, no serious injuries/illnesses).
+        `
     },
     Selected: {
         description: "These are the sector and the service selected by the user of the KTF"
@@ -705,45 +719,47 @@ export const tooltips = {
     Total_Cost: {
         description: "Total Cost is the overall expenditure, combining both CAPEX and OPEX. It represents the total investment needed for a solution/project, including both initial and running costs. It provides an indication of the funding requirements of the project."
     }
-  }
+}
   
+
 export const socialquestiotooltips = {
     Relationship_with_your_employees: {
-      description: "To what extent the company/organisation offers a formal contract legally defining their relationship and provide protection."
+        description: "To what extent the company/organisation offers a formal contract legally defining their relationship and provide protection."
     },
     Immaterial_resources: {
-      description: "To what extent the company/organisation respects or improves community access to (im)material resources (such as clean water, clean soil, internet, transport, forms of cultural heritage, community services, education, etc.). If some of these resources are missing the community's quality of life will decrease."
+        description: "To what extent the company/organisation respects or improves community access to (im)material resources (such as clean water, clean soil, internet, transport, forms of cultural heritage, community services, education, etc.). If some of these resources are missing the community's quality of life will decrease."
     },
     Economic_development: {
-      description: "To what extent the company/organisation contributes (through their production) to the economic development in the region."
+        description: "To what extent the company/organisation contributes (through their production) to the economic development in the region."
     },
     Technology_development: {
-      description: "To what extent the company/organisation participates in joint research for the development of efficient and environmentally sound technologies. Technology transfer is key for the improvement of social conditions."
+        description: "To what extent the company/organisation participates in joint research for the development of efficient and environmentally sound technologies. Technology transfer is key for the improvement of social conditions."
     },
     Fair_salary: {
-      description: "To what extent the company/organisation pays wages in compliance with industry standards and whether they can be considered a living wage."
+        description: "To what extent the company/organisation pays wages in compliance with industry standards and whether they can be considered a living wage."
     },
     Working_hours: {
-      description: "To what extent the company/organisation complies with ILO standards and when overtime occurs pays compensation in money or free time."
+        description: "To what extent the company/organisation complies with ILO standards and when overtime occurs pays compensation in money or free time."
     },
     Occupational_health_and_safety: {
-      description: "To what extent the company/organisation causes incidents/accidents and the status of measures to prevent work-related incidents or ill health."
+        description: "To what extent the company/organisation causes incidents/accidents and the status of measures to prevent work-related incidents or ill health."
     },
     Safe_and_healthy_living_conditions: {
-      description: "To what extent the company/organisation affects community safety and health, including the general safety conditions of operations and their public health impacts (i.e. by using hazardous substances)."
+        description: "To what extent the company/organisation affects community safety and health, including the general safety conditions of operations and their public health impacts (i.e. by using hazardous substances)."
     },
     Community_engagement: {
-      description: "To what extent the company/organisation includes the community in relevant decisions and in general."
+        description: "To what extent the company/organisation includes the community in relevant decisions and in general."
     },
     Local_employment: {
-      description: "To what extent the company/organisation (in)directly affects local employment, because of hiring preferences related to required skills."
+        description: "To what extent the company/organisation (in)directly affects local employment, because of hiring preferences related to required skills."
     },
     Ethical_treatment_of_animals: {
-      description: "To what extent the company/organisation manages the life, treatment, and death of animals (i.e. regular check-ups on the animals, good living circumstances for the animals, no serious injuries/illnesses)."
+        description: "To what extent the company/organisation manages the life, treatment, and death of animals (i.e. regular check-ups on the animals, good living circumstances for the animals, no serious injuries/illnesses)."
     }
-  };
+};
 
-  export const descriptionsBusinessModel = {
+
+export const descriptionsBusinessModel = {
     "Key Partners": "The people, companies and organisations who will help in fulfilling the key activities, using the key resources.",
     "Key Activities": "The crucial actions that a business or an organisation must undertake to operate successfully, and deliver value to its customers and stakeholders.",
     "Key Resources": "The resources that are necessary to create value for the customer. These resources could be human, financial, physical, and intellectual.",
