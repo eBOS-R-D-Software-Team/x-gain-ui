@@ -116,7 +116,11 @@ export const technologyMixesColumns = (data) => [
         className: 'technology-table-group',
         children: [
             {
-                title: 'Extreme',
+                title: (
+                    <Tooltip title={tooltips.extrememixes.description}>
+                        Extreme  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 dataIndex: ['Processing_information', 'ProcessExtremeUser'],
                 key: 'extreme',
                 className: 'technology-table-child',
@@ -135,7 +139,11 @@ export const technologyMixesColumns = (data) => [
                 }),
             },
             {
-                title: 'Far',
+                title: (
+                    <Tooltip title={tooltips.farmixes.description}>
+                        Far  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 dataIndex: ['Processing_information', 'ProcessFarUser'],
                 key: 'far',
                 className: 'technology-table-child',
@@ -154,7 +162,11 @@ export const technologyMixesColumns = (data) => [
                 }),
             },
             {
-                title: 'Near',
+                title: (
+                    <Tooltip title={tooltips.nearmixes.description}>
+                        Near  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 dataIndex: ['Processing_information', 'ProcessNearUser'],
                 key: 'near',
                 className: 'technology-table-child',
@@ -172,7 +184,11 @@ export const technologyMixesColumns = (data) => [
                 }),
             },
             {
-                title: 'Cloud',
+                title: (
+                    <Tooltip title={tooltips.cloudmixes.description}>
+                        Cloud  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+                    </Tooltip>
+                ),
                 dataIndex: ['Processing_information', 'ProcessCloudUser'],
                 key: 'cloud',
                 className: 'technology-table-child',
