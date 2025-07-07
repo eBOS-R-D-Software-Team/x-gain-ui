@@ -307,7 +307,7 @@ export const questions = {
     drone_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "end" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "end" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "end" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "end" }
         ]
@@ -353,7 +353,7 @@ export const questions = {
     tablet_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "tablet_rate_down" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "tablet_rate_down" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "tablet_rate_down" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "tablet_rate_down" }
         ]
@@ -383,7 +383,7 @@ export const questions = {
     laptop_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "laptop_rate_down" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "laptop_rate_down" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "laptop_rate_down" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "laptop_rate_down" }
         ]
@@ -413,7 +413,7 @@ export const questions = {
     personal_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "personal_rate_down" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "personal_rate_down" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "personal_rate_down" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "personal_rate_down" }
         ]
@@ -445,7 +445,7 @@ export const questions = {
     camera_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "camera_image_freq" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "camera_image_freq" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "camera_image_freq" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "camera_image_freq" }
         ]
@@ -505,7 +505,7 @@ export const questions = {
     robot_image_lat: {
         text: "How fast does the captured video have to be processed?",
         choices: [
-            { id: 1, text: "In real time (< 200 ms)", checked: false, nextQuestion: "robot_power" },
+            { id: 1, text: "In real time (< 70 ms)", checked: false, nextQuestion: "robot_power" },
             { id: 2, text: "Quick, e.g. for ad-hoc visualization purposes ( <= 3 s)", checked: false, nextQuestion: "robot_power" },
             { id: 3, text: "No specific requirement (> 3 s)", checked: false, nextQuestion: "robot_power" }
         ]
