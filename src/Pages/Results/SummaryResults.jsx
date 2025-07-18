@@ -23,6 +23,7 @@ function SummaryResults() {
     const [environmentalData, setEnvironmentalData] = useState([]);
     const [chartData, setChartData] = useState(null);
     const [filteredSolutionAnalysisData, setFilteredSolutionAnalysisData] = useState({});
+    const [filteredSolarAnalysisData, setFilteredSolarAnalysisData] = useState({});
     const [filteredEnvironmentalData, setFilteredEnvironmentalData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
@@ -59,11 +60,17 @@ function SummaryResults() {
         console.log('Solution Analysis data:', solutionAnalysisData);
 
         const filteredData = solutionAnalysisData.analysisResults?.find(item => item.id === solutionData?.Sol_ID.toString());
+        const filteredSolarData = solutionAnalysisData.analysisResults?.find(item =>
+            item.id.startsWith(`${solutionData?.Sol_ID}.`)
+        );        
+        
         if (filteredData && filteredData !== filteredSolutionAnalysisData) {
             setFilteredSolutionAnalysisData(filteredData);
+            setFilteredSolarAnalysisData(filteredSolarData);
         }
-        console.log('Filtered data:', filteredSolutionAnalysisData);
-    }, [solutionData, solutionAnalysisData, filteredSolutionAnalysisData]);
+        console.log('Filtered Solution data:', filteredSolutionAnalysisData);
+        console.log('Filtered Solar data:', filteredSolarAnalysisData);
+    }, [solutionData, solutionAnalysisData, filteredSolutionAnalysisData, filteredSolarAnalysisData]);
 
 
     useEffect(() => {
@@ -173,6 +180,7 @@ function SummaryResults() {
     const handleTechnoEconomicCardClick = () => {
         setLoading(true);
         localStorage.setItem('filteredSolutionAnalysisDataBySol', JSON.stringify(filteredSolutionAnalysisData));
+        localStorage.setItem('filteredSolarAnalysisDataBySol', JSON.stringify(filteredSolarAnalysisData));
         localStorage.setItem('solData', JSON.stringify(solutionData));
         console.log(solutionData);
 

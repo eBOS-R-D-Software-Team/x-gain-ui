@@ -213,6 +213,12 @@ button .ant-btn-icon {
   background-color: #006187;
 }
 
+.totalCapexOpexTable  thead  tr th {
+  background-color: #006187 !important; /* your desired background color */
+  font-weight: bold !important;
+  color: #FFF !important;
+}
+
 .ant-col:nth-child(1) .business_card {
   border-left: none;
 }

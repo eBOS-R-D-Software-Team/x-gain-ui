@@ -623,11 +623,31 @@ export const tooltips = {
     resultsmixesInfoButton:{
         description:"This view shows the top technology mixes proposed by the tool based on your inputs. i) We assume 3 communication hops and 4 processing layers in the solutions below. If a hop/layer does not exist there is NONE in the table. ii) The allocation of processing enablers in the processing layers is based on the minizimation of the power consumption based on XGain 'Green' concept.",
     },
+    existing_connectivity:{
+        description: "If the user does not deploy any additional infrastructure, they can utilize the existing connectivity available in the area-provided it meets their requirements. In this case, the configuration involves only the end devices and the cloud segment, connected via public infrastructure."
+    },
     networksmixes:{
         description:"We assume 3 communication hops (Access,Local,Public Internet) included in the network architecture from end devices towards cloud."    
     },
     processingEnablersmixes:{
-        description:"Devices needed to execute the tasks of end devices. These can be located on either end devices (Extreme), or Far (e.g. close to an access point), or Near (e.g. close to an aggregator node), or  Cloud (e.g. far away from services' private infrastructure)."    
+        description:`
+            Devices needed to execute the tasks of end devices. These can be located on either end devices (Extreme), or Far (e.g. close to an access point), or Near (e.g. close to an aggregator node), or  Cloud (e.g. far away from services' private infrastructure). 
+            Performance of the processing enablers has been averaged from a group of similar devices to reduce complexity. A brief desctription of the indicative groups follows:
+            <ul>
+                <li>
+                    RPI 4 / RPI 5 / NUC (Light) (e.g. Intel NUC 9) / NVIDIA-ASUS SBC (Light) (e.g. Jetson Nano)/ GPU Based System (Light) (e.g. Google Coral): Compact devices with low-power consumption with NVIDIA / without (RPI, NUC) dedicated GPU/AI accelerators for AI/ML processing tasks.
+                </li>
+                <li>
+                    NVIDIA SBC (Medium) (e.g. Orin Nano) / (Heavy) (e.g. Orin AGX): Mid-to-high-performance embedded systems with powerful GPU/AI accelerators for demanding edge AI workloads.
+                </li>
+                <li>
+                    GPU Based System (Heavy) (e.g. NVIDIA A100)/ PowerEdge (e.g. R640) / NUC (Heavy) (e.g. Intel NUC 12 Pro): High-performance systems with dedicated GPU capacities for intensive AI/ML workloads.
+                </li>
+                <li>
+                    AWS: A cloud server-style device with abundant computing resources (CPU/RAM/GPU).
+                </li>
+            </ul>
+        `  
     },
     accessmixes:{
         description:"The number of network links are based on the area size, max UEs and the total capacity"    
@@ -718,6 +738,12 @@ export const tooltips = {
     },
     Total_Cost: {
         description: "Total Cost is the overall expenditure, combining both CAPEX and OPEX. It represents the total investment needed for a solution/project, including both initial and running costs. It provides an indication of the funding requirements of the project."
+    },
+    Public_Power_Grid: {
+        description: "CAPEX, OPEX, and Total Cost are calculated under the assumption that all required power is supplied by the public power grid."
+    },
+    Solar_panel_System: {
+        description: "CAPEX, OPEX, and Total Cost are calculated assuming the use of a solar panel system with batteries, with no electricity drawn from the public power grid."
     }
 }
   

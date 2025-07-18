@@ -8,7 +8,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 
-const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexChartRef, capexBreakdownChartRef, opexChartRef, opexBreakdownChartRef}) => {
+const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solarAnalysisData, solutionData, capexChartRef, capexBreakdownChartRef, opexChartRef, opexBreakdownChartRef}) => {
     const { handleStyledText, handleExportTable, handleExportChart } = usePDFContext();
     const { handleExportEdgeEnablersTable } = usePDFEdgeEnablersTableContext();
 
@@ -116,17 +116,18 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
             await handleExportChart(doc, opexBreakdownChartRef, finalYPosition + 110, 130, 60);
         } 
 
-        const totalColumnsData = ['Name', 'Value'];
+        const totalColumnsData = ['Name', 'Public power grid (i)', 'Solar panel system with batteries (j)'];
 
         const totalDataSource = [
-            { name: 'Total Cost (€)', value: formatDecimalNumber(solutionAnalysisData.totalCost) },
-            { name: 'Total CAPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalCapex) },
-            { name: 'Total OPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalOpex) }
+            { name: 'Total Cost (€)', value: formatDecimalNumber(solutionAnalysisData.totalCost), solarvalue: formatDecimalNumber(solarAnalysisData.totalCost) },
+            { name: 'Total CAPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalCapex), solarvalue: formatDecimalNumber(solarAnalysisData.totalCapex) },
+            { name: 'Total OPEX (€)', value: formatDecimalNumber(solutionAnalysisData.totalOpex), solarvalue: formatDecimalNumber(solarAnalysisData.totalOpex) }
         ];
     
         const body = totalDataSource.map(item => [
             item.name,
-            item.value
+            item.value,
+            item.solarvalue
         ]);
 
         doc.addPage();
@@ -140,7 +141,8 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solutionData, capexC
             theme: 'grid',
             columnStyles: {
                 0: { halign: 'left', fillColor: [221, 221, 221], fontStyle: 'bold' },    // Align 'Name' column to the left
-                1: { halign: 'right', fillColor: [255, 255, 255] }    // Align 'Value' column to the right
+                1: { halign: 'right', fillColor: [255, 255, 255] },    // Align 'Value' column to the right
+                2: { halign: 'right', fillColor: [255, 255, 255] }    // Align 'Value' column to the right
             },
             bodyStyles: { fontSize: 10 },  // Adjust font size for better fit
         });

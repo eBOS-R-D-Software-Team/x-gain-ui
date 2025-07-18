@@ -109,8 +109,9 @@ export const technologyMixesColumns = (data) => [
     },
     {
         title: (
-            <Tooltip title={tooltips.processingEnablersmixes.description}>
-                Processing Enablers  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
+            <Tooltip title={<div dangerouslySetInnerHTML={{ __html: tooltips.processingEnablersmixes.description }} />} >
+                Processing Enablers
+                <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 17, color: "#ffffff" }} />
             </Tooltip>
         ),
         className: 'technology-table-group',
@@ -245,7 +246,22 @@ export const totalCapexOpexColumns = [
         dataIndex: 'value',
         key: 'value',
         render: (value) => value,
+        title:  (
+                    <Tooltip title={tooltips.Public_Power_Grid.description}>
+                        Public power grid (i) <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
+                    </Tooltip>           
+                ),
         //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
+    }, 
+    {
+        dataIndex: 'solarvalue',
+        key: 'solarvalue',
+        render: (value) => value,
+        title:  (
+                    <Tooltip title={tooltips.Solar_panel_System.description}>
+                        Solar panel system with batteries (j) <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
+                    </Tooltip>           
+                ),
     }, 
 ];
 

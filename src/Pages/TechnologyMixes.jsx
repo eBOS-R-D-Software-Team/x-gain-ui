@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Spin, Checkbox } from 'antd';
+import { Row, Col, Layout, Typography, Spin, Checkbox, Tooltip } from 'antd';
 import TitleForm from '../Components/WizardElements/TitleForm';
 import { stepsLabels ,tooltips } from '../Data/Data';
 import TechnologyMixesTable from '../Components/ResultsElements/TechnologyMixesTable';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -70,7 +71,11 @@ const TechnologyMixes = () => {
                                 onChange={onCheckboxChange}
                             />
                             <div style={{ display: 'flex', alignItems: 'end' }}>      
-                                <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}>Existing Connectivity</span>
+                                <span style={{color:"black",marginLeft:'10px',fontWeight:'400',lineHeight:'15px',fontSize:'18px'}}> 
+                                    <Tooltip title={tooltips.publicInternetmixes.description}>
+                                        Existing Connectivity  <InfoCircleOutlined style={{ marginLeft: 10, fontSize: 19, color: "#006187" }} />
+                                    </Tooltip>
+                                </span>
                             </div>
                         </div>
 

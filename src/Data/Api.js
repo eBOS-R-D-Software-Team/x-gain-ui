@@ -128,7 +128,7 @@ const postWithAccessToken = async (url, bodyData) => {
 export const postSolutionsAnalysis = async () => {
     try {
         const iccsResponseData = retrieveFromLocalStorage('iccs_response', 'No ICCS response data found in localStorage.');
-        const responseData = await postWithAccessToken(`${incUrl}/solutionsanalysis`, iccsResponseData);
+        const responseData = await postWithAccessToken(`${incUrl}/solutionsanalysispv`, iccsResponseData);
         if (responseData) {
             localStorage.setItem('solutionsAnalysisResponse', JSON.stringify(responseData));
             console.log('Solutions Analysis response:', responseData);

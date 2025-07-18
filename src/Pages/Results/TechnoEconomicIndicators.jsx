@@ -19,6 +19,7 @@ const { Title } = Typography;
 function TechnoEconomicIndicators() {
     const [solutionData, setSolutionData] = useState([]);
     const [solutionAnalysisData, setSolutionAnalysisData] = useState({});
+    const [solarAnalysisData, setSolarAnalysisData] = useState({});
     const [capexCategoryData, setCapexCategoryData] = useState([['Category', 'Amount']]);
     const [opexCategoryData, setOpexCategoryData] = useState([['Category', 'Amount']]);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -27,21 +28,23 @@ function TechnoEconomicIndicators() {
     const capexChartRef = useRef(null);
     const capexBreakdownChartRef = useRef(null);
     const opexChartRef = useRef(null);
-    const opexBreakdownChartRef = useRef(null);
-
-    console.log(capexChartRef)
-    
+    const opexBreakdownChartRef = useRef(null);    
 
     useEffect(() => {
         const solData = JSON.parse(localStorage.getItem('solData'));
         const filteredSolAnalysisDataBySol = JSON.parse(localStorage.getItem('filteredSolutionAnalysisDataBySol'));
-
+        const filteredSolarAnalysisDataBySol = JSON.parse(localStorage.getItem('filteredSolarAnalysisDataBySol'));
+        console.log(filteredSolarAnalysisDataBySol);
         if (solData) {
             setSolutionData(solData);
         }
 
         if (filteredSolAnalysisDataBySol) {
             setSolutionAnalysisData(filteredSolAnalysisDataBySol);
+        }
+
+        if (filteredSolarAnalysisDataBySol) {
+            setSolarAnalysisData(filteredSolarAnalysisDataBySol);
         }
 
         // Once all data is loaded, set the data loaded flag
@@ -84,16 +87,19 @@ function TechnoEconomicIndicators() {
                     </Tooltip>           
                    ) ,
             value: formatDecimalNumber(solutionAnalysisData.totalCost),
+            solarvalue: formatDecimalNumber(solarAnalysisData.totalCost),
         },
         {
             key: '2',
             name: 'Total CAPEX (€)',
             value: formatDecimalNumber(solutionAnalysisData.totalCapex),
+            solarvalue: formatDecimalNumber(solarAnalysisData.totalCapex),
         },
         {
             key: '3',
             name: 'Total OPEX (€)',
             value: formatDecimalNumber(solutionAnalysisData.totalOpex),
+            solarvalue: formatDecimalNumber(solarAnalysisData.totalOpex),
         },
     ];
     
@@ -115,6 +121,7 @@ function TechnoEconomicIndicators() {
                             <PDFEdgeEnablersTableProvider>
                                 <TechnoEconomicIndicatorsPDF 
                                     solutionAnalysisData={solutionAnalysisData}
+                                    solarAnalysisData={solarAnalysisData}
                                     solutionData={solutionData}
                                     capexChartRef={capexChartRef}
                                     capexBreakdownChartRef={capexBreakdownChartRef}
@@ -194,8 +201,10 @@ function TechnoEconomicIndicators() {
                         pagination={false} 
                         bordered  
                         size='large' 
+                        scroll={{ x: 300 }}                         
                         rowKey="key" 
                         rowHoverable={false}
+                        className='totalCapexOpexTable'
                     />  
                 </Col>
                 <Col span={24} xl={9}>
