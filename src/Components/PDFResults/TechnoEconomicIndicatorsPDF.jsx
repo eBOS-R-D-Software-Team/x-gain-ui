@@ -116,7 +116,7 @@ const TechnoEconomicIndicatorsPDF = ({solutionAnalysisData, solarAnalysisData, s
             await handleExportChart(doc, opexBreakdownChartRef, finalYPosition + 110, 130, 60);
         } 
 
-        const totalColumnsData = ['Name', 'Public power grid (i)', 'Solar panel system with batteries (j)'];
+        const totalColumnsData = ['Name', 'Public power grid', 'Solar panel system with batteries'];
 
         const totalDataSource = [
             { name: 'Total Cost (€)', value: formatDecimalNumber(solutionAnalysisData.totalCost), solarvalue: formatDecimalNumber(solarAnalysisData.totalCost) },

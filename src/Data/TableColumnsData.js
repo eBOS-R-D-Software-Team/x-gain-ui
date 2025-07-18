@@ -248,7 +248,7 @@ export const totalCapexOpexColumns = [
         render: (value) => value,
         title:  (
                     <Tooltip title={tooltips.Public_Power_Grid.description}>
-                        Public power grid (i) <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
+                        Public power grid <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
                     </Tooltip>           
                 ),
         //render: (value) => value.toLocaleString('en-US', { minimumFractionDigits: 2 }),
@@ -259,7 +259,7 @@ export const totalCapexOpexColumns = [
         render: (value) => value,
         title:  (
                     <Tooltip title={tooltips.Solar_panel_System.description}>
-                        Solar panel system with batteries (j) <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
+                        Solar panel system with batteries <InfoCircleOutlined style={{ marginLeft: 5, fontSize: 17,color: "#ffffff", fontWeight: "bold" }} />
                     </Tooltip>           
                 ),
     }, 
