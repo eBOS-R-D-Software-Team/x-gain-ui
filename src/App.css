@@ -608,3 +608,75 @@ button .ant-btn-icon {
     font-size: 12px;
   }
 }
+
+
+.title-and-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;       /* Center content horizontally */
+  width: 100%;
+  gap: 40px;                      /* Space between title & buttons */
+  flex-wrap: wrap;                /* For mobile responsiveness */
+  margin-bottom: 20px;
+}
+
+.download-buttons-container {
+  display: flex;
+  justify-content: center;        /* Center the two buttons */
+  gap: 20px;
+}
+
+.download-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  padding: 16px;
+  background-color: #006187;
+  color: #FFF;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.download-btn:hover {
+  background-color: #006187;
+  transform: translateY(-3px);
+  color: #FFF;
+}
+
+.download-btn-icon {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .title-and-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Mobile screens (≤575px) */
+@media (max-width: 575px) {
+  .download-buttons-container {
+    gap: 10px;
+  }
+
+  .download-btn {
+    width: 100px;          /* Smaller width */
+    padding: 10px 8px;     /* Reduced padding */
+    font-size: 11px;       /* Smaller text */
+    border-radius: 6px;
+  }
+
+  .download-btn-icon {
+    font-size: 20px;       /* Smaller icon */
+    margin-bottom: 4px;
+  }
+}
+

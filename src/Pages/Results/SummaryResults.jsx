@@ -215,39 +215,34 @@ function SummaryResults() {
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                     <Col className="title_results_col" span={24}>
-                        <TitleForm 
-                            icon={stepsLabels[7].icon} 
-                            subicon={stepsLabels[7].subicon} 
-                            title={stepsLabels[7].title} 
-                            subtitle={stepsLabels[7].subtitle}
-                            level={2} 
-                            color={stepsLabels[7].color}
-                        />
-                        <div className="downloadBtn">
-                            <Button
-                                href='/documents/guide_to_local_broadband_deployment.pdf'
-                                target='_blank'
-                                style={{
-                                    width: '60px',
-                                    height: '60px',
-                                    borderRadius: '7px',
-                                    background: '#00678A',
-                                    color: 'white',
-                                    border: 'none',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    padding: '50px',
-                                    whiteSpace: 'unset',
-                                    gap: 0,
-                                    lineHeight: 1,
-                                    fontWeight: 600
-                                }}
-                            >
-                                <DeploymentUnitOutlined style={{ fontSize: '40px' }} />
-                                <span style={{ fontSize: '16px', paddingTop: '8px', paddingRight: '2%' }}>Deployment Guide</span>
-                            </Button>
+                        <div className="title-and-buttons">
+                            <TitleForm 
+                                icon={stepsLabels[7].icon} 
+                                subicon={stepsLabels[7].subicon} 
+                                title={stepsLabels[7].title} 
+                                subtitle={stepsLabels[7].subtitle}
+                                level={2} 
+                                color={stepsLabels[7].color}
+                            />
+                            <div className="download-buttons-container">
+                                <a 
+                                    href="/documents/guide_to_local_broadband_deployment.pdf"
+                                    target="_blank"
+                                    className="download-btn"
+                                >
+                                    <DeploymentUnitOutlined className="download-btn-icon" />
+                                    <span>Deployment Guide</span>
+                                </a>
+
+                                <a 
+                                    href="/documents/technological_handbook.pdf"
+                                    target="_blank"
+                                    className="download-btn"
+                                >
+                                    <DeploymentUnitOutlined className="download-btn-icon" />
+                                    <span>Technological Handbook</span>
+                                </a>
+                            </div>
                         </div>
                     </Col>
                 </Row>

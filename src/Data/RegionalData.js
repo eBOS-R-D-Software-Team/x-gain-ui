@@ -77,7 +77,7 @@ export const proposalsDataEconomicAspects = [
     },
     {
 		key: "Funding_opportunities",
-		title: "Funding opportunities",
+		title: "Funding Opportunities",
 		description:
 			"An additional Guideline for funding opportunities is provided apart.",
     },
@@ -125,7 +125,7 @@ export const proposalsDataTechnicalDeployment = [
     },
     {
 		key: "Open_Radio_access_Networks",
-		title: "Open Radio access Networks (RAN)",
+		title: "Open Radio Access Networks (RAN)",
 		description:
 			"Open RAN enables the use of standardized, interoperable hardware and software leading to lower deployment costs while opening the competition.",
     },
@@ -310,11 +310,11 @@ export const regionalPopupcontent = {
             <a href="https://www.transatel.com/wp-content/uploads/2023/11/Spectrum-availability-the-key-to-Private-5G-Networks-adoption.pdf" target="_blank">Read the full report here</a>.
         </p>
     `,
-    Funding_opportunities: "The XGain guidelines for deployments includes information about funding possibilites",
-    Common_Shared_Infrastructure: "Concepts like MOCN and MORAN, and other ways of sharing infrastructure are explained in the XGain technical guidelines",
+    Funding_opportunities: `The XGain <a href="/documents/guide_to_local_broadband_deployment.pdf" target="_blank">guidelines</a> for deployments includes information about funding possibilites`,
+    Common_Shared_Infrastructure: `Concepts like MOCN and MORAN, and other ways of sharing infrastructure are explained in the XGain technical <a href="/documents/technological_handbook.pdf" target="_blank">guidelines</a>`,
     Small_Cells_Micro_Towers:  `
         <p>
-            The <a href="https://5gobservatory.eu/detailed-country-profiles/" target="_blank">5G Observatory</a> captures the deployment profiles across Europe.
+            The <a href="https://digital-strategy.ec.europa.eu/en/policies/5g-observatory" target="_blank">5G Observatory</a> captures the deployment profiles across Europe.
         </p>
         <p>
             In June 2020, the European Commission adopted the Implementing Regulation on small-area wireless access points, commonly known as small cells. This regulation specifies the physical and technical characteristics of small cells and aims to simplify and accelerate 5G network installations by exempting these installations from individual planning permits, provided they meet certain criteria. The goal is to facilitate the timely deployment of 5G networks by reducing administrative barriers.
@@ -328,11 +328,11 @@ export const regionalPopupcontent = {
         O-RAN is on the steady rise, and initiatives like <a href="https://www.gsma.com/solutions-and-impact/gsma-open-gateway/" target="_blank">Open Gateway</a> are fostering open-source programming interfaces to enable novel services and business models.
         </p>
         <p>
-        Learn more about <a href="https://5gobservatory.eu/supply-market-trends-vendors-major-procurements-open-ran-multivendor-deployments/" target="_blank">O-RAN deployments and supply market trends</a>.
+        Learn more about <a href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-study-future-5g-supply-ecosystem-europe" target="_blank">O-RAN deployments and supply market trends</a>.
         </p>
     `,
-    Addresing_sustainability_challenges: "BM for authorities",
-    Initiatives_to_increase_adoption_rates_and_relevance: "BM for authorities",
+    Addresing_sustainability_challenges: "Regional BM Canvas for Authorities",
+    Initiatives_to_increase_adoption_rates_and_relevance: "Regional BM Canvas for Authorities",
     Engage_Local_Communities_and_Promote_Digital_Inclusivity :  `
         <p>
             The EU offers several initiatives and plans to increase digital literacy and foster digital education:
