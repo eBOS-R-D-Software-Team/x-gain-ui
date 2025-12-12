@@ -1,7 +1,7 @@
 import React, { useState , useRef   } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Modal, message } from 'antd';
-import { SaveOutlined, UploadOutlined } from '@ant-design/icons';
+import { ClearOutlined, SaveOutlined, UploadOutlined } from '@ant-design/icons';
 import SaveButton from './Buttons/SaveButton';
 import { handleFileUpload } from './Buttons/UploadButton';
 import BackButton from './Buttons/BackButton';
@@ -168,6 +168,13 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
     };
 
 
+    const clearDataBtn = () => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.reload();
+    };
+
+
     const navigateQuestions = () => {
         const keys = Object.keys(fileContent?.DataQuestionUploadButton || {});
         const devices = fileContent?.devices || [];
@@ -203,6 +210,26 @@ const HeaderMenu = ({ currentQuestionKey, selectedLevel, count, handlePreviousQu
                             }
                         </div>                    
                         <div className="right-navbar" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <button
+                                onClick={clearDataBtn}
+                                style={{
+                                    borderRadius: '7px',
+                                    background: '#00678A',
+                                    color: 'white',
+                                    border: 'none',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '10px',
+                                    cursor: 'pointer',
+                                }}
+                                className="header-btn"
+                            >
+                                <ClearOutlined />
+                                <span className='headerBtnText' style={{ paddingTop: '10%', paddingRight: '2%', fontSize: 12 }}>Clear Data</span>
+                            </button>
+
                             {/* Save Button */}
                             {(selectedLevel === 'Local' || (currentQuestionKey === 'dev_per_type' && count === 0) ||
                                 (selectedLevel === 'Community' && !(

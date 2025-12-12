@@ -323,7 +323,7 @@ const RegionalAssessment = () => {
 			>
 				<p>
 					Here you will find an overview of the main challenges present when targeting the deployment of novel and state-of-the art ICT in rural regions. Regional guidelines and suggestions are provided on how to tackle these challenges, including links to relevant information and complementary documentation provided by the XGain project. 
-					For detailed and tailored technology proposals and for an assessment of local or medium-scale infrastructure deployments (up to areas of XX km2), please use the local or community level assessment.
+					For detailed and tailored technology proposals and for an assessment of local or medium-scale infrastructure deployments (up to areas of ~700 km2), please use the local or community level assessment.
 				</p>
 			</Modal>
 		</Layout>

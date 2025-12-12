@@ -3,6 +3,7 @@ import LocationDetails from "../Pages/LocationDetails";
 import QuestionsList from "../Pages/QuestionsList";
 import SectorServices from "../Pages/SectorServices";
 import SectorServicesLevel from "../Pages/SectorServicesLevel";
+import SocialQuestionsList from "../Pages/SocialWizard/SocialQuestionsList";
 
 export const stepsLabels = [
     {
@@ -43,6 +44,16 @@ export const stepsLabels = [
         url: "/questions",
         content: <QuestionsList/>,
         data: "completeQuestionsFormData",
+        color: "#00678A"
+    },
+    {
+        title: "Social Assessment",
+        subtitle: "",
+        icon: "images/icons/service.png",
+        subicon: "",
+        url: "",
+        content: <SocialQuestionsList/>,
+        data: "socialAnswersResponse",
         color: "#00678A"
     },
     {

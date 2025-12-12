@@ -135,20 +135,27 @@ function SocialQuestionsList() {
         setLoading(true);
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate delay
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            
+            // ✅ MARK SOCIAL AS COMPLETED
+            localStorage.setItem("socialAssessmentCompleted", "true");
+
             setIsCompleted(true);
             await postSolutionsAnalysis();
             await postSocialAnswers(dataCalculateSocialScore);
             await postEnvironmentalData(iccsResponseData);
+
             navigate('/impact-assessment');
         } catch (error) {
             message.error("An error occurred during the submission process");
             localStorage.removeItem('iccs_response');
             localStorage.removeItem('solutionsAnalysisResponse');
+            localStorage.removeItem("socialAssessmentCompleted");
         } finally {
             setLoading(false);
         }
     };
+
 
     const matchedQuestions = questionsData.map((item) => {
         // Get the key from the JSON structure that corresponds to the ID       
@@ -176,12 +183,12 @@ function SocialQuestionsList() {
         <Spin spinning={loading} tip="Loading...">
             <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
                 <TitleForm 
-                    icon={stepsLabels[9].icon} 
-                    subicon={stepsLabels[9].subicon} 
-                    title={stepsLabels[9].title} 
-                    subtitle={stepsLabels[9].subtitle} 
+                    icon={stepsLabels[4].icon} 
+                    subicon={stepsLabels[4].subicon} 
+                    title={stepsLabels[4].title} 
+                    subtitle={stepsLabels[4].subtitle} 
                     level={2} 
-                    color={stepsLabels[9].color} 
+                    color={stepsLabels[4].color} 
                 />
                 {!isCompleted && currentQuestion && (
                     <SocialQuestionItem 

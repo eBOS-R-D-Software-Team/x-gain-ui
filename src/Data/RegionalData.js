@@ -331,8 +331,18 @@ export const regionalPopupcontent = {
         Learn more about <a href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-study-future-5g-supply-ecosystem-europe" target="_blank">O-RAN deployments and supply market trends</a>.
         </p>
     `,
-    Addresing_sustainability_challenges: "Regional BM Canvas for Authorities",
-    Initiatives_to_increase_adoption_rates_and_relevance: "Regional BM Canvas for Authorities",
+    Addresing_sustainability_challenges: 
+    `
+      <p>Regional BM Canvas for Authorities</p>
+      <img src="/images/business-model-icons/bmEndUserISPs.png" width="100%">
+      <img src="/images/business-model-icons/bmPublicAuthorities.png" width="100%" style="margin-top: 20px"">
+    `,
+    Initiatives_to_increase_adoption_rates_and_relevance: 
+     `
+      <p>Regional BM Canvas for Authorities</p>
+      <img src="/images/business-model-icons/bmEndUserISPs.png" width="100%">
+      <img src="/images/business-model-icons/bmPublicAuthorities.png" width="100%" style="margin-top: 20px"">
+    `,
     Engage_Local_Communities_and_Promote_Digital_Inclusivity :  `
         <p>
             The EU offers several initiatives and plans to increase digital literacy and foster digital education:

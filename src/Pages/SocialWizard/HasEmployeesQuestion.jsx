@@ -65,12 +65,12 @@ function HasEmployeesQuestion() {
             <Spin spinning={loading} tip="Loading...">
                 <Row gutter={[32, 0]} style={{ padding: '10px 0', backgroundColor: '#FFF', marginTop: 10, borderRadius: 20 }}>
                     <TitleForm 
-                        icon={stepsLabels[9].icon} 
-                        subicon={stepsLabels[9].subicon} 
-                        title={stepsLabels[9].title} 
-                        subtitle={stepsLabels[9].subtitle}
+                        icon={stepsLabels[4].icon} 
+                        subicon={stepsLabels[4].subicon} 
+                        title={stepsLabels[4].title} 
+                        subtitle={stepsLabels[4].subtitle}
                         level={2} 
-                        color={stepsLabels[9].color}
+                        color={stepsLabels[4].color}
                         tooltips={tooltips.SocialAssessmentInfoButton.description}
                     />
                     <Col span={24}>
