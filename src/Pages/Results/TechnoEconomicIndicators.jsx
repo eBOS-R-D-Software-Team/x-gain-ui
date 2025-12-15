@@ -109,12 +109,12 @@ function TechnoEconomicIndicators() {
             <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                 <Col className="title_results_col" span={24}>
                     <TitleForm 
-                        icon={stepsLabels[8].icon} 
-                        subicon={stepsLabels[8].subicon} 
-                        title={stepsLabels[8].title} 
-                        subtitle={stepsLabels[8].subtitle}
+                        icon={stepsLabels[9].icon} 
+                        subicon={stepsLabels[9].subicon} 
+                        title={stepsLabels[9].title} 
+                        subtitle={stepsLabels[9].subtitle}
                         level={2} 
-                        color={stepsLabels[8].color}
+                        color={stepsLabels[9].color}
                     />
                     {isDataLoaded && (
                         <PDFProvider>

@@ -107,12 +107,12 @@ const ImpactAssessment = () => {
                 <Row gutter={[32, 16]}>
                     <Col span={24}>
                         <TitleForm 
-                            icon={stepsLabels[5].icon} 
-                            subicon={stepsLabels[5].subicon} 
-                            title={stepsLabels[5].title} 
-                            subtitle={stepsLabels[5].subtitle}
+                            icon={stepsLabels[6].icon} 
+                            subicon={stepsLabels[6].subicon} 
+                            title={stepsLabels[6].title} 
+                            subtitle={stepsLabels[6].subtitle}
                             level={2} 
-                            color={stepsLabels[5].color}
+                            color={stepsLabels[6].color}
                             tooltips={tooltips.impactweightsInfoButton.description}
                         />
                     </Col>

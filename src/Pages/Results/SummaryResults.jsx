@@ -217,12 +217,12 @@ function SummaryResults() {
                     <Col className="title_results_col" span={24}>
                         <div className="title-and-buttons">
                             <TitleForm 
-                                icon={stepsLabels[7].icon} 
-                                subicon={stepsLabels[7].subicon} 
-                                title={stepsLabels[7].title} 
-                                subtitle={stepsLabels[7].subtitle}
+                                icon={stepsLabels[8].icon} 
+                                subicon={stepsLabels[8].subicon} 
+                                title={stepsLabels[8].title} 
+                                subtitle={stepsLabels[8].subtitle}
                                 level={2} 
-                                color={stepsLabels[7].color}
+                                color={stepsLabels[8].color}
                             />
                             <div className="download-buttons-container">
                                 <a 

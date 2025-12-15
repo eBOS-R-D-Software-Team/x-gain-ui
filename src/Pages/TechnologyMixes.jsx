@@ -49,12 +49,12 @@ const TechnologyMixes = () => {
             <Layout style={{ backgroundColor: '#FFF', marginTop: 30, borderRadius: 20 }}>
                 <Row gutter={[32, 16]} style={{ margin: '10px 20px'}}>
                     <TitleForm 
-                        icon={stepsLabels[6].icon} 
-                        subicon={stepsLabels[6].subicon} 
-                        title={stepsLabels[6].title} 
-                        subtitle={stepsLabels[6].subtitle}
+                        icon={stepsLabels[7].icon} 
+                        subicon={stepsLabels[7].subicon} 
+                        title={stepsLabels[7].title} 
+                        subtitle={stepsLabels[7].subtitle}
                         level={2} 
-                        color={stepsLabels[6].color}
+                        color={stepsLabels[7].color}
                         tooltips={tooltips.resultsmixesInfoButton.description}
                     />
 

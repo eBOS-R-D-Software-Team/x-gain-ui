@@ -66,12 +66,12 @@ function BusinessModel() {
             <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                 <Col className="title_results_col" span={24}>
                     <TitleForm
-                        icon={stepsLabels[10].icon}
-                        subicon={stepsLabels[10].subicon}
-                        title={stepsLabels[10].title}
-                        subtitle={stepsLabels[10].subtitle}
+                        icon={stepsLabels[11].icon}
+                        subicon={stepsLabels[11].subicon}
+                        title={stepsLabels[11].title}
+                        subtitle={stepsLabels[11].subtitle}
                         level={2}
-                        color={stepsLabels[10].color}
+                        color={stepsLabels[11].color}
                     />
                     <PDFProvider>
                         <BusinessModelPDF 

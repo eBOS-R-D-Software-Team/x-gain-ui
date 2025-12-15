@@ -99,12 +99,12 @@ function SocioEnvironmentalIndicators() {
             <Row gutter={[32, 16]} style={{ margin: '10px', justifyContent: 'center' }}>
                 <Col className="title_results_col" span={24}>
                     <TitleForm 
-                        icon={stepsLabels[11].icon} 
-                        subicon={stepsLabels[11].subicon} 
-                        title={stepsLabels[11].title} 
-                        subtitle={stepsLabels[11].subtitle}
+                        icon={stepsLabels[12].icon} 
+                        subicon={stepsLabels[12].subicon} 
+                        title={stepsLabels[12].title} 
+                        subtitle={stepsLabels[12].subtitle}
                         level={2} 
-                        color={stepsLabels[11].color}
+                        color={stepsLabels[12].color}
                     />
                     {edgeEnablersData?.[2] && radarData?.labels?.length > 0 && environmentalData && (
                         <PDFProvider>
