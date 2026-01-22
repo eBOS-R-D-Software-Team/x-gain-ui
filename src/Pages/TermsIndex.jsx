@@ -20,17 +20,24 @@ function TermsIndex() {
 
     return(
         <div className='backgroundTermsIndex'>
-            <img className='logoTermsIndex' src='../../images/logo.png' alt='logo'></img>         
-            <h1 style={{color:'white'}}>KNOWLEDGE FACILITATION TOOL</h1>
-            <Button className='startButtonTermsIndex' onClick={buttonStart} disabled={!checked}>START</Button>
             <Row>
+                <Col span={12} offset={6}>
+                    <img className='logoTermsIndex' src='../../images/xgain_logo.png' alt='logo'></img> 
+                </Col>  
+                <Col span={12} offset={6}>      
+                    <h1 style={{color:'white', margin: '0 0' }}>KNOWLEDGE FACILITATION TOOL</h1>
+                    <div style={{ color:'white', fontSize:'1rem' }}>
+                        <p>This tool is a deterministic decision-support system based on explicitly defined models, assessment criteria, and validated project knowledge. Unlike language-based AI systems, it does not generate probabilistic or inferred recommendations.</p>
+                        <p>The step-by-step interaction required reflects the need for traceable, explainable, and reliable outcomes, particularly for infrastructure planning, and investment decisions. The tool is intended as a structured reference to support informed decision-making, not as an automated or authoritative decision engine.</p>
+                    </div>
+                    <Button className='startButtonTermsIndex' onClick={buttonStart} disabled={!checked}>START</Button>
+                </Col>
                 <Col span={12} offset={6} className='termsCheckboxCol'>
-                    <Checkbox style={{color:'white', fontSize:'1.1rem', marginTop: 40 }} checked={checked} onChange={onChange}>
+                    <Checkbox style={{color:'white', fontSize:'1rem', marginTop: 20 }} checked={checked} onChange={onChange}>
                         I understand that the generated data will be kept for evaluation and research purposes only and that it is fully anonymised.
                     </Checkbox>
                 </Col>
-            </Row>
-           
+            </Row>   
         </div>
     )
 }
