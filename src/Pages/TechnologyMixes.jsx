@@ -84,6 +84,10 @@ const TechnologyMixes = () => {
                                 Connectivity & Processing Enablers                      
                             </div>                 
                         </Title>     
+                        
+                        <Title level={5} style={{ color: '#00678A', fontWeight: 'bold' }}>Knowledge Validity Notice</Title>
+                        <p>The recommendations provided by this Knowledge Facilitation Tool are based on the best available data, technologies, cost models, and assumptions at the time of development.</p>
+                        <p>As digital connectivity and edge computing technologies evolve rapidly, some parameters (e.g. costs, performance, availability, regulatory conditions) may change over time. Users are encouraged to treat the results as a time-bounded reference and to verify critical inputs before making final investment or policy decisions.</p>
 
                         <TechnologyMixesTable 
                             items={filteredHighestSolItems} 
