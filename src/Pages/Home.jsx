@@ -49,12 +49,9 @@ function Home() {
 
     return (
         <Row gutter={[32, 16]} style={{ paddingTop: 20 }}>
-            <Col span={12} xs={20} lg={18} xxl={12} style={{ margin: 'auto' }}>      
-                
-            </Col>
             <Col span={24} className="wizard_steps_col">
                 <div className="wizard_steps_buttons" style={{ backgroundColor: '#FFF', borderRadius: '6px', paddingBottom: 20 }}>
-                    <div style={{ color: 'black', fontSize:'1rem', margin: '10px 20px' }}>
+                    <div style={{ color: 'black', fontSize:'1rem', margin: '30px 20px' }}>
                         <p>This tool is a deterministic decision-support system based on explicitly defined models, assessment criteria, and validated project knowledge. Unlike language-based AI systems, it does not generate probabilistic or inferred recommendations.</p>
                         <p>The step-by-step interaction required reflects the need for traceable, explainable, and reliable outcomes, particularly for infrastructure planning, and investment decisions. The tool is intended as a structured reference to support informed decision-making, not as an automated or authoritative decision engine.</p>
                         <p>KFT step by step video guide with examples on <a style={{ color:'black', fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.youtube.com/watch?v=zNt2opcJ_-U" target="_blank" rel="noreferrer">Youtube</a></p>
